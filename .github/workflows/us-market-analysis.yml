@@ -1,0 +1,49 @@
+name: US Market Analysis
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests==2.31.0
+      
+      - name: Run Market Analysis
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+        run: python finance_news_automation.py
+```
+
+5. 點擊「**Commit new file**」
+
+---
+
+## ✅ 完成後重新測試
+
+1. 進入「**Actions**」標籤
+2. 您應該看到新的工作流執行
+3. 等待 2-3 分鐘
+
+---
+
+## 📝 同時確認 Secrets
+
+確保您已添加這 2 個 Secrets（Settings → Secrets and variables → Actions）：
+```
+✅ NOTION_TOKEN = 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
+✅ NOTION_DB_ID = 33bac4a1d1b280a79a3aea863b7921e6
