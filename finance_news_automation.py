@@ -144,16 +144,19 @@ class FinanceNewsAutomation:
 
 
 def main():
-    notion_token = os.getenv("NOTION_TOKEN")
-    notion_db_id = os.getenv("NOTION_DB_ID")
+    github_token = os.getenv("PAT_TOKEN")  # ← 改這裡
+    github_repo = os.getenv("REPO_NAME", "Jay-wu1019/finance-news-automation")  # ← 改這裡
     
-    if not notion_token or not notion_db_id:
-        logger.error("❌ 缺少環境變量")
+    logger.info(f"環境變量檢查:")
+    logger.info(f"  PAT_TOKEN: {'✅ 已設置' if github_token else '❌ 未設置'}")
+    logger.info(f"  REPO_NAME: {github_repo}")
+    
+    if not github_token:
+        logger.error("❌ 缺少 PAT_TOKEN 環境變量")
         return
     
-    automation = FinanceNewsAutomation(notion_token, notion_db_id)
+    automation = FinanceNewsAutomation(github_token, github_repo)
     automation.run()
-
 
 if __name__ == "__main__":
     main()
