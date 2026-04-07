@@ -1,0 +1,84 @@
+name: US Market Analysis
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests==2.31.0
+      
+      - name: Run Market Analysis
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+        run: |
+          python finance_news_automation.py
+      
+      - name: Notify on failure
+        if: failure()
+        run: echo "❌ 分析失敗，請檢查日誌"
+```
+
+4. 點選「**Commit new file**」
+
+---
+
+### **第4步：設置 GitHub Secrets**
+
+1. 進入倉庫頁面：https://github.com/Jay-wu1019/finance-news-automation
+2. 點選「**Settings**」標籤
+3. 左側選單：「**Secrets and variables**」→「**Actions**」
+4. 點選「**New repository secret**」
+
+**添加 Secret 1：**
+```
+Name: NOTION_TOKEN
+Value: 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
+```
+點選「**Add secret**」
+
+**添加 Secret 2：**
+```
+Name: NOTION_DB_ID
+Value: 33bac4a1d1b280a79a3aea863b7921e6
+```
+點選「**Add secret**」
+
+---
+
+### **第5步：測試工作流**
+
+1. 進入「**Actions**」標籤
+2. 點選「**US Market Analysis**」工作流
+3. 點選「**Run workflow**」→「**Run workflow**」
+4. 等待 2-3 分鐘
+
+這次應該能成功運行！✅
+
+---
+
+## 📋 檢查清單
+
+完成後，您的倉庫應該有：
+```
+finance-news-automation/
+├── requirements.txt                    ✅
+├── finance_news_automation.py          ✅
+└── .github/
+    └── workflows/
+        └── us-market-analysis.yml      ✅
