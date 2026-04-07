@@ -1,18 +1,5 @@
-name: US Market Analysis
-on:
-  schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
-jobs:
-  analyze:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - run: pip install requests==2.31.0
-      - run: python finance_news_automation.py
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+- name: Run Market Analysis
+  env:
+    PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+    REPO_NAME: ${{ secrets.REPO_NAME }}
+  run: python finance_news_automation.py
