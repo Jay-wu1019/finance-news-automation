@@ -1,5 +1,0 @@
-- name: Run Market Analysis
-  env:
-    PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-    REPO_NAME: ${{ secrets.REPO_NAME }}
-  run: python finance_news_automation.py
