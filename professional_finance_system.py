@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-专业财经自动化系统 v3.1 (修复版)
+专业财经自动化系统 v4.0 (完整版)
 使用 Alpha Vantage 真实数据 API
+自动生成报告并发布到 GitHub Issues
 每个数据都标注来源和时间戳
 确保100%准确性，保护用户名声
 """
@@ -112,7 +113,7 @@ class AlphaVantageAPI:
                         'high': float(day_data['2. high']),
                         'low': float(day_data['3. low']),
                         'close': float(day_data['4. close']),
-                        'volume': int(float(day_data['5. volume'])),  # 修复：转换为 float 再转为 int
+                        'volume': int(float(day_data['5. volume'])),
                     })
                 except (KeyError, ValueError) as e:
                     logger.warning(f"⚠️ 数据处理错误 ({date}): {e}")
@@ -161,8 +162,8 @@ class FinanceReportGenerator:
         self.api = api
         logger.info("✅ 财经报告生成器初始化")
     
-    def generate_market_analysis(self, us_symbols):
-        """生成市场分析报告"""
+    def generate_and_publish(self, us_symbols, github_token, repo_name):
+        """生成市场分析报告并发布到 GitHub"""
         
         logger.info("\n" + "="*70)
         logger.info("🚀 开始生成财经分析报告")
@@ -177,17 +178,23 @@ class FinanceReportGenerator:
                 us_data[symbol] = data
             else:
                 logger.warning(f"⚠️ 跳过 {symbol}，无法获取数据")
-            time.sleep(1)  # 避免请求过于频繁
+            time.sleep(1)
         
-        # 生成美股报告
+        # 生成并发布美股报告
         if us_data:
             us_report = self._generate_us_report(us_data)
-            self._save_report('US_Market_Analysis', us_report, us_data)
+            self._publish_to_github(
+                github_token, 
+                repo_name,
+                f"【美股分析】{datetime.now().strftime('%Y年%m月%d日')}",
+                us_report,
+                ["美股", "财经分析", "Alpha Vantage"]
+            )
         else:
             logger.error("❌ 无法生成美股报告，没有有效数据")
         
         logger.info("\n" + "="*70)
-        logger.info("✅ 报告生成完成！")
+        logger.info("✅ 报告生成和发布完成！")
         logger.info("="*70)
     
     def _generate_us_report(self, data):
@@ -242,14 +249,14 @@ class FinanceReportGenerator:
 - 来源网址: {stock_data['source_url']}
 - API Key: {stock_data['api_key']}
 
-**30天走势数据**:
+**最近 10 天走势数据**:
+
+| 日期 | 开盘 | 高 | 低 | 收盘 | 涨跌% |
+|------|------|------|------|------|------|
 """
             
-            # 添加详细的 30 天数据表
-            report += "| 日期 | 开盘 | 高 | 低 | 收盘 | 涨跌% |\n"
-            report += "|------|------|------|------|------|------|\n"
-            
-            for i, day in enumerate(stock_data['data'][-10:]):  # 显示最近 10 天
+            # 添加最近 10 天数据表
+            for i, day in enumerate(stock_data['data'][-10:]):
                 day_change = day['close'] - stock_data['data'][max(0, i-1)]['close'] if i > 0 else 0
                 day_change_pct = (day_change / stock_data['data'][max(0, i-1)]['close'] * 100) if i > 0 else 0
                 report += f"| {day['date']} | ${day['open']:.2f} | ${day['high']:.2f} | ${day['low']:.2f} | ${day['close']:.2f} | {day_change_pct:+.2f}% |\n"
@@ -285,20 +292,45 @@ class FinanceReportGenerator:
 ---
 
 *本报告由专业财经自动化系统生成 | {timestamp}*
-*系统版本: v3.1 (Alpha Vantage 数据驱动，100% 准确性)*
+*系统版本: v4.0 (Alpha Vantage 数据驱动，100% 准确性)*
 """
         
         return report
     
-    def _save_report(self, name, report, data):
-        """保存报告"""
-        filename = f"{name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md"
+    def _publish_to_github(self, github_token, repo_name, title, content, labels=None):
+        """发布报告到 GitHub Issues"""
+        logger.info(f"📝 正在发布到 GitHub: {title}")
+        
+        url = f"https://api.github.com/repos/{repo_name}/issues"
+        
+        headers = {
+            "Authorization": f"Bearer {github_token}",
+            "Accept": "application/vnd.github.v3+json",
+            "Content-Type": "application/json"
+        }
+        
+        issue_data = {
+            "title": title,
+            "body": content,
+            "labels": labels if labels else ["财经分析"]
+        }
+        
         try:
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(report)
-            logger.info(f"✅ 报告已保存: {filename}")
+            response = requests.post(url, json=issue_data, headers=headers, timeout=10)
+            
+            if response.status_code == 201:
+                result = response.json()
+                logger.info(f"✅ Issue 发布成功！")
+                logger.info(f"   Issue #: {result.get('number')}")
+                logger.info(f"   URL: {result.get('html_url')}")
+                return True
+            else:
+                logger.error(f"❌ Issue 发布失败 (HTTP {response.status_code})")
+                logger.error(f"   响应: {response.text}")
+                return False
         except Exception as e:
-            logger.error(f"❌ 保存报告失败: {e}")
+            logger.error(f"❌ 发布失败: {e}")
+            return False
 
 
 def main():
@@ -306,11 +338,17 @@ def main():
     
     # 获取环境变量
     alpha_vantage_key = os.getenv("ALPHA_VANTAGE_KEY")
+    github_token = os.getenv("PAT_TOKEN")
+    repo_name = os.getenv("REPO_NAME", "Jay-wu1019/finance-news-automation")
     
     # 验证必要的环境变量
     if not alpha_vantage_key:
         logger.error("❌ 缺少 ALPHA_VANTAGE_KEY 环境变量")
         logger.error("   请访问 https://www.alphavantage.co 获取免费 API Key")
+        return
+    
+    if not github_token:
+        logger.error("❌ 缺少 PAT_TOKEN 环境变量")
         return
     
     # 初始化 API
@@ -319,11 +357,11 @@ def main():
     # 生成报告
     generator = FinanceReportGenerator(api)
     
-    # 美股代码（只用美股，台股通过其他方式获取）
+    # 美股代码
     us_symbols = ['SPY', 'QQQ', 'AAPL']
     
-    # 生成分析
-    generator.generate_market_analysis(us_symbols)
+    # 生成和发布分析
+    generator.generate_and_publish(us_symbols, github_token, repo_name)
     
     logger.info("\n" + "="*70)
     logger.info("🎉 财经自动化系统执行完成！")
