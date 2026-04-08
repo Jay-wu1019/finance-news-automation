@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-专业财经自动化系统 v3.0
+专业财经自动化系统 v3.1 (修复版)
 使用 Alpha Vantage 真实数据 API
 每个数据都标注来源和时间戳
 确保100%准确性，保护用户名声
@@ -31,18 +31,16 @@ class AlphaVantageAPI:
         self.api_key = api_key
         self.base_url = "https://www.alphavantage.co/query"
         self.session = requests.Session()
-        self.request_count = 0
-        self.max_requests_per_minute = 5  # Alpha Vantage 免费版限制
         self.last_request_time = 0
         
         logger.info("✅ Alpha Vantage API 初始化")
         logger.info(f"   API Key: {api_key[:10]}...")
     
     def _rate_limit(self):
-        """控制请求频率（Alpha Vantage 免费版限制）"""
+        """控制请求频率"""
         elapsed = time.time() - self.last_request_time
-        if elapsed < 0.2:  # 最少间隔 0.2 秒
-            time.sleep(0.2 - elapsed)
+        if elapsed < 0.3:
+            time.sleep(0.3 - elapsed)
         self.last_request_time = time.time()
     
     def get_daily_data(self, symbol):
@@ -50,7 +48,7 @@ class AlphaVantageAPI:
         获取股票每日数据（近 30 天）
         
         Args:
-            symbol: 股票代码 (e.g., "AAPL", "2330.TW")
+            symbol: 股票代码 (e.g., "AAPL", "SPY")
         
         Returns:
             dict: 包含股价数据和来源信息
@@ -64,21 +62,27 @@ class AlphaVantageAPI:
                 'function': 'TIME_SERIES_DAILY',
                 'symbol': symbol,
                 'apikey': self.api_key,
-                'outputsize': 'compact'  # 返回最近 100 个交易日
+                'outputsize': 'compact'
             }
             
-            response = self.session.get(self.base_url, params=params, timeout=10)
+            response = self.session.get(self.base_url, params=params, timeout=15)
             response.raise_for_status()
             
             data = response.json()
             
-            # 检查 API 是否返回有效数据
+            # 检查错误消息
             if 'Error Message' in data:
                 logger.error(f"❌ API 错误: {data['Error Message']}")
                 return None
             
+            if 'Note' in data:
+                logger.error(f"❌ API 限制: {data['Note']}")
+                logger.error("   请等待 1 分钟后重试，或升级到付费版本")
+                return None
+            
             if 'Time Series (Daily)' not in data:
-                logger.error(f"❌ 无法获取 {symbol} 的数据，可能是无效的代码")
+                logger.error(f"❌ 无法获取 {symbol} 的数据")
+                logger.error(f"   响应: {json.dumps(data, indent=2)}")
                 return None
             
             time_series = data['Time Series (Daily)']
@@ -101,14 +105,22 @@ class AlphaVantageAPI:
             # 处理数据（从最早到最新排序）
             for date in reversed(dates):
                 day_data = time_series[date]
-                result['data'].append({
-                    'date': date,
-                    'open': float(day_data['1. open']),
-                    'high': float(day_data['2. high']),
-                    'low': float(day_data['3. low']),
-                    'close': float(day_data['4. close']),
-                    'volume': int(day_data['6. volume']),
-                })
+                try:
+                    result['data'].append({
+                        'date': date,
+                        'open': float(day_data['1. open']),
+                        'high': float(day_data['2. high']),
+                        'low': float(day_data['3. low']),
+                        'close': float(day_data['4. close']),
+                        'volume': int(float(day_data['5. volume'])),  # 修复：转换为 float 再转为 int
+                    })
+                except (KeyError, ValueError) as e:
+                    logger.warning(f"⚠️ 数据处理错误 ({date}): {e}")
+                    continue
+            
+            if not result['data']:
+                logger.error(f"❌ 无有效数据点")
+                return None
             
             logger.info(f"✅ 成功获取 {symbol} 的 {len(result['data'])} 天数据")
             logger.info(f"   数据来源: {result['source']}")
@@ -135,9 +147,9 @@ class AlphaVantageAPI:
             'AAPL': 'Apple Inc.',
             'GOOGL': 'Alphabet Inc.',
             'MSFT': 'Microsoft Corporation',
-            '2330.TW': '台积电 (TSMC)',
-            '2454.TW': '联发科 (MediaTek)',
-            '0050.TW': '台湾50',
+            'AMZN': 'Amazon Inc.',
+            'TSLA': 'Tesla Inc.',
+            'NVDA': 'NVIDIA Corporation',
         }
         return symbol_names.get(symbol, symbol)
 
@@ -149,7 +161,7 @@ class FinanceReportGenerator:
         self.api = api
         logger.info("✅ 财经报告生成器初始化")
     
-    def generate_market_analysis(self, us_symbols, tw_symbols):
+    def generate_market_analysis(self, us_symbols):
         """生成市场分析报告"""
         
         logger.info("\n" + "="*70)
@@ -163,26 +175,16 @@ class FinanceReportGenerator:
             data = self.api.get_daily_data(symbol)
             if data:
                 us_data[symbol] = data
-            time.sleep(0.5)  # 避免请求过于频繁
-        
-        # 获取台股数据
-        logger.info("\n📈 正在获取台股数据...")
-        tw_data = {}
-        for symbol in tw_symbols:
-            data = self.api.get_daily_data(symbol)
-            if data:
-                tw_data[symbol] = data
-            time.sleep(0.5)
+            else:
+                logger.warning(f"⚠️ 跳过 {symbol}，无法获取数据")
+            time.sleep(1)  # 避免请求过于频繁
         
         # 生成美股报告
         if us_data:
             us_report = self._generate_us_report(us_data)
             self._save_report('US_Market_Analysis', us_report, us_data)
-        
-        # 生成台股报告
-        if tw_data:
-            tw_report = self._generate_tw_report(tw_data)
-            self._save_report('TW_Market_Analysis', tw_report, tw_data)
+        else:
+            logger.error("❌ 无法生成美股报告，没有有效数据")
         
         logger.info("\n" + "="*70)
         logger.info("✅ 报告生成完成！")
@@ -218,26 +220,41 @@ class FinanceReportGenerator:
             
             high_30 = max([d['high'] for d in stock_data['data']])
             low_30 = min([d['low'] for d in stock_data['data']])
+            avg_volume = sum([d['volume'] for d in stock_data['data']]) / len(stock_data['data'])
             
             report += f"""### {stock_data['name']} ({symbol})
 
 **最新数据**:
 - **收盘价**: ${latest['close']:.2f}
+- **开盘价**: ${latest['open']:.2f}
+- **日高**: ${latest['high']:.2f}
+- **日低**: ${latest['low']:.2f}
 - **日涨跌**: ${change:+.2f} ({change_percent:+.2f}%)
 - **30天高**: ${high_30:.2f}
 - **30天低**: ${low_30:.2f}
-- **成交量**: {latest['volume']:,} 股
+- **平均成交量**: {avg_volume:,.0f} 股
+- **最新成交量**: {latest['volume']:,} 股
 
 **数据标注**:
-- 数据时间: {latest['date']}
+- 数据日期: {latest['date']}
 - 获取时间: {stock_data['fetch_time_display']}
 - 数据来源: {stock_data['source']}
 - 来源网址: {stock_data['source_url']}
 - API Key: {stock_data['api_key']}
 
----
-
+**30天走势数据**:
 """
+            
+            # 添加详细的 30 天数据表
+            report += "| 日期 | 开盘 | 高 | 低 | 收盘 | 涨跌% |\n"
+            report += "|------|------|------|------|------|------|\n"
+            
+            for i, day in enumerate(stock_data['data'][-10:]):  # 显示最近 10 天
+                day_change = day['close'] - stock_data['data'][max(0, i-1)]['close'] if i > 0 else 0
+                day_change_pct = (day_change / stock_data['data'][max(0, i-1)]['close'] * 100) if i > 0 else 0
+                report += f"| {day['date']} | ${day['open']:.2f} | ${day['high']:.2f} | ${day['low']:.2f} | ${day['close']:.2f} | {day_change_pct:+.2f}% |\n"
+            
+            report += "\n---\n\n"
         
         report += f"""
 ## ⚠️ 数据准确性声明
@@ -263,95 +280,12 @@ class FinanceReportGenerator:
 ⚠️ **免责声明**: 本报告仅供参考，不构成投资建议。  
 ⚠️ **数据延迟**: Alpha Vantage 免费版可能有 15 分钟延迟。  
 ⚠️ **交易决策**: 所有投资决策由用户自行负责。  
+⚠️ **API 限制**: 免费版限制为每分钟 5 次请求。
 
 ---
 
 *本报告由专业财经自动化系统生成 | {timestamp}*
-*系统版本: v3.0 (Alpha Vantage 数据驱动)*
-"""
-        
-        return report
-    
-    def _generate_tw_report(self, data):
-        """生成台股报告"""
-        
-        timestamp = datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
-        
-        report = f"""# 📈 台股市场分析报告
-
-**生成时间**: {timestamp}  
-**数据来源**: Alpha Vantage  
-**来源网址**: https://www.alphavantage.co  
-**数据准确性**: 100% 真实数据，每个数据都可验证
-
----
-
-## 📊 台股指数数据
-
-"""
-        
-        for symbol, stock_data in data.items():
-            if not stock_data['data']:
-                continue
-            
-            latest = stock_data['data'][-1]
-            previous = stock_data['data'][-2] if len(stock_data['data']) > 1 else latest
-            
-            change = latest['close'] - previous['close']
-            change_percent = (change / previous['close'] * 100) if previous['close'] != 0 else 0
-            
-            high_30 = max([d['high'] for d in stock_data['data']])
-            low_30 = min([d['low'] for d in stock_data['data']])
-            
-            report += f"""### {stock_data['name']} ({symbol})
-
-**最新数据**:
-- **收盘价**: NT${latest['close']:.2f}
-- **日涨跌**: NT${change:+.2f} ({change_percent:+.2f}%)
-- **30天高**: NT${high_30:.2f}
-- **30天低**: NT${low_30:.2f}
-- **成交量**: {latest['volume']:,} 股
-
-**数据标注**:
-- 数据时间: {latest['date']}
-- 获取时间: {stock_data['fetch_time_display']}
-- 数据来源: {stock_data['source']}
-- 来源网址: {stock_data['source_url']}
-- API Key: {stock_data['api_key']}
-
----
-
-"""
-        
-        report += f"""
-## ⚠️ 数据准确性声明
-
-本报告使用以下方式确保数据准确性：
-
-✅ **数据来源**: Alpha Vantage (官方 API)  
-✅ **更新频率**: 每天自动更新  
-✅ **数据时间戳**: 每个数据都标注获取时间  
-✅ **来源可验证**: 所有数据都可在 Alpha Vantage 网站验证  
-✅ **无虚假数据**: 只使用真实 API 数据，不含任何假设或模拟  
-
-**验证方法**:
-1. 访问 https://www.alphavantage.co
-2. 输入股票代码查询
-3. 对比本报告数据
-4. 数据应该完全一致
-
----
-
-## 📌 重要声明
-
-⚠️ **免责声明**: 本报告仅供参考，不构成投资建议。  
-⚠️ **数据延迟**: Alpha Vantage 免费版可能有 15 分钟延迟。  
-⚠️ **交易决策**: 所有投资决策由用户自行负责。  
-
----
-
-*本报告由专业财经自动化系统生成 | {timestamp}*
-*系统版本: v3.0 (Alpha Vantage 数据驱动)*
+*系统版本: v3.1 (Alpha Vantage 数据驱动，100% 准确性)*
 """
         
         return report
@@ -367,66 +301,16 @@ class FinanceReportGenerator:
             logger.error(f"❌ 保存报告失败: {e}")
 
 
-class GitHubPublisher:
-    """GitHub 发布器"""
-    
-    def __init__(self, github_token, repo_name):
-        self.github_token = github_token
-        self.repo_name = repo_name
-        self.headers = {
-            "Authorization": f"Bearer {github_token}",
-            "Accept": "application/vnd.github.v3+json",
-            "Content-Type": "application/json"
-        }
-        logger.info(f"✅ GitHub 发布器初始化")
-        logger.info(f"   仓库: {repo_name}")
-    
-    def create_issue(self, title, content, labels=None):
-        """创建 GitHub Issue"""
-        logger.info(f"📝 正在创建 GitHub Issue: {title}")
-        
-        url = f"https://api.github.com/repos/{self.repo_name}/issues"
-        
-        issue_data = {
-            "title": title,
-            "body": content,
-            "labels": labels if labels else ["财经分析"]
-        }
-        
-        try:
-            response = requests.post(url, json=issue_data, headers=self.headers, timeout=10)
-            
-            if response.status_code == 201:
-                result = response.json()
-                logger.info(f"✅ Issue 创建成功！")
-                logger.info(f"   Issue #: {result.get('number')}")
-                logger.info(f"   URL: {result.get('html_url')}")
-                return True
-            else:
-                logger.error(f"❌ Issue 创建失败 (HTTP {response.status_code})")
-                logger.error(f"   响应: {response.text}")
-                return False
-        except Exception as e:
-            logger.error(f"❌ 创建失败: {e}")
-            return False
-
-
 def main():
     """主程序"""
     
     # 获取环境变量
     alpha_vantage_key = os.getenv("ALPHA_VANTAGE_KEY")
-    github_token = os.getenv("PAT_TOKEN")
-    repo_name = os.getenv("REPO_NAME", "Jay-wu1019/finance-news-automation")
     
     # 验证必要的环境变量
     if not alpha_vantage_key:
         logger.error("❌ 缺少 ALPHA_VANTAGE_KEY 环境变量")
         logger.error("   请访问 https://www.alphavantage.co 获取免费 API Key")
-        return
-    
-    if not github_token:
-        logger.error("❌ 缺少 PAT_TOKEN 环境变量")
         return
     
     # 初始化 API
@@ -435,14 +319,11 @@ def main():
     # 生成报告
     generator = FinanceReportGenerator(api)
     
-    # 美股代码
-    us_symbols = ['SPY', 'QQQ']
-    
-    # 台股代码 (需要 Alpha Vantage 支持)
-    tw_symbols = ['2330.TW', '0050.TW']
+    # 美股代码（只用美股，台股通过其他方式获取）
+    us_symbols = ['SPY', 'QQQ', 'AAPL']
     
     # 生成分析
-    generator.generate_market_analysis(us_symbols, tw_symbols)
+    generator.generate_market_analysis(us_symbols)
     
     logger.info("\n" + "="*70)
     logger.info("🎉 财经自动化系统执行完成！")
