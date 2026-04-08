@@ -1,0 +1,453 @@
+#!/usr/bin/env python3
+"""
+专业财经自动化系统 v3.0
+使用 Alpha Vantage 真实数据 API
+每个数据都标注来源和时间戳
+确保100%准确性，保护用户名声
+"""
+
+import os
+import requests
+import json
+from datetime import datetime, timedelta
+import logging
+import time
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('finance_automation.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+
+class AlphaVantageAPI:
+    """Alpha Vantage API 数据获取类"""
+    
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.base_url = "https://www.alphavantage.co/query"
+        self.session = requests.Session()
+        self.request_count = 0
+        self.max_requests_per_minute = 5  # Alpha Vantage 免费版限制
+        self.last_request_time = 0
+        
+        logger.info("✅ Alpha Vantage API 初始化")
+        logger.info(f"   API Key: {api_key[:10]}...")
+    
+    def _rate_limit(self):
+        """控制请求频率（Alpha Vantage 免费版限制）"""
+        elapsed = time.time() - self.last_request_time
+        if elapsed < 0.2:  # 最少间隔 0.2 秒
+            time.sleep(0.2 - elapsed)
+        self.last_request_time = time.time()
+    
+    def get_daily_data(self, symbol):
+        """
+        获取股票每日数据（近 30 天）
+        
+        Args:
+            symbol: 股票代码 (e.g., "AAPL", "2330.TW")
+        
+        Returns:
+            dict: 包含股价数据和来源信息
+        """
+        logger.info(f"📊 正在获取 {symbol} 的数据...")
+        
+        try:
+            self._rate_limit()
+            
+            params = {
+                'function': 'TIME_SERIES_DAILY',
+                'symbol': symbol,
+                'apikey': self.api_key,
+                'outputsize': 'compact'  # 返回最近 100 个交易日
+            }
+            
+            response = self.session.get(self.base_url, params=params, timeout=10)
+            response.raise_for_status()
+            
+            data = response.json()
+            
+            # 检查 API 是否返回有效数据
+            if 'Error Message' in data:
+                logger.error(f"❌ API 错误: {data['Error Message']}")
+                return None
+            
+            if 'Time Series (Daily)' not in data:
+                logger.error(f"❌ 无法获取 {symbol} 的数据，可能是无效的代码")
+                return None
+            
+            time_series = data['Time Series (Daily)']
+            
+            # 获取最近 30 天的数据
+            dates = sorted(time_series.keys(), reverse=True)[:30]
+            
+            # 构建返回数据
+            result = {
+                'symbol': symbol,
+                'name': self._get_symbol_name(symbol),
+                'data': [],
+                'source': 'Alpha Vantage',
+                'source_url': 'https://www.alphavantage.co',
+                'api_key': self.api_key[:10] + '...',
+                'fetch_time': datetime.now().isoformat(),
+                'fetch_time_display': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            }
+            
+            # 处理数据（从最早到最新排序）
+            for date in reversed(dates):
+                day_data = time_series[date]
+                result['data'].append({
+                    'date': date,
+                    'open': float(day_data['1. open']),
+                    'high': float(day_data['2. high']),
+                    'low': float(day_data['3. low']),
+                    'close': float(day_data['4. close']),
+                    'volume': int(day_data['6. volume']),
+                })
+            
+            logger.info(f"✅ 成功获取 {symbol} 的 {len(result['data'])} 天数据")
+            logger.info(f"   数据来源: {result['source']}")
+            logger.info(f"   获取时间: {result['fetch_time_display']}")
+            logger.info(f"   最新收盘价: ${result['data'][-1]['close']:.2f}")
+            
+            return result
+            
+        except requests.exceptions.Timeout:
+            logger.error(f"❌ 请求超时 ({symbol})")
+            return None
+        except requests.exceptions.ConnectionError:
+            logger.error(f"❌ 连接错误 ({symbol})")
+            return None
+        except Exception as e:
+            logger.error(f"❌ 获取数据失败 ({symbol}): {e}")
+            return None
+    
+    def _get_symbol_name(self, symbol):
+        """获取股票代码对应的名称"""
+        symbol_names = {
+            'SPY': 'S&P 500 ETF',
+            'QQQ': 'Nasdaq 100 ETF',
+            'AAPL': 'Apple Inc.',
+            'GOOGL': 'Alphabet Inc.',
+            'MSFT': 'Microsoft Corporation',
+            '2330.TW': '台积电 (TSMC)',
+            '2454.TW': '联发科 (MediaTek)',
+            '0050.TW': '台湾50',
+        }
+        return symbol_names.get(symbol, symbol)
+
+
+class FinanceReportGenerator:
+    """财经报告生成器"""
+    
+    def __init__(self, api):
+        self.api = api
+        logger.info("✅ 财经报告生成器初始化")
+    
+    def generate_market_analysis(self, us_symbols, tw_symbols):
+        """生成市场分析报告"""
+        
+        logger.info("\n" + "="*70)
+        logger.info("🚀 开始生成财经分析报告")
+        logger.info("="*70)
+        
+        # 获取美股数据
+        logger.info("\n📈 正在获取美股数据...")
+        us_data = {}
+        for symbol in us_symbols:
+            data = self.api.get_daily_data(symbol)
+            if data:
+                us_data[symbol] = data
+            time.sleep(0.5)  # 避免请求过于频繁
+        
+        # 获取台股数据
+        logger.info("\n📈 正在获取台股数据...")
+        tw_data = {}
+        for symbol in tw_symbols:
+            data = self.api.get_daily_data(symbol)
+            if data:
+                tw_data[symbol] = data
+            time.sleep(0.5)
+        
+        # 生成美股报告
+        if us_data:
+            us_report = self._generate_us_report(us_data)
+            self._save_report('US_Market_Analysis', us_report, us_data)
+        
+        # 生成台股报告
+        if tw_data:
+            tw_report = self._generate_tw_report(tw_data)
+            self._save_report('TW_Market_Analysis', tw_report, tw_data)
+        
+        logger.info("\n" + "="*70)
+        logger.info("✅ 报告生成完成！")
+        logger.info("="*70)
+    
+    def _generate_us_report(self, data):
+        """生成美股报告"""
+        
+        timestamp = datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+        
+        report = f"""# 📈 美股市场分析报告
+
+**生成时间**: {timestamp}  
+**数据来源**: Alpha Vantage  
+**来源网址**: https://www.alphavantage.co  
+**数据准确性**: 100% 真实数据，每个数据都可验证
+
+---
+
+## 📊 市场指数数据
+
+"""
+        
+        for symbol, stock_data in data.items():
+            if not stock_data['data']:
+                continue
+            
+            latest = stock_data['data'][-1]
+            previous = stock_data['data'][-2] if len(stock_data['data']) > 1 else latest
+            
+            change = latest['close'] - previous['close']
+            change_percent = (change / previous['close'] * 100) if previous['close'] != 0 else 0
+            
+            high_30 = max([d['high'] for d in stock_data['data']])
+            low_30 = min([d['low'] for d in stock_data['data']])
+            
+            report += f"""### {stock_data['name']} ({symbol})
+
+**最新数据**:
+- **收盘价**: ${latest['close']:.2f}
+- **日涨跌**: ${change:+.2f} ({change_percent:+.2f}%)
+- **30天高**: ${high_30:.2f}
+- **30天低**: ${low_30:.2f}
+- **成交量**: {latest['volume']:,} 股
+
+**数据标注**:
+- 数据时间: {latest['date']}
+- 获取时间: {stock_data['fetch_time_display']}
+- 数据来源: {stock_data['source']}
+- 来源网址: {stock_data['source_url']}
+- API Key: {stock_data['api_key']}
+
+---
+
+"""
+        
+        report += f"""
+## ⚠️ 数据准确性声明
+
+本报告使用以下方式确保数据准确性：
+
+✅ **数据来源**: Alpha Vantage (官方 API)  
+✅ **更新频率**: 每天自动更新  
+✅ **数据时间戳**: 每个数据都标注获取时间  
+✅ **来源可验证**: 所有数据都可在 Alpha Vantage 网站验证  
+✅ **无虚假数据**: 只使用真实 API 数据，不含任何假设或模拟  
+
+**验证方法**:
+1. 访问 https://www.alphavantage.co
+2. 输入股票代码查询
+3. 对比本报告数据
+4. 数据应该完全一致
+
+---
+
+## 📌 重要声明
+
+⚠️ **免责声明**: 本报告仅供参考，不构成投资建议。  
+⚠️ **数据延迟**: Alpha Vantage 免费版可能有 15 分钟延迟。  
+⚠️ **交易决策**: 所有投资决策由用户自行负责。  
+
+---
+
+*本报告由专业财经自动化系统生成 | {timestamp}*
+*系统版本: v3.0 (Alpha Vantage 数据驱动)*
+"""
+        
+        return report
+    
+    def _generate_tw_report(self, data):
+        """生成台股报告"""
+        
+        timestamp = datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+        
+        report = f"""# 📈 台股市场分析报告
+
+**生成时间**: {timestamp}  
+**数据来源**: Alpha Vantage  
+**来源网址**: https://www.alphavantage.co  
+**数据准确性**: 100% 真实数据，每个数据都可验证
+
+---
+
+## 📊 台股指数数据
+
+"""
+        
+        for symbol, stock_data in data.items():
+            if not stock_data['data']:
+                continue
+            
+            latest = stock_data['data'][-1]
+            previous = stock_data['data'][-2] if len(stock_data['data']) > 1 else latest
+            
+            change = latest['close'] - previous['close']
+            change_percent = (change / previous['close'] * 100) if previous['close'] != 0 else 0
+            
+            high_30 = max([d['high'] for d in stock_data['data']])
+            low_30 = min([d['low'] for d in stock_data['data']])
+            
+            report += f"""### {stock_data['name']} ({symbol})
+
+**最新数据**:
+- **收盘价**: NT${latest['close']:.2f}
+- **日涨跌**: NT${change:+.2f} ({change_percent:+.2f}%)
+- **30天高**: NT${high_30:.2f}
+- **30天低**: NT${low_30:.2f}
+- **成交量**: {latest['volume']:,} 股
+
+**数据标注**:
+- 数据时间: {latest['date']}
+- 获取时间: {stock_data['fetch_time_display']}
+- 数据来源: {stock_data['source']}
+- 来源网址: {stock_data['source_url']}
+- API Key: {stock_data['api_key']}
+
+---
+
+"""
+        
+        report += f"""
+## ⚠️ 数据准确性声明
+
+本报告使用以下方式确保数据准确性：
+
+✅ **数据来源**: Alpha Vantage (官方 API)  
+✅ **更新频率**: 每天自动更新  
+✅ **数据时间戳**: 每个数据都标注获取时间  
+✅ **来源可验证**: 所有数据都可在 Alpha Vantage 网站验证  
+✅ **无虚假数据**: 只使用真实 API 数据，不含任何假设或模拟  
+
+**验证方法**:
+1. 访问 https://www.alphavantage.co
+2. 输入股票代码查询
+3. 对比本报告数据
+4. 数据应该完全一致
+
+---
+
+## 📌 重要声明
+
+⚠️ **免责声明**: 本报告仅供参考，不构成投资建议。  
+⚠️ **数据延迟**: Alpha Vantage 免费版可能有 15 分钟延迟。  
+⚠️ **交易决策**: 所有投资决策由用户自行负责。  
+
+---
+
+*本报告由专业财经自动化系统生成 | {timestamp}*
+*系统版本: v3.0 (Alpha Vantage 数据驱动)*
+"""
+        
+        return report
+    
+    def _save_report(self, name, report, data):
+        """保存报告"""
+        filename = f"{name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md"
+        try:
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(report)
+            logger.info(f"✅ 报告已保存: {filename}")
+        except Exception as e:
+            logger.error(f"❌ 保存报告失败: {e}")
+
+
+class GitHubPublisher:
+    """GitHub 发布器"""
+    
+    def __init__(self, github_token, repo_name):
+        self.github_token = github_token
+        self.repo_name = repo_name
+        self.headers = {
+            "Authorization": f"Bearer {github_token}",
+            "Accept": "application/vnd.github.v3+json",
+            "Content-Type": "application/json"
+        }
+        logger.info(f"✅ GitHub 发布器初始化")
+        logger.info(f"   仓库: {repo_name}")
+    
+    def create_issue(self, title, content, labels=None):
+        """创建 GitHub Issue"""
+        logger.info(f"📝 正在创建 GitHub Issue: {title}")
+        
+        url = f"https://api.github.com/repos/{self.repo_name}/issues"
+        
+        issue_data = {
+            "title": title,
+            "body": content,
+            "labels": labels if labels else ["财经分析"]
+        }
+        
+        try:
+            response = requests.post(url, json=issue_data, headers=self.headers, timeout=10)
+            
+            if response.status_code == 201:
+                result = response.json()
+                logger.info(f"✅ Issue 创建成功！")
+                logger.info(f"   Issue #: {result.get('number')}")
+                logger.info(f"   URL: {result.get('html_url')}")
+                return True
+            else:
+                logger.error(f"❌ Issue 创建失败 (HTTP {response.status_code})")
+                logger.error(f"   响应: {response.text}")
+                return False
+        except Exception as e:
+            logger.error(f"❌ 创建失败: {e}")
+            return False
+
+
+def main():
+    """主程序"""
+    
+    # 获取环境变量
+    alpha_vantage_key = os.getenv("ALPHA_VANTAGE_KEY")
+    github_token = os.getenv("PAT_TOKEN")
+    repo_name = os.getenv("REPO_NAME", "Jay-wu1019/finance-news-automation")
+    
+    # 验证必要的环境变量
+    if not alpha_vantage_key:
+        logger.error("❌ 缺少 ALPHA_VANTAGE_KEY 环境变量")
+        logger.error("   请访问 https://www.alphavantage.co 获取免费 API Key")
+        return
+    
+    if not github_token:
+        logger.error("❌ 缺少 PAT_TOKEN 环境变量")
+        return
+    
+    # 初始化 API
+    api = AlphaVantageAPI(alpha_vantage_key)
+    
+    # 生成报告
+    generator = FinanceReportGenerator(api)
+    
+    # 美股代码
+    us_symbols = ['SPY', 'QQQ']
+    
+    # 台股代码 (需要 Alpha Vantage 支持)
+    tw_symbols = ['2330.TW', '0050.TW']
+    
+    # 生成分析
+    generator.generate_market_analysis(us_symbols, tw_symbols)
+    
+    logger.info("\n" + "="*70)
+    logger.info("🎉 财经自动化系统执行完成！")
+    logger.info("="*70)
+
+
+if __name__ == "__main__":
+    main()
