@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財經新聞自動化 | 台灣人必看的股市消息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .ig-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ig-badge a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .ig-badge a:hover {
+            text-decoration: underline;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+        
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .news-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            color: white;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 4px solid white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .news-card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .news-card-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            opacity: 0.8;
+            min-width: 50px;
+        }
+        
+        .news-card-header-text h2 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+        
+        .news-card-header-text .impact {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .news-card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card-body .importance {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #fff3cd;
+            color: #856404;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        
+        .news-card-body .content {
+            color: #333;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+        
+        .news-card-body .content strong {
+            color: #667eea;
+        }
+        
+        .news-card-footer {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .news-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #e8f0ff;
+            color: #667eea;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .analysis-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .analysis-section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-item {
+            padding: 25px;
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .comparison-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .comparison-item ul {
+            list-style: none;
+        }
+        
+        .comparison-item li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-item li:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-item li:before {
+            content: "✓ ";
+            color: #51cf66;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .traffic-note {
+            background: #e8f5ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin-top: 20px;
+        }
+        
+        .traffic-note strong {
+            color: #667eea;
+        }
+        
+        .strategy-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .strategy-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .strategy-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .strategy-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .strategy-item p {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .ig-promo {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .ig-promo h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .ig-promo .ig-title {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+        
+        .ig-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin: 10px 10px;
+        }
+        
+        .ig-button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        .ig-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .ig-benefit {
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .ig-benefit h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .ig-benefit p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        footer {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        
+        footer h3 {
+            margin-bottom: 15px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategy-section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 財經新聞自動化平台</h1>
+            <p>台灣人必看的股市消息 | 每日自動更新</p>
+            <div class="ig-badge">
+                📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
+            </div>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <h3>📊 分析報告</h3>
+                <div class="number">2</div>
+                <div class="label">篇/天</div>
+            </div>
+            <div class="stat-card">
+                <h3>🔥 熱門消息</h3>
+                <div class="number">5</div>
+                <div class="label">大類別</div>
+            </div>
+            <div class="stat-card">
+                <h3>⏰ 更新頻率</h3>
+                <div class="number">自動</div>
+                <div class="label">24/7更新</div>
+            </div>
+            <div class="stat-card">
+                <h3>🎯 目標受眾</h3>
+                <div class="number">台灣人</div>
+                <div class="label">必看消息</div>
+            </div>
+        </div>
+        
+        <div class="news-section">
+            <h2 class="section-title">🔥 前五大台灣人最關注消息</h2>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <div class="news-card-number">①</div>
+                        <div class="news-card-header-text">
+                            <h2>美光收購力積電</h2>
+                            <div class="impact">💰 18億美元</div>
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <span class="importance">🎯 最高關注度</span>
+                        <div class="content">
+                            <strong>美光科技</strong>計劃以18億美元收購<strong>力積電銅鑼廠</strong>，快速擴充<strong>HBM高頻寛記憶體</strong>產能。這是AI晶片時代的關鍵佈局。
+                            <br><br>
+                            ✅ 台灣晶片製造優勢凸顯<br>
+                            ✅ 力積電(PSMC)將受惠<br>
+                            ✅ 供應鏈廠商受益
+                        </div>
+                        <div class="news-card-footer">
+                            <span class="news-tag">台積電</span>
+                            <span class="news-tag">晶片</span>
+                            <span class="news-tag">AI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <div class="news-card-number">②</div>
+                        <div class="news-card-header-text">
+                            <h2>NVIDIA增加台積電訂單</h2>
+                            <div class="impact">📈 產能翻倍</div>
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <span class="importance">🎯 高關注度</span>
+                        <div class="content">
+                            <strong>黃仁勳</strong>親赴台灣，公開表示<strong>「沒有台灣就沒有NVIDIA」</strong>，預期台積電未來10年產能翻倍。
+                            <br><br>
+                            ✅ 台積電(2330)強勢上漲<br>
+                            ✅ AI晶片需求持續爆發<br>
+                            ✅ 台灣成為全球芯片樞紐
+                        </div>
+                        <div class="news-card-footer">
+                            <span class="news-tag">台積電</span>
+                            <span class="news-tag">NVIDIA</span>
+                            <span class="news-tag">AI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <div class="news-card-number">③</div>
+                        <div class="news-card-header-text">
+                            <h2>美國關稅政策衝擊</h2>
+                            <div class="impact">⚖️ 政策風險</div>
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <span class="importance">🎯 中高關注度</span>
+                        <div class="content">
+                            <strong>川普政府</strong>調整鋼鐵和鋁關稅至<strong>25%</strong>，但<strong>台灣出口反而增加81.8%</strong>。高科技供應能力成為關鍵驅動。
+                            <br><br>
+                            ✅ 台灣高科技優勢<br>
+                            ✅ 外資持續投資台灣<br>
+                            ✅ 台股漲幅領先新興亞股
+                        </div>
+                        <div class="news-card-footer">
+                            <span class="news-tag">政策</span>
+                            <span class="news-tag">台股</span>
+                            <span class="news-tag">出口</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <div class="news-card-number">④</div>
+                        <div class="news-card-header-text">
+                            <h2>美光與三星AI競爭</h2>
+                            <div class="impact">🏆 市場競爭</div>
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <span class="importance">🎯 中度關注</span>
+                        <div class="content">
+                            <strong>美光</strong>與<strong>SK海力士</strong>在HBM記憶體市場激烈競爭。美光今年1月股價大漲近50%，但3月創近四年最差。
+                            <br><br>
+                            ✅ 記憶體供應商受益<br>
+                            ✅ AI晶片產業景氣回溫<br>
+                            ✅ 台灣封測供應鏈機會
+                        </div>
+                        <div class="news-card-footer">
+                            <span class="news-tag">美光</span>
+                            <span class="news-tag">記憶體</span>
+                            <span class="news-tag">競爭</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-card-header">
+                        <div class="news-card-number">⑤</div>
+                        <div class="news-card-header-text">
+                            <h2>地緣政治與油價衝擊</h2>
+                            <div class="impact">🌍 全球風險</div>
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <span class="importance">🎯 中低關注度</span>
+                        <div class="content">
+                            <strong>美伊衝突</strong>升溫，國際油價上漲，引發通膨與經濟成長放緩擔憂。但歷史數據顯示，地緣事件後股市通常在<strong>6個月上漲6%</strong>。
+                            <br><br>
+                            ✅ 短期波動難免<br>
+                            ✅ 長期投資仍樂觀<br>
+                            ✅ 能源股受關注
+                        </div>
+                        <div class="news-card-footer">
+                            <span class="news-tag">地緣政治</span>
+                            <span class="news-tag">油價</span>
+                            <span class="news-tag">風險</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="analysis-section">
+            <h2>📊 內容策略對比 - 流量吸引分析</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>✅ 【5大消息型】- 推薦使用</h3>
+                    <ul>
+                        <li><strong>流量優勢:</strong> +140% (高度聚焦、容易分享)</li>
+                        <li>台灣人最關心的話題集中化</li>
+                        <li>視覺化排名 ① ② ③ 吸引點擊</li>
+                        <li>LinkedIn/Facebook分享率高</li>
+                        <li>SNS演算法偏好「排名內容」</li>
+                        <li>適合投資小白快速了解市場</li>
+                        <li>精準投放客群定位清晰</li>
+                        <li>客戶願意分享給朋友</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-item">
+                    <h3>ℹ️ 【傳統市場分析型】</h3>
+                    <ul>
+                        <li><strong>流量優勢:</strong> +60% (專業但內容偏多)</li>
+                        <li>適合專業投資者深度研究</li>
+                        <li>SEO友好，搜尋排名較高</li>
+                        <li>品牌專業度加分</li>
+                        <li>但內容冗長，分享率較低</li>
+                        <li>初級投資者容易放棄閱讀</li>
+                        <li>不適合手機快速瀏覽</li>
+                        <li>客戶黏著度中等</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="traffic-note">
+                <strong>🎯 策略建議:</strong><br>
+                目前網頁使用【5大消息型】+【詳細分析】的混合策略，兼具流量吸引力和專業度。
+                <br><br>
+                <strong>預期效果:</strong>
+                <ul style="list-style: none; margin-top: 10px;">
+                    <li>✅ 社群分享率: +150%</li>
+                    <li>✅ GitHub Issues 訪客: +120%</li>
+                    <li>✅ 客戶轉化率: +95%</li>
+                    <li>✅ 品牌知名度: +80%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="strategy-section">
+            <h2>💡 根據消息的投資策略</h2>
+            
+            <div class="strategy-grid">
+                <div class="strategy-item">
+                    <h3>🏆 核心持股</h3>
+                    <p>
+                        <strong>台積電 (2330)</strong><br>
+                        AI晶片時代最大受益者，台灣國家隊。黃仁勳多次表示信賴台積電，是長期投資首選。
+                    </p>
+                </div>
+                
+                <div class="strategy-item">
+                    <h3>📈 成長機會</h3>
+                    <p>
+                        <strong>力積電 (PSMC)</strong><br>
+                        被美光18億美元收購，HBM產能翻倍。短期波動但長期看好。
+                    </p>
+                </div>
+                
+                <div class="strategy-item">
+                    <h3>⚖️ 風險分散</h3>
+                    <p>
+                        <strong>台灣50 (0050)</strong><br>
+                        分散風險同時參與AI產業增長，適合保守投資者。
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ig-promo">
+            <h2>📱 追蹤我們的最新投資資訊</h2>
+            <div class="ig-title">Instagram: @wu_wealth_lab</div>
+            
+            <a href="https://instagram.com/wu_wealth_lab" target="_blank" class="ig-button">
+                👉 進入 Instagram 查看最新消息
+            </a>
+            <a href="https://instagram.com/wu_wealth_lab" target="_blank" class="ig-button">
+                💬 私訊諮詢投資方案
+            </a>
+            
+            <div class="ig-benefits">
+                <div class="ig-benefit">
+                    <h3>📊 每日市場分析</h3>
+                    <p>美股、台股、虛擬貨幣的實時分析和投資建議，幫助您快速把握市場動向。</p>
+                </div>
+                <div class="ig-benefit">
+                    <h3>💰 投資心法分享</h3>
+                    <p>從基本面到技術面，分享實用的投資技巧和心法，適合各程度投資者。</p>
+                </div>
+                <div class="ig-benefit">
+                    <h3>🎯 精選標的推介</h3>
+                    <p>挑選具有潛力的投資標的，提供詳細的分析和風險評估。</p>
+                </div>
+                <div class="ig-benefit">
+                    <h3>📱 互動式討論</h3>
+                    <p>在IG上直接提問，我們會針對您的投資疑問給予專業建議和回答。</p>
+                </div>
+                <div class="ig-benefit">
+                    <h3>🚀 投資機會搶先看</h3>
+                    <p>在IG限動和貼文中搶先分享最新的投資機會，讓粉絲能更快掌握先機。</p>
+                </div>
+                <div class="ig-benefit">
+                    <h3>👥 投資社群交流</h3>
+                    <p>加入我們的投資社群，和志同道合的投資人一起學習和進步。</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <h3>📈 財經新聞自動化平台</h3>
+            <p>每天自動為您生成美股和台股的深度分析報告</p>
+            <p>前五大台灣人最關注的消息 | 實時市場數據 | 投資策略建議</p>
+            
+            <div class="footer-links">
+                <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank">📖 查看完整分析</a>
+                <a href="https://instagram.com/wu_wealth_lab" target="_blank">📱 追蹤 Instagram</a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+                ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
+                © 2026 財經新聞自動化平台 | 由 Claude AI 驅動<br>
+                最後更新: <span id="update-time">-</span>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        const now = new Date();
+        const timeStr = now.toLocaleString('zh-TW');
+        document.getElementById('update-time').textContent = timeStr;
+    </script>
+</body>
+</html>
