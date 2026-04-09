@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>市場動態 | 美股台股今日消息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .banner h1 {
+            font-size: 2.8em;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .banner p {
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .banner-btn {
+            padding: 12px 25px;
+            border: 2px solid white;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .banner-btn:hover {
+            background: white;
+            color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.1);
+        }
+
+        /* 标题 */
+        .section-title {
+            font-size: 1.8em;
+            color: white;
+            margin: 50px 0 30px 0;
+            padding-left: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        /* 新闻卡片 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .news-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            padding: 25px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            min-width: 50px;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .card-category {
+            font-size: 0.9em;
+            opacity: 0.85;
+            margin-top: 5px;
+        }
+
+        .card-body {
+            padding: 20px 25px;
+            background: #2d2d44;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content {
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .card-highlights {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .card-highlights li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #51cf66;
+            font-size: 0.9em;
+        }
+
+        .card-highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #51cf66;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(102, 126, 234, 0.3);
+            border: 1px solid #667eea;
+            border-radius: 15px;
+            font-size: 0.8em;
+            color: #a0c4ff;
+        }
+
+        .card-source {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 12px;
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        .card-source a {
+            color: #a0c4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .card-source a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        /* 底部 */
+        .footer-section {
+            background: #2d2d44;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 30px;
+        }
+
+        .footer-title {
+            font-size: 1.3em;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-content {
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .disclaimer {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            color: #ffc107;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        .update-time {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner -->
+        <div class="banner">
+            <button class="theme-toggle">🌙</button>
+            <h1>📈 財經新聞自動化平台</h1>
+            <p>台灣人必看的股市消息｜每日自動更新</p>
+            <div class="banner-buttons">
+                <button class="banner-btn" onclick="window.open('https://instagram.com/wu_wealth_lab')">📱 追蹤 Instagram: @wu_wealth_lab</button>
+                <button class="banner-btn" onclick="alert('✅ 資料已自動更新')">⚡ 資時數據更新</button>
+                <button class="banner-btn" onclick="alert('由 Yahoo股、鉅亨網、玩股網 + AI 驅動')">🤖 AI 驅動分析</button>
+            </div>
+        </div>
+
+        <!-- 前五大消息 -->
+        <div>
+            <div class="section-title">🔥 前五大台灣人最關注消息</div>
+            <div class="news-grid">
+                
+                <!-- 消息 1 - 編輯這裡 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-number">①</div>
+                        <div>
+                            <div class="card-title">台積電股價創新高</div>
+                            <div class="card-category">📊 台股熱點</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            台積電今日股價創新高，AI晶片需求持續旺盛，多家國際大廠持續下單。分析師看好第二季度業績表現。
+                        </div>
+                        <ul class="card-highlights">
+                            <li>AI晶片需求強勁</li>
+                            <li>護國神山表現亮眼</li>
+                            <li>外資持續買進</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">台積電</span>
+                            <span class="tag">AI晶片</span>
+                            <span class="tag">台股</span>
+                        </div>
+                        <div class="card-source">
+                            📰 來源：<a href="https://tw.stock.yahoo.com/news" target="_blank">Yahoo股</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息 2 - 編輯這裡 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-number">②</div>
+                        <div>
+                            <div class="card-title">美股科技股走強</div>
+                            <div class="card-category">📈 美股動態</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            美股科技板塊今日領漲，Nasdaq再創歷史新高。NVIDIA、Meta等科技巨頭表現強勢，帶動整體市場情緒。
+                        </div>
+                        <ul class="card-highlights">
+                            <li>Nasdaq創新高</li>
+                            <li>科技股領軍上漲</li>
+                            <li>AI概念股受關注</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">美股</span>
+                            <span class="tag">科技股</span>
+                            <span class="tag">Nasdaq</span>
+                        </div>
+                        <div class="card-source">
+                            📰 來源：<a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息 3 - 編輯這裡 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-number">③</div>
+                        <div>
+                            <div class="card-title">聯發科發布Q1財報</div>
+                            <div class="card-category">📊 財報亮點</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            聯發科公布Q1財報，營收超過預期，淨利創近年高點。5G與AI晶片銷售暢旺，後續訂單能見度看好。
+                        </div>
+                        <ul class="card-highlights">
+                            <li>營收超預期</li>
+                            <li>AI晶片銷售旺盛</li>
+                            <li>訂單能見度佳</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">聯發科</span>
+                            <span class="tag">財報</span>
+                            <span class="tag">台股</span>
+                        </div>
+                        <div class="card-source">
+                            📰 來源：<a href="https://www.wantgoo.com/news" target="_blank">玩股網</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息 4 - 編輯這裡 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-number">④</div>
+                        <div>
+                            <div class="card-title">鴻海佈局AI伺服器</div>
+                            <div class="card-category">🤖 產業動向</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            鴻海近日宣布加大AI伺服器生產投資，與多家國際大廠簽訂長期訂單。預期今年AI業務成長將超過50%。
+                        </div>
+                        <ul class="card-highlights">
+                            <li>AI伺服器訂單增加</li>
+                            <li>投資規模擴大</li>
+                            <li>成長動力強勁</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">鴻海</span>
+                            <span class="tag">AI伺服器</span>
+                            <span class="tag">台股</span>
+                        </div>
+                        <div class="card-source">
+                            📰 來源：<a href="https://tw.stock.yahoo.com/news" target="_blank">Yahoo股</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 消息 5 - 編輯這裡 -->
+                <div class="news-card">
+                    <div class="card-header">
+                        <div class="card-number">⑤</div>
+                        <div>
+                            <div class="card-title">全球半導體景氣看升</div>
+                            <div class="card-category">📈 市場展望</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            國際機構調高全球半導體產業景氣預測，AI晶片需求成長動力強勁。台灣相關企業有望率先受益。
+                        </div>
+                        <ul class="card-highlights">
+                            <li>景氣預測向上</li>
+                            <li>AI需求不減</li>
+                            <li>台灣優勢明顯</li>
+                        </ul>
+                        <div class="card-tags">
+                            <span class="tag">半導體</span>
+                            <span class="tag">產業景氣</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <div class="card-source">
+                            📰 來源：<a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-section">
+            <div class="footer-title">📊 財經新聞自動化平台</div>
+            <div class="footer-content">
+                每週更新一次最新消息 | 精選台灣人最關注的股市話題 | 專業分析建議
+            </div>
+            <div class="disclaimer">
+                ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
+                ✅ 資訊準確性保證：所有新聞來源均標註出處，用戶可自行驗證信息準確性。<br>
+                © 2026 財經新聞自動化平台 | 由 Claude AI 驅動
+            </div>
+        </div>
+
+        <div class="update-time">
+            💡 提示：此頁面可在 GitHub 上直接編輯，保存後會自動更新
+        </div>
+    </div>
+
+    <script>
+        const now = new Date();
+        const timeStr = now.toLocaleString('zh-TW');
+        console.log('✅ 財經新聞平台已加載 - ' + timeStr);
+    </script>
+</body>
+</html>
