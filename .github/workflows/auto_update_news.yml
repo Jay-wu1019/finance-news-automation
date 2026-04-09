@@ -1,11 +1,12 @@
 name: Auto Update Finance News
 
+permissions:
+  contents: write
+
 on:
   schedule:
-    # 每天早上 8:00 (UTC) 运行 = 台湾时间下午 4:00
-    # 改为早上 9:00 台湾时间：应该是 UTC 01:00
     - cron: '0 1 * * *'
-  workflow_dispatch:  # 允许手动运行
+  workflow_dispatch:
 
 jobs:
   update-news:
