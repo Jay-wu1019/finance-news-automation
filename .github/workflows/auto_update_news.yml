@@ -1,0 +1,49 @@
+name: Auto Update Finance News
+
+on:
+  schedule:
+    # 每天早上 8:00 (UTC) 运行 = 台湾时间下午 4:00
+    # 改为早上 9:00 台湾时间：应该是 UTC 01:00
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # 允许手动运行
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+      
+      - name: Run news scraper
+        run: python finance_news_scraper.py
+      
+      - name: Move generated HTML to docs
+        run: |
+          if [ -f market_news_auto.html ]; then
+            cp market_news_auto.html docs/market_news_updated.html
+            echo "✅ HTML 文件已更新到 docs/market_news_updated.html"
+          fi
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "🤖 Auto update: Finance news $(date +'%Y-%m-%d %H:%M:%S')" || true
+          git push
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: market-news
+          path: market_news_auto.html
