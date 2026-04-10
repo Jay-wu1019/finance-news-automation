@@ -38,6 +38,7 @@
             font-size: 2.8em;
             color: white;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .banner p {
@@ -62,6 +63,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
+            font-size: 0.95em;
         }
 
         .banner-btn:hover {
@@ -84,6 +86,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.1);
         }
 
         .section-title {
@@ -106,6 +114,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
@@ -127,6 +136,7 @@
             font-size: 2.5em;
             font-weight: bold;
             min-width: 50px;
+            opacity: 0.9;
         }
 
         .card-title {
@@ -144,6 +154,8 @@
             padding: 20px 25px;
             background: #2d2d44;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-content {
@@ -171,6 +183,7 @@
             position: absolute;
             left: 0;
             font-weight: bold;
+            color: #51cf66;
         }
 
         .card-tags {
@@ -201,6 +214,7 @@
         .card-source a {
             color: #a0c4ff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .card-source a:hover {
@@ -221,11 +235,16 @@
             border-radius: 8px;
             color: #a0c4ff;
             margin-top: 20px;
+            border-left: 4px solid #667eea;
         }
 
         @media (max-width: 768px) {
             .banner h1 {
                 font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.4em;
             }
 
             .news-grid {
@@ -259,13 +278,15 @@
                 ✅ 自動化系統已啟動<br>
                 📊 數據來源：Yahoo股、鉅亨網、玩股網<br>
                 🔄 每天自動更新<br>
-                ⏰ 最後更新：2026年04月09日 09:26:15
+                ⏰ 最後更新：2026年04月10日 07:06:58<br>
+                🟢 系統狀態：正常運行
             </div>
         </div>
     </div>
 
     <script>
-        console.log('✅ 自動化財經新聞網站已加載');
+        console.log('✅ 自動化財經新聞網站 v2.0 已加載');
+        console.log('🔄 數據來源：Yahoo股、鉅亨網、玩股網');
     </script>
 </body>
 </html>
