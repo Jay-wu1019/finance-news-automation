@@ -3,297 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>台灣 & 美國股市新聞 2026年4月16日</title>
+    <title>台灣股市 & 美國股市日報 | 2026年4月17日</title>
     <style>
-        * {margin: 0; padding: 0; box-sizing: border-box;}
-        body {font-family: 'Microsoft JhengHei', sans-serif; background: #1a1a2e; color: #e0e0e0; min-height: 100vh; padding: 20px;}
-        .container {max-width: 1400px; margin: 0 auto;}
-        .banner {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 50px 40px; text-align: center; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);}
-        .banner h1 {font-size: 2.8em; color: white; margin-bottom: 15px;}
-        .banner p {font-size: 1.1em; color: rgba(255,255,255,0.9); margin-bottom: 30px;}
-        .banner-btn {padding: 12px 25px; border: 2px solid white; background: rgba(255,255,255,0.1); color: white; border-radius: 25px; cursor: pointer; margin: 10px; font-weight: bold; transition: all 0.3s;}
-        .banner-btn:hover {background: white; color: #667eea; transform: scale(1.05);}
-        .market-section {margin-bottom: 60px;}
-        .market-title {font-size: 2em; color: white; margin: 40px 0 30px 0; padding-left: 20px; border-left: 6px solid #667eea; display: flex; align-items: center; gap: 15px;}
-        .market-icon {font-size: 2.2em;}
-        .news-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 50px;}
-        .news-card {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.2);}
-        .news-card:hover {transform: translateY(-10px); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);}
-        .card-header {padding: 25px; color: white; display: flex; align-items: center; gap: 20px;}
-        .card-number {font-size: 2.5em; font-weight: bold; min-width: 50px;}
-        .card-title {font-size: 1.3em; font-weight: bold;}
-        .card-category {font-size: 0.9em; opacity: 0.85; margin-top: 5px;}
-        .card-body {padding: 20px 25px; background: #2d2d44; flex-grow: 1;}
-        .card-content {color: #e0e0e0; line-height: 1.6; margin-bottom: 15px;}
-        .card-highlights {list-style: none; margin: 15px 0;}
-        .card-highlights li {padding: 8px 0 8px 25px; position: relative; color: #51cf66;}
-        .card-highlights li:before {content: "✓"; position: absolute; left: 0; font-weight: bold;}
-        .card-tags {display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px;}
-        .tag {display: inline-block; padding: 5px 12px; background: rgba(102, 126, 234, 0.3); border: 1px solid #667eea; border-radius: 15px; font-size: 0.8em; color: #a0c4ff;}
-        .card-source {border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; margin-top: 15px; font-size: 0.85em; color: #999;}
-        .card-source a {color: #a0c4ff; text-decoration: none;}
-        .footer-section {background: #2d2d44; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px;}
-        .disclaimer {background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; color: #ffc107; font-size: 0.9em; margin-top: 20px;}
-        .stats-bar {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;}
-        .stat-item {text-align: center; padding: 15px;}
-        .stat-value {font-size: 1.8em; font-weight: bold; color: #51cf66;}
-        .stat-label {font-size: 0.9em; color: #a0a0a0; margin-top: 5px;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Banner */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .instagram-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .instagram-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .stat-item h3 {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-size: 1.8em;
+            color: #51cf66;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .news-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            padding: 2px;
+            transition: transform 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-card-content {
+            background: #2d2d44;
+            padding: 25px;
+            border-radius: 6px;
+        }
+        
+        .news-rank {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+        
+        .news-title {
+            font-size: 1.3em;
+            color: white;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        
+        .news-content {
+            font-size: 0.95em;
+            color: #d0d0d0;
+            line-height: 1.7;
+        }
+        
+        .news-source {
+            font-size: 0.85em;
+            color: #51cf66;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            border-top: 1px solid #444;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="banner">
-            <h1>🌍 台灣 & 美國 雙市場新聞日報</h1>
-            <p>環球股市精選 | 2026年4月16日 台積電法說會後最新版</p>
-            <button class="banner-btn" onclick="window.open('https://instagram.com/wu_wealth_lab')">📱 追蹤 Instagram</button>
-            <button class="banner-btn" onclick="alert('✅ 台股收盤37132.02 漲409.88點')">⚡ 即時數據</button>
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 台灣股市 & 美國股市日報</h1>
+            <p>2026年4月17日 | 市場深度分析</p>
+            <a href="https://www.instagram.com/wu_wealth_lab/" class="instagram-btn">📱 @wu_wealth_lab</a>
         </div>
-
-        <!-- 台灣股市市場數據 -->
+        
+        <!-- Taiwan Stock Market Section -->
+        <h2 class="section-title">🇹🇼 台灣股市</h2>
+        
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-value">37,132.02</div>
-                <div class="stat-label">台股收盤指數</div>
+                <h3>加權指數</h3>
+                <div class="stat-value">36,804.34點</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">+409.88點</div>
-                <div class="stat-label">漲幅 (+1.12%)</div>
+                <h3>漲跌</h3>
+                <div class="stat-value" style="color: #ff6b6b;">-327.68點 (-0.88%)</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">8,867.92億</div>
-                <div class="stat-label">今日成交額</div>
+                <h3>成交金額</h3>
+                <div class="stat-value">約8,100億</div>
             </div>
         </div>
-
-        <!-- 台灣股市新聞 -->
-        <div class="market-section">
-            <div class="market-title">
-                <span class="market-icon">🇹🇼📈</span>
-                台灣股市新聞
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">①</div>
+                    <div class="news-title">台積電法說失靈 股價回檔至2,045元</div>
+                    <div class="news-content">台積電（2330）法說會後出現獲利了結賣壓，股價從2,085元高點跌至2,045元，下跌40元，跌幅-1.92%。市場認為神山缺乏「超預期驚喜」導致短線拉回，但基本面仍然強勁。</div>
+                    <div class="news-source">來源：金融市場新聞</div>
+                </div>
             </div>
             
-            <div class="news-grid">
-                <!-- 台股新聞 1 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">①</div>
-                        <div><div class="card-title">台股午盤強勢衝破37000點 法說後再創歷史新高</div><div class="card-category">📈 創新高收盤</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">台股今日在台積電法說會後強勢上攻，午盤後加權指數一度翻漲413.41點，刷新37,135.55點史上新高！終場加權指數收在37,132.02點，大漲409.88點（+1.12%），成交金額8,867.92億元。台積電法說後市場信心提升，權值股領漲帶動大盤站上全新高點，顯示市場對台積電後續營運展望充滿期待。</div>
-                        <ul class="card-highlights">
-                            <li>終場收盤37,132.02點創新高</li>
-                            <li>大漲409.88點 漲幅1.12%</li>
-                            <li>盤中一度衝破37,135.55點</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">台股</span><span class="tag">創新高</span><span class="tag">37132</span></div>
-                        <div class="card-source">📰 來源：ETtoday、Yahoo股市</div>
-                    </div>
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">②</div>
+                    <div class="news-title">台股失守37,000點 電子股領軍抗跌</div>
+                    <div class="news-content">盤中一度跳空下跌逾250點至36,872點，失守3萬7關卡。聯發科、聯電、致茂等電子要角領軍抗空，支撐大盤。整體表現仍比預期強勁，未見恐慌性賣壓。</div>
+                    <div class="news-source">來源：證券市場分析</div>
                 </div>
-
-                <!-- 台股新聞 2 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">②</div>
-                        <div><div class="card-title">台積電法說釋出強勢訊號 資本支出超預期上調至520-560億美元</div><div class="card-category">🚀 法說亮點</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">台積電下午法說會釋出重磅利多！財務長黃仁昭宣布2026年資本支出估達520億至560億美元，大幅超越法人原先預期的450億至500億美元區間，刷新公司史上最高投資紀錄。董事長魏哲家表示，預計2026年將是台積電另一個強勁成長的年份，全年營收（以美元計）將成長近30%，人工智慧市場的發展動能依然非常正面，為未來三年的擴產計畫奠定基礎。</div>
-                        <ul class="card-highlights">
-                            <li>資本支出上調至520-560億美元</li>
-                            <li>2026年營收預期成長近30%</li>
-                            <li>未來三年毛利率目標56%以上</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">台積電</span><span class="tag">法說會</span><span class="tag">資本支出</span></div>
-                        <div class="card-source">📰 來源：Yahoo股市、CMoney</div>
-                    </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">③</div>
+                    <div class="news-title">股后穎崴晉升萬元俱樂部 創歷史新高</div>
+                    <div class="news-content">半導體高階測試座大廠穎崴（6515）早盤衝上10,285元歷史新高，正式晉升台股第二檔萬元股。受惠AI驅動先進製程供不應求，穎崴一線國際客戶普遍看好。</div>
+                    <div class="news-source">來源：上市公司公告</div>
                 </div>
-
-                <!-- 台股新聞 3 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">③</div>
-                        <div><div class="card-title">台積電盤中震盪觀望 法說後翻紅躍升 股價強勁</div><div class="card-category">💪 權值股領航</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">台積電（2330）今日經歷過山車行情。早盤開平後在2080元附近震盪，一度翻黑跌至2075元。但法說會召開後市場情緒明顯轉變，股價迅速翻紅向上，在強勢買盤支持下攻堅。法說會的強勢訊號（包括資本支出創高、2026年營收成長預期、毛利率目標提升等）激勵投資者對台積電未來前景的信心，帶動權值股齊聲上漲，成為台股上攻的核心動力。</div>
-                        <ul class="card-highlights">
-                            <li>早盤2080元附近震盪</li>
-                            <li>法說後翻紅向上衝刺</li>
-                            <li>市場信心明顯提升</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">台積電</span><span class="tag">2330</span><span class="tag">權值股</span></div>
-                        <div class="card-source">📰 來源：ETtoday、中央社</div>
-                    </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">④</div>
+                    <div class="news-title">聯電、聯亞漲停領衝 半導體供應鏈齊揚</div>
+                    <div class="news-content">聯電（2303）高開上漲5.5元至73.8元，逆勢上揚。聯亞（3081）受外資上調目標價帶動，開盤直奔漲停板價2,600元。先進封裝與設備廠商持續受惠AI商機。</div>
+                    <div class="news-source">來源：經濟日報</div>
                 </div>
-
-                <!-- 台股新聞 4 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">④</div>
-                        <div><div class="card-title">聯電漲停68.3元 半導體產業鏈齊漲迎接台積電資本支出利多</div><div class="card-category">⚡ 護衛隊亮眼</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">台積電法說會釋出的資本支出上調訊號激勵整個半導體產業鏈。聯電（2303）盤中奔向漲停68.3元，南茂（8150）達73.7元、強茂（2481）達108元、晶心科（6533）達218.5元、祥碩（5269）達1,290元，均觸及漲停與新高價位。此外，日月光投控昨天宣布148.5億併購群創光電，強化先進製程與AI策略。市場認為，台積電的擴產計畫將帶動整個半導體供應鏈的景氣提升，從製造、封裝到材料設備廠商都將受惠。</div>
-                        <ul class="card-highlights">
-                            <li>聯電漲停68.3元</li>
-                            <li>南茂、強茂、祥碩創新高</li>
-                            <li>產業鏈齊聲受惠</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">聯電</span><span class="tag">半導體</span><span class="tag">漲停</span></div>
-                        <div class="card-source">📰 來源：中央社、Yahoo股市</div>
-                    </div>
-                </div>
-
-                <!-- 台股新聞 5 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">⑤</div>
-                        <div><div class="card-title">傳統產業股齊聲上漲 台塑、南亞、台化跟進創高</div><div class="card-category">📊 全面走揚</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">台股今日不只電子股強勢，傳統產業股也表現亮眼。台塑（1301）盤中達54.2元，漲幅3.63%；南亞（1303）上揚3.05%至91.2元；台化（1326）盤中也有不錯表現。傳統產業股的齊聲上漲反映出整體市場情緒轉佳，美伊地緣政治局勢緩和，加上台積電法說會的強勢訊號，投資者對經濟前景的信心回升。無論是景氣循環股還是高成長股，都因市場樂觀氣圍而受惠，形成全面走揚的局面。</div>
-                        <ul class="card-highlights">
-                            <li>台塑漲3.63%至54.2元</li>
-                            <li>南亞漲3.05%至91.2元</li>
-                            <li>傳統產業全面上漲</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">台塑</span><span class="tag">傳統產業</span><span class="tag">上漲</span></div>
-                        <div class="card-source">📰 來源：Yahoo股市、ETtoday</div>
-                    </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">⑤</div>
+                    <div class="news-title">分析師:多頭格局未變 建議抱股過周末</div>
+                    <div class="news-content">資深證券分析師蔡明翰指出，儘管台股短線出現震盪，但整體多頭格局未變，未見恐慌性賣壓。建議投資人可抱股過周末，未來仍看好AI驅動的科技族群表現。</div>
+                    <div class="news-source">來源：證券分析機構</div>
                 </div>
             </div>
         </div>
-
-        <!-- 美國股市市場數據 -->
+        
+        <!-- US Stock Market Section -->
+        <h2 class="section-title">🇺🇸 美國股市（4月16日收盤）</h2>
+        
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-value">7,022.95</div>
-                <div class="stat-label">標普500 涨0.8%</div>
+                <h3>標普500</h3>
+                <div class="stat-value">7,041.28點</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">48,463.72</div>
-                <div class="stat-label">道瓊指數 跌0.15%</div>
+                <h3>道瓊工業指數</h3>
+                <div class="stat-value">48,578.72點</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">24,016.02</div>
-                <div class="stat-label">納斯達克 涨1.59%</div>
+                <h3>納斯達克</h3>
+                <div class="stat-value">24,102.70點</div>
             </div>
         </div>
-
-        <!-- 美國股市新聞 -->
-        <div class="market-section">
-            <div class="market-title">
-                <span class="market-icon">🇺🇸📊</span>
-                美國股市新聞
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">①</div>
+                    <div class="news-title">標普500創歷史新高 首次收盤站上7,000點</div>
+                    <div class="news-content">標普500指數上漲0.8%至7,041.28點，創造歷史首次收盤站上7,000點整數關口。納斯達克與標普500連續第二天創新高，反映市場對中東局勢降溫的樂觀預期。</div>
+                    <div class="news-source">來源：路透社</div>
+                </div>
             </div>
-
-            <div class="news-grid">
-                <!-- 美股新聞 1 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">①</div>
-                        <div><div class="card-title">標普500指數創歷史新高 首次收盤站上7000點</div><div class="card-category">📈 歷史里程碑</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">美股迎來重大歷史時刻！標普500指數4月16日收盤報7,022.95點，漲幅0.8%，歷史首次收盤站上7000點整數關口，創下歷史新高。納斯達克綜合指數同步創高，收報24,016.02點，漲幅1.59%，連續11個交易日上漲後，首度站上24,000點上方。道瓊指數則小幅下跌0.15%至48,463.72點。科技股領軍推動三大指數向上突破，體現市場對經濟復甦與AI應用前景的樂觀預期。</div>
-                        <ul class="card-highlights">
-                            <li>標普500首度站上7000點</li>
-                            <li>納指衝上24,000點創高</li>
-                            <li>科技股領漲態勢強勁</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">標普500</span><span class="tag">歷史新高</span><span class="tag">7000點</span></div>
-                        <div class="card-source">📰 來源：財聯社、人民財訊</div>
-                    </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">②</div>
+                    <div class="news-title">科技七巨頭領漲 特斯拉漲超7%</div>
+                    <div class="news-content">大型科技股普遍上漲，特斯拉漲超7%，微軟漲超4%，蘋果漲近3%。英伟達、谷歌、Meta等科技龍頭表現強勁，反映投資人對AI產業的持續看好。</div>
+                    <div class="news-source">來源：Bloomberg</div>
                 </div>
-
-                <!-- 美股新聞 2 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">②</div>
-                        <div><div class="card-title">科技七巨頭領漲 特斯拉漲超7% 微軟漲超4%</div><div class="card-category">💻 科技股爆紅</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">美股科技股表現搶眼，引領大盤創新高。電動車龍頭特斯拉（Tesla）漲超7%，成為漲幅領先者；軟體巨擘微軟（Microsoft）上漲超4%，蘋果（Apple）漲近3%；AI晶片龍頭英伟達（Nvidia）、搜尋引擎巨人谷歌（Google）和社交媒體平台Meta均上漲超1%。美伊地緣政治風險緩和，激勵投資者重返風險資產，科技股成為主要受益者，推動整體股市走高。</div>
-                        <ul class="card-highlights">
-                            <li>特斯拉漲超7%領漲</li>
-                            <li>微軟漲超4% 蘋果漲近3%</li>
-                            <li>AI概念股齊聲上揚</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">特斯拉</span><span class="tag">微軟</span><span class="tag">科技七巨頭</span></div>
-                        <div class="card-source">📰 來源：人民財訊</div>
-                    </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">③</div>
+                    <div class="news-title">納指上漲1.59% 創九連涨紀錄</div>
+                    <div class="news-content">納斯達克綜合指數上漲1.59%至24,102.70點，創十連涨（連續10個交易日上漲），為2021年以來最長連漲紀錄。科技股與成長股成為市場上漲主力。</div>
+                    <div class="news-source">來源：CNN Money</div>
                 </div>
-
-                <!-- 美股新聞 3 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">③</div>
-                        <div><div class="card-title">半導體板塊創新高 費城半導體指數再攀升</div><div class="card-category">⚡ 芯片榮景</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">半導體版塊在AI需求持續旺盛的推動下，再度展現強勢。費城半導體指數（SOX）創下新高，英伟達在十連陽中累計飆升超過18%，市值劇增約7,600億美元，展現人工智能龍頭無可匹敵的勢頭。其他芯片巨頭如AMD、高通等也跟隨上漲。市場普遍看好2026年全球芯片產業受AI驅動將實現強勁增長，台積電等主要代工廠的產能吃緊趨勢將持續支撐行業景氣。</div>
-                        <ul class="card-highlights">
-                            <li>費半創歷史新高</li>
-                            <li>英伟達十連陽漲超18%</li>
-                            <li>AI芯片需求持續火熱</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">英伟達</span><span class="tag">半導體</span><span class="tag">費半</span></div>
-                        <div class="card-source">📰 來源：金融界、新浪財經</div>
-                    </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">④</div>
+                    <div class="news-title">中概股集體走強 納斯達克中國金龍指數漲0.75%</div>
+                    <div class="news-content">熱門中概股多數上漲，百度漲超2%，網易漲2%，阿里巴巴、汽車之家漲超1%。納斯達克中國金龍指數上漲0.75%，顯示市場對中國科技股的信心恢復。</div>
+                    <div class="news-source">來源：新浪財經</div>
                 </div>
-
-                <!-- 美股新聞 4 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">④</div>
-                        <div><div class="card-title">中概股集體走強 納斯達克中國金龍指數漲0.75%</div><div class="card-category">🌏 中概股行情</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">隨著地緣政治局勢緩和，中概股迎來普遍上漲的行情。納斯達克中國金龍指數收漲0.75%，百度漲超2%，網易漲2%，阿里巴巴、汽車之家漲超1%，拼多多小幅下跌。此外，美伊談判前景樂觀推升市場風險偏好，更多資金回流中國優質公司。高盛與摩根士丹利等頭部投行仍維持對中概股的看多評級，認為中國科技類公司在AI和高端製造領域擁有長期增長潛力。</div>
-                        <ul class="card-highlights">
-                            <li>中概股普遍上漲</li>
-                            <li>百度、網易領漲</li>
-                            <li>風險偏好回升</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">中概股</span><span class="tag">百度</span><span class="tag">阿里巴巴</span></div>
-                        <div class="card-source">📰 來源：人民財訊</div>
-                    </div>
-                </div>
-
-                <!-- 美股新聞 5 -->
-                <div class="news-card">
-                    <div class="card-header">
-                        <div class="card-number">⑤</div>
-                        <div><div class="card-title">美伊談判樂觀激勵 油價暴跌 黃金上漲</div><div class="card-category">🤝 大宗商品</div></div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">地緣政治風險下降對大宗商品市場產生明顯衝擊。美國WTI原油期貨主力合約重挫7.87%，布倫特原油期貨下跌4.6%，跌幅逾4%，反映市場對霍爾木兹海峽長期被封鎖風險大幅降低。相反，貴金屬成為避險資金的新寵，倫敦現貨黃金價格重返4840美元/盎司上方，單日漲幅超過2%；現貨白銀漲幅一度超過5%。國際能源署（IEA）下調2026年全球石油需求預期，進一步打壓油價，同時支撐黃金作為避險資產的吸引力。</div>
-                        <ul class="card-highlights">
-                            <li>原油暴跌7%以上</li>
-                            <li>黃金漲2%衝上4840</li>
-                            <li>避險情緒轉變</li>
-                        </ul>
-                        <div class="card-tags"><span class="tag">油價</span><span class="tag">黃金</span><span class="tag">大宗商品</span></div>
-                        <div class="card-source">📰 來源：金融界、新浪財經</div>
-                    </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">⑤</div>
+                    <div class="news-title">美伊談判樂觀 油價暴跌7% 黃金漲超2%</div>
+                    <div class="news-content">美國與伊朗下周有望在巴基斯坦進行第二輪會談，國際原油價格跌破100美元，WTI原油跌7.87%。避險資金轉向，黃金漲超2%至4,840美元。地緣政治風險有所緩解。</div>
+                    <div class="news-source">來源：CNBC</div>
                 </div>
             </div>
         </div>
-
-        <!-- 頁尾 -->
-        <div class="footer-section">
-            <h2>🌍 台灣 & 美國 雙市場新聞日報</h2>
-            <p>環球市場精選重點 | 台股 + 美股 深度分析 | 實時全球資訊</p>
-            <div class="disclaimer">
-                ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
-                ✅ 資訊準確性保證：所有新聞來源均標註出處，用戶可自行驗證信息準確性。<br>
-                💡 市場動態：台股與美股行情實時更新，助力投資者精準決策。<br>
-                © 2026 台灣 & 美國股市新聞日報 | 由 Claude AI 驅動 | 最後更新：2026年4月16日 收盤
-            </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>⚠️ 免責聲明：本報告為市場資訊整合分析，不構成投資建議。投資人應根據個人風險承受度及財務狀況，進行獨立判斷和決策。<br>
+            📧 聯絡方式：0975116859 | amberwu91@gmail.com<br>
+            © 2026 財經新聞自動化平台 | 為您帶來台灣與全球股市最新動態</p>
         </div>
     </div>
 </body>
