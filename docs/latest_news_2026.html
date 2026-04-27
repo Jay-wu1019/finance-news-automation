@@ -1,425 +1,434 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年4月24日台美股市分析</title>
+    <title>財經新聞自動化 | 2026年4月27日台美股市分析</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-            padding: 40px 0;
-        }
-        
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
+        min-height: 100vh;
+        padding: 20px;
+    }
+    
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        padding: 40px 0;
+    }
+    
+    header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    header p {
+        font-size: 1.2em;
+        opacity: 0.9;
+        margin-bottom: 15px;
+    }
+    
+    .ig-badge {
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 0.95em;
+        backdrop-filter: blur(10px);
+    }
+    
+    .ig-badge a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .ig-badge a:hover {
+        text-decoration: underline;
+    }
+    
+    .stats-container {
+        margin-bottom: 40px;
+    }
+    
+    .stats-title {
+        color: white;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .stat-item {
+        background: rgba(255,255,255,0.95);
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        border-left: 5px solid #1a3a52;
+    }
+    
+    .stat-item h3 {
+        color: #1a3a52;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+    
+    .stat-value {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 0;
+    }
+    
+    .highlight-badge {
+        display: inline-block;
+        background: #51cf66;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    
+    .milestone-badge {
+        display: inline-block;
+        background: #ff9800;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    
+    .news-section {
+        margin-bottom: 50px;
+    }
+    
+    .section-title {
+        color: white;
+        font-size: 2.2em;
+        margin-bottom: 25px;
+        padding-left: 20px;
+        border-left: 4px solid white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+    }
+    
+    .news-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .news-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    .news-card-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .news-rank {
+        font-size: 2em;
+        font-weight: bold;
+        color: #1a3a52;
+        margin-bottom: 10px;
+    }
+    
+    .news-title {
+        font-size: 1.4em;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    
+    .news-content {
+        color: #666;
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: 15px;
+    }
+    
+    .news-source {
+        color: #2d5a7b;
+        font-size: 0.9em;
+        font-weight: 500;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+    
+    footer {
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 50px;
+    }
+    
+    footer h3 {
+        margin-bottom: 15px;
+    }
+    
+    footer p {
+        margin: 10px 0;
+        opacity: 0.9;
+    }
+    
+    .footer-links {
+        margin-top: 20px;
+    }
+    
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 500;
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
         header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
-        
-        .ig-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            backdrop-filter: blur(10px);
-        }
-        
-        .ig-badge a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .ig-badge a:hover {
-            text-decoration: underline;
-        }
-        
-        .stats-container {
-            margin-bottom: 40px;
-        }
-        
-        .stats-title {
-            color: white;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-item {
-            background: rgba(255,255,255,0.95);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-left: 5px solid #1a3a52;
-        }
-        
-        .stat-item h3 {
-            color: #1a3a52;
-            margin-bottom: 10px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        
-        .stat-value {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #333;
-            margin: 10px 0;
-        }
-        
-        .highlight-badge {
-            display: inline-block;
-            background: #51cf66;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .negative-badge {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .news-section {
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            color: white;
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 4px solid white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-size: 2em;
         }
         
         .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
         }
-        
-        .news-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        
-        .news-card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-rank {
-            font-size: 2em;
-            font-weight: bold;
-            color: #1a3a52;
-            margin-bottom: 10px;
-        }
-        
-        .news-title {
-            font-size: 1.4em;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .news-content {
-            color: #666;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 15px;
-        }
-        
-        .news-source {
-            color: #2d5a7b;
-            font-size: 0.9em;
-            font-weight: 500;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-        
-        footer {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-        
-        footer h3 {
-            margin-bottom: 15px;
-        }
-        
-        footer p {
-            margin: 10px 0;
-            opacity: 0.9;
-        }
-        
-        .footer-links {
-            margin-top: 20px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    }
+</style>
+```
+
 </head>
 <body>
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年4月24日</p>
+            <p>台灣人必看的股市消息 | 2026年4月27日</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
-        
-        <!-- 台灣股市統計 -->
-        <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年4月24日終場）</div>
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <h3>加權指數</h3>
-                    <div class="stat-value">38,932.40點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1,218.25點 (+3.23%)</div>
-                    <div class="highlight-badge">✨ 收盤歷史新高！第5大漲點</div>
-                </div>
-                <div class="stat-item">
-                    <h3>台積電(2330)</h3>
-                    <div class="stat-value">2,185元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +105元 (+5.05%)</div>
-                    <div class="highlight-badge">✨ 史上最大單日上漲金額</div>
-                </div>
-                <div class="stat-item">
-                    <h3>成交金額</h3>
-                    <div class="stat-value">10,329.20億</div>
-                    <div style="color: #666; font-size: 1.1em;">日均成交</div>
-                </div>
+
+```
+    <!-- 台灣股市統計 -->
+    <div class="stats-container">
+        <div class="stats-title">🇹🇼 台灣股市（2026年4月27日終場）</div>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>加權指數</h3>
+                <div class="stat-value">39,616.63點</div>
+                <div style="color: #51cf66; font-size: 1.1em;">↑ +684.23點 (+1.76%)</div>
+                <div class="milestone-badge">🎉 盤中衝破4萬點！最高40,194.92點</div>
+            </div>
+            <div class="stat-item">
+                <h3>台積電(2330)</h3>
+                <div class="stat-value">2,265元</div>
+                <div style="color: #51cf66; font-size: 1.1em;">↑ +80元 (+3.66%)</div>
+                <div class="highlight-badge">✨ 創新天價</div>
+            </div>
+            <div class="stat-item">
+                <h3>成交金額</h3>
+                <div class="stat-value">11,844.5億</div>
+                <div style="color: #666; font-size: 1.1em;">日均成交</div>
             </div>
         </div>
-        
-        <!-- 美國股市統計 -->
-        <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年4月23日終場）</div>
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <h3>標普500</h3>
-                    <div class="stat-value">7,108.40點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -29.50點 (-0.41%)</div>
-                </div>
-                <div class="stat-item">
-                    <h3>道瓊工業指數</h3>
-                    <div class="stat-value">49,310.32點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -179.71點 (-0.36%)</div>
-                </div>
-                <div class="stat-item">
-                    <h3>納斯達克</h3>
-                    <div class="stat-value">24,438.50點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -219.06點 (-0.89%)</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 台股新聞 -->
-        <div class="news-section">
-            <h2 class="section-title">🔥 台股5大重點新聞</h2>
-            
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">①</div>
-                        <div class="news-title">台股創收盤新高38932.4點 漲1218點創歷史第5大漲點</div>
-                        <div class="news-content">台股24日開高走高，加權指數終場大漲1,218.25點，創史上第五大漲點，以38,932.4點作收，漲幅3.23％，成交量10,329.20億元。受金管會放寬台積電持股上限提振，台股盤中一度衝達38,989.94點，創盤中歷史第六大漲點。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">金管會閃電鬆綁台積電禁令 持股比重從10%升至25%</div>
-                        <div class="news-content">金管會24日公告放寬國內股票型基金及國內股票主動式ETF，投資單一公司股票不得超過基金淨資產價值10%的限制，提高至25%。此政策被外界視為「台積電條款」。預計現有投信資金中，仍有高達1,920億元額度可增持台積電。</div>
-                        <div class="news-source">來源：中時新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">③</div>
-                        <div class="news-title">台積電創2185元新天價 上漲105元寫史上最大單日上漲</div>
-                        <div class="news-content">台積電(2330)終場收在2,185元，上漲105元，為史上最大單日上漲金額，漲幅5.05％。台積電市值達56.66兆元，影響大盤指數約884點。分析師直言「台積電不跌也要買」，看好金管會政策鬆綁帶動後續上漲。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">④</div>
-                        <div class="news-title">台股1年飆漲1.24倍 AI產業與ETF推波助瀾</div>
-                        <div class="news-content">台股自去年4月低點17,306.97點，至今天高點38,921.95點，1年時間大漲21,614.98點，1年飆漲1.24倍。除了台灣高科技產業搭上AI產業浪潮外，主動式ETF的推波助瀾及資金潮湧向資本市場，都是推升台股頻創新高的主要動能。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">⑤</div>
-                        <div class="news-title">新股中信美國數據中心ETF上市首日漲24% 溢價熱爆</div>
-                        <div class="news-content">中信美國數據中心及電力ETF基金(009819)昨日以10元上市，受到台股追價買盤積極，昨日收盤價12.54元，溢價幅度高達24.13%。24日股價校正回歸，顯示市場對AI基建投資前景看好。</div>
-                        <div class="news-source">來源：ETtoday</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 美股新聞 -->
-        <div class="news-section">
-            <h2 class="section-title">🚀 美股5大重點新聞</h2>
-            
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">①</div>
-                        <div class="news-title">美股三大指數回檔 地緣政治不確定性升溫</div>
-                        <div class="news-content">美股4月23日三大指數全面下跌。標普500下跌0.41%至7,108.40點，道瓊工業指數下跌0.36%至49,310.32點，納斯達克下跌0.89%至24,438.50點。受到美伊停火前景愈發朔迷離、企業財報憂喜參半的影響，打擊投資人信心。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">伊朗戰事升溫 議長退出談判影響市場情緒</div>
-                        <div class="news-content">有報導稱伊朗議長卡利巴夫已退出談判團隊，隨後又傳出伊朗境內發生空襲。受此影響，美股走弱且油價飆升。伊朗法爾斯通訊社稱，由於全國多地出現小型無人機，防空系統已啟動。地緣政治局勢的不確定性持續拖累股市。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">③</div>
-                        <div class="news-title">企業財報季憂喜參半 特斯拉、IBM表現分化</div>
-                        <div class="news-content">特斯拉公布第一季度營收223.9億美元，低於分析師預期的226億美元，汽車交付量同比增長6.3%但低於預期。IBM第一季度財報發布後股價下跌5%，盤後進一步下跌8%。財報季的分化表現令市場投資人尋求減倉。</div>
-                        <div class="news-source">來源：163新聞</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">④</div>
-                        <div class="news-title">油價逼近100美元大關 通膨風險重燃</div>
-                        <div class="news-content">隨著伊朗加強對荷莫茲海峽的控制和地緣政治局勢惡化，國際油價維持在每桶100美元附近，令人們對通膨加劇的擔憂持續處於焦點。4月份S&P Global綜合PMI從3月的52.1下降至50.9，經濟增速放緩信號也在加重市場負擔。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">⑤</div>
-                        <div class="news-title">市場陷入「大風吹遊戲」 經濟數據相對突顯</div>
-                        <div class="news-content">Infrastructure Capital Advisors執行長Jay Hatfield表示：「我們正處於財報季與這些不太可能帶來好消息的戰爭頭條之間，就像在玩『大風吹』遊戲一樣。」市場在財報與地緣政治間搖擺，尋求經濟數據支撐。新屋銷售意外上升，但房價與利率水位仍考驗可負擔性。</div>
-                        <div class="news-source">來源：聯合新聞網</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <h3>📈 財經新聞自動化平台</h3>
-            <p>每天自動為您生成美股和台股的深度分析報告</p>
-            <p>台美股市新聞 | 實時市場數據 | 投資策略建議</p>
-            
-            <div class="footer-links">
-                <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank">📖 查看完整分析</a>
-                <a href="https://instagram.com/wu_wealth_lab" target="_blank">📱 追蹤 Instagram</a>
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
-                ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
-                © 2026 財經新聞自動化平台 | 由 Claude AI 驅動<br>
-                最後更新: <span id="update-time">-</span>
-            </p>
-        </footer>
     </div>
     
-    <script>
-        const now = new Date();
-        const timeStr = now.toLocaleString('zh-TW');
-        document.getElementById('update-time').textContent = timeStr;
-    </script>
+    <!-- 美國股市統計 -->
+    <div class="stats-container">
+        <div class="stats-title">🇺🇸 美國股市（2026年4月25日終場）</div>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>標普500</h3>
+                <div class="stat-value">7,165.08點</div>
+                <div style="color: #51cf66; font-size: 1.1em;">↑ +56.68點 (+0.80%)</div>
+                <div class="highlight-badge">✨ 創紀錄新高</div>
+            </div>
+            <div class="stat-item">
+                <h3>道瓊工業指數</h3>
+                <div class="stat-value">49,230.71點</div>
+                <div style="color: #ff6b6b; font-size: 1.1em;">↓ -79.61點 (-0.16%)</div>
+            </div>
+            <div class="stat-item">
+                <h3>納斯達克</h3>
+                <div class="stat-value">24,836.60點</div>
+                <div style="color: #51cf66; font-size: 1.1em;">↑ +398.09點 (+1.63%)</div>
+                <div class="highlight-badge">✨ 創紀錄新高</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 台股新聞 -->
+    <div class="news-section">
+        <h2 class="section-title">🔥 台股5大重點新聞</h2>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">①</div>
+                    <div class="news-title">歷史性時刻！台股衝破4萬點大關 終場收39616.63點</div>
+                    <div class="news-content">台股27日開高走高，加權指數大漲684.23點，以39,616.63點作收，漲幅1.76％，成交量11,844.5億元。盤中一度狂飆1262.52點，最高衝達40,194.92點，歷史性地突破4萬點大關！台股自1月5日站上3萬點後，不到4個月時間便勢如破竹，衝上4萬點，漲速驚人。</div>
+                    <div class="news-source">來源：聯合新聞網</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">②</div>
+                    <div class="news-title">台積電攻上2305元創新天價 市值直逼2.1兆美元</div>
+                    <div class="news-content">台積電(2330)盤中大漲逾120元至2305元創新天價，終場收在2,265元，上漲80元，漲幅3.66％。開盤15分鐘內指數狂飆1240點，台積電股價「追上股號」市場戲稱的2330元關口近在咫尺。台積電市值已達56.66兆元新台幣，ADR股價更衝至409.49美元，市值逼近2.1兆美元。</div>
+                    <div class="news-source">來源：ETtoday</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">③</div>
+                    <div class="news-title">金管會鬆綁政策發威 權值股聯發科、信驊同飆天價</div>
+                    <div class="news-content">受惠金管會放寬基金、ETF投資單一標的比重至25%的利多，台股權值股全面狂飆。聯發科(2454)同飆天價至2,470元，股王信驊(5274)也創歷史新高。金管會的政策鬆綁被外界視為「台積電條款」，預計現有投信資金仍有1,920億元額度可增持台積電，帶動權值股行情。</div>
+                    <div class="news-source">來源：聯合新聞網</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">④</div>
+                    <div class="news-title">英特爾財報超預期助漲 芯片概念股全面爆發</div>
+                    <div class="news-content">美股英特爾第一季財報大幅超越分析師預期，毛利率顯著擴增，股價飆漲逾24%。台股相關供應鏈如欣興(3037)、嘉澤(3533)、鈦昇(8027)等27日仍不畏台積電吸金，股價續創歷史新高。欣興站上800元大關，嘉澤盤中大漲逾6%，鈦昇上漲逾2%。</div>
+                    <div class="news-source">來源：聯合新聞網</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">⑤</div>
+                    <div class="news-title">矽晶圓族群走強 中美晶衝漲停、環球晶重返600元</div>
+                    <div class="news-content">AI推升先進封裝需求持續升溫，中美晶(5483)27日強勢攻上漲停143元，成交量放大至逾3萬張，改寫近17個月新高。矽晶圓族群走強，環球晶(6488)大漲逾6%、重返600元關卡。即將於29日處置出關的台勝科(3532)亦帶量上攻，AI相關概念股全面受惠。</div>
+                    <div class="news-source">來源：聯合新聞網</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 美股新聞 -->
+    <div class="news-section">
+        <h2 class="section-title">🚀 美股5大重點新聞</h2>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">①</div>
+                    <div class="news-title">標普500與納指創紀錄新高 英特爾財報超預期飆漲24%</div>
+                    <div class="news-content">美股4月25日(週五)收盤涨跌不一但創多項新高。標普500指數上漲0.80%至7,165.08點創紀錄新高，納斯達克指數上漲1.63%至24,836.60點創紀錄新高，道瓊工業指數下跌0.16%至49,230.71點。英特爾公布財報後股價飆升逾24%，首席財務官表示業績反映「CPU在AI時代日益增長且關鍵的作用」。</div>
+                    <div class="news-source">來源：新浪財經</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">②</div>
+                    <div class="news-title">英特爾數據中心與AI部門營收年增22% 擴大晶圓產能</div>
+                    <div class="news-content">英特爾第一季度營收超預期，其中數據中心與AI部門營收高達51億美元，同比增長22%。客戶端計算部門營收增長1%至77億美元，晶圓代工部門營收增長16%至54億美元。公司首席財務官表示正專注於擴大硅芯片供應。Evercore ISI分析師將英特爾評級上調至「買入」級別，認為新任CEO成功修復資產負債表。</div>
+                    <div class="news-source">來源：新浪財經</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">③</div>
+                    <div class="news-title">美伊外交談判升溫 伊朗代表團抵達巴基斯坦</div>
+                    <div class="news-content">據新華社報道，伊朗外長已抵達巴基斯坦，巴基斯坦消息人士確認伊朗外交部長阿拉格齐所乘飛機已降落努爾汗空軍基地。市場對美伊重啟和談寄予期望，將有助於緩解地緣政治緊張局勢。美伊談判進展被視為支撐全球風險資產的重要因素，預計若談判有進展，或將帶動油價回落、緩解通膨壓力。</div>
+                    <div class="news-source">來源：聯合新聞網</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">④</div>
+                    <div class="news-title">科技股領漲 芯片板塊表現最強 NVIDIA市值突破5兆美元</div>
+                    <div class="news-content">週五交易中，芯片股普遍上漲，成為領漲板塊。NVIDIA股價創歷史新高，市值再度突破5兆美元大關(去年10月後再次觸及此高度)。美國科技巨頭英偉達、AMD等半導體廠商股價走強。NewEdge Wealth首席投資官指出，市場領漲板塊持續收窄，「曾經七巨頭都表現良好，現在實際上只是半導體板塊表現良好」，這些超周期行業今年將實現100%盈利增長。</div>
+                    <div class="news-source">來源：新浪財經</div>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-card-content">
+                    <div class="news-rank">⑤</div>
+                    <div class="news-title">美司法部結束對Fed主席鮑威爾調查 沃什接任路更暢通</div>
+                    <div class="news-content">美國司法部最新表示，將結束對美聯儲主席鮑威爾的刑事調查，此舉將掃清此前阻礙凱文·沃什確認接任Fed主席職位的障礙。政策層面的不確定性消除後，市場投資人對聯準會政策走向期待更明確。市場預期聯準會今年可能降息約50個基點，但根據利率期貨顯示，1月就降息的機率仍偏低。</div>
+                    <div class="news-source">來源：聯合新聞網</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h3>📈 財經新聞自動化平台</h3>
+        <p>每天自動為您生成美股和台股的深度分析報告</p>
+        <p>台美股市新聞 | 實時市場數據 | 投資策略建議</p>
+        
+        <div class="footer-links">
+            <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank">📖 查看完整分析</a>
+            <a href="https://instagram.com/wu_wealth_lab" target="_blank">📱 追蹤 Instagram</a>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
+            © 2026 財經新聞自動化平台 | 由 Claude AI 驅動<br>
+            最後更新: <span id="update-time">-</span>
+        </p>
+    </footer>
+</div>
+
+<script>
+    const now = new Date();
+    const timeStr = now.toLocaleString('zh-TW');
+    document.getElementById('update-time').textContent = timeStr;
+</script>
+```
+
 </body>
 </html>
