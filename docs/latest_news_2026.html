@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年5月7日台美股市分析</title>
+    <title>財經新聞自動化 | 2026年5月8日台美股市分析</title>
     <style>
         * {
             margin: 0;
@@ -61,6 +61,19 @@
             text-decoration: underline;
         }
         
+        .warning-box {
+            background: rgba(255, 152, 0, 0.2);
+            border-left: 4px solid #FF9800;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        .warning-box strong {
+            color: #FFB74D;
+        }
+        
         .stats-container {
             margin-bottom: 40px;
         }
@@ -85,7 +98,7 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-left: 5px solid #51cf66;
+            border-left: 5px solid #ff6b6b;
         }
         
         .stat-item h3 {
@@ -102,18 +115,7 @@
             margin: 10px 0;
         }
         
-        .gain-badge {
-            display: inline-block;
-            background: #51cf66;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .strong-badge {
+        .loss-badge {
             display: inline-block;
             background: #ff6b6b;
             color: white;
@@ -124,16 +126,27 @@
             margin-top: 10px;
         }
         
+        .warn-badge {
+            display: inline-block;
+            background: #FF9800;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
         .highlight-box {
-            background: #e8f5e9;
-            border-left: 4px solid #51cf66;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
         }
         
         .highlight-box strong {
-            color: #2e7d32;
+            color: #856404;
         }
         
         .news-section {
@@ -254,81 +267,88 @@
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年5月7日 台股衝4萬2千點！</p>
+            <p>台灣人必看的股市消息 | 2026年5月8日 高檔回檔整理日</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
         
+        <!-- 警告提示 -->
+        <div class="warning-box">
+            <strong>⚠️ 市場警訊：</strong><br>
+            台股高檔回檔！加權指數下跌329.84點(-0.79%)！電子股跌幅領先！<br>
+            美股全線下跌！油價反彈升溫通膨擔憂！美伊談判面臨變數！
+        </div>
+        
         <!-- 台灣股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年5月7日 - 盤中創歷史新高！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年5月8日 終場 - 高檔回檔調整）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">41,933.78點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">盤中最高：42,131.81點</div>
-                    <div class="gain-badge">🚀 盤中漲993點！</div>
+                    <div class="stat-value">41,603.94點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -329.84點 (-0.79%)</div>
+                    <div class="loss-badge">📉 獲利了結</div>
                 </div>
                 <div class="stat-item">
-                    <h3>台積電(2330)</h3>
-                    <div class="stat-value">2,345元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +95元 (+4.22%)</div>
-                    <div class="strong-badge">✨ 歷史新天價！</div>
+                    <h3>盤中最高</h3>
+                    <div class="stat-value">42,735.31點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">回檔1,131點</div>
+                    <div class="warn-badge">⚠️ 高檔整理</div>
                 </div>
                 <div class="stat-item">
-                    <h3>聯發科(2454)</h3>
-                    <div class="stat-value">3,430元</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">列處置交易</div>
-                    <div class="strong-badge">⚠️ 市值5.5兆元</div>
+                    <h3>電子指數</h3>
+                    <div class="stat-value">2,695.24點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -27.37點 (-1.01%)</div>
+                    <div class="loss-badge">🔴 跌幅最大</div>
                 </div>
                 <div class="stat-item">
                     <h3>成交金額</h3>
-                    <div class="stat-value">1.194兆元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">日均成交</div>
-                    <div class="gain-badge">爆量成交！</div>
+                    <div class="stat-value">12,450.02億</div>
+                    <div style="color: #666; font-size: 1.1em;">日均成交</div>
+                    <div class="warn-badge">成交量萎縮</div>
                 </div>
             </div>
         </div>
         
-        <!-- 5月7日關鍵數據 -->
+        <!-- 5月8日關鍵數據 -->
         <div class="highlight-box">
-            <strong>📊 5月7日關鍵數據整理：</strong><br>
-            ✅ <strong>盤中衝上42K</strong>：加權指數盤中最高42,131.81點，創史上新高！漲幅達992.96點<br>
-            ✅ <strong>台積電創新天價</strong>：股價衝至2,345元，漲95元，權值股挹注大盤755點<br>
-            ✅ <strong>聯發科列處置股</strong>：市值5.5兆元創台股有該制度以來最大案例，引發金管會檢討<br>
-            ✅ <strong>分散族群強勢</strong>：台達電、日月光投控、聯電、廣達等權值股齊聲歡騰<br>
-            ✅ <strong>高檔行情風險升高</strong>：年線乖離率達43%創歷史新高，巴菲特指標亮紅燈<br>
-            ✅ <strong>美股全線創新高激勵</strong>：AMD狂漲18.9%、費半4.48%、標普納指創新高
+            <strong>📊 5月8日關鍵數據整理：</strong><br>
+            ✅ <strong>高檔回檔震盪</strong>：盤中衝高至42,735.31點後，尾盤回檔至41,603.94點<br>
+            ✅ <strong>電子股領跌</strong>：電子指數下跌27.37點(-1.01%)，為最大跌幅族群<br>
+            ✅ <strong>上權權值股弱勢</strong>：上權下跌6.97點(-1.67%)、金融上漲22.24點(+0.87%)<br>
+            ✅ <strong>成交量萎縮</strong>：成交金額12,450.02億元，較前日明顯下滑<br>
+            ✅ <strong>聯發科解禁在即</strong>：5月20日處置期滿，市場關注解禁後動向<br>
+            ✅ <strong>報稅季來臨</strong>：5月報稅季開啟，預期存在大股東賣壓
         </div>
         
         <!-- 美國股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年5月6日終場 - 全線創新高！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年5月7日終場 - 全線下跌調整）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>道瓊指數</h3>
-                    <div class="stat-value">49,910.59點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +612.34點 (+1.24%)</div>
-                    <div class="gain-badge">✅ 強勢上漲</div>
+                    <div class="stat-value">49,596.97點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -313.62點 (-0.63%)</div>
+                    <div class="loss-badge">📉 回檔調整</div>
                 </div>
                 <div class="stat-item">
                     <h3>標普500</h3>
-                    <div class="stat-value">7,365.12點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +105.90點 (+1.46%)</div>
-                    <div class="gain-badge">📈 創新高</div>
+                    <div class="stat-value">7,337.11點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -28.01點 (-0.38%)</div>
+                    <div class="loss-badge">整理回檔</div>
                 </div>
                 <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">25,838.94點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +512.82點 (+2.02%)</div>
-                    <div class="gain-badge">🚀 科技領漲</div>
+                    <div class="stat-value">25,806.20點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -32.75點 (-0.13%)</div>
+                    <div class="loss-badge">小幅下跌</div>
                 </div>
                 <div class="stat-item">
-                    <h3>費城半導體</h3>
-                    <div class="stat-value">11,472.75點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +492.18點 (+4.48%)</div>
-                    <div class="strong-badge">🔥 歷史新高！</div>
+                    <h3>油價反彈</h3>
+                    <div class="stat-value">升至109+美元</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↑ 反彈升溫</div>
+                    <div class="warn-badge">🔴 通膨風險</div>
                 </div>
             </div>
         </div>
@@ -341,45 +361,45 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">台股衝破42K！盤中創42131.81點史上新高 台積電飆至2345元天價</div>
-                        <div class="news-content">台股5月7日開盤氣勢如虹！加權指數開盤即大漲121.11點至41,259.96點，開盤後漲勢更加擴大。在台積電領軍下，台積電一開盤即跳空至2,335元，隨後更進一步攀升至2,345元，創下歷史新天價！台積電單一個股就為大盤貢獻755點漲幅。加權指數隨後衝上42,000點歷史新關卡，盤中最高攻至42,131.81點，再創盤中歷史新高，單日漲幅高達992.96點！台達電早盤漲逾3%、日月光投控漲2.2%，權值股齊聲歡騰。</div>
-                        <div class="news-source">來源：中央社、ETtoday、聯合新聞網</div>
+                        <div class="news-title">台股高檔回檔！加權指數跌329.84點 電子股領跌-1.01%</div>
+                        <div class="news-content">台股5月8日呈現高檔整理格局，盤中一度衝上42,735.31點的高點，惟隨後獲利了結賣壓湧現，指數急速拉回。終場加權指數下跌329.84點至41,603.94點，跌幅0.79%。電子指數領跌，下跌27.37點或1.01%，為所有族群中跌幅最大者。上權指數下跌6.97點或1.67%，金融類股相對抗跌，上漲22.24點或0.87%。成交金額12,450.02億元，相較前日明顯萎縮，反映市場交投氛圍趨於保守。</div>
+                        <div class="news-source">來源：中央社、ETtoday</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">聯發科遭列處置股！市值5.5兆創台股有制度以來最大案例 引發金管會檢討</div>
-                        <div class="news-content">聯發科(2454)因股價近日漲幅過大，於5月7日起至5月20日進入處置交易，共計10個營業日。聯發科目前為台股加權指數權重第三大個股，市值約新台幣5.5兆元，成為台股有該制度以來市值規模最大的處置股，受到市場高度關注。金管會主委彭金隆表示，現行注意股、處置股制度確實有檢討必要，研議部分大型權值股可納入「例外排除」，避免影響市場。聯發科今日早盤開平盤，隨後轉跌近4%。</div>
-                        <div class="news-source">來源：Newtalk、中央社、聯合新聞網</div>
+                        <div class="news-title">台股連創新高後現獲利了結 技術面過熱警訊逐步浮現</div>
+                        <div class="news-content">台股在創下42K新高後，開始呈現高檔震盪格局。專家警告，過去一週內台股連續創歷史新高，造成市場過度樂觀情緒。年線乖離率已達43%創歷史新高，季線乖離率超過17%，融資餘額維持在4,600億元以上的高檔區間。這些技術面指標均示警市場已進入相對高檔區域，短期內調整壓力逐步升高。投資人應考慮逢高獲利了結，避免被套。</div>
+                        <div class="news-source">來源：Newtalk、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">聯電創26年新高98.8元！成熟製程漲價題材持續火熱</div>
-                        <div class="news-content">半導體晶圓代工「二哥」聯電(2303)在成熟製程漲價題材帶動下，5月7日股價持續上攻，開盤1小時成交量高達18萬張，股價大漲8.1%至98.8元，創下2000年5月以來、26年新高紀錄！聯電的強勢表現反映市場對成熟製程需求的樂觀預期，隨著AI發展推升對成熟製程產能的需求，聯電作為成熟製程專家，訂單能見度持續向好。</div>
-                        <div class="news-source">來源：ETtoday、經濟日報</div>
+                        <div class="news-title">聯發科處置期將滿 5月20日恢復正常交易 市場關注解禁後賣壓</div>
+                        <div class="news-content">聯發科(2454)自5月7日起進入為期10個營業日的處置交易，預計於5月20日恢復正常交易。聯發科以市值5.5兆元居台股權重第三，是處置制度以來最大案例。市場關注5月20日解禁後，該股可能出現的補量上攻或波動加劇情形。金管會主委彭金隆表示，現行處置股制度確實有檢討必要，已請證期局、證交所研議可能的改善方案。</div>
+                        <div class="news-source">來源：Newtalk、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">台股年線乖離率創43%歷史新高！巴菲特指標亮紅燈 高檔調整壓力浮現</div>
-                        <div class="news-content">台股在連日上漲的推動下，技術面警訊不斷浮現。富邦投顧總經理陳永俊警告，台股目前無論從「年線乖離率、巴菲特指標，或個股估值」水準觀察，都已來到相對危險區域。年線乖離率已攀升至43%，創下歷史新高，遠超過30%的歷史警戒線。巴菲特指標（股市總市值/GDP）同樣亮起紅燈。陳永俊建議投資人在未來一至兩週若遇利多消息帶動上漲，可考慮逢高分批獲利了結。專家預估第三季大盤可能面臨超過一成的修正壓力。</div>
-                        <div class="news-source">來源：Newtalk、Business Insider</div>
+                        <div class="news-title">5月報稅季來臨！大股東賣股繳稅潛在賣壓籠罩市場</div>
+                        <div class="news-content">台股迎來5月報稅季，市場預期可能面臨大股東「賣股繳稅」的潛在賣壓。隨著4月股市大漲，投資所得稅可能提高，促使部分大股東考慮在5月或6月進行減持以籌措稅款。專家預期此因素可能成為台股短期的壓力來源。另一方面，台股傳統除權息旺季即將啟動，高殖利率個股可能成為投資人關注焦點，形成結構性輪動格局。</div>
+                        <div class="news-source">來源：工商時報、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">航運股受惠！BCI指數衝5074點創5年新高 油運需求升溫</div>
-                        <div class="news-content">在中東局勢緩和帶動油價走勢波動的背景下，航運股意外受惠。上海岬型船運費指數(BCI)在5月6日晚間上漲371點，來到5,074點，創近5年5月新高。法人分析指出，全球20%天然氣透過荷莫茲海峽運送，該海峽持續受到關注導致油運需求增加。各國被迫重新啟動或加重燃煤發電比重，帶動燃煤運輸需求上升，散裝航運成為受惠者。特別看好裕民(2606)與中航(2612)等航運股的後續表現。</div>
-                        <div class="news-source">來源：ETtoday、法人研究報告</div>
+                        <div class="news-title">法人建議：「小跌小買」策略 不必等待技術面明顯回檔</div>
+                        <div class="news-content">對於台股近期高檔整理的局面，多位投顧建議投資人應採取「小跌小買」而非「等待大跌」的策略。啟發投顧分析師丁彥鈞指出，AI與半導體題材仍為當前市場主軸，中小型供應鏈持續受惠，短線不必過度等待技術面明顯回檔，相關個股在資金追逐下大幅修正機率不高。但同時強調，投資人應提高風控意識，在高檔區域應嚴守停損紀律。</div>
+                        <div class="news-source">來源：Newtalk、聯合新聞網</div>
                     </div>
                 </div>
             </div>
@@ -393,8 +413,8 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">美伊談判傳捷報 油價暴跌7% 美股全線創新高 標普納指再寫歷史</div>
-                        <div class="news-content">美股5月6日受雙重利多提振全線上漲創新高。首先，川普透露可望在訪華前與伊朗達成協議，美伊停戰談判傳出捷報，大幅緩解市場對地緣政治的擔憂。其次，超微(AMD)公布亮眼財報，重燃市場對AI投資的熱度。受此影響，國際油價暴跌，布蘭特原油期貨盤中下跌逾6-7%，跌至每桶約101美元的兩週低點。低油價環境有助於緩解通膨壓力，進一步推升投資人風險胃口。標普500指數上漲1.46%至7,365.12點、納斯達克上漲2.02%至25,838.94點、道瓊上漲1.24%至49,910.59點，均創新高或多月高點。</div>
+                        <div class="news-title">美股全線下跌！道瓊跌313點 油價反彈升溫通膨擔憂</div>
+                        <div class="news-content">美股5月7日全線調整下跌。道瓊工業指數下跌313.62點或0.63%，收在49,596.97點，失守50,000整數大關。標普500指數下跌28.01點或0.38%，收7,337.11點。納斯達克指數下跌32.75點或0.13%，收25,806.20點。美股近期連續創新高後，開始出現技術面調整。市場最主要的擔憂來自油價反彈升溫，布蘭特原油價格重新站上109美元上方，引發對通膨再次升溫的憂慮。</div>
                         <div class="news-source">來源：聯合新聞網、路透社</div>
                     </div>
                 </div>
@@ -402,36 +422,36 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">AMD狂漲18.9%至421.39美元！Q1財報亮眼Q2指引超預期 AI需求爆發</div>
-                        <div class="news-content">超微(AMD)周二盤後公布第一季財報，營收同比增長38%至103億美元，好於分析師平均預期的98.9億美元；調整後每股收益為1.37美元，好於分析師平均預期的1.28美元。預計第二季營收為112億美元，好於分析師平均預期的105億美元。超微的業績成長反映AI晶片需求旺盛，資料中心客戶正越來越多地尋求英偉達的替代方案。這一樂觀展望表明超微正在贏得全球AI計算領域最大支出客戶的訂單。股價盤後狂漲18.9%，創下歷史新高421.39美元。</div>
-                        <div class="news-source">來源：聯合新聞網、智通財經</div>
+                        <div class="news-title">油價反彈升溫！布蘭特原油站上109美元 美伊談判進展成變數</div>
+                        <div class="news-content">國際油價在經歷短暫的下跌後，於5月7日反彈升溫。布蘭特原油期貨上升至109美元上方，逆轉了之前的跌勢。市場認為美伊談判進展的變數增加，對荷莫茲海峽通行前景的樂觀預期也隨之減弱。能源價格的上升，預期將進一步推高通膨壓力，對美聯儲可能的降息計畫構成挑戰，也為股市帶來利空。投資人對於通膨卷土重來的擔憂情緒重新升溫。</div>
+                        <div class="news-source">來源：聯合新聞網、彭博</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">費城半導體指數狂漲4.48%創新高 英特爾Arm輝達全線飆升</div>
-                        <div class="news-content">費城半導體指數在AMD的帶領下狂漲4.48%至11,472.75點，創造歷史新高！整個半導體產業全面啟動。英特爾(Intel)續漲4.5%，Arm飆升14%，輝達(NVIDIA)大漲5.77%創2月以來最佳表現。台積電ADR也大漲6.36%至394.41美元。市場認為AI投資正在逐步轉化為實際營收與獲利，而非純粹的燒錢投資。半導體族群已成為市場最強的投資標的，今年迄今費半已累計漲幅達62%。</div>
-                        <div class="news-source">來源：聯合新聞網、Anue鉅亨</div>
+                        <div class="news-title">費城半導體指數跌幅逾1% 台積電ADR回落 科技股承壓</div>
+                        <div class="news-content">費城半導體指數(SOX)在5月7日下跌超過1%，結束連日上漲態勢。台積電ADR股價回落，跌幅一度逾1%。近期強勢的半導體族群首度出現明顯調整，反映市場對於短期技術面過熱的擔憂。英特爾、AMD等芯片股也跟隨整體大盤走勢下滑。分析師認為，半導體族群經歷了連日上漲後，技術面面臨獲利了結壓力，短期內可能維持震盪格局。</div>
+                        <div class="news-source">來源：中時新聞網、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">輝達與康寧建立戰略合作！投資逾27億美元擴大光纖產能50%</div>
-                        <div class="news-content">輝達與北美最大光纖製造商康寧(Corning)宣布建立長期合作夥伴關係，為AI基礎建設賦能。根據協議內容，輝達賦予康寧最高可投資27億美元的權利，並取得最多1,500萬股普通股認股權。協議目標是把美國光纖產量提升逾50%。康寧股價因此大漲12%，輝達也漲5.77%。此舉反映科技巨頭對AI基礎設施長期建設的承諾，預示AI投資將在硬體領域持續深化。</div>
-                        <div class="news-source">來源：聯合新聞網、財訊快報</div>
+                        <div class="news-title">美伊談判面臨變數 市場觀望氛圍升溫 避險情緒回升</div>
+                        <div class="news-content">美伊和平談判的進展成為近期美股走勢的關鍵變數。隨著雙方談判前景不明朗，市場對於荷莫茲海峽是否能順利通行的預期也出現動搖。油價反彈、避險情緒回升，投資人轉向更保守的交易態度。市場現在等待更多有關談判進展的具體信息。若協議最終無法達成，油價將面臨進一步上漲壓力，這對全球股市而言將構成重大利空。</div>
+                        <div class="news-source">來源：聯合新聞網、彭博</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">迪士尼財報優於預期漲7.5% 優步漲8.5% 消費股相對回暖</div>
-                        <div class="news-content">迪士尼(Disney)第2季獲利優於預期，股價上漲7.5%。優步(Uber)預計第2季預訂成長強勁，激勵股價上漲8.5%。相較於技術股的絕對領漲，消費股也逐步回暖，顯示美股漲勢開始具備廣度。標普500等權重指數同步創下歷史新高，意味著此輪上漲不僅由少數權值股驅動，而是分散到更多行業和公司。這預示經濟基本面的回暖正逐步滲透到各個產業。</div>
-                        <div class="news-source">來源：聯合新聞網、MoneyDJ</div>
+                        <div class="news-title">美債殖利率升溫 美元走強 風險資產承壓加劇</div>
+                        <div class="news-content">隨著油價上升和通膨預期升溫，美國國債殖利率也開始上升。美元指數走強，反映市場對美聯儲可能維持更高利率的預期。在這種環境下，科技股等高估值風險資產面臨更大的壓力。市場預期美聯儲短期內降息的概率已大幅降低，這對股市尤其是成長股構成不利因素。投資人正在重新評估持股配置，從高增長股轉向更為保守的資產配置。</div>
+                        <div class="news-source">來源：路透社、聯合新聞網</div>
                     </div>
                 </div>
             </div>
@@ -439,13 +459,13 @@
         
         <!-- 下週展望 -->
         <div class="highlight-box">
-            <strong>📅 下週(5月8日-5月9日)重點關注：</strong><br>
-            📊 <strong>超過100家S&P500成分股財報密集公布</strong> - Palantir、迪士尼、麥當勞等<br>
-            🔍 <strong>聯發科處置股期間</strong> - 5月7-20日採人工管制撮合(約每5分鐘撮合一次)<br>
-            💼 <strong>美股更多企業財報</strong> - 完整評估AI投資ROI是否顯現<br>
-            🎉 <strong>COMPUTEX倒計時</strong> - 5月下旬台北國際電腦展進入倒數<br>
-            ⚠️ <strong>台股高檔調整風險** - 技術面過熱、融資餘額創高、年線乖離率創43%<br>
-            🌍 <strong>美伊談判進展監控</strong> - 協議簽署將影響油價與市場風險資產配置
+            <strong>📅 下週重點監控(5月9日-5月13日)：</strong><br>
+            📊 <strong>聯發科處置股解禁倒計時</strong> - 5月20日恢復正常交易，市場關注補量動向<br>
+            💼 <strong>台股除權息旺季展開</strong> - 高殖利率個股可能成為輪動焦點<br>
+            🌍 <strong>美伊談判最新進展</strong> - 協議簽署與否將影響油價與股市走勢<br>
+            📈 <strong>更多企業財報公布</strong> - 美股超過100家公司將陸續公布季報<br>
+            💰 <strong>台股報稅季賣壓風險</strong> - 5月報稅季大股東減持潛在影響<br>
+            ⚠️ <strong>技術面過熱警訊</strong> - 高檔整理格局確立，短期調整壓力升高
         </div>
         
         <footer>
