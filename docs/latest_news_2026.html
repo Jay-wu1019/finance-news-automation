@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年5月13日台美股市分析</title>
+    <title>財經新聞自動化 | 2026年5月14日台美股市分析</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,10 +14,7 @@
             padding: 20px;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1400px; margin: 0 auto; }
         
         header {
             text-align: center;
@@ -30,17 +23,8 @@
             padding: 40px 0;
         }
         
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
+        header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { font-size: 1.2em; opacity: 0.9; margin-bottom: 15px; }
         
         .ig-badge {
             display: inline-block;
@@ -50,33 +34,19 @@
             font-size: 0.95em;
             backdrop-filter: blur(10px);
         }
+        .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
         
-        .ig-badge a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .ig-badge a:hover {
-            text-decoration: underline;
-        }
-        
-        .warning-box {
-            background: rgba(255, 152, 0, 0.2);
-            border-left: 4px solid #FF9800;
+        .success-box {
+            background: rgba(81, 207, 102, 0.2);
+            border-left: 4px solid #51cf66;
             padding: 20px;
             margin-bottom: 30px;
             border-radius: 5px;
             color: white;
         }
+        .success-box strong { color: #51cf66; }
         
-        .warning-box strong {
-            color: #FFB74D;
-        }
-        
-        .stats-container {
-            margin-bottom: 40px;
-        }
+        .stats-container { margin-bottom: 40px; }
         
         .stats-title {
             color: white;
@@ -98,60 +68,28 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-left: 5px solid #ff6b6b;
+            border-left: 5px solid #51cf66;
         }
         
-        .stat-item h3 {
-            color: #1a3a52;
-            margin-bottom: 10px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
+        .stat-item.down { border-left: 5px solid #ff6b6b; }
         
-        .stat-value {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #333;
-            margin: 10px 0;
-        }
+        .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
+        .stat-value { font-size: 2.5em; font-weight: bold; color: #333; margin: 10px 0; }
         
-        .loss-badge {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .warn-badge {
-            display: inline-block;
-            background: #FF9800;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
+        .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         
         .highlight-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
+            background: #e8f5e9;
+            border-left: 4px solid #51cf66;
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
         }
+        .highlight-box strong { color: #2e7d32; }
         
-        .highlight-box strong {
-            color: #856404;
-        }
-        
-        .news-section {
-            margin-bottom: 50px;
-        }
+        .news-section { margin-bottom: 50px; }
         
         .section-title {
             color: white;
@@ -177,47 +115,13 @@
             display: flex;
             flex-direction: column;
         }
+        .news-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
         
-        .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        
-        .news-card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-rank {
-            font-size: 2em;
-            font-weight: bold;
-            color: #1a3a52;
-            margin-bottom: 10px;
-        }
-        
-        .news-title {
-            font-size: 1.4em;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .news-content {
-            color: #666;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 15px;
-        }
-        
-        .news-source {
-            color: #2d5a7b;
-            font-size: 0.9em;
-            font-weight: 500;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
+        .news-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .news-rank { font-size: 2em; font-weight: bold; color: #1a3a52; margin-bottom: 10px; }
+        .news-title { font-size: 1.4em; color: #333; margin-bottom: 15px; font-weight: 600; }
+        .news-content { color: #666; line-height: 1.6; flex-grow: 1; margin-bottom: 15px; }
+        .news-source { color: #2d5a7b; font-size: 0.9em; font-weight: 500; border-top: 1px solid #eee; padding-top: 15px; }
         
         footer {
             background: rgba(255,255,255,0.1);
@@ -227,39 +131,15 @@
             border-radius: 10px;
             margin-top: 50px;
         }
-        
-        footer h3 {
-            margin-bottom: 15px;
-        }
-        
-        footer p {
-            margin: 10px 0;
-            opacity: 0.9;
-        }
-        
-        .footer-links {
-            margin-top: 20px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
+        footer h3 { margin-bottom: 15px; }
+        footer p { margin: 10px 0; opacity: 0.9; }
+        .footer-links { margin-top: 20px; }
+        .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
+        .footer-links a:hover { text-decoration: underline; }
         
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
+            header h1 { font-size: 2em; }
+            .news-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -267,89 +147,88 @@
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年5月13日 高檔回檔調整日！通膨風險升溫！</p>
+            <p>台灣人必看的股市消息 | 2026年5月14日 川習會助攻！台股強力反彈！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
         
-        <!-- 警告提示 -->
-        <div class="warning-box">
-            <strong>⚠️ 市場警訊：</strong><br>
-            台股高檔回檔！加權指數跌523.82點(-1.25%)！電子股領跌！<br>
-            美股通膨超預期！CPI3.8%創近3年新高！費半跌3%！英特爾跌6.8%！
+        <div class="success-box">
+            <strong>✅ 市場強訊號：</strong><br>
+            川習會今日登場助攻！台股強力反彈377.25點(+0.91%)！台積電強彈50元收2270元！<br>
+            聯電漲停108元創26年新高！南亞科漲5%！華邦電漲停！MSCI台股三升大滿貫！<br>
+            美股納斯達克漲1.20%創新高！費半漲2.57%！標普500創歷史新高！
         </div>
         
         <!-- 台灣股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年5月13日 終場 - 高檔回檔調整！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年5月14日 終場 - 川習會助攻！強力反彈！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">41,374.50點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -523.82點 (-1.25%)</div>
-                    <div class="loss-badge">📉 高檔回檔！</div>
+                    <div class="stat-value">41,751.75點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +377.25點 (+0.91%)</div>
+                    <div class="gain-badge">🚀 強力反彈！</div>
                 </div>
                 <div class="stat-item">
                     <h3>盤中最高</h3>
-                    <div class="stat-value">42,782.11點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">回檔1,407點</div>
-                    <div class="warn-badge">⚠️ 高檔震盪</div>
+                    <div class="stat-value">42,205.62點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">盤中衝破42K！</div>
+                    <div class="strong-badge">💪 再觸42K！</div>
                 </div>
                 <div class="stat-item">
                     <h3>電子指數</h3>
-                    <div class="stat-value">2,682.71點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -41.10點 (-1.51%)</div>
-                    <div class="loss-badge">🔴 跌幅最大</div>
+                    <div class="stat-value">2,715.28點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +32.57點 (+1.21%)</div>
+                    <div class="gain-badge">📈 電子回穩</div>
                 </div>
                 <div class="stat-item">
                     <h3>成交金額</h3>
-                    <div class="stat-value">12,038.12億</div>
+                    <div class="stat-value">12,192.24億</div>
                     <div style="color: #666; font-size: 1.1em;">日均成交</div>
-                    <div class="warn-badge">成交量萎縮</div>
+                    <div class="strong-badge">成交回溫</div>
                 </div>
             </div>
         </div>
         
-        <!-- 5月13日關鍵數據 -->
         <div class="highlight-box">
-            <strong>📊 5月13日關鍵數據整理：</strong><br>
-            ✅ <strong>高檔回檔調整</strong>：盤中衝高至42,782.11點後急速拉回，終場跌523.82點<br>
-            ✅ <strong>電子股領跌</strong>：電子指數下跌41.10點或1.51%，為最大跌幅族群<br>
-            ✅ <strong>權值股通殺</strong>：台積電跌45-50元、台達電跌50元、聯發科跌75元<br>
-            ✅ <strong>金融股相對抗跌</strong>：金融保險上漲24.71點或0.99%，唯一亮點<br>
-            ✅ <strong>台積電調升股利</strong>：單季配息提升至7元新高，顯示高度信心<br>
-            ✅ <strong>美國通膨超預期</strong>：4月CPI年增3.8%創近3年新高，市場擔憂Fed降息延遲<br>
-            ✅ <strong>美伊局勢未明</strong>：談判進展不確定，油價續漲推高通膨預期
+            <strong>📊 5月14日關鍵數據整理：</strong><br>
+            ✅ <strong>川習會助攻</strong>：美中元首會議今日登場，市場對貿易緩和樂觀，推升全面反彈<br>
+            ✅ <strong>台積電強彈50元</strong>：台積電終場漲50元收2,270元，重返5日線，引領五大權值股齊漲<br>
+            ✅ <strong>聯電漲停108元</strong>：成熟製程題材持續發酵，睽違26年再創新高<br>
+            ✅ <strong>記憶體族群火熱</strong>：南亞科漲逾5%、華邦電漲停、群聯4月EPS達34.56元強鎖漲停<br>
+            ✅ <strong>MSCI三升大滿貫</strong>：台股奪MSCI三升，法人預估帶來1,500至2,500億元買盤<br>
+            ✅ <strong>美股昨夜強彈</strong>：納指、標普創新高，費半漲2.57%，激勵台指期夜盤上漲308點<br>
+            ✅ <strong>電子族群全面回溫</strong>：通信網路、電子零組件、半導體等族群漲幅居前
         </div>
         
         <!-- 美國股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年5月12日終場 - 通膨衝擊！科技股回檔！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年5月13日終場 - 納指標普創新高！費半強彈！）</div>
             <div class="stats-bar">
-                <div class="stat-item">
+                <div class="stat-item down">
                     <h3>道瓊指數</h3>
-                    <div class="stat-value">49,760.56點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +56.09點 (+0.11%)</div>
-                    <div class="warn-badge">微幅上漲</div>
+                    <div class="stat-value">49,693.20點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -67.36點 (-0.14%)</div>
+                    <div class="loss-badge">微幅下跌</div>
                 </div>
                 <div class="stat-item">
                     <h3>標普500</h3>
-                    <div class="stat-value">7,400.96點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -11.88點 (-0.16%)</div>
-                    <div class="loss-badge">📉 微幅下跌</div>
+                    <div class="stat-value">7,444.25點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +43.29點 (+0.58%)</div>
+                    <div class="strong-badge">📈 創新高！</div>
                 </div>
                 <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">26,088.20點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -185.92點 (-0.71%)</div>
-                    <div class="loss-badge">📉 科技股回檔</div>
+                    <div class="stat-value">26,402.34點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +314.14點 (+1.20%)</div>
+                    <div class="strong-badge">🚀 創新高！</div>
                 </div>
                 <div class="stat-item">
                     <h3>費城半導體</h3>
-                    <div class="stat-value">跌幅超3%</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">創一年來最大</div>
-                    <div class="loss-badge">🔴 芯片股暴跌</div>
+                    <div class="stat-value">12,017.98點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +300.72點 (+2.57%)</div>
+                    <div class="strong-badge">💪 強勢反彈！</div>
                 </div>
             </div>
         </div>
@@ -357,50 +236,49 @@
         <!-- 台股新聞 -->
         <div class="news-section">
             <h2 class="section-title">🔥 台股5大重點新聞</h2>
-            
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">台股高檔回檔！加權指數跌523.82點 電子股領跌-1.51%</div>
-                        <div class="news-content">台股5月13日(星期三)受美國通膨數據超預期衝擊，電子類股走弱，加權指數終場下跌523.82點至41,374.50點，跌幅1.25%，成交量12,038.12億元。盤中一度衝上42,782.11點的高位後，遭遇獲利了結賣壓，最低一度跌至41,014.53點。電子指數領跌，下跌41.10點或1.51%。金融股相對抗跌，上漲24.71點或0.99%。</div>
-                        <div class="news-source">來源：ETtoday、Yahoo股市</div>
+                        <div class="news-title">川習會助攻！台股強彈377點 台積電重返5日線 盤中再觸42K</div>
+                        <div class="news-content">台股5月14日(星期四)受川習會登場激勵，市場對美中貿易緩和抱持樂觀預期，加上美股昨夜強彈帶動，台股開盤即上漲121.73點，隨後台積電(2330)重返5日線引領五大權值股整齊開高，智邦(2345)、台光電(2383)、奇鋐(3017)等電子要角聯袂走強，南亞科(2408)領軍記憶體強勢助陣，大盤漲點一度放大至800點以上，再度觸及42,205.62點關卡。終場加權指數上漲377.25點至41,751.75點，漲幅0.91%，成交金額12,192.24億元。</div>
+                        <div class="news-source">來源：聯合新聞網、中時新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">權值股通殺！台積電跌45-50元 台達電跌50元 聯發科跌75元</div>
-                        <div class="news-content">台股5大權值股集體走弱。台積電盤中最多跌50元至2,205元，台達電跌50元至2,145元，聯發科跌75元至3,625元，廣達跌1元至339點。分析師認為，美國通膨疑慮升溫導致高估值科技股率先被調節。台積電雖然調升配息至單季7元新高，但未能阻止股價回檔勢能。</div>
-                        <div class="news-source">來源：Newtalk、ETtoday</div>
+                        <div class="news-title">台積電強彈50元收2270元！聯電漲停108元創26年新高！記憶體爆發</div>
+                        <div class="news-content">權值股表現分化但整體偏多。台積電終場漲50元收2,270元，為本日最大貢獻者。聯電(2303)再度攻上漲停108元，刷新26年新高，成熟製程漲價題材持續發酵。記憶體族群集體爆發，南亞科(2408)漲逾5%，華邦電(2344)漲停，群聯(8299)4月EPS達34.56元強鎖漲停。但鴻海及聯發科分別跌逾2.5%，顯示資金持續輪動至低位階個股。</div>
+                        <div class="news-source">來源：中時新聞網、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">台積電調升股利至單季7元新高！顯示AI景氣高度信心</div>
-                        <div class="news-content">儘管台股今日下跌，台積電卻宣布調升配息至單季7元新高。鴻海董事長童子賢更表示台積電訂單「接不完」，英業達法說也看旺，預估全年伺服器營收將年增3成。這反映AI與通用型伺服器需求同步升溫，但市場對短期通膨風險的擔憂蓋過了長期樂觀情緒。</div>
-                        <div class="news-source">來源：Newtalk、聯合新聞網</div>
+                        <div class="news-title">MSCI台股三升大滿貫！法人估帶來1,500至2,500億元大買盤</div>
+                        <div class="news-content">全球指數編制機構MSCI於5月13日清晨公布最新半年度調整結果，台股奪下「三升」大滿貫，包括標準型指數納入旺矽(6069)，台積電(2330)權重持續攀升，MSCI調整將於5月29日盤後正式生效。法人預估此次調整將為台股帶來1,500億至2,500億元的額外買盤挹注，有望支撐台股持續向上攻高。</div>
+                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">美國4月CPI年增3.8%超預期！市場擔憂Fed降息延遲</div>
-                        <div class="news-content">美國勞工統計局公布4月消費者物價指數(CPI)年增3.8%，超出市場預期，創下近3年來新高。通膨數據偏熱導致美債拋售，市場預期美聯儲可能延後降息時程，甚至最快明年可能重啟升息。這對高估值科技股造成巨大壓力，投資人紛紛調整持倉。</div>
-                        <div class="news-source">來源：聯合新聞網、Newtalk</div>
+                        <div class="news-title">川習會聚焦關稅、AI與稀土！市場關注美中晶片出口管制動向</div>
+                        <div class="news-content">美國總統川普與中國國家主席習近平今日會面，議題涵蓋關稅、AI晶片出口管制、稀土等重要議題。輝達執行長黃仁勳未列入川普訪中代表團名單，被市場解讀為美國對中AI晶片政策仍維持強硬立場。市場密切關注雙方在半導體出口管制上是否有新的突破，若能緩和限制，將對台灣半導體供應鏈帶來正面效益。</div>
+                        <div class="news-source">來源：聯合新聞網、彭博</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">高檔修正風險升高！分析師：短線提防羊群效應 長線穩住陣腳</div>
-                        <div class="news-content">分析師認為台股昨日走勢只要通膨、油價、殖利率維持高檔，AI與科技股短線震盪就不會太小。市場建議投資人不必過度擔心，短線未出現帶量長黑仍偏多看待，但須提防羊群效應導致的過度拋售。長期而言，AI產業基本面仍未改變，但需要更高的容忍度應對短期波動。</div>
-                        <div class="news-source">來源：CMoney、聯合新聞網</div>
+                        <div class="news-title">聯發科5月20日解禁倒計時！解禁後走勢成市場最大焦點</div>
+                        <div class="news-content">聯發科(2454)處置交易期滿倒計時，預計5月20日(週三)起恢復正常交易。今日股價下跌逾2.5%，市場仍在觀望解禁後的走勢。分析師認為，若整體市場維持樂觀氣氛，聯發科解禁後有機會補量上攻；若市場情緒降溫，則可能出現調節賣壓。以市值5.5兆元、台股第三大權值股的地位，其走向將直接影響大盤後市。</div>
+                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
                     </div>
                 </div>
             </div>
@@ -409,50 +287,49 @@
         <!-- 美股新聞 -->
         <div class="news-section">
             <h2 class="section-title">🚀 美股5大重點新聞</h2>
-            
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">美股科技股回檔！納斯達克跌0.71% 費半創一年最大跌幅超3%</div>
-                        <div class="news-content">美股5月12日受通膨數據衝擊，納斯達克指數下跌185.92點至26,088.20點，跌幅0.71%。標普500下跌11.88點至7,400.96點，跌幅0.16%。道瓊微漲56.09點至49,760.56點，漲幅0.11%。費城半導體指數跌幅超過3%，創下一年來最大盤中跌幅，顯示市場對前波漲多的AI與晶片股進行獲利了結。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">美股納指創新高！漲1.20%收26402點 費半大漲2.57% 標普500創歷史新高</div>
+                        <div class="news-content">美股5月13日(星期三)市場暫時淡化通膨升溫疑慮，在晶片股強勢反彈帶動下大幅回升。納斯達克指數大漲314.14點至26,402.34點，漲幅1.20%，再創歷史新高。標普500上漲43.29點至7,444.25點，漲幅0.58%，同步創歷史新高。費城半導體指數上漲300.72點至12,017.98點，漲幅2.57%。道瓊工業指數微跌67.36點至49,693.20點。輝達連六紅，盤中市值一度突破5.5兆美元。</div>
+                        <div class="news-source">來源：聯合新聞網、中時新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">芯片股暴跌！英特爾跌6.8% 美光跌3.6% CoreWeave跌6.1%</div>
-                        <div class="news-content">半導體族群成為最大輸家。英特爾下跌6.8%，美光科技下跌3.6%，CoreWeave下跌6.1%，均創近期較大跌幅。這些曾經領漲的AI芯片概念股淪為今日賣壓最重的標的，反映市場對短期通膨風險與Fed降息延遲的擔憂。反觀醫療保健與必需消費品相對抗跌，投資人轉向防禦性資產配置。</div>
-                        <div class="news-source">來源：CMoney、聯合新聞網</div>
+                        <div class="news-title">半導體強勢反彈！互聯網內容資訊+3.71% 消費電子+1.43% AI題材續熱</div>
+                        <div class="news-content">美股各族群分化，但科技與AI族群表現強勁。互聯網內容與資訊族群大漲3.71%，消費電子上漲1.43%，半導體族群上漲1.74%，互聯網零售上漲2.08%，一般藥品製造上漲1.32%。輝達(NVDA)盤中市值一度突破5.5兆美元，激勵台積電ADR同步收漲0.6%。市場AI題材資金持續聚焦，即使通膨疑慮升溫，AI半導體需求的確定性仍為市場提供支撐。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">4月CPI年增3.8%創近3年新高！美債殖利率升至4.45%</div>
-                        <div class="news-content">美國4月消費者物價指數(CPI)年增3.8%，超出市場預期，創下2023年以來新高。通膨數據偏熱導致美債拋售加劇，10年期美國國債殖利率升至4.45%。美元指數走強，這組合對高估值科技股最不友善。市場重新評估美聯儲今年降息空間，預期可能延後至明年，甚至明年最快可能重啟升息。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">輝達連六紅！盤中市值破5.5兆美元 AI算力需求持續驅動估值</div>
+                        <div class="news-content">輝達(NVDA)延續強勢，連續第六個交易日收紅，盤中市值一度突破5.5兆美元，穩坐全球最高市值公司寶座。市場對AI基礎設施投資的長期需求抱有高度信心，即便通膨疑慮升溫，資金仍持續流入輝達為代表的AI算力核心標的。法人強調，AI需求的結構性確定性使輝達等AI龍頭具備獨特的抗跌性，但高估值下短期波動風險仍不可忽視。</div>
+                        <div class="news-source">來源：聯合新聞網、彭博</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">油價續漲加劇通膨憂慮 美伊談判進展不明朗</div>
-                        <div class="news-content">美伊談判陷入僵局，美伊尚未取得共識，推升國際油價進一步上漲。布蘭特原油與WTI原油均創近期新高，進一步推高通膨預期。能源成本上行加劇企業利潤壓力的擔憂，也直接壓抑股市風險偏好。市場目前仍在觀望美伊是否能達成停火協議，若協議無法達成，油價與通膨風險將進一步升溫。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">川習會登場！美中貿易議題成市場最大催化劑 AI芯片出口管制受矚</div>
+                        <div class="news-content">美國總統川普今日在中國與習近平會面，貿易關稅、AI晶片出口管制、稀土協議等議題備受市場關注。市場預期若川習會能在關稅上達成初步共識，將大幅改善全球貿易前景，為科技股與半導體供應鏈帶來利多。另一方面，AI晶片出口管制是否鬆綁，也直接影響輝達等美國AI龍頭的業績前景。</div>
+                        <div class="news-source">來源：聯合新聞網、彭博</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">OpenAI傳上市計畫！估值衝至1兆美元 2026年第四季IPO</div>
-                        <div class="news-content">儘管科技股今日遭拋售，但市場對AI產業長期前景仍保持樂觀。傳OpenAI估值將達到1兆美元，計畫於2026年第四季進行首次公開募股(IPO)。此消息反映市場對AI應用與AI龍頭企業的未來成長潛力仍有信心，但短期通膨與估值調整壓力需要消化。川普本週將訪中，可能進一步影響市場對貿易與芯片政策的預期。</div>
-                        <div class="news-source">來源：CMoney、聯合新聞網</div>
+                        <div class="news-title">3檔新股今日掛牌！AIAI、BXDC、CBRS 2026/05/14上市</div>
+                        <div class="news-content">美股市場今日(5月14日)迎來三檔新股掛牌上市，分別為AIAI Holdings Corporation(AIAI)、Blackstone Digital Infrastructure(BXDC)、Cerebras Systems Inc(CBRS)。其中Cerebras Systems為AI芯片設計商，以製造世界最大的晶片WSE系列聞名，其上市備受AI產業關注。三檔新股的掛牌表現將成為市場評估投資人對科技與AI新興企業風險胃口的重要指標。</div>
+                        <div class="news-source">來源：聯合新聞網、彭博</div>
                     </div>
                 </div>
             </div>
@@ -460,26 +337,24 @@
         
         <!-- 下週展望 -->
         <div class="highlight-box">
-            <strong>📅 下週重點監控(5月14日-5月16日)：</strong><br>
-            📊 <strong>川習會5月中旬登場</strong> - 貿易談判與AI芯片出口管制為焦點<br>
-            💼 <strong>台股調整後反彈機會</strong> - 觀察技術面支撐與外資動向<br>
-            🌍 <strong>美伊和平談判最新進展</strong> - 協議簽署將大幅影響油價<br>
-            📈 <strong>美股企業財報密集發布</strong> - 思科、應用材料本週公布季報<br>
-            📉 <strong>通膨數據持續關注</strong> - 5月PPI數據預定本週公布<br>
-            ⚠️ <strong>Fed官員講話頻繁</strong> - 密切關注降息預期的微妙變化<br>
-            🎯 <strong>聯發科5月20日解禁倒計時</strong> - 處置期滿後可能出現補量或拋售
+            <strong>📅 下週重點監控(5月15日起)：</strong><br>
+            🎯 <strong>聯發科5月20日解禁</strong> - 台股第三大權值股恢復正常交易，走勢至關重要<br>
+            📊 <strong>川習會談判結果</strong> - 關稅緩和與AI芯片出口管制進展影響全球市場<br>
+            💼 <strong>MSCI調整5月29日生效</strong> - 預計帶來1,500至2,500億元外資買盤<br>
+            📈 <strong>輝達5月20日法說財報</strong> - AI算力龍頭季報將決定半導體後市走勢<br>
+            🌍 <strong>美伊談判持續關注</strong> - 油價與通膨走勢影響Fed降息預期<br>
+            ⚠️ <strong>台股高檔整理風險</strong> - 年線乖離率仍高，融資餘額在高位，短線波動難免<br>
+            🔥 <strong>除權息旺季展開</strong> - 高殖利率個股成為法人資金輪動焦點
         </div>
         
         <footer>
             <h3>📈 財經新聞自動化平台</h3>
             <p>每天自動為您生成美股和台股的深度分析報告</p>
             <p>台美股市新聞 | 實時市場數據 | 投資策略建議</p>
-            
             <div class="footer-links">
                 <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank">📖 查看完整分析</a>
                 <a href="https://instagram.com/wu_wealth_lab" target="_blank">📱 追蹤 Instagram</a>
             </div>
-            
             <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
                 ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
                 © 2026 財經新聞自動化平台 | 由 Claude AI 驅動<br>
@@ -490,8 +365,7 @@
     
     <script>
         const now = new Date();
-        const timeStr = now.toLocaleString('zh-TW');
-        document.getElementById('update-time').textContent = timeStr;
+        document.getElementById('update-time').textContent = now.toLocaleString('zh-TW');
     </script>
 </body>
 </html>
