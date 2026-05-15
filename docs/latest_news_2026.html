@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年5月14日台美股市分析</title>
+    <title>財經新聞自動化 | 2026年5月15日台美股市分析</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -22,7 +22,6 @@
             margin-bottom: 30px;
             padding: 40px 0;
         }
-        
         header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         header p { font-size: 1.2em; opacity: 0.9; margin-bottom: 15px; }
         
@@ -36,24 +35,18 @@
         }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
         
-        .success-box {
-            background: rgba(81, 207, 102, 0.2);
-            border-left: 4px solid #51cf66;
+        .mixed-box {
+            background: rgba(255,152,0,0.2);
+            border-left: 4px solid #FF9800;
             padding: 20px;
             margin-bottom: 30px;
             border-radius: 5px;
             color: white;
         }
-        .success-box strong { color: #51cf66; }
-        
+        .mixed-box strong { color: #FFD54F; }
+
         .stats-container { margin-bottom: 40px; }
-        
-        .stats-title {
-            color: white;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
+        .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
         
         .stats-bar {
             display: grid;
@@ -70,72 +63,38 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border-left: 5px solid #51cf66;
         }
-        
         .stat-item.down { border-left: 5px solid #ff6b6b; }
-        
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.5em; font-weight: bold; color: #333; margin: 10px 0; }
         
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         
-        .highlight-box {
-            background: #e8f5e9;
-            border-left: 4px solid #51cf66;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .highlight-box strong { color: #2e7d32; }
-        
+        .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .highlight-box strong { color: #856404; }
+        .highlight-green { background: #e8f5e9; border-left: 4px solid #51cf66; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .highlight-green strong { color: #2e7d32; }
+
         .news-section { margin-bottom: 50px; }
+        .section-title { color: white; font-size: 2.2em; margin-bottom: 25px; padding-left: 20px; border-left: 4px solid white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
         
-        .section-title {
-            color: white;
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 4px solid white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
         
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .news-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+        .news-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease; display: flex; flex-direction: column; }
         .news-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
-        
         .news-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .news-rank { font-size: 2em; font-weight: bold; color: #1a3a52; margin-bottom: 10px; }
         .news-title { font-size: 1.4em; color: #333; margin-bottom: 15px; font-weight: 600; }
         .news-content { color: #666; line-height: 1.6; flex-grow: 1; margin-bottom: 15px; }
         .news-source { color: #2d5a7b; font-size: 0.9em; font-weight: 500; border-top: 1px solid #eee; padding-top: 15px; }
         
-        footer {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
+        footer { background: rgba(255,255,255,0.1); color: white; text-align: center; padding: 30px; border-radius: 10px; margin-top: 50px; }
         footer h3 { margin-bottom: 15px; }
         footer p { margin: 10px 0; opacity: 0.9; }
         .footer-links { margin-top: 20px; }
         .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
-        .footer-links a:hover { text-decoration: underline; }
         
         @media (max-width: 768px) {
             header h1 { font-size: 2em; }
@@ -147,90 +106,102 @@
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年5月14日 川習會助攻！台股強力反彈！</p>
+            <p>台灣人必看的股市消息 | 2026年5月15日 台股衝歷史新高後暴走收黑！美股道瓊首破5萬！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
         
-        <div class="success-box">
-            <strong>✅ 市場強訊號：</strong><br>
-            川習會今日登場助攻！台股強力反彈377.25點(+0.91%)！台積電強彈50元收2270元！<br>
-            聯電漲停108元創26年新高！南亞科漲5%！華邦電漲停！MSCI台股三升大滿貫！<br>
-            美股納斯達克漲1.20%創新高！費半漲2.57%！標普500創歷史新高！
+        <div class="mixed-box">
+            <strong>⚠️ 台股警訊 × 🚀 美股大利多：</strong><br>
+            台股盤中衝歷史新高42,408.66點後急速暴走！終場重挫579.39點(-1.39%)收41,172.36點！<br>
+            主動ETF 00981A大舉換倉被視為引爆11檔跌停的關鍵！聯發科重挫145元！<br>
+            但美股14日大放異彩：道瓊史上首破5萬點！輝達市值衝破5.7兆！Cerebras掛牌首日大漲68%！
         </div>
         
         <!-- 台灣股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年5月14日 終場 - 川習會助攻！強力反彈！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年5月15日 終場 - 衝歷史新高後暴走收黑！）</div>
             <div class="stats-bar">
-                <div class="stat-item">
+                <div class="stat-item down">
                     <h3>加權指數</h3>
-                    <div class="stat-value">41,751.75點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +377.25點 (+0.91%)</div>
-                    <div class="gain-badge">🚀 強力反彈！</div>
+                    <div class="stat-value">41,172.36點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -579.39點 (-1.39%)</div>
+                    <div class="loss-badge">📉 高檔暴走！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>盤中最高</h3>
-                    <div class="stat-value">42,205.62點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">盤中衝破42K！</div>
-                    <div class="strong-badge">💪 再觸42K！</div>
+                    <h3>盤中歷史新高</h3>
+                    <div class="stat-value">42,408.66點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">✨ 再創歷史新高！</div>
+                    <div class="gain-badge">🏆 歷史紀錄！</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item down">
+                    <h3>上櫃指數</h3>
+                    <div class="stat-value">411.18點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -15.39點 (-3.61%)</div>
+                    <div class="loss-badge">🔴 中小型重挫！</div>
+                </div>
+                <div class="stat-item down">
                     <h3>電子指數</h3>
-                    <div class="stat-value">2,715.28點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +32.57點 (+1.21%)</div>
-                    <div class="gain-badge">📈 電子回穩</div>
-                </div>
-                <div class="stat-item">
-                    <h3>成交金額</h3>
-                    <div class="stat-value">12,192.24億</div>
-                    <div style="color: #666; font-size: 1.1em;">日均成交</div>
-                    <div class="strong-badge">成交回溫</div>
+                    <div class="stat-value">2,672.06點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -43.22點 (-1.59%)</div>
+                    <div class="loss-badge">📉 電子領跌</div>
                 </div>
             </div>
         </div>
         
         <div class="highlight-box">
-            <strong>📊 5月14日關鍵數據整理：</strong><br>
-            ✅ <strong>川習會助攻</strong>：美中元首會議今日登場，市場對貿易緩和樂觀，推升全面反彈<br>
-            ✅ <strong>台積電強彈50元</strong>：台積電終場漲50元收2,270元，重返5日線，引領五大權值股齊漲<br>
-            ✅ <strong>聯電漲停108元</strong>：成熟製程題材持續發酵，睽違26年再創新高<br>
-            ✅ <strong>記憶體族群火熱</strong>：南亞科漲逾5%、華邦電漲停、群聯4月EPS達34.56元強鎖漲停<br>
-            ✅ <strong>MSCI三升大滿貫</strong>：台股奪MSCI三升，法人預估帶來1,500至2,500億元買盤<br>
-            ✅ <strong>美股昨夜強彈</strong>：納指、標普創新高，費半漲2.57%，激勵台指期夜盤上漲308點<br>
-            ✅ <strong>電子族群全面回溫</strong>：通信網路、電子零組件、半導體等族群漲幅居前
+            <strong>📊 5月15日關鍵數據整理：</strong><br>
+            🏆 <strong>盤中創歷史新高42,408.66點</strong>！台股歷史上首次衝破42,400點！<br>
+            ❌ <strong>台積電</strong>收2,265元，跌5元(-0.22%)，大盤失去主要支撐<br>
+            ❌ <strong>聯發科</strong>重挫145元至3,260元，處置期滿前賣壓沉重<br>
+            ❌ <strong>廣達</strong>下跌28.5元至306元；<strong>廣達</strong>、<strong>智邦</strong>、<strong>金像電</strong>等跌幅較重<br>
+            ❌ <strong>上櫃重挫-3.61%</strong>：主動ETF 00981A大舉換倉被視為引爆11檔跌停的主因<br>
+            ✅ <strong>智慧眼鏡族群爆發</strong>：台積電技術論壇點名AI最潛力應用，大立光、英濟漲停！<br>
+            ✅ <strong>成交金額13,171.40億</strong>：爆量換手，籌碼劇烈輪動<br>
+            ✅ <strong>金融相對抗跌</strong>：金融指數上漲8.44點(+0.33%)，唯一族群上漲
         </div>
         
         <!-- 美國股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年5月13日終場 - 納指標普創新高！費半強彈！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年5月14日終場 - 道瓊史上首破5萬！三大指數創新高！）</div>
             <div class="stats-bar">
-                <div class="stat-item down">
+                <div class="stat-item">
                     <h3>道瓊指數</h3>
-                    <div class="stat-value">49,693.20點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -67.36點 (-0.14%)</div>
-                    <div class="loss-badge">微幅下跌</div>
+                    <div class="stat-value">50,063.46點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +370.26點 (+0.75%)</div>
+                    <div class="strong-badge">🏆 史上首破5萬！</div>
                 </div>
                 <div class="stat-item">
                     <h3>標普500</h3>
-                    <div class="stat-value">7,444.25點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +43.29點 (+0.58%)</div>
-                    <div class="strong-badge">📈 創新高！</div>
+                    <div class="stat-value">7,501.24點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +56.99點 (+0.77%)</div>
+                    <div class="strong-badge">📈 首破7,500！</div>
                 </div>
                 <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">26,402.34點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +314.14點 (+1.20%)</div>
+                    <div class="stat-value">26,635.22點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +232.88點 (+0.88%)</div>
                     <div class="strong-badge">🚀 創新高！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>費城半導體</h3>
-                    <div class="stat-value">12,017.98點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +300.72點 (+2.57%)</div>
-                    <div class="strong-badge">💪 強勢反彈！</div>
+                    <h3>輝達市值</h3>
+                    <div class="stat-value">5.7兆美元</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">大漲4.39%至235.74美元</div>
+                    <div class="strong-badge">💥 史上最高！</div>
                 </div>
             </div>
+        </div>
+
+        <div class="highlight-green">
+            <strong>🚀 5月14日美股超級亮點：</strong><br>
+            🏆 <strong>道瓊史上首度站上50,000點</strong>！收50,063.46點，寫下歷史里程碑！<br>
+            🏆 <strong>標普500首破7,500點</strong>！收7,501.24點，今年第18度創歷史新高！<br>
+            💥 <strong>輝達大漲4.39%</strong>收235.74美元，連七紅，市值破5.7兆美元，史上最高！<br>
+            🚀 <strong>台積電ADR大漲4.48%</strong>至417.72美元！<br>
+            🔥 <strong>思科暴漲13.41%</strong>！財報財測雙超預期，15年來最佳單日表現！<br>
+            🎯 <strong>Cerebras AI晶片IPO首日飆漲68%</strong>收311.07美元，市值破950億美元！<br>
+            📊 <strong>美批准10家陸企購H200晶片</strong>，AI需求再度引爆市場樂觀情緒！
         </div>
         
         <!-- 台股新聞 -->
@@ -240,45 +211,45 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">川習會助攻！台股強彈377點 台積電重返5日線 盤中再觸42K</div>
-                        <div class="news-content">台股5月14日(星期四)受川習會登場激勵，市場對美中貿易緩和抱持樂觀預期，加上美股昨夜強彈帶動，台股開盤即上漲121.73點，隨後台積電(2330)重返5日線引領五大權值股整齊開高，智邦(2345)、台光電(2383)、奇鋐(3017)等電子要角聯袂走強，南亞科(2408)領軍記憶體強勢助陣，大盤漲點一度放大至800點以上，再度觸及42,205.62點關卡。終場加權指數上漲377.25點至41,751.75點，漲幅0.91%，成交金額12,192.24億元。</div>
-                        <div class="news-source">來源：聯合新聞網、中時新聞網</div>
+                        <div class="news-title">台股創歷史新高42,408.66點後暴走！終場重挫579點收41,172點</div>
+                        <div class="news-content">台股5月15日(星期五)開盤延續美股強勢，台指期夜盤大漲723點帶動，集中市場開高78.67點至41,830.42點，隨後在台積電領軍五大權值股齊步走強下，指數漲點迅速擴大逾600點、衝上42,408.66點，再寫歷史盤中新高。然而，高點一到即遭大量獲利了結賣壓，接近10點跌破平盤後下殺力道未止，台達電、聯發科、廣達、智邦、金像電等權值股跌幅較重，終場加權指數重挫579.39點至41,172.36點，成交金額達13,171.40億元的爆量。</div>
+                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">台積電強彈50元收2270元！聯電漲停108元創26年新高！記憶體爆發</div>
-                        <div class="news-content">權值股表現分化但整體偏多。台積電終場漲50元收2,270元，為本日最大貢獻者。聯電(2303)再度攻上漲停108元，刷新26年新高，成熟製程漲價題材持續發酵。記憶體族群集體爆發，南亞科(2408)漲逾5%，華邦電(2344)漲停，群聯(8299)4月EPS達34.56元強鎖漲停。但鴻海及聯發科分別跌逾2.5%，顯示資金持續輪動至低位階個股。</div>
-                        <div class="news-source">來源：中時新聞網、聯合新聞網</div>
+                        <div class="news-title">主動ETF 00981A換倉引爆！11檔跌停 聯發科重挫145元至3260元</div>
+                        <div class="news-content">今日大盤重挫的導火線，被市場指向主動式ETF「主動統一台股成長」(00981A)的大舉換倉行動。金像電(2368)成為重災區，盤中被摜至跌停價1,290元。截至收盤，集中市場共計11檔個股跌停，包括樺漢(6414)、振樺電(8114)、台勝科(3532)、嘉晶(4971)、尖點(8021)等。聯發科(2454)重挫145元至3,260元，廣達(2382)下跌28.5元至306元。市場擔憂ETF換倉潮引發的「蝴蝶效應」對個別成分股造成衝擊。</div>
+                        <div class="news-source">來源：Newtalk、ETtoday</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">MSCI台股三升大滿貫！法人估帶來1,500至2,500億元大買盤</div>
-                        <div class="news-content">全球指數編制機構MSCI於5月13日清晨公布最新半年度調整結果，台股奪下「三升」大滿貫，包括標準型指數納入旺矽(6069)，台積電(2330)權重持續攀升，MSCI調整將於5月29日盤後正式生效。法人預估此次調整將為台股帶來1,500億至2,500億元的額外買盤挹注，有望支撐台股持續向上攻高。</div>
-                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
+                        <div class="news-title">智慧眼鏡題材爆發！台積電點名AI最潛力應用 大立光英濟漲停</div>
+                        <div class="news-content">台積電全球業務資深副總暨副共同營運長張曉強在技術論壇上點名，在AI應用中最具潛力的是智慧眼鏡(Smart Glasses)，隨即引爆智慧眼鏡族群的漲勢。大立光(3008)衝上漲停鎖死，英濟(4971-創)也攻漲停，揚明光一度觸及漲停，盤中漲幅逾7%，華晶科盤中大漲逾7%，玉晶光、澤米、聯一光上漲逾5%。台積電技術論壇的前瞻指引成為今日盤中最具爆發力的催化劑。</div>
+                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">川習會聚焦關稅、AI與稀土！市場關注美中晶片出口管制動向</div>
-                        <div class="news-content">美國總統川普與中國國家主席習近平今日會面，議題涵蓋關稅、AI晶片出口管制、稀土等重要議題。輝達執行長黃仁勳未列入川普訪中代表團名單，被市場解讀為美國對中AI晶片政策仍維持強硬立場。市場密切關注雙方在半導體出口管制上是否有新的突破，若能緩和限制，將對台灣半導體供應鏈帶來正面效益。</div>
-                        <div class="news-source">來源：聯合新聞網、彭博</div>
+                        <div class="news-title">川習會氣氛和諧！三大利多撐台股：MSCI三升、520行情、輝達財報</div>
+                        <div class="news-content">第一金投顧指出，儘管盤面今日出現較大調整，但有三大因素仍有利台股後市。第一、川習會氣氛和諧，中美貿易關係有望緩和；第二、MSCI半年度調整提升台股權重，5月29日盤後生效，預估帶來1,500至2,500億元外資買盤；第三、520行情，近十次520總統就職後台股上漲機率高達九成。輝達月底財報在即，市場資金聚焦AI題材，建議選股不選市。</div>
+                        <div class="news-source">來源：聯合新聞網、Newtalk</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">聯發科5月20日解禁倒計時！解禁後走勢成市場最大焦點</div>
-                        <div class="news-content">聯發科(2454)處置交易期滿倒計時，預計5月20日(週三)起恢復正常交易。今日股價下跌逾2.5%，市場仍在觀望解禁後的走勢。分析師認為，若整體市場維持樂觀氣氛，聯發科解禁後有機會補量上攻；若市場情緒降溫，則可能出現調節賣壓。以市值5.5兆元、台股第三大權值股的地位，其走向將直接影響大盤後市。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">聯發科5月20日解禁！金控前4月獲利2914億創史高 富邦金EPS 5.15元</div>
+                        <div class="news-content">聯發科(2454)本週五收跌145元至3,260元，5月20日處置期滿後的走向將成為下週市場最大焦點。與此同時，台灣13家金控4月單月稅後獲利突破千億元達1,033億元，前4月累計稅後淨利達2,914.87億元，年增率63.18%，前4月累計獲利創下歷史新高。富邦金(2881)為4月、累計獲利及EPS三冠王，EPS達5.15元，幾乎賺進半個股本。金融股的強健基本面支撐了今日金融指數逆勢上漲。</div>
+                        <div class="news-source">來源：ETtoday、聯合新聞網</div>
                     </div>
                 </div>
             </div>
@@ -291,45 +262,45 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">美股納指創新高！漲1.20%收26402點 費半大漲2.57% 標普500創歷史新高</div>
-                        <div class="news-content">美股5月13日(星期三)市場暫時淡化通膨升溫疑慮，在晶片股強勢反彈帶動下大幅回升。納斯達克指數大漲314.14點至26,402.34點，漲幅1.20%，再創歷史新高。標普500上漲43.29點至7,444.25點，漲幅0.58%，同步創歷史新高。費城半導體指數上漲300.72點至12,017.98點，漲幅2.57%。道瓊工業指數微跌67.36點至49,693.20點。輝達連六紅，盤中市值一度突破5.5兆美元。</div>
-                        <div class="news-source">來源：聯合新聞網、中時新聞網</div>
+                        <div class="news-title">道瓊史上首破5萬點！標普首破7500！三大指數齊創歷史新高！</div>
+                        <div class="news-content">美股5月14日(星期四)寫下空前歷史！道瓊工業指數史上首度站上50,000點整數大關，收50,063.46點，上漲370.26點。標普500首度站上7,500點，收7,501.24點，今年第18度創歷史新高。納斯達克收26,635.22點，上漲232.88點，同步改寫歷史。思科(CSCO)因財報財測雙雙超預期，股價暴漲13.41%，成為推升道瓊的最大功臣。川習會釋出穩定訊號，加上美批准陸企購H200晶片，AI熱潮再次全面引爆。</div>
+                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">半導體強勢反彈！互聯網內容資訊+3.71% 消費電子+1.43% AI題材續熱</div>
-                        <div class="news-content">美股各族群分化，但科技與AI族群表現強勁。互聯網內容與資訊族群大漲3.71%，消費電子上漲1.43%，半導體族群上漲1.74%，互聯網零售上漲2.08%，一般藥品製造上漲1.32%。輝達(NVDA)盤中市值一度突破5.5兆美元，激勵台積電ADR同步收漲0.6%。市場AI題材資金持續聚焦，即使通膨疑慮升溫，AI半導體需求的確定性仍為市場提供支撐。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">輝達連七紅！大漲4.39%市值衝5.7兆美元 台積電ADR暴漲4.48%！</div>
+                        <div class="news-content">輝達(NVDA)延續強勢，連續第七個交易日收紅，大漲4.39%至235.74美元，再創歷史新高，市值突破5.7兆美元，穩居全球市值最高公司。美國商務部批准約10家中國公司購買輝達第二強大晶片H200，進一步點燃市場對AI需求的樂觀情緒。台積電ADR同步暴漲4.48%至417.72美元，帶動台指期夜盤大漲723點。市場對輝達月底財報(5月20日)抱有高度期待。</div>
+                        <div class="news-source">來源：鉅亨網、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">輝達連六紅！盤中市值破5.5兆美元 AI算力需求持續驅動估值</div>
-                        <div class="news-content">輝達(NVDA)延續強勢，連續第六個交易日收紅，盤中市值一度突破5.5兆美元，穩坐全球最高市值公司寶座。市場對AI基礎設施投資的長期需求抱有高度信心，即便通膨疑慮升溫，資金仍持續流入輝達為代表的AI算力核心標的。法人強調，AI需求的結構性確定性使輝達等AI龍頭具備獨特的抗跌性，但高估值下短期波動風險仍不可忽視。</div>
-                        <div class="news-source">來源：聯合新聞網、彭博</div>
+                        <div class="news-title">Cerebras AI晶片IPO首日大漲68%！市值衝破950億美元！史上最大AI IPO</div>
+                        <div class="news-content">被譽為輝達最強潛在競爭對手的AI晶片新創公司Cerebras Systems(CBRS)，於5月14日正式在納斯達克掛牌。開盤價衝上350美元，較185美元的IPO定價大漲89%，終場收漲68%至311.07美元，市值突破950億美元。Cerebras此次共募資55.5億美元，為Uber 2019年上市以來美國科技企業最大規模IPO。此次強勢上市被視為AI概念股新一波上市潮的開端，市場對OpenAI、Anthropic未來的IPO計畫充滿期待。</div>
+                        <div class="news-source">來源：鉅亨網、經濟日報</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">川習會登場！美中貿易議題成市場最大催化劑 AI芯片出口管制受矚</div>
-                        <div class="news-content">美國總統川普今日在中國與習近平會面，貿易關稅、AI晶片出口管制、稀土協議等議題備受市場關注。市場預期若川習會能在關稅上達成初步共識，將大幅改善全球貿易前景，為科技股與半導體供應鏈帶來利多。另一方面，AI晶片出口管制是否鬆綁，也直接影響輝達等美國AI龍頭的業績前景。</div>
-                        <div class="news-source">來源：聯合新聞網、彭博</div>
+                        <div class="news-title">思科暴漲13.41%創15年最佳單日！AI基礎設施需求推動季報大勝</div>
+                        <div class="news-content">網路設備巨頭思科(CSCO)公布第三季財報，營收與財測雙雙優於華爾街預期，AI基礎設施需求大增成為最大亮點，股價暴漲13.41%至115.53美元，創下15年來最佳單日表現，也是道瓊成份股今日最大漲幅。思科同時宣布將裁員近4,000人，作為AI導向企業重整計畫的一部分，轉型方向獲得市場高度認可。此次財報顯示，AI基礎設施投資正在全面滲透傳統IT企業。</div>
+                        <div class="news-source">來源：鉅亨網、聯合新聞網</div>
                     </div>
                 </div>
                 
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">3檔新股今日掛牌！AIAI、BXDC、CBRS 2026/05/14上市</div>
-                        <div class="news-content">美股市場今日(5月14日)迎來三檔新股掛牌上市，分別為AIAI Holdings Corporation(AIAI)、Blackstone Digital Infrastructure(BXDC)、Cerebras Systems Inc(CBRS)。其中Cerebras Systems為AI芯片設計商，以製造世界最大的晶片WSE系列聞名，其上市備受AI產業關注。三檔新股的掛牌表現將成為市場評估投資人對科技與AI新興企業風險胃口的重要指標。</div>
-                        <div class="news-source">來源：聯合新聞網、彭博</div>
+                        <div class="news-title">川習會釋利多！美批准陸企購H200晶片！新Fed主席華許確認上任</div>
+                        <div class="news-content">川習會圓滿落幕，雙方強調經貿合作與穩定關係。美國商務部批准約10家中國公司購買輝達H200晶片，進一步打開AI芯片出口管制的缺口。美國聯邦參議院13日通過凱文·華許(Kevin Warsh)出任聯準會主席人事案，接替現任主席鮑爾。華許上任後面臨通膨復燃、降息時程等重大課題。加密貨幣概念股全面走強，參議院通過《Clarity Act》法案，加密市場結構更趨明確。</div>
+                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
                     </div>
                 </div>
             </div>
@@ -337,14 +308,14 @@
         
         <!-- 下週展望 -->
         <div class="highlight-box">
-            <strong>📅 下週重點監控(5月15日起)：</strong><br>
-            🎯 <strong>聯發科5月20日解禁</strong> - 台股第三大權值股恢復正常交易，走勢至關重要<br>
-            📊 <strong>川習會談判結果</strong> - 關稅緩和與AI芯片出口管制進展影響全球市場<br>
-            💼 <strong>MSCI調整5月29日生效</strong> - 預計帶來1,500至2,500億元外資買盤<br>
-            📈 <strong>輝達5月20日法說財報</strong> - AI算力龍頭季報將決定半導體後市走勢<br>
-            🌍 <strong>美伊談判持續關注</strong> - 油價與通膨走勢影響Fed降息預期<br>
-            ⚠️ <strong>台股高檔整理風險</strong> - 年線乖離率仍高，融資餘額在高位，短線波動難免<br>
-            🔥 <strong>除權息旺季展開</strong> - 高殖利率個股成為法人資金輪動焦點
+            <strong>📅 下週重點監控(5月18日-5月22日)：</strong><br>
+            🎯 <strong>聯發科5月20日解禁</strong> - 台股第三大權值股恢復正常交易，走勢牽動大盤<br>
+            📊 <strong>輝達5月20日法說財報</strong> - AI算力龍頭季報是最大市場催化劑！<br>
+            💼 <strong>520總統就職行情</strong> - 歷史近10次就職後台股上漲機率高達九成<br>
+            🌏 <strong>MSCI調整5月29日生效</strong> - 預計帶來1,500至2,500億元外資買盤挹注<br>
+            🖥️ <strong>COMPUTEX 2026即將登場</strong> - 5月下旬台北國際電腦展，AI題材持續發酵<br>
+            🤖 <strong>Google I/O開發大會</strong> - AI最新進展將進一步為台股AI題材添薪柴<br>
+            ⚠️ <strong>台股籌碼面觀察</strong> - ETF換倉衝擊後，需確認買盤是否回流穩定
         </div>
         
         <footer>
@@ -362,10 +333,8 @@
             </p>
         </footer>
     </div>
-    
     <script>
-        const now = new Date();
-        document.getElementById('update-time').textContent = now.toLocaleString('zh-TW');
+        document.getElementById('update-time').textContent = new Date().toLocaleString('zh-TW');
     </script>
 </body>
 </html>
