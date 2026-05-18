@@ -3,200 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年5月16日 美股深度分析 × 川習會市場解讀</title>
+    <title>財經新聞自動化 | 2026年5月18日</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
         .container { max-width: 1400px; margin: 0 auto; }
-        
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-            padding: 40px 0;
-        }
+        header { text-align: center; color: white; margin-bottom: 30px; padding: 40px 0; }
         header h1 { font-size: 2.8em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         header p { font-size: 1.15em; opacity: 0.9; margin-bottom: 15px; }
-        
-        .ig-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            backdrop-filter: blur(10px);
-        }
+        .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
-
-        /* 特別分析標籤 */
-        .special-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .warning-box {
-            background: rgba(255,100,100,0.2);
-            border-left: 4px solid #ff6b6b;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            color: white;
-        }
-        .warning-box strong { color: #FFB3B3; }
-
+        .mixed-box { background: rgba(255,152,0,0.2); border-left: 4px solid #FF9800; padding: 20px; margin-bottom: 30px; border-radius: 5px; color: white; }
+        .mixed-box strong { color: #FFD54F; }
+        .preview-banner { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 25px; margin-bottom: 30px; color: white; text-align: center; }
+        .preview-banner h2 { font-size: 1.8em; margin-bottom: 15px; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .preview-item { background: rgba(255,255,255,0.2); border-radius: 10px; padding: 15px; }
+        .preview-item h3 { font-size: 1em; margin-bottom: 8px; }
+        .preview-item p { font-size: 0.9em; opacity: 0.95; line-height: 1.5; }
         .stats-container { margin-bottom: 40px; }
-        .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
-        
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-item {
-            background: rgba(255,255,255,0.95);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-left: 5px solid #ff6b6b;
-        }
+        .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
+        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #ff6b6b; }
         .stat-item.up { border-left: 5px solid #51cf66; }
+        .stat-item.neutral { border-left: 5px solid #aaa; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.2em; font-weight: bold; color: #333; margin: 10px 0; }
-        
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        
-        /* 深度分析區塊 */
-        .analysis-section {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 15px;
-            padding: 35px;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
-        }
-        .analysis-title {
-            color: white;
-            font-size: 2em;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
-        }
-        .analysis-title span { font-size: 0.6em; opacity: 0.8; display: block; margin-top: 5px; }
-
-        .summit-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .summit-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .summit-card h3 {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-        .summit-card.achieved h3 { color: #2e7d32; border-color: #51cf66; }
-        .summit-card.missed h3 { color: #c62828; border-color: #ff6b6b; }
-        .summit-card.risk h3 { color: #e65100; border-color: #FF9800; }
-        .summit-card.watch h3 { color: #1565c0; border-color: #4c8cff; }
-
-        .summit-card ul { list-style: none; }
-        .summit-card ul li {
-            padding: 8px 0;
-            color: #555;
-            border-bottom: 1px solid #f5f5f5;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-        .summit-card ul li:last-child { border-bottom: none; }
-        .summit-card ul li::before { margin-right: 8px; }
-        .summit-card.achieved ul li::before { content: "✅"; }
-        .summit-card.missed ul li::before { content: "❌"; }
-        .summit-card.risk ul li::before { content: "⚠️"; }
-        .summit-card.watch ul li::before { content: "🔍"; }
-
-        /* 市場影響分析 */
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-        .impact-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-        .impact-card h3 { font-size: 1.1em; margin-bottom: 12px; color: #1a3a52; }
-        .impact-card p { color: #555; line-height: 1.7; font-size: 0.95em; }
-        .impact-level {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 0.75em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .high { background: #ffebee; color: #c62828; }
-        .medium { background: #fff3e0; color: #e65100; }
-        .low { background: #e8f5e9; color: #2e7d32; }
-
-        /* 個股表現 */
-        .stock-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            margin: 20px 0;
-        }
-        .stock-table th {
-            background: #1a3a52;
-            color: white;
-            padding: 15px 20px;
-            text-align: left;
-            font-size: 0.9em;
-        }
-        .stock-table td { padding: 14px 20px; border-bottom: 1px solid #f5f5f5; font-size: 0.95em; }
-        .stock-table tr:last-child td { border-bottom: none; }
-        .stock-table tr:hover td { background: #f8f9fa; }
-        .red { color: #c62828; font-weight: bold; }
-        .green { color: #2e7d32; font-weight: bold; }
-
+        .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .highlight-box strong { color: #856404; }
+        .highlight-green { background: #e8f5e9; border-left: 4px solid #51cf66; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .highlight-green strong { color: #2e7d32; }
+        .nvda-box { background: white; border-radius: 12px; padding: 30px; margin: 25px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .nvda-box h3 { color: #1a3a52; font-size: 1.5em; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+        .nvda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+        .nvda-item { background: #f8f9fa; border-radius: 8px; padding: 15px; text-align: center; }
+        .nvda-item h4 { color: #666; font-size: 0.85em; margin-bottom: 8px; }
+        .nvda-item .value { font-size: 1.6em; font-weight: bold; color: #1a3a52; }
+        .nvda-item .sub { font-size: 0.8em; color: #888; margin-top: 5px; }
         .news-section { margin-bottom: 50px; }
-        .section-title { color: white; font-size: 2.2em; margin-bottom: 25px; padding-left: 20px; border-left: 4px solid white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
-        
+        .section-title { color: white; font-size: 2.2em; margin-bottom: 25px; padding-left: 20px; border-left: 4px solid white; }
         .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        
         .news-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease; display: flex; flex-direction: column; }
         .news-card:hover { transform: translateY(-8px); }
         .news-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
@@ -204,255 +54,276 @@
         .news-title { font-size: 1.35em; color: #333; margin-bottom: 15px; font-weight: 600; }
         .news-content { color: #666; line-height: 1.7; flex-grow: 1; margin-bottom: 15px; }
         .news-source { color: #2d5a7b; font-size: 0.85em; font-weight: 500; border-top: 1px solid #eee; padding-top: 12px; }
-
-        .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
-        .highlight-box strong { color: #856404; }
-        
         footer { background: rgba(255,255,255,0.1); color: white; text-align: center; padding: 30px; border-radius: 10px; margin-top: 50px; }
         footer h3 { margin-bottom: 15px; }
         footer p { margin: 10px 0; opacity: 0.9; }
         .footer-links { margin-top: 20px; }
         .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2em; }
-            .news-grid { grid-template-columns: 1fr; }
-            .summit-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { header h1 { font-size: 2em; } .news-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="special-tag">📊 週末深度分析特刊</div>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>2026年5月16日(週六) | 美股深度分析 × 川習會完整市場解讀</p>
+            <p>台灣人必看的股市消息 | 2026年5月18日 台股強震收復！美股休市！輝達財報倒數48小時！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
-        
-        <div class="warning-box">
-            <strong>⚠️ 週五美股全線重挫！半導體暴跌！</strong><br>
-            道瓊跌537點(-1.07%)！納斯達克跌1.54%！費半暴跌4.02%！<br>
-            英特爾-6.18%、美光-6.62%、輝達-4.42%！油價飆近110美元！30年債殖利率破5.1%！<br>
-            川習會「缺乏重大突破」令市場失望，AI芯片管制未放寬成最大利空！
+
+        <div class="mixed-box">
+            <strong>⚠️ 今日市場概況：</strong><br>
+            台股早盤急跌逾千點後強力收復！終場40,891.82點跌280.54點(-0.68%)！<br>
+            台積電跌40元至2225元！聯發科解禁前跌20元至3240元！00403A跌破10元發行價！<br>
+            🇺🇸 美股今日因陣亡將士紀念日(Memorial Day)休市！本週最大催化劑：輝達5/20財報！
         </div>
-        
-        <!-- 美股週五收盤數據 -->
+
+        <!-- 輝達財報倒數 -->
+        <div class="preview-banner">
+            <h2>🔥 輝達(NVDA) 5月20日財報倒數48小時！</h2>
+            <p>週三台灣時間凌晨公布｜市值5.7兆美元AI龍頭季報將決定全球AI行情走向！</p>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <h3>📊 花旗預估Q1營收</h3>
+                    <p>800億美元<br>高於市場共識14億<br>B300晶片爬升超預期</p>
+                </div>
+                <div class="preview-item">
+                    <h3>📈 富國銀行目標價</h3>
+                    <p>315美元<br>較現價有40%空間<br>2027財年資料中心3545億</p>
+                </div>
+                <div class="preview-item">
+                    <h3>🏆 歷史勝率</h3>
+                    <p>過去3季平均超出<br>市場預估約3%<br>首季財報後上漲機率高</p>
+                </div>
+                <div class="preview-item">
+                    <h3>⚠️ 關鍵觀察點</h3>
+                    <p>中國市場H200出口<br>Blackwell放量進度<br>資料中心毛利率走向</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 台灣股市統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美股（2026年5月15日週五終場 - 全線重挫！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年5月18日 終場 - 早盤急跌千點後強力收復！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
-                    <h3>道瓊指數</h3>
+                    <h3>加權指數</h3>
+                    <div class="stat-value">40,891.82點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -280.54點 (-0.68%)</div>
+                    <div class="warn-badge">強力收復！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>盤中最高</h3>
+                    <div class="stat-value">42,174.55點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">開盤衝新高</div>
+                    <div class="strong-badge">先衝後跌</div>
+                </div>
+                <div class="stat-item">
+                    <h3>盤中最低</h3>
+                    <div class="stat-value">40,170.17點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">急跌逾千點</div>
+                    <div class="loss-badge">🔴 最大跌幅</div>
+                </div>
+                <div class="stat-item">
+                    <h3>成交金額</h3>
+                    <div class="stat-value">9,904.66億</div>
+                    <div style="color: #666; font-size: 1.1em;">量能萎縮</div>
+                    <div class="warn-badge">觀望氣氛重</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>📊 5月18日關鍵數據整理：</strong><br>
+            ⚡ <strong>早盤急跌逾千點</strong>：開盤11分鐘內一度狂跌至40,170.17點，振幅超過2,000點<br>
+            ✅ <strong>終場強力收復</strong>：多方低檔承接，從最低反彈逾700點，收跌幅收斂至0.68%<br>
+            ❌ <strong>台積電跌40元至2225元</strong>，跌幅1.77%，今日最大拖累<br>
+            ❌ <strong>聯發科跌20元至3240元</strong>，5月20日解禁前市場觀望<br>
+            ❌ <strong>00403A跌破10元發行價</strong>：最低9.7元，溢價追買慘遭套牢<br>
+            ✅ <strong>矽力-KY漲停514元</strong>：電源管理IC急單，法人估EPS達9.3元<br>
+            ✅ <strong>摩根大通上調台股目標50,000點</strong>：AI基礎建設需求仍強<br>
+            ✅ <strong>法人定調多頭整理</strong>：AI供應鏈基本面未變，資金輪動中
+        </div>
+
+        <!-- 美股休市 + 本週重點 -->
+        <div class="stats-container">
+            <div class="stats-title">🇺🇸 美股（今日休市 | 上週五終場 + 本週重點預告）</div>
+            <div class="stats-bar">
+                <div class="stat-item neutral">
+                    <h3>道瓊（上週五）</h3>
                     <div class="stat-value">49,526.17點</div>
                     <div style="color: #ff6b6b; font-size: 1.1em;">↓ -537.29點 (-1.07%)</div>
-                    <div class="loss-badge">📉 重挫回檔</div>
+                    <div class="warn-badge">今日休市</div>
                 </div>
-                <div class="stat-item">
-                    <h3>標普500</h3>
+                <div class="stat-item neutral">
+                    <h3>標普500（上週五）</h3>
                     <div class="stat-value">7,408.50點</div>
                     <div style="color: #ff6b6b; font-size: 1.1em;">↓ -92.74點 (-1.24%)</div>
-                    <div class="loss-badge">📉 從7500回落</div>
+                    <div class="warn-badge">今日休市</div>
                 </div>
-                <div class="stat-item">
-                    <h3>納斯達克</h3>
-                    <div class="stat-value">26,225.14點</div>
+                <div class="stat-item neutral">
+                    <h3>納斯達克（上週五）</h3>
+                    <div class="stat-value">26,225.15點</div>
                     <div style="color: #ff6b6b; font-size: 1.1em;">↓ -410.08點 (-1.54%)</div>
-                    <div class="loss-badge">📉 科技股領跌</div>
+                    <div class="warn-badge">今日休市</div>
                 </div>
-                <div class="stat-item">
-                    <h3>費城半導體</h3>
-                    <div class="stat-value">11,588點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -4.02%</div>
-                    <div class="loss-badge">🔴 最慘烈板塊</div>
+                <div class="stat-item neutral">
+                    <h3>費城半導體（上週五）</h3>
+                    <div class="stat-value">11,588.46點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -485.32點 (-4.02%)</div>
+                    <div class="loss-badge">最慘烈板塊</div>
                 </div>
+            </div>
+
+            <div class="nvda-box">
+                <h3>🔥 輝達(NVDA) 5月20日財報前哨戰 — 各大機構預估彙整</h3>
+                <div class="nvda-grid">
+                    <div class="nvda-item">
+                        <h4>花旗預估Q1營收</h4>
+                        <div class="value">800億美元</div>
+                        <div class="sub">市場共識約786億美元</div>
+                    </div>
+                    <div class="nvda-item">
+                        <h4>富國銀行目標價</h4>
+                        <div class="value">315美元</div>
+                        <div class="sub">較現價225美元有40%空間</div>
+                    </div>
+                    <div class="nvda-item">
+                        <h4>前季Q4實際營收</h4>
+                        <div class="value">681億美元</div>
+                        <div class="sub">季增20%、年增73%創新高</div>
+                    </div>
+                    <div class="nvda-item">
+                        <h4>科技五巨頭AI資本支出</h4>
+                        <div class="value">7,700億美元</div>
+                        <div class="sub">2026年合計投入AI基礎設施</div>
+                    </div>
+                    <div class="nvda-item">
+                        <h4>AI算力需求預估</h4>
+                        <div class="value">供不應求至2027</div>
+                        <div class="sub">Blackwell系列晶片快速放量</div>
+                    </div>
+                    <div class="nvda-item">
+                        <h4>財報公布時間</h4>
+                        <div class="value">5月20日</div>
+                        <div class="sub">台灣時間凌晨盤後公布</div>
+                    </div>
+                </div>
+                <p style="color: #888; font-size: 0.85em; margin-top: 15px;">⚠️ 關鍵風險：中國市場H200出口政策、Blackwell爬坡進度、資料中心毛利率走向</p>
             </div>
         </div>
 
-        <!-- 個股漲跌表 -->
-        <div class="stats-container">
-            <div class="stats-title">📊 5月15日 重點個股表現</div>
-            <table class="stock-table">
-                <thead>
-                    <tr>
-                        <th>個股</th>
-                        <th>收盤價（美元）</th>
-                        <th>漲跌幅</th>
-                        <th>市場解讀</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>🔴 英特爾 (INTC)</td>
-                        <td>108.77</td>
-                        <td class="red">-6.18%</td>
-                        <td>漲多拉回，本益比156倍遭質疑，獲利了結賣壓重</td>
-                    </tr>
-                    <tr>
-                        <td>🔴 美光 (MU)</td>
-                        <td>724.66</td>
-                        <td class="red">-6.62%</td>
-                        <td>前波大漲後獲利了結，AI記憶體題材短線降溫</td>
-                    </tr>
-                    <tr>
-                        <td>🔴 輝達 (NVDA)</td>
-                        <td>225.32</td>
-                        <td class="red">-4.42%</td>
-                        <td>川習會AI晶片管制未放寬令市場失望，回吐部分漲幅</td>
-                    </tr>
-                    <tr>
-                        <td>🔴 Cerebras (CBRS)</td>
-                        <td>279.72</td>
-                        <td class="red">-10.08%</td>
-                        <td>掛牌次日暴跌，IPO首日68%漲幅遭獲利了結</td>
-                    </tr>
-                    <tr>
-                        <td>🟢 微軟 (MSFT)</td>
-                        <td>421.92</td>
-                        <td class="green">+3.05%</td>
-                        <td>避險基金大亨艾克曼披露建倉微軟，帶動逆勢大漲</td>
-                    </tr>
-                    <tr>
-                        <td>🟢 基礎設施軟件族群</td>
-                        <td>—</td>
-                        <td class="green">+1.70%</td>
-                        <td>防禦性科技股受資金青睞，抗跌性強</td>
-                    </tr>
-                    <tr>
-                        <td>🟢 綜合石油族群</td>
-                        <td>—</td>
-                        <td class="green">+2.17%</td>
-                        <td>油價飆近110美元，能源股直接受惠</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ======= 川習會深度分析 ======= -->
-        <div class="analysis-section">
-            <div class="analysis-title">
-                🌏 川習會完整市場深度分析
-                <span>2026年5月14日~15日 北京峰會 | 市場影響全面解讀</span>
-            </div>
-
-            <!-- 峰會成果 -->
-            <div class="summit-grid">
-                <div class="summit-card achieved">
-                    <h3>✅ 峰會達成事項</h3>
-                    <ul>
-                        <li>中國同意購買200架波音飛機（低於預期500架）</li>
-                        <li>中國增加採購美國農產品（大豆、能源）意願</li>
-                        <li>美國批准約10家陸企購買輝達H200晶片（尚未出貨）</li>
-                        <li>習近平確認中國「開放大門只會越開越大」</li>
-                        <li>習近平受邀9月24日訪問白宮</li>
-                        <li>雙方同意在伊朗問題上保持溝通</li>
-                    </ul>
-                </div>
-                <div class="summit-card missed">
-                    <h3>❌ 市場期待但未達成</h3>
-                    <ul>
-                        <li>AI高階晶片出口管制（H100等）無鬆綁訊號</li>
-                        <li>美貿易代表明確表示峰會未聚焦半導體管制</li>
-                        <li>無具體、有法律約束力的貿易協議文件</li>
-                        <li>波音訂單遠低於市場預期的500架</li>
-                        <li>無稀土出口管制鬆綁承諾</li>
-                        <li>台灣問題雙方各表，無具體共識</li>
-                    </ul>
-                </div>
-                <div class="summit-card risk">
-                    <h3>⚠️ 潛在風險警訊</h3>
-                    <ul>
-                        <li>習近平高調提台灣問題，被視為紅線警告</li>
-                        <li>「稀土換ASML曝光機」傳言若成真，台積電定價權受衝擊</li>
-                        <li>美方白宮紀要完全未提台灣，雙方「各表」落差大</li>
-                        <li>美中競爭格局未根本改變，僅階段性緩和</li>
-                        <li>分析師警告中美供應鏈脫鉤仍在加速</li>
-                        <li>台灣成「交易籌碼」的地緣折價風險升高</li>
-                    </ul>
-                </div>
-                <div class="summit-card watch">
-                    <h3>🔍 後續關鍵觀察點</h3>
-                    <ul>
-                        <li>未來3週中美是否簽署具體採購協議</li>
-                        <li>H200晶片對中出口何時正式出貨</li>
-                        <li>習近平9月24日訪美的後續安排與議程</li>
-                        <li>美伊戰爭談判進展與荷莫茲海峽重開</li>
-                        <li>美國高階晶片（H100/B200）出口管制是否鬆綁</li>
-                        <li>台灣對外軍售後續動態與美台關係走向</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 對各市場影響分析 -->
-            <h3 style="color: white; font-size: 1.5em; margin: 30px 0 20px;">📊 川習會對各資產類別的影響分析</h3>
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <div class="impact-level high">🔴 高度衝擊</div>
-                    <h3>🖥️ AI高階晶片股</h3>
-                    <p>美貿易代表明確指出峰會未聚焦半導體管制，H100等高階晶片對中出口管制無鬆綁，令輝達等AI晶片股週五回落。短期內晶片管制仍是最大不確定因素，但H200批准出口的消息顯示局部緩和態勢。輝達月底財報將是下一個關鍵催化劑。</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-level high">🔴 高度衝擊</div>
-                    <h3>🇹🇼 台灣地緣風險溢價</h3>
-                    <p>習近平高調提出台灣問題，分析師指出台股與費半指數相關係數近一年已出現「剪刀差」，消失的15~20%漲幅即為地緣風險保費。台灣從「不可動搖戰略資產」轉為「開價透明交易籌碼」的風險上升，對台積電等權值股的本益比天花板形成壓力。</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-level medium">🟡 中度衝擊</div>
-                    <h3>✈️ 波音與傳統產業</h3>
-                    <p>中國同意購買200架波音飛機，雖低於市場預期的500架，但對波音而言仍是重返中國市場的重要象徵。農產品（大豆）、能源採購協議預期將分階段落實。美國大型企業高層隨訪北京，顯示美中商業往來仍有階段性緩和空間。</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-level medium">🟡 中度衝擊</div>
-                    <h3>🛢️ 油價與通膨</h3>
-                    <p>川習會後，國際焦點重新聚焦美伊戰爭，談判仍陷僵局，布蘭特原油飆近110美元，推升30年期美債殖利率突破5.1%，創2023年以來新高。高油價與通膨風險持續，美聯儲新主席華許降息空間受限，高估值成長股短期承壓。</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-level low">🟢 相對受益</div>
-                    <h3>💰 防禦性資產與黃金</h3>
-                    <p>地緣政治不確定性升溫，分析師建議增持防禦性資產。微軟在艾克曼建倉消息帶動下逆勢大漲3.05%，顯示資金轉向現金流穩定的防禦型科技股。黃金作為「議價時代實物避險」的地位更受重視，能源股受油價上漲直接受益。</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-level low">🟢 相對受益</div>
-                    <h3>🤖 AI基礎設施長線</h3>
-                    <p>應材(AMAT)財報單季營收與EPS雙創歷史新高，並預期2026年半導體設備業務成長逾30%。AI基礎設施需求的結構性確定性未動搖，只是短線漲勢需要消化。下週輝達財報(5月20日)將是重新確認AI長線投資邏輯的關鍵時刻。</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 美股週五5大重點新聞 -->
+        <!-- 台股新聞 -->
         <div class="news-section">
-            <h2 class="section-title">🔥 美股本週5大重點新聞</h2>
+            <h2 class="section-title">🔥 台股5大重點新聞</h2>
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">川習會「缺乏重大突破」！AI晶片管制未放寬 科技股急速降溫</div>
-                        <div class="news-content">美股5月15日(週五)大幅回落。川普與習近平結束北京三天峰會後，市場失望於缺乏實質性突破。美國貿易代表葛里爾明確表示峰會並未聚焦半導體出口管制，輝達等AI晶片股原本寄望峰會帶來管制鬆綁，期待落空後迅速回吐。分析師Crisafulli指出，科技股近期漲勢已達不可持續水準，無論消息面如何，獲利了結都難以避免。</div>
-                        <div class="news-source">來源：鉅亨網、聯合新聞網</div>
+                        <div class="news-title">台股早盤急跌逾千點！終場強力收復 收40,891點跌280點(-0.68%)</div>
+                        <div class="news-content">台股5月18日(星期一)承接上週五美股重挫與川習會失望情緒，開盤後11分鐘內指數一度狂跌千點，最低觸及40,170.17點。所幸多方承接買盤在低檔積極進場，指數從低點反彈逾700點，終場以40,891.82點作收，跌幅收斂至0.68%，成交金額9,904.66億元。電子指數跌0.69%，全線下跌，但終場跌幅大幅收斂，顯示多方支撐力道仍在。今日振幅超過2,000點，創台股近期盤中震盪之最。</div>
+                        <div class="news-source">來源：ETtoday、聯合新聞網</div>
                     </div>
                 </div>
-                
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">半導體集體暴跌！費半-4.02% 英特爾-6.18% 美光-6.62% 輝達-4.42%</div>
-                        <div class="news-content">費城半導體指數(SOXX)單日暴跌4.02%至11,588點，為本週最慘烈的板塊。英特爾週五收108.77美元，跌幅6.18%；美光跌幅6.62%；輝達跌4.42%；Cerebras掛牌次日暴跌10.08%。分析師指出，英特爾本益比高達156倍，遭市場與輝達本益比27倍進行比價後大量拋售。半導體族群在AI熱潮下前波漲幅過大，技術面調整不可避免。</div>
-                        <div class="news-source">來源：CMoney、聯合新聞網</div>
+                        <div class="news-title">台積電跌40元至2225元！聯發科解禁前最後觀望 00403A跌破10元</div>
+                        <div class="news-content">台積電(2330)今日下跌40元至2,225元，跌幅1.77%，是今日拖累大盤最大的權值股。聯發科(2454)5月20日處置期滿前，市場仍在觀望，今日下跌20元至3,240元。主動式ETF統一升級50(00403A)慘遭重挫，盤中最低跌至9.7元，正式跌破10元發行價，首週溢價追高的投資人慘套。「不敗教主」陳重銘：「上週就提醒溢價太高，有貨快出，短期賺錢難。」</div>
+                        <div class="news-source">來源：ETtoday、Newtalk</div>
                     </div>
                 </div>
-                
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">微軟逆勢大漲3.05%！避險大亨艾克曼披露建倉 資金轉向防禦型科技</div>
-                        <div class="news-content">在科技股全線重挫的環境下，微軟(MSFT)逆勢大漲3.05%收421.92美元，成為今日最搶眼的逆勢標的。原因是避險基金大亨比爾·艾克曼披露，其旗下的潘興廣場資本管理已建立微軟持股部位。市場解讀這是資金從高波動AI芯片股，轉向現金流穩定、估值相對合理的防禦型科技龍頭的訊號。微軟的Azure雲端業務持續受惠於AI企業應用需求。</div>
-                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
+                        <div class="news-title">矽力-KY逆勢漲停514元！電源管理IC急單加持 今年EPS估9.3元</div>
+                        <div class="news-content">IC設計矽力-KY(6415)在全面下跌的盤面中逆勢大放異彩，盤中亮燈漲停衝上514元。本土法人最新報告指出，矽力-KY在電源管理IC急單加持下，今年EPS有望達9.3元，幾乎賺近一個股本，吸引買盤積極進場。矽力-KY的表現代表AI供應鏈中相對低基期的成長股，即使在大盤重挫時仍能逆勢上攻，市場資金的選股邏輯正在精緻化，從追漲高位股轉向基本面支撐的價值成長股。</div>
+                        <div class="news-source">來源：ETtoday、CMoney</div>
                     </div>
                 </div>
-                
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">油價飆近110美元！30年美債殖利率破5.1% 通膨風險全面壓制股市</div>
-                        <div class="news-content">川習會結束後，美伊戰爭談判仍
+                        <div class="news-title">法人定調「多頭整理」！摩根大通上調台股目標至50,000點 仍有20%空間</div>
+                        <div class="news-content">儘管今日台股大幅震盪，多數法人仍將本波調整定調為「多頭整理」，而非趨勢轉空。摩根大通上調台灣加權指數目標，牛市情境下目標50,000點，意味從目前水準約有20%上漲空間，指出「台股對AI基礎建設擴張是全球最純粹受惠市場之一」。分析師認為，AI供應鏈基本面未變，只是漲多後進行資金輪動與籌碼沉澱，建議「選股不選市」，聚焦基本面紮實個股。</div>
+                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">⑤</div>
+                        <div class="news-title">本週三大催化劑！520就職行情+聯發科解禁+MSCI效應 歷史勝率九成</div>
+                        <div class="news-content">本週台股有三大正面催化劑。一、5月20日520總統就職行情：歷史統計顯示過去近十次就職典禮後台股上漲機率高達九成。二、5月20日聯發科解禁：台股第三大權值股恢復正常交易，若補量上攻將帶動大盤。三、5月29日MSCI調整生效：法人預估帶來1,500至2,500億元外資買盤挹注。三大利多催化劑齊聚，多方對台股中線前景維持樂觀。</div>
+                        <div class="news-source">來源：第一金投顧、聯合新聞網</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 美股預報 -->
+        <div class="news-section">
+            <h2 class="section-title">🚀 美股本週5大重點預告</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">①</div>
+                        <div class="news-title">【預報 5/20】輝達財報法說！花旗估Q1營收800億 AI需求供不應求至2027</div>
+                        <div class="news-content">本週美股最大催化劑：輝達(NVDA)將於5月20日(週三)台灣時間凌晨公布2027財年Q1財報。花旗預估單季營收達800億美元，高於市場共識約14億，主因B300晶片產能爬升速度優於預期。AI基礎建設需求仍遠高於供給，供不應求情況預估延續至2027年。富國銀行將目標價大幅調升至315美元，預測2027財年資料中心營收達3,545億美元。若財報超預期，將是引爆AI板塊全面反彈的關鍵訊號！</div>
+                        <div class="news-source">來源：CMoney、ETtoday、富國銀行</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">②</div>
+                        <div class="news-title">【預報】科技巨頭AI資本支出合計7,700億美元！輝達最大受惠者</div>
+                        <div class="news-content">微軟計畫2026年投資1,900億美元AI基礎設施，亞馬遜預計投資約2,000億美元，Alphabet、Meta與特斯拉也持續加碼AI投資。五大科技巨頭2026年AI資本支出合計估逾7,700億美元，核心採購正是輝達AI晶片。這股不可阻擋的需求浪潮是輝達維持高成長的結構性動力，也是分析師對輝達財報維持高度樂觀的根本原因。AI需求的長期確定性仍是本波多頭的最強基本面支撐。</div>
+                        <div class="news-source">來源：TradingKey、CMoney</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">③</div>
+                        <div class="news-title">【預報】美伊談判仍僵 油價居高 30年債殖利率破5.1%是最大下行風險</div>
+                        <div class="news-content">川習會結束後，美伊戰爭談判雙方仍無定論，布蘭特原油維持高位。高油價持續推升通膨預期，上週五30年期美國國債殖利率突破5.1%，逼近2023年以來新高。新任Fed主席華許面臨通膨復燃與市場降息期待的兩難，若油價持續居高不下，對高估值成長股的壓力將持續。這是本週美股最大的系統性下行風險，需密切追蹤美伊談判最新進展。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">④</div>
+                        <div class="news-title">【預報】微軟艾克曼效應持續！防禦型科技股成資金新寵 Azure AI需求旺</div>
+                        <div class="news-content">避險基金大亨艾克曼上週披露建倉微軟，帶動微軟在大跌日逆勢大漲3.05%，顯示市場資金正從高波動AI芯片股，轉向現金流穩定的防禦型科技龍頭。本週微軟的Azure雲端業務受惠於企業AI應用需求持續成長，以及市場對防禦型科技股的偏愛，有望持續成為重點關注標的。在不確定環境中，現金流穩定、估值合理的防禦型大型科技股成為資金重新配置的首選方向。</div>
+                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">⑤</div>
+                        <div class="news-title">【預報】COMPUTEX 2026即將登場！黃仁勳主題演講 台灣AI展成全球焦點</div>
+                        <div class="news-content">台北國際電腦展COMPUTEX 2026即將於5月下旬在台北南港展覽館正式登場，輝達執行長黃仁勳將親臨發表主題演講，預計帶來AI最新技術與產品藍圖。COMPUTEX歷年來是全球科技產業的重要風向標，黃仁勳的演講更是AI題材最強力的催化劑之一。台灣作為全球AI算力製造核心的地位將再度被強化，預期相關AI伺服器、散熱、矽光子等供應鏈個股有望在展覽前後受到資金關注。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-green">
+            <strong>📅 本週超級重點行事曆(5月19日-5月22日)：</strong><br><br>
+            🔥 <strong>5月20日(週三)凌晨 — 輝達財報法說</strong>：AI行情最大催化劑，決定半導體後市走向！<br>
+            🎯 <strong>5月20日 — 聯發科解禁</strong>：台股第三大權值股恢復正常交易，走勢影響大盤<br>
+            🎖️ <strong>5月20日 — 520就職行情</strong>：歷史近十次就職後台股上漲機率九成<br>
+            💼 <strong>5月29日 — MSCI調整生效</strong>：預計帶來1,500至2,500億元外資買盤<br>
+            🖥️ <strong>5月下旬 — COMPUTEX 2026</strong>：黃仁勳主題演講，AI題材持續發酵<br>
+            ⚠️ <strong>持續追蹤</strong>：美伊談判、油價走向、美債殖利率變化
+        </div>
+
+        <footer>
+            <h3>📈 財經新聞自動化平台</h3>
+            <p>每天自動為您生成美股和台股的深度分析報告</p>
+            <p>台美股市新聞 | 實時市場數據 | 投資策略建議</p>
+            <div class="footer-links">
+                <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank">📖 查看完整分析</a>
+                <a href="https://instagram.com/wu_wealth_lab" target="_blank">📱 追蹤 Instagram</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9
