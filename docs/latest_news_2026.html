@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年5月21日 輝達816億超狂！台股暴漲1347點！</title>
+    <title>財經新聞自動化 | 2026年5月24日 週末特刊 × 明日開盤前哨戰</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
@@ -14,27 +14,47 @@
         .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
 
-        .mega-success { background: linear-gradient(135deg, rgba(81,207,102,0.3) 0%, rgba(76,140,255,0.3) 100%); border: 2px solid #51cf66; padding: 25px; margin-bottom: 25px; border-radius: 10px; color: white; }
-        .mega-success strong { color: #51cf66; font-size: 1.1em; }
+        /* 週末特刊標籤 */
+        .special-tag { display: inline-block; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.9em; font-weight: bold; margin-bottom: 20px; }
 
-        /* 輝達財報成績單 */
-        .nvda-result { background: linear-gradient(135deg, #76b900 0%, #1a6600 100%); border-radius: 15px; padding: 30px; margin-bottom: 30px; color: white; }
-        .nvda-result h2 { font-size: 2em; margin-bottom: 20px; text-align: center; }
-        .nvda-result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .nvda-result-item { background: rgba(255,255,255,0.2); border-radius: 10px; padding: 20px; text-align: center; }
-        .nvda-result-item h4 { font-size: 0.85em; opacity: 0.9; margin-bottom: 8px; }
-        .nvda-result-item .val { font-size: 1.8em; font-weight: bold; }
-        .nvda-result-item .vs { font-size: 0.8em; opacity: 0.85; margin-top: 5px; }
+        .mega-box { background: linear-gradient(135deg, rgba(81,207,102,0.2) 0%, rgba(76,140,255,0.2) 100%); border: 2px solid #51cf66; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
+        .mega-box strong { color: #51cf66; }
+
+        /* 黃仁勳訪台特別框 */
+        .jh-banner { background: linear-gradient(135deg, #76b900 0%, #1a5500 100%); border-radius: 12px; padding: 28px; margin-bottom: 30px; color: white; }
+        .jh-banner h2 { font-size: 1.9em; margin-bottom: 12px; text-align: center; }
+        .jh-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 18px; }
+        .jh-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; }
+        .jh-item h4 { font-size: 0.9em; margin-bottom: 8px; opacity: 0.9; }
+        .jh-item p { font-size: 0.95em; font-weight: bold; line-height: 1.5; }
+
+        /* 明日開盤前哨戰 */
+        .tomorrow-box { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; padding: 30px; margin-bottom: 30px; }
+        .tomorrow-box h2 { color: white; font-size: 2em; margin-bottom: 20px; text-align: center; }
+        .tomorrow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .tomorrow-card { background: white; border-radius: 10px; padding: 20px; }
+        .tomorrow-card h3 { color: #1a3a52; font-size: 1.1em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #eee; }
+        .tomorrow-card.bull h3 { border-color: #51cf66; color: #2e7d32; }
+        .tomorrow-card.bear h3 { border-color: #ff6b6b; color: #c62828; }
+        .tomorrow-card.watch h3 { border-color: #4c8cff; color: #1565c0; }
+        .tomorrow-card ul { list-style: none; }
+        .tomorrow-card ul li { padding: 7px 0; color: #555; border-bottom: 1px solid #f5f5f5; font-size: 0.9em; line-height: 1.5; }
+        .tomorrow-card ul li:last-child { border-bottom: none; }
+        .tomorrow-card.bull ul li::before { content: "✅ "; }
+        .tomorrow-card.bear ul li::before { content: "⚠️ "; }
+        .tomorrow-card.watch ul li::before { content: "🔍 "; }
 
         .stats-container { margin-bottom: 40px; }
         .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 25px; }
         .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #51cf66; }
+        .stat-item.down { border-left: 5px solid #ff6b6b; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.2em; font-weight: bold; color: #333; margin: 10px 0; }
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .fire-badge { display: inline-block; background: #f5576c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
 
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 20px 0; }
         .stock-table th { background: #1a3a52; color: white; padding: 14px 18px; text-align: left; font-size: 0.9em; }
@@ -48,6 +68,17 @@
         .highlight-green strong { color: #2e7d32; }
         .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
         .highlight-box strong { color: #856404; }
+
+        /* 下週行事曆 */
+        .calendar-box { background: white; border-radius: 12px; padding: 28px; margin: 25px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .calendar-box h3 { color: #1a3a52; font-size: 1.5em; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+        .cal-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .cal-item:last-child { border-bottom: none; }
+        .cal-date { background: #1a3a52; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.85em; min-width: 70px; text-align: center; flex-shrink: 0; }
+        .cal-date.hot { background: #f5576c; }
+        .cal-date.important { background: #76b900; }
+        .cal-content h4 { color: #333; font-size: 1em; margin-bottom: 5px; }
+        .cal-content p { color: #666; font-size: 0.88em; line-height: 1.5; }
 
         .news-section { margin-bottom: 50px; }
         .section-title { color: white; font-size: 2.2em; margin-bottom: 25px; padding-left: 20px; border-left: 4px solid white; }
@@ -65,261 +96,249 @@
         footer p { margin: 10px 0; opacity: 0.9; }
         .footer-links { margin-top: 20px; }
         .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
-        @media (max-width: 768px) { header h1 { font-size: 2em; } .news-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { header h1 { font-size: 2em; } .news-grid { grid-template-columns: 1fr; } .tomorrow-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="special-tag">📰 週末特刊 × 明日開盤前哨戰</div>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年5月21日 輝達816億超狂！台股暴漲1347點！聯發科出關漲停！</p>
+            <p>2026年5月24日(週日) | 美股連創新高！黃仁勳抵台掀仁來瘋！美伊和平草案達成！明日台股開盤前完整解析！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
 
-        <div class="mega-success">
-            <strong>🚀🚀🚀 史詩級雙市場大爆發！</strong><br>
-            輝達Q1實際營收816.15億美元！年增85%！大幅超越市場預期787.5億！資料中心752億創新高！<br>
-            Q2財測高達910億美元！股息暴漲24倍至0.25元！800億美元庫藏股計畫！<br>
-            台股暴漲1347.39點(+3.37%)收41,368點！漲股717家！聯發科出關鎖漲停3550元！<br>
-            美股道瓊重返5萬點！費半暴漲4.49%！英特爾飆漲7.36%！
+        <div class="mega-box">
+            <strong>🚀 本週台美股市雙雙強勁！下週更精彩！</strong><br>
+            台股本週累計暴漲2,246點！42,267.97點創史上收盤新高！美股道瓊50,579點！標普7,473點創新高！費半12,202點！<br>
+            黃仁勳5月23日已提前抵台！美伊和平草案達成！荷莫茲海峽將開放！油價回落！<br>
+            下週MSCI效應5/29生效(外資1,500-2,500億買盤) + GTC Taipei 6/1 + COMPUTEX 6/2開幕！超級行情週！
         </div>
 
-        <!-- 輝達財報成績單 -->
-        <div class="nvda-result">
-            <h2>🏆 輝達(NVDA) Q1 FY2027 財報完整成績單</h2>
-            <div class="nvda-result-grid">
-                <div class="nvda-result-item">
-                    <h4>Q1實際總營收</h4>
-                    <div class="val">816.15億美元</div>
-                    <div class="vs">預期787.5億｜超出28.65億 ✅</div>
+        <!-- 黃仁勳訪台特別框 -->
+        <div class="jh-banner">
+            <h2>🔥 黃仁勳已抵台！COMPUTEX × GTC Taipei 超級AI盛會倒數！</h2>
+            <div class="jh-grid">
+                <div class="jh-item">
+                    <h4>📅 抵台時間</h4>
+                    <p>5月23日下午<br>搭乘私人專機<br>提前近一週抵達</p>
                 </div>
-                <div class="nvda-result-item">
-                    <h4>年增率</h4>
-                    <div class="val">85%</div>
-                    <div class="vs">季增20%｜連續創歷史新高</div>
+                <div class="jh-item">
+                    <h4>🎤 GTC Taipei主題演講</h4>
+                    <p>6月1日上午11點<br>台北流行音樂中心<br>最具指標性AI科技盛會</p>
                 </div>
-                <div class="nvda-result-item">
-                    <h4>資料中心營收</h4>
-                    <div class="val">752億美元</div>
-                    <div class="vs">季增21%｜年增92%｜創紀錄！</div>
+                <div class="jh-item">
+                    <h4>🖥️ COMPUTEX 2026</h4>
+                    <p>6月2日-6月5日<br>台北南港展覽館<br>黃仁勳主題演講</p>
                 </div>
-                <div class="nvda-result-item">
-                    <h4>Q2財測（剔除中國）</h4>
-                    <div class="val">910億美元</div>
-                    <div class="vs">預期870億｜超出40億 🔥</div>
+                <div class="jh-item">
+                    <h4>🏢 輝達台灣總部動土</h4>
+                    <p>5月27日(週二)<br>北投士林科技園區<br>輝達海外首個總部</p>
                 </div>
-                <div class="nvda-result-item">
-                    <h4>股息調升</h4>
-                    <div class="val">暴漲24倍</div>
-                    <div class="vs">至每季0.25美元</div>
+                <div class="jh-item">
+                    <h4>🤝 拜會對象</h4>
+                    <p>台積電創辦人張忠謀<br>廣達林百里、華碩施崇棠<br>以及台灣AI供應鏈夥伴</p>
                 </div>
-                <div class="nvda-result-item">
-                    <h4>庫藏股計畫</h4>
-                    <div class="val">800億美元</div>
-                    <div class="vs">史上最大規模回購！</div>
+                <div class="jh-item">
+                    <h4>💬 黃仁勳名言</h4>
+                    <p>「Vera Rubin可能是<br>台灣史上規模最大<br>的製造案」</p>
                 </div>
             </div>
-            <p style="text-align:center; margin-top:20px; font-size:0.95em; opacity:0.9;">黃仁勳：「AI工廠的建設正以驚人速度加快，這是人類史上最大規模的基礎建設擴張！」</p>
         </div>
 
-        <!-- 台股統計 -->
+        <!-- 美股週五收盤數據 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年5月21日 終場 - 輝達助攻！史詩級大反彈！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年5月23日 週五終場 - 道瓊50579！標普創新高！費半漲1.99%！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
-                    <h3>加權指數</h3>
-                    <div class="stat-value">41,368.21點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1,347.39點 (+3.37%)</div>
-                    <div class="fire-badge">🚀 史詩級暴漲！</div>
+                    <h3>道瓊指數</h3>
+                    <div class="stat-value">50,579.70點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +294.04點 (+0.58%)</div>
+                    <div class="strong-badge">🏆 本週新高！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>聯發科（出關）</h3>
-                    <div class="stat-value">3,550元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +320元 漲停！</div>
-                    <div class="fire-badge">🔥 猛虎出閘！</div>
+                    <h3>標普500</h3>
+                    <div class="stat-value">7,473.45點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +27.73點 (+0.37%)</div>
+                    <div class="fire-badge">📈 創歷史新高！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>台積電</h3>
-                    <div class="stat-value">2,230元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +45元 (+2.06%)</div>
-                    <div class="gain-badge">✅ 重返5日線！</div>
+                    <h3>納斯達克</h3>
+                    <div class="stat-value">26,343.97點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +50.87點 (+0.19%)</div>
+                    <div class="gain-badge">✅ 穩步走強</div>
                 </div>
                 <div class="stat-item">
-                    <h3>漲跌家數</h3>
-                    <div class="stat-value">717 : 127</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">漲跌比 5.65:1</div>
-                    <div class="strong-badge">全面大漲！</div>
+                    <h3>費城半導體</h3>
+                    <div class="stat-value">12,202.54點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +238.46點 (+1.99%)</div>
+                    <div class="fire-badge">🔥 暴漲近2%！</div>
                 </div>
             </div>
 
             <table class="stock-table">
                 <thead>
-                    <tr><th>個股</th><th>收盤/高點</th><th>漲跌幅</th><th>今日表現</th></tr>
+                    <tr><th>個股</th><th>收盤(美元)</th><th>漲跌幅</th><th>市場解讀</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🔥 聯發科(2454)</td><td>3,550元（漲停）</td><td class="green">+9.89% 漲停！</td><td>出關10分鐘即鎖漲停，猛虎出閘！</td></tr>
-                    <tr><td>✅ 台積電(2330)</td><td>觸及2,240元</td><td class="green">+2.06%</td><td>重返5日線，領軍五大權值股走強</td></tr>
-                    <tr><td>🔥 台達電(2308)</td><td>觸及2,025元</td><td class="green">大漲110元</td><td>電源管理龍頭跟隨輝達供應鏈爆發</td></tr>
-                    <tr><td>✅ 英特爾ADR(INTC)</td><td>118.96美元</td><td class="green">+7.36%</td><td>今日美股最強個股！蘋果代工題材</td></tr>
-                    <tr><td>✅ 鴻海(2317)</td><td>—</td><td class="green">+2%以上</td><td>AI伺服器題材重燃，AI代工龍頭強勢</td></tr>
-                    <tr><td>✅ 廣達(2382)</td><td>—</td><td class="green">+2%以上</td><td>伺服器族群全面爆發</td></tr>
-                    <tr><td>✅ 台積電ADR(TSM)</td><td>396.62美元</td><td class="green">+1.02%</td><td>美股盤後財報後回穩上漲</td></tr>
-                    <tr><td>✅ 輝達(NVDA)</td><td>223.47美元</td><td class="green">+1.30%</td><td>財報超預期，盤後雖一度跌但今日收漲</td></tr>
+                    <tr><td>✅ 蘋果(AAPL)</td><td>308.820</td><td class="green">+1.26%</td><td>今日美股大型科技股最強，Intel代工合作題材</td></tr>
+                    <tr><td>✅ 特斯拉(TSLA)</td><td>426.010</td><td class="green">+1.95%</td><td>馬斯克訪華正面效應，AI自駕題材持續</td></tr>
+                    <tr><td>✅ Meta</td><td>610.260</td><td class="green">+0.47%</td><td>AI廣告業務強勁，基礎建設投資持續</td></tr>
+                    <tr><td>✅ 英特爾(INTC)</td><td>119.840</td><td class="green">+1.13%</td><td>14A製程+蘋果代工傳聞，持續走強</td></tr>
+                    <tr><td>📉 輝達(NVDA)</td><td>215.330</td><td class="red">-1.90%</td><td>財報後「利多出盡」整理，黃仁勳訪台是下週催化劑</td></tr>
+                    <tr><td>📉 台積電ADR(TSM)</td><td>404.52</td><td class="red">-0.65%</td><td>高位整理，黃仁勳GTC演講前觀望</td></tr>
+                    <tr><td>✅ 聯電ADR(UMC)</td><td>18.2200</td><td class="red">-0.71%</td><td>昨日大漲4.16%後小幅回調</td></tr>
+                    <tr><td>📉 Alphabet(GOOG)</td><td>379.380</td><td class="red">-1.07%</td><td>高位整理，AI競爭壓力持續</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div class="highlight-green">
-            <strong>📊 5月21日關鍵數據整理：</strong><br>
-            🚀 <strong>台股暴漲1,347.39點</strong>：創台股史上最大單日點數漲幅之一！開盤不到1分鐘大漲逾千點！<br>
-            🚀 <strong>站回所有均線</strong>：一舉收復5日線、10日線，技術面全面翻多！<br>
-            🔥 <strong>聯發科鎖漲停3,550元</strong>：出關後10分鐘即鎖死，「含發量」高的科技ETF全面爆發<br>
-            ✅ <strong>半導體業淨流入3,660億</strong>：今日最大資金流向，顯示法人積極追買AI核心族群<br>
-            ✅ <strong>電子零組件業淨流入2,181億</strong>：全面補漲，主力族群均雨露均霑<br>
-            ✅ <strong>漲股717家 vs 跌股127家</strong>：漲跌比高達5.65:1，市場全面多頭<br>
-            ✅ <strong>油價回落+美債殖利率下行</strong>：通膨疑慮降溫，雙重利多加持輝達財報
+            <strong>📊 5月23日美股關鍵數據整理：</strong><br>
+            🏆 <strong>標普500創歷史新高7,473.45點</strong>：本週連續多日創新高，多頭氣勢強勁！<br>
+            🔥 <strong>費半指數大漲1.99%至12,202.54點</strong>：全週最強板塊，AI晶片需求確定性不動搖<br>
+            🏆 <strong>道瓊穩守50,579點</strong>：本週站上50,000後持續走強，傳統藍籌股也受惠<br>
+            ✅ <strong>美伊和平草案達成</strong>：油價從高點回落至102.58美元，10年期美債殖利率回落至4.55%<br>
+            ✅ <strong>蘋果漲1.26%</strong>：今日最強大型科技股，市場對Intel代工合作持續看好<br>
+            ✅ <strong>特斯拉漲1.95%</strong>：馬斯克訪華正面效應持續發酵<br>
+            📉 <strong>輝達跌1.90%</strong>：財報後技術性整理，黃仁勳GTC演講是下次引爆點
         </div>
 
-        <!-- 美股統計 -->
+        <!-- 明日開盤前哨戰 -->
+        <div class="tomorrow-box">
+            <h2>🎯 明日(5/25週一)台股開盤前哨戰分析</h2>
+            <div class="tomorrow-grid">
+                <div class="tomorrow-card bull">
+                    <h3>✅ 多頭有利因素</h3>
+                    <ul>
+                        <li>美股本週連創新高，費半漲近2%，台指期夜盤有望高開</li>
+                        <li>黃仁勳已抵台，「仁來瘋」效應預期帶動AI供應鏈全面走強</li>
+                        <li>美伊和平草案基本達成，荷莫茲海峽將開放，油價回落通膨疑慮消散</li>
+                        <li>MSCI效應5月29日生效，外資預估1,500至2,500億買盤提前布局</li>
+                        <li>台積電ADR整理後，有機會隨黃仁勳訪台題材反彈</li>
+                        <li>5月27日輝達北投士林總部動土典禮，黃仁勳可能出席</li>
+                    </ul>
+                </div>
+                <div class="tomorrow-card bear">
+                    <h3>⚠️ 需留意風險因素</h3>
+                    <ul>
+                        <li>輝達連續跌逾3天，財報後利多出盡效應仍在消化中</li>
+                        <li>台股高位，年線乖離率仍在警戒區間，融資餘額偏高</li>
+                        <li>被動元件族群短線過熱，15檔漲停後需觀察是否持續</li>
+                        <li>美債殖利率雖回落但仍在4.5%以上，對高估值股仍有壓力</li>
+                        <li>美伊和平協議最終細節尚未宣布，存在破局風險</li>
+                        <li>輝達盤後股價持續走低，需確認底部是否形成</li>
+                    </ul>
+                </div>
+                <div class="tomorrow-card watch">
+                    <h3>🔍 明日重點觀察標的</h3>
+                    <ul>
+                        <li>台積電(2330) — 能否重返2,280元以上，確認多頭格局</li>
+                        <li>聯發科(2454) — 持續走強還是高位整理？3,860元能否守住</li>
+                        <li>黃仁勳訪台供應鏈 — 鴻海、廣達、台達電等動向</li>
+                        <li>散熱族群 — COMPUTEX題材卡位，奇鋐、雙鴻等有望爆發</li>
+                        <li>記憶體族群 — 南亞科、華邦電三星罷工轉單效應持續追蹤</li>
+                        <li>外資動向 — 是否持續回補，確認MSCI效應提前啟動</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 台股數據確認 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年5月21日 - 輝達救全村！道瓊重返5萬！費半暴漲4.49%！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（上週五5/22終場數據 + 本週展望）</div>
             <div class="stats-bar">
                 <div class="stat-item">
-                    <h3>道瓊指數</h3>
-                    <div class="stat-value">50,009.35點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +645.47點 (+1.31%)</div>
-                    <div class="strong-badge">🏆 重返5萬點！</div>
+                    <h3>加權指數（5/22）</h3>
+                    <div class="stat-value">42,267.97點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +899.76點(+2.18%)</div>
+                    <div class="fire-badge">🏆 史上收盤新高！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>標普500</h3>
-                    <div class="stat-value">7,432.88點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +79.27點 (+1.08%)</div>
-                    <div class="gain-badge">📈 創新高！</div>
+                    <h3>本週累計漲幅</h3>
+                    <div class="stat-value">+2,246點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">完全收復上週跌幅</div>
+                    <div class="gain-badge">🚀 史詩級反彈！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>納斯達克</h3>
-                    <div class="stat-value">26,270.36點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +399.65點 (+1.55%)</div>
-                    <div class="gain-badge">🚀 強勁反彈！</div>
+                    <h3>挑戰目標</h3>
+                    <div class="stat-value">42,408.66點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">5/15盤中歷史高點</div>
+                    <div class="strong-badge">🎯 下週目標！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>費城半導體</h3>
-                    <div class="stat-value">11,813.29點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +507.79點 (+4.49%)</div>
-                    <div class="fire-badge">🔥 暴漲！</div>
+                    <h3>本週外資買超</h3>
+                    <div class="stat-value">853億元</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">終止連賣大舉回補</div>
+                    <div class="gain-badge">💰 資金回流！</div>
                 </div>
             </div>
         </div>
 
-        <!-- 台股新聞 -->
+        <!-- 下週行事曆 -->
+        <div class="stats-container">
+            <div class="stats-title">📅 下週超級行事曆（5月25日-5月31日）</div>
+            <div class="calendar-box">
+                <h3>🗓️ 下週每日重點事件一覽</h3>
+
+                <div class="cal-item">
+                    <div class="cal-date hot">5/25<br>週一</div>
+                    <div class="cal-content">
+                        <h4>🟡 美股回歸正常交易 + 台股開盤</h4>
+                        <p>美股上週四大天後重返交易，台股延續上週五創新高的氣勢開盤。外資是否持續回補MSCI生效前的買盤是關鍵指標。觀察台積電、聯發科是否再創新高。</p>
+                    </div>
+                </div>
+
+                <div class="cal-item">
+                    <div class="cal-date hot">5/27<br>週二</div>
+                    <div class="cal-content">
+                        <h4>🔥 輝達北投士林海外總部動土典禮！黃仁勳可能出席！</h4>
+                        <p>輝達台灣海外首個總部預計5月27日在北投士林科技園區動土，黃仁勳可能親自出席主持。此事件對台灣科技產業的象徵意義極為重大，預期成為盤面催化劑，帶動輝達台灣供應鏈個股走強。</p>
+                    </div>
+                </div>
+
+                <div class="cal-item">
+                    <div class="cal-date hot">5/29<br>週四</div>
+                    <div class="cal-content">
+                        <h4>💼 MSCI半年度調整盤後正式生效！外資買盤1,500-2,500億！</h4>
+                        <p>MSCI台股三升調整於5月29日收盤後正式生效，法人預估外資被動基金將挹注台股1,500至2,500億元的額外買盤，台積電、台達電等權重調升個股直接受惠，是本月最後一個重大利多催化劑。</p>
+                    </div>
+                </div>
+
+                <div class="cal-item">
+                    <div class="cal-date important">6/1<br>週日</div>
+                    <div class="cal-content">
+                        <h4>🎤 GTC Taipei 黃仁勳主題演講！台北流行音樂中心！</h4>
+                        <p>輝達GTC Taipei在台北流行音樂中心登場，黃仁勳於上午11點發表主題演講。廣達林百里、華碩施崇棠、台積電副總米玉傑等重量級人士也將出席GTC Live會前直播。預期將揭露最新AI伺服器、機器人、Vera Rubin架構等重磅消息，是全球AI產業最具指標性的科技盛會！</p>
+                    </div>
+                </div>
+
+                <div class="cal-item">
+                    <div class="cal-date important">6/2<br>週一</div>
+                    <div class="cal-content">
+                        <h4>🖥️ COMPUTEX 2026台北國際電腦展正式開幕！</h4>
+                        <p>全球最重要的電腦與資通訊展覽COMPUTEX 2026在台北南港展覽館開幕，黃仁勳、蘇姿丰等全球科技領袖齊聚一堂。展覽至6月5日。AI伺服器、機器人、自駕、量子運算等議題將是焦點，預期帶動台灣AI供應鏈個股持續走強。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 本週5大重點新聞 -->
         <div class="news-section">
-            <h2 class="section-title">🔥 台股5大重點新聞</h2>
+            <h2 class="section-title">🔥 本週5大重點新聞回顧</h2>
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">輝達救全村！台股史詩級暴漲1,347點！開盤1分鐘大漲逾千點站回所有均線</div>
-                        <div class="news-content">台股5月21日(星期四)受輝達Q1財報大幅超預期激勵，加上油價回落、美債殖利率下行雙重利多，集中市場指數開高242.36點，開盤不到1分鐘即大漲逾千點，盤中一度勁揚超過1,300點，一舉重返41,300點大關，站上5日線與10日線，收復所有均線。終場加權指數上漲1,347.39點至41,368.21點，漲幅3.37%，漲股717家、跌股127家，漲跌比高達5.65:1，是台股近期最強力的單日反彈！</div>
-                        <div class="news-source">來源：聯合新聞網、中時新聞網</div>
+                        <div class="news-title">黃仁勳提前一週抵台！傳輝達5/27北士科動土 「Vera Rubin是台灣史上最大製造案」</div>
+                        <div class="news-content">輝達執行長黃仁勳5月23日下午搭乘私人專機提前抵達台北松山機場，外界原預期他於5月27日才會到台。黃仁勳受訪時表示此行「有很多事情要做」，包括會見客戶、合作夥伴，並期待與台積電創辦人張忠謀見面。外界分析，輝達Grace Blackwell已進入大量出貨，下一代Vera Rubin即將接棒，台積電、先進封裝、伺服器組裝、散熱等台灣供應鏈是此行重點。黃仁勳更透露，Vera Rubin可能是台灣史上規模最大的製造案，引爆市場對台灣AI供應鏈的無限想像。</div>
+                        <div class="news-source">來源：聯合新聞網、工商時報</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">聯發科出關猛虎！10分鐘鎖漲停3550元！「含發量」高ETF全面爆發漲4%-5%</div>
-                        <div class="news-content">IC設計龍頭聯發科(2454)結束處置交易限制後，出關開盤不到10分鐘即快攻漲停鎖死3,550元，漲幅高達9.89%。聯發科的強勢帶動「含發量」較高的科技主題型ETF全面爆發，包括台新臺灣IC設計(00947)、野村臺灣新科技50(00935)、群益半導體收益(00927)、中信關鍵半導體(00891)等，漲幅均介於4%至5%，法人透過ETF「打包」IC設計與半導體族群，跟著聯發科一起飛！</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">③</div>
-                        <div class="news-title">台積電漲45元收2230元重返5日線！台達電狂飆110元！八大族群一片紅</div>
-                        <div class="news-content">台積電(2330)今日強勢反彈，盤中最高觸及2,240元，終場上漲45元收2,230元，重返5日線，引領五大權值股走強。台達電(2308)更狂飆110元一度觸及2,025元，電源管理族群隨輝達供應鏈需求爆發。鴻海與廣達也大漲超過2%，緯創、仁寶、和碩及英業達均出現漲勢，AI伺服器族群8大類股全部飄紅，低軌衛星、被動元件及記憶體也重拾漲勢，市場氣氛全面翻多！</div>
-                        <div class="news-source">來源：中時新聞網、聯合新聞網</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">④</div>
-                        <div class="news-title">半導體業淨流入3,660億！電子零組件業淨流入2,181億！全面買盤湧入</div>
-                        <div class="news-content">今日台股資金流向顯示，機構投資人大舉買進AI核心族群。半導體業淨流入3,660.43億元，漲幅3.69%，為今日最大資金流入族群；電子零組件業淨流入2,180.91億元，光電業淨流入661.22億元，電腦及週邊設備業淨流入829.35億元。電子零組件業領漲+7.10%，光電業+6.91%，電腦及週邊設備+5.27%，族群全面爆發，顯示法人在輝達財報利多後全面積極追買台灣AI供應鏈。</div>
-                        <div class="news-source">來源：ETtoday、CMoney</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">⑤</div>
-                        <div class="news-title">油價回落+美債殖利率下行！雙重利多助攻！法人：多頭格局不變 還需1-2周消化</div>
-                        <div class="news-content">今日台股反彈除了輝達財報利多之外，還受益於國際油價回落，以及美國長天期公債殖利率同步下行的雙重利多，成為本波風險資產反彈的重要推力。通膨疑慮降溫直接緩解了過去兩周壓制科技高估值股的最大利空。不過，第一金投顧董事長黃詣庭指出：「目前盤面仍在漲多修正階段，研判可能還需要一到兩週時間消化短線漲多及融資過高壓力，但對整體多頭格局看法並未改變。」</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 美股新聞 -->
-        <div class="news-section">
-            <h2 class="section-title">🚀 美股5大重點新聞</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">①</div>
-                        <div class="news-title">輝達Q1財報816億大爆發！年增85%！Q2財測910億！股息暴漲24倍！</div>
-                        <div class="news-content">輝達(NVDA)於台灣時間5月21日清晨公布2027財年Q1財報，交出一份全方位碾壓市場預期的超級成績單。實際Q1總營收達816.15億美元，年增85%，大幅超越市場共識787.5億美元；資料中心業務營收高達752億美元，季增21%、年增92%，雙雙刷新單季紀錄。展望Q2，輝達給出高達910億美元的財測（剔除中國市場），同樣遠超市場預期870億美元。更大方宣布庫藏股計畫高達800億美元，季度股息暴漲24倍至0.25美元！</div>
-                        <div class="news-source">來源：數位時代、動區動趨</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">黃仁勳：「Agentic AI已到來！這是人類史上最大規模基礎建設擴張！」</div>
-                        <div class="news-content">輝達執行長黃仁勳在財報法說會上豪情發言：「AI工廠的建設正以驚人速度加快，這是人類史上最大規模的基礎建設擴張！代理式AI(Agentic AI)已經到來，它能執行具生產力的工作、創造實際價值，並在各類企業與產業中快速擴張。NVIDIA是唯一能在每個雲端、每個前沿模型、從超大規模資料中心到邊緣全面運作的平台。」微軟已部署數萬顆Blackwell GPU，未來將擴充至「數十萬顆GB200」，顯示AI基礎建設需求完全沒有放緩跡象。</div>
-                        <div class="news-source">來源：數位時代、動區動趨</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">③</div>
-                        <div class="news-title">費半暴漲4.49%！道瓊重返5萬點！英特爾飆漲7.36%是今日最強個股！</div>
-                        <div class="news-content">受輝達財報超預期激勵，美股全線大漲。費城半導體指數暴漲507.79點或4.49%至11,813.29點，道瓊工業指數重返50,009.35點，上漲645.47點，標普500上漲79.27點至7,432.88點，納斯達克大漲399.65點至26,270.36點。個股方面，英特爾(INTC)以7.36%漲幅至118.96美元成為今日最強大型股，特斯拉大漲3.25%，亞馬遜漲2.19%，全市場幾乎一片飄紅！</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">④</div>
-                        <div class="news-title">Vera CPU殺進2,000億美元市場！輝達版圖大幅擴張 Blackwell全速放量</div>
-                        <div class="news-content">輝達財報另一大亮點是宣布Vera CPU正式殺入中央處理器市場，這是一個年規模達2,000億美元的龐大市場，意味著輝達的成長版圖將大幅擴張。B300及Blackwell系列GPU的出貨進度持續超預期，花旗分析師的B300晶片產能爬升超預期判斷獲得驗證。「輝達晶片互聯網路產品」創造超過50億美元收入，顯示輝達整合多GPU為單一運算平台的能力已成為客戶不可缺少的關鍵優勢。</div>
-                        <div class="news-source">來源：數位時代、CMoney</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">⑤</div>
-                        <div class="news-title">中國H200出口「純上行情境」！若落地為輝達增添250億美元 台積電ADR漲1.02%</div>
-                        <div class="news-content">輝達Q2財測910億美元已剔除中國資料中心運算收入，這代表若美批准H200出口給阿里巴巴、騰訊、字節跳動、京東等中國科技巨頭的協議最終落實，將為輝達帶來完全未計入現行財測的額外「純上行情境」，估計年貢獻潛力達250億美元以上。台積電ADR(TSM)受財報激勵上漲1.02%至396.62美元，未能完全跟上費半的漲幅，但整體供應鏈受益於輝達Blackwell訂單旺盛而前景看好。</div>
-                        <div class="news-source">來源：信傳媒、聯合新聞網</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="highlight-box">
-            <strong>📅 下週重點監控(5月22日起)：</strong><br><br>
-            💼 <strong>5月29日MSCI調整生效</strong> — 外資買盤1,500至2,500億元挹注台股，是本月最後一個重大利多！<br><br>
-            🖥️ <strong>COMPUTEX 2026(6月登場)</strong> — 黃仁勳主題演講，AI題材持續發酵，資金提前卡位！<br><br>
-            🔍 <strong>輝達中國H200出口後續</strong> — 是否正式出貨是額外250億美元「純上行情境」的關鍵！<br><br>
-            📊 <strong>台股籌碼面觀察</strong> — 融資餘額仍偏高，法人估仍需1至2週消化，但多頭格局確立！<br><br>
-            🛢️ <strong>油價與美債殖利率走向</strong> — 今日雙雙回落，若持續走低，AI科技股估值壓力將進一步減輕！<br><br>
-            ⚠️ <strong>三星罷工後續</strong> — 台灣記憶體族群轉單效應是否持續，DRAM/NAND報價動向值得關注。
-        </div>
-
-        <footer>
-            <h3>📈 財經新聞自動化平台</h3>
-            <p>每天自動為您生成美股和台股的深度分析報告</p>
-            <p>台美股市新聞 | 實時市場數據 | 投資策略建議</p>
-            <div class="footer-links">
-                <a href="ht
+                        <div class="news-title">美伊和平草案達成！荷莫茲海峽將開放！油價回落至102美元 通膨壓力消散</div>
+                        <div class="news-content">
