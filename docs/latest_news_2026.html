@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年5月28日 台股44,954點創新高後急殺！美伊再交火！黃仁勳兆元宴今晚！</title>
+    <title>財經新聞自動化 | 2026年5月29日 台股強彈收復44,733點！MSCI今日生效！美股標普創新高！</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
@@ -13,33 +13,23 @@
         header p { font-size: 1.05em; opacity: 0.9; margin-bottom: 15px; }
         .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
-
-        .warning-box { background: rgba(255,80,80,0.2); border-left: 4px solid #ff4444; padding: 22px; margin-bottom: 22px; border-radius: 8px; color: white; }
-        .warning-box strong { color: #FFB3B3; }
-
-        /* 兆元宴 + MSCI今晚雙催化劑 */
-        .dual-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        .banner-item { border-radius: 12px; padding: 20px; color: white; text-align: center; }
-        .banner-item.red { background: linear-gradient(135deg, #f5576c 0%, #c62828 100%); }
-        .banner-item.blue { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); }
-        .banner-item h3 { font-size: 1.3em; margin-bottom: 8px; }
-        .banner-item p { font-size: 0.88em; opacity: 0.95; line-height: 1.6; }
-
+        .mega-box { background: linear-gradient(135deg, rgba(81,207,102,0.25) 0%, rgba(76,140,255,0.25) 100%); border: 2px solid #51cf66; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
+        .mega-box strong { color: #51cf66; }
+        .msci-banner { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; color: white; text-align: center; }
+        .msci-banner h2 { font-size: 1.7em; margin-bottom: 12px; }
+        .msci-row { display: flex; justify-content: center; gap: 18px; margin-top: 15px; flex-wrap: wrap; }
+        .msci-chip { background: rgba(255,255,255,0.2); border-radius: 10px; padding: 10px 18px; font-size: 0.88em; font-weight: bold; }
         .stats-container { margin-bottom: 40px; }
         .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #ff6b6b; }
-        .stat-item.up { border-left: 5px solid #51cf66; }
-        .stat-item.special { border-left: 5px solid #FFD700; }
+        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #51cf66; }
+        .stat-item.down { border-left: 5px solid #ff6b6b; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.1em; font-weight: bold; color: #333; margin: 10px 0; }
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .fire-badge { display: inline-block; background: #f5576c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .gold-badge { display: inline-block; background: #FFD700; color: #333; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 20px 0; }
         .stock-table th { background: #1a3a52; color: white; padding: 14px 18px; text-align: left; font-size: 0.9em; }
         .stock-table td { padding: 13px 18px; border-bottom: 1px solid #f5f5f5; font-size: 0.95em; }
@@ -47,12 +37,10 @@
         .stock-table tr:hover td { background: #f8f9fa; }
         .red { color: #c62828; font-weight: bold; }
         .green { color: #2e7d32; font-weight: bold; }
-
-        .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
-        .highlight-box strong { color: #856404; }
         .highlight-green { background: #e8f5e9; border-left: 4px solid #51cf66; padding: 20px; margin: 20px 0; border-radius: 5px; }
         .highlight-green strong { color: #2e7d32; }
-
+        .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .highlight-box strong { color: #856404; }
         .news-section { margin-bottom: 50px; }
         .section-title { color: white; font-size: 2.2em; margin-bottom: 25px; padding-left: 20px; border-left: 4px solid white; }
         .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
@@ -63,135 +51,130 @@
         .news-title { font-size: 1.35em; color: #333; margin-bottom: 15px; font-weight: 600; }
         .news-content { color: #666; line-height: 1.7; flex-grow: 1; margin-bottom: 15px; }
         .news-source { color: #2d5a7b; font-size: 0.85em; font-weight: 500; border-top: 1px solid #eee; padding-top: 12px; }
-
         footer { background: rgba(255,255,255,0.1); color: white; text-align: center; padding: 30px; border-radius: 10px; margin-top: 50px; }
         footer h3 { margin-bottom: 15px; }
         footer p { margin: 10px 0; opacity: 0.9; }
         .footer-links { margin-top: 20px; }
         .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
-        @media (max-width: 768px) {
-            header h1 { font-size: 2em; }
-            .news-grid { grid-template-columns: 1fr; }
-            .dual-banner { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { header h1 { font-size: 2em; } .news-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年5月28日 台股盤中44,954點創新高後急殺！美伊再交火！黃仁勳兆元宴今晚登場！</p>
+            <p>台灣人必看的股市消息 | 2026年5月29日 台股強彈收復44,733點！MSCI今日生效！美股標普再創新高！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
 
-        <div class="warning-box">
-            <strong>⚠️ 今日市場大驚奇：高點44,954→急殺至43,236！振幅1,717點！</strong><br>
-            台股早盤盤中五創歷史新高44,954.09點後，受美國與伊朗再度交火衝擊，午盤急殺逾千點，一度跌至43,236點，終場以43,636.44點收黑620.36點(-1.40%)，爆出1.59兆元近期最大成交量！<br>
-            台積電盤中創天價2,360元後回落至2,295元！外資賣超386億！三大法人合計賣超604億！<br>
-            🍽️ 黃仁勳兆元宴今晚登場！💼 MSCI效應明日(5/29)生效！雙重催化劑在即！
+        <div class="mega-box">
+            <strong>🚀🚀 台股V轉強彈！單日大漲1,096點！收復昨日跌幅！</strong><br>
+            台股今日強勢反彈大漲1,096.5點(+2.51%)收44,732.94點！漲股689檔遠超跌股158檔！<br>
+            塑膠工業+7.23%、電腦及週邊+6.70%領漲！半導體淨流入3,553億！<br>
+            💼 MSCI調整今日盤後正式生效！台積電權重升至58.33%！外資2,500億活水湧入！<br>
+            美股標普500再創新高7,563點！納指漲0.91%！微軟大漲3.47%！
         </div>
 
-        <!-- 今晚雙催化劑 -->
-        <div class="dual-banner">
-            <div class="banner-item red">
-                <h3>🍽️ 黃仁勳「兆元宴」今晚登場！</h3>
-                <p>邀請台灣AI供應鏈重量級廠商<br>台積電・鴻海・廣達・台達電等受邀<br>宴席消息是明日盤面最大風向球！<br>23檔概念股歷史平均漲98%！</p>
-            </div>
-            <div class="banner-item blue">
-                <h3>💼 MSCI調整明日(5/29)盤後生效！</h3>
-                <p>台積電權重調升0.56%至58.33%<br>旺矽(6223)新納入標準成分股<br>外資被動基金1,500-2,500億元買盤<br>尾盤最後15分鐘超大量可期！</p>
+        <!-- MSCI今日生效 -->
+        <div class="msci-banner">
+            <h2>💼 MSCI調整今日(5/29)盤後正式生效！尾盤天量結算！</h2>
+            <div class="msci-row">
+                <div class="msci-chip">🏆 台積電權重升至58.33%(+0.56%)</div>
+                <div class="msci-chip">📈 旺矽(6223)新納入標準成分股</div>
+                <div class="msci-chip">💰 外資2,500億活水挹注</div>
+                <div class="msci-chip">⚠️ 仁寶等7檔遭刪除</div>
+                <div class="msci-chip">🔥 尾盤最後一盤天量可期！</div>
             </div>
         </div>
 
         <!-- 台股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年5月28日 終場 - 盤中五創新高後大逆轉！振幅3.88%！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年5月29日 終場 - V轉強彈！收復失土！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">43,636.44點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -620.36點 (-1.40%)</div>
-                    <div class="loss-badge">美伊交火急殺！</div>
-                </div>
-                <div class="stat-item special">
-                    <h3>盤中歷史新高</h3>
-                    <div class="stat-value">44,954.09點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +697.29點時的高點</div>
-                    <div class="gold-badge">🏆 五創新高！</div>
-                </div>
-                <div class="stat-item special">
-                    <h3>台積電(盤中)</h3>
-                    <div class="stat-value">2,360元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">盤中天價！收2,295元</div>
-                    <div class="gold-badge">🏆 歷史天價！</div>
+                    <div class="stat-value">44,732.94點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1,096.5點 (+2.51%)</div>
+                    <div class="fire-badge">🚀 V轉強彈！</div>
                 </div>
                 <div class="stat-item">
-                    <h3>成交金額</h3>
-                    <div class="stat-value">1.59兆元</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">近期最大爆量！</div>
-                    <div class="warn-badge">換手激烈！</div>
+                    <h3>漲跌家數</h3>
+                    <div class="stat-value">689 : 158</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">漲跌比 4.36:1</div>
+                    <div class="gain-badge">全面大漲！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>塑膠工業(領漲)</h3>
+                    <div class="stat-value">+7.23%</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">今日最強族群</div>
+                    <div class="fire-badge">🔥 領漲第一！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>半導體業淨流入</h3>
+                    <div class="stat-value">3,553.42億</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">+1.47% 最大資金</div>
+                    <div class="strong-badge">🚀 MSCI買盤！</div>
                 </div>
             </div>
 
             <table class="stock-table">
                 <thead>
-                    <tr><th>個股/數據</th><th>數字</th><th>表現</th><th>今日解讀</th></tr>
+                    <tr><th>族群</th><th>漲跌幅</th><th>淨流入</th><th>今日解讀</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🏆 台積電盤中天價</td><td>2,360元</td><td class="green">創歷史新高！</td><td>早盤市值一度高達61.2兆元，隨後隨大盤急殺回落至2,295元</td></tr>
-                    <tr><td>✅ 力積電(6770)</td><td>80.7元</td><td class="green">+7%以上</td><td>記憶體轉單效應，外資逆勢買超，創波段新高</td></tr>
-                    <tr><td>✅ 南亞科(2408)</td><td>上漲逾3%</td><td class="green">+3%以上</td><td>記憶體族群相對抗跌，外資買超前三名</td></tr>
-                    <tr><td>✅ 旺宏(2337)</td><td>上漲逾2%</td><td class="green">+2%以上</td><td>記憶體族群相對強勢，外資持續買超</td></tr>
-                    <tr><td>✅ 國巨*(2327)</td><td>上漲逾5%</td><td class="green">+5%以上</td><td>被動元件持續漲價題材，國巨維持強勢</td></tr>
-                    <tr><td>✅ 華新科(2492)</td><td>上漲約8%</td><td class="green">+8%</td><td>被動元件族群今日最強，漲價題材持續</td></tr>
-                    <tr><td>✅ 力成(6239)</td><td>357.50元</td><td class="green">+4.99%</td><td>AMD加碼台灣封裝供應鏈概念股，今日熱門排行第一</td></tr>
-                    <tr><td>📉 群創(3481)</td><td>遭外資狂賣</td><td class="red">外資賣超28.9萬張</td><td>外資賣超第一名，主動ETF 00981A、00403A緊跟被大賣</td></tr>
-                    <tr><td>📉 紡織纖維</td><td>+2.95%</td><td class="green">今日最強族群</td><td>新纖(1409)電子級雙氧水打入晶圓廠供應鏈，紡織股逆勢強</td></tr>
+                    <tr><td>🔥 塑膠工業</td><td class="green">+7.23%</td><td>—</td><td>今日最強族群！美伊戰爭墊高成本，塑化漲價題材爆發</td></tr>
+                    <tr><td>🔥 電腦及週邊設備業</td><td class="green">+6.70%</td><td class="green">+1,412億</td><td>AI伺服器ODM全面反攻，廣達、緯創等強勢</td></tr>
+                    <tr><td>🔥 電器電纜</td><td class="green">+5.64%</td><td>—</td><td>AI電力基建需求旺，重電族群受惠</td></tr>
+                    <tr><td>🔥 其他電子業</td><td class="green">+5.61%</td><td class="green">+997億</td><td>AI供應鏈廣度擴散，中小型電子全面爆發</td></tr>
+                    <tr><td>✅ 光電業</td><td class="green">+4.42%</td><td class="green">+825億</td><td>矽光子CPO題材，GTC演講前持續卡位</td></tr>
+                    <tr><td>✅ 半導體業</td><td class="green">+1.47%</td><td class="green">+3,553億</td><td>最大資金流入，MSCI台積電權重調升買盤</td></tr>
+                    <tr><td>✅ 電子零組件業</td><td class="green">+2.25%</td><td class="green">+1,726億</td><td>ABF載板、被動元件持續強勢</td></tr>
+                    <tr><td>🔥 富邦媒(8454)</td><td class="green">+10.00% 漲停</td><td>—</td><td>今日熱門排行漲停，電商題材爆發</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="highlight-box">
-            <strong>📊 5月28日台股關鍵數據整理：</strong><br>
-            🏆 <strong>盤中五創歷史新高44,954.09點</strong>：早盤再度衝破前高，台積電天價2,360元！市值高達61.2兆元！<br>
-            🔴 <strong>美伊再度交火！午盤急殺逾千點</strong>：午盤後爆出美軍對伊朗進行新一輪空襲，油價應聲暴漲，恐慌情緒瞬間引爆急殺！<br>
-            📊 <strong>振幅3.88%、1,717.73點</strong>：今日振幅為近期最大，成交量爆出1.59兆元，換手極為激烈！<br>
-            ❌ <strong>三大法人合計賣超604.81億元</strong>：外資賣超386.83億元、投信賣超67.59億元、自營商賣超150.38億元<br>
-            ✅ <strong>記憶體與被動元件相對抗跌</strong>：力積電+7%、南亞科+3%、國巨+5%、華新科+8%成為今日亮點<br>
-            ✅ <strong>台積電ADR昨夜歷史新高422.73美元</strong>：美股盤中台積電ADR早盤開到2,350元！<br>
-            ✅ <strong>黃仁勳霸氣宣言</strong>：「輝達三、五年後的市值，將遠高於現在水準！」<br>
-            ⚠️ <strong>MSCI效應明日生效</strong>：台積電權重升至58.33%，旺矽新納入，尾盤被動買盤可期！
+        <div class="highlight-green">
+            <strong>📊 5月29日台股關鍵數據整理：</strong><br>
+            🚀 <strong>V轉強彈大漲1,096.5點</strong>：完全收復昨日美伊交火急殺的跌幅，再戰44,733點！<br>
+            ✅ <strong>漲股689 vs 跌股158</strong>：漲跌比高達4.36:1，市場全面翻多！<br>
+            💼 <strong>MSCI今日盤後生效</strong>：台積電權重升至58.33%，外資被動基金2,500億活水尾盤湧入！<br>
+            🔥 <strong>塑膠工業+7.23%領漲</strong>：美伊戰爭墊高成本，正隆、永豐餘調漲工紙售價，塑化全面爆發！<br>
+            ✅ <strong>華邦電爆41萬張攻漲停</strong>：外資5月幾乎天天買，記憶體族群持續強勢！<br>
+            ✅ <strong>黃仁勳兆元宴效應發酵</strong>：昨晚兆元宴後，受邀供應鏈廠商今日全面走強！<br>
+            ✅ <strong>美伊衝突疑慮緩和</strong>：油價回穩，市場恐慌情緒消退，風險偏好回升！<br>
+            🎤 <strong>GTC Taipei演講倒數</strong>：6月1日黃仁勳主題演講，市場期待Vera Rubin架構揭曉！
         </div>
 
         <!-- 美股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年5月28日 - 標普再創新高！Meta漲3.74%！聯電ADR漲5.41%！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年5月28日 - 標普再創新高！微軟漲3.47%！納指漲0.91%！）</div>
             <div class="stats-bar">
-                <div class="stat-item up">
+                <div class="stat-item">
                     <h3>道瓊指數</h3>
-                    <div class="stat-value">50,644.28點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +182.60點 (+0.36%)</div>
-                    <div class="gain-badge">✅ 穩步走強</div>
+                    <div class="stat-value">50,668.97點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +24.69點 (+0.05%)</div>
+                    <div class="gain-badge">✅ 微幅創高</div>
                 </div>
-                <div class="stat-item up">
+                <div class="stat-item">
                     <h3>標普500</h3>
-                    <div class="stat-value">7,520.46點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1.34點 (+0.02%)</div>
+                    <div class="stat-value">7,563.71點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +43.35點 (+0.58%)</div>
                     <div class="fire-badge">🏆 再創新高！</div>
                 </div>
-                <div class="stat-item up">
+                <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">26,674.74點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +18.55點 (+0.07%)</div>
-                    <div class="gain-badge">✅ 小幅上漲</div>
+                    <div class="stat-value">26,917.47點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +242.74點 (+0.91%)</div>
+                    <div class="gain-badge">🚀 強勢上漲</div>
                 </div>
                 <div class="stat-item">
                     <h3>費城半導體</h3>
-                    <div class="stat-value">12,702.19點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -174.72點 (-1.36%)</div>
-                    <div class="loss-badge">高位整理</div>
+                    <div class="stat-value">12,829.14點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +126.96點 (+1.00%)</div>
+                    <div class="strong-badge">💪 半導體回穩</div>
                 </div>
             </div>
 
@@ -200,15 +183,14 @@
                     <tr><th>個股</th><th>收盤(美元)</th><th>漲跌幅</th><th>市場解讀</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🔥 Meta</td><td>635.255</td><td class="green">+3.74%</td><td>今日美股最強大型科技股！AI廣告業務強勁，突破新高！</td></tr>
-                    <tr><td>🔥 聯電ADR(UMC)</td><td>22.2200</td><td class="green">+5.41%</td><td>英特爾合作+成熟製程漲價，連日強勢！</td></tr>
-                    <tr><td>✅ 台積電ADR(TSM)</td><td>422.73</td><td class="green">+2.52%</td><td>昨夜創歷史新高！帶動今日台積電盤中天價2,360元！</td></tr>
-                    <tr><td>✅ 亞馬遜(AMZN)</td><td>271.850</td><td class="green">+2.47%</td><td>AWS雲端AI需求旺盛，今日第二強大型股</td></tr>
-                    <tr><td>✅ 特斯拉(TSLA)</td><td>440.360</td><td class="green">+1.56%</td><td>馬斯克效應持續，AI自駕題材支撐</td></tr>
-                    <tr><td>✅ 蘋果(AAPL)</td><td>310.850</td><td class="green">+0.82%</td><td>穩步走強，英特爾代工合作傳聞加持</td></tr>
-                    <tr><td>📉 輝達(NVDA)</td><td>212.600</td><td class="red">-1.05%</td><td>費半回落，財報後整理持續，等待GTC演講</td></tr>
-                    <tr><td>📉 英特爾(INTC)</td><td>121.770</td><td class="red">-1.42%</td><td>昨日+3.07%後技術性回調，多頭格局不變</td></tr>
-                    <tr><td>📉 微軟(MSFT)</td><td>412.670</td><td class="red">-0.81%</td><td>高位整理，防禦型科技股小幅回落</td></tr>
+                    <tr><td>🔥 微軟(MSFT)</td><td>426.990</td><td class="green">+3.47%</td><td>今日最強大型科技股！Azure AI需求強勁，艾克曼效應持續</td></tr>
+                    <tr><td>🔥 聯電ADR(UMC)</td><td>22.9300</td><td class="green">+3.20%</td><td>連日強勢，英特爾合作+成熟製程漲價題材</td></tr>
+                    <tr><td>✅ 亞馬遜(AMZN)</td><td>274.000</td><td class="green">+0.79%</td><td>AWS雲端AI業務持續強勁</td></tr>
+                    <tr><td>✅ 輝達(NVDA)</td><td>214.250</td><td class="green">+0.78%</td><td>財報後止穩反彈，等待GTC演講重新引爆</td></tr>
+                    <tr><td>✅ 蘋果(AAPL)</td><td>312.510</td><td class="green">+0.53%</td><td>穩步走高，英特爾代工合作題材持續</td></tr>
+                    <tr><td>✅ Alphabet(GOOG)</td><td>386.120</td><td class="green">+0.34%</td><td>AI搜尋Gemini題材續強</td></tr>
+                    <tr><td>📉 台積電ADR(TSM)</td><td>418.24</td><td class="red">-1.06%</td><td>高位小幅回落，仍在歷史高檔區間</td></tr>
+                    <tr><td>📉 Meta</td><td>635.290</td><td class="green">+0.01%</td><td>昨日大漲3.74%後高檔整理，維持新高水準</td></tr>
                 </tbody>
             </table>
         </div>
@@ -220,40 +202,40 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">台股五創新高44,954點後大逆轉！美伊再交火急殺1,020點 振幅1,717點爆1.59兆</div>
-                        <div class="news-content">台股5月28日演出今年最戲劇化的單日走勢。早盤指數開低後快速拉升，一度衝達44,954.09點五創歷史新高，大漲697.29點。台積電盤中更飆上2,360元的歷史天價，市值高達61.2兆元。然而午盤後突然爆出美軍對伊朗進行新一輪空襲的消息，國際油價應聲暴漲，市場恐慌情緒瞬間引爆急殺，指數一度重挫1,020.44點至43,236.36點，失守44,000點關卡。終場收43,636.44點，跌幅1.4%，成交量爆出1.59兆元的近期最大量，三大法人賣超604.81億元。</div>
+                        <div class="news-title">台股V轉強彈大漲1,096點！收復44,733點 漲股689檔遠超跌股</div>
+                        <div class="news-content">台股5月29日強勢反彈，完全收復昨日因美伊交火急殺的跌幅。加權指數大漲1,096.5點至44,732.94點，漲幅2.51%，漲股689檔遠超跌股158檔，漲跌比高達4.36:1，市場全面翻多。今日適逢MSCI半年度調整盤後生效，台積電權重調升帶動外資被動買盤積極進場。塑膠工業大漲7.23%領漲，電腦及週邊設備業上漲6.70%，電器電纜、其他電子業、光電業漲幅均逾4%，盤面呈現全面大漲格局，多頭氣勢再起。</div>
                         <div class="news-source">來源：聯合新聞網、ETtoday</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">台積電盤中衝天價2,360元創歷史新高！市值61.2兆元！收盤2,295元</div>
-                        <div class="news-content">台積電(2330)今日早盤以2,350元開高後，快速衝達2,360元的歷史天價，市值一度飆增至61.2兆元的歷史新高。台積電ADR昨夜以422.73美元創歷史新高，完全兌現於今日台股開盤。惟受午盤美伊再度交火衝擊，台積電跟隨大盤急速回落，終場收2,295元，下跌5元，跌幅0.22%。儘管如此，台積電的歷史天價仍具有重大意義，分析師預期在黃仁勳GTC演講(6/1)後，台積電將再度發動攻勢。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">MSCI今日盤後生效！台積電權重升至58.33% 外資2,500億活水尾盤湧入</div>
+                        <div class="news-content">MSCI半年度指數調整於今日(5月29日)收盤後正式生效。台積電(2330)在MSCI新興市場指數權重大幅調升0.56個百分點至58.33%，旺矽(6223)由小型指數轉進正式入列標準成分股，仁寶、可成、遠東新等7檔個股遭刪除。法人預估此次調整帶來1,500至2,500億元的外資被動基金活水挹注台股。今日最後一盤成交金額預料將寫下近期天量，尾盤多空資金激烈博弈，是本月最重要的關鍵時點。</div>
+                        <div class="news-source">來源：經濟日報、今周刊</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">美伊再度交火！油價暴漲衝擊市場 午盤觸發急殺 通膨疑慮重燃</div>
-                        <div class="news-content">美伊和平談判傳出破裂，美軍對伊朗進行新一輪空襲，美伊再度交火的消息在台股午盤前後爆發，引發市場對油價上漲、通膨重燃的嚴重擔憂。國際油價應聲暴漲，布蘭特原油一度大漲超過5%，衝破110美元。這一消息完全逆轉了原本因和平預期而形成的樂觀氣氛，成為今日台股急殺逾千點的最直接導火線。市場分析，若美伊衝突持續，油價重返高位將再度推升通膨，對科技高估值股形成雙重壓制。</div>
-                        <div class="news-source">來源：聯合新聞網、中央社</div>
+                        <div class="news-title">塑膠工業+7.23%領漲！美伊戰爭墊高成本 正隆、永豐餘調漲工紙售價</div>
+                        <div class="news-content">塑膠工業今日大漲7.23%成為最強族群，主因美伊戰爭墊高國際原油與原物料成本，帶動塑化、造紙族群的漲價題材全面發酵。造紙業者正隆、永豐餘宣布調漲工業用紙售價，反映成本轉嫁能力。市場分析，雖然地緣政治帶來原料成本上升的壓力，但具備定價權的傳產龍頭反而受惠於漲價題材，吸引資金避險性流入。電器電纜族群也上漲5.64%，AI電力基建需求成為傳產股的另一條成長主線。</div>
+                        <div class="news-source">來源：經濟日報、聯合新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">記憶體+被動元件逆勢抗跌！力積電+7%、華新科+8%、國巨+5% 成今日英雄</div>
-                        <div class="news-content">在大盤急殺的環境下，記憶體族群與被動元件族群展現出色的相對強勢。力積電(6770)上漲逾7%至80.7元創波段新高，南亞科(2408)上漲逾3%，旺宏(2337)上漲逾2%，三者均為外資買超前三名個股。被動元件方面，華新科(2492)大漲約8%，國巨*(2327)上漲逾5%，凱美(2375)、聚鼎(6224)等維持漲停。力成(6239)以357.50元+4.99%登上今日熱門排行第一。分析師指出，這些族群的漲價題材具有基本面支撐，不受地緣政治因素干擾。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">華邦電爆41萬張攻漲停！外資5月幾乎天天買 記憶體族群續強</div>
+                        <div class="news-content">記憶體大廠華邦電(2344)今日爆出41萬張巨量強攻漲停，外資5月以來幾乎天天買進，衝上量值雙榜。受惠三星罷工轉單效應、DRAM與NAND Flash報價持續上揚，台灣記憶體族群成為近期最強勢的題材之一。南亞科、旺宏、力積電等記憶體相關個股同步走強。分析師指出，AI訓練與推理對HBM記憶體的強勁需求，加上三星供給受罷工干擾，記憶體景氣上行週期明確，「客戶瘋搶產能」的盛況預計延續至年底。</div>
+                        <div class="news-source">來源：經濟日報、ETtoday</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">黃仁勳兆元宴今晚！MSCI效應明日生效！黃仁勳：輝達3-5年後市值將遠高現在！</div>
-                        <div class="news-content">儘管今日台股大幅震盪，但市場的正面催化劑仍在接力登場。黃仁勳今晚舉辦一年一度的「兆元宴」，宴請台灣AI供應鏈重量級合作夥伴，名單揭曉是明日盤面最大催化劑。明日(5/29)MSCI半年度調整盤後生效，台積電權重調升0.56個百分點至58.33%，旺矽(6223)正式納入標準成分股，外資被動基金預估1,500至2,500億元買盤挹注台股。黃仁勳在兆元宴前更霸氣宣示：「輝達三、五年後的市值，將遠高於現在的水準！」</div>
+                        <div class="news-title">黃仁勳兆元宴效應發酵！供應鏈全面走強 GTC演講6/1倒數 Vera Rubin揭曉在即</div>
+                        <div class="news-content">黃仁勳昨晚舉辦的「兆元宴」效應今日全面發酵，受邀的台灣AI供應鏈重量級廠商股價全面走強。市場聚焦即將於6月1日登場的GTC Taipei主題演講，黃仁勳預計揭露下一代Vera Rubin超級運算平台的最新進度，以及輝達在台灣的製造規模計畫。黃仁勳此前霸氣宣示「輝達三、五年後市值將遠高於現在」，加上6月2日COMPUTEX 2026開幕，AI題材有望在下週持續最強發酵，台股多頭格局看好延續。</div>
                         <div class="news-source">來源：ETtoday、工商時報</div>
                     </div>
                 </div>
@@ -267,37 +249,50 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">標普500再創歷史新高7,520點！Meta大漲3.74%！道瓊50,644點穩步走強</div>
-                        <div class="news-content">美股5月28日標普500再度創下歷史新高，收7,520.46點，道瓊工業指數上漲182.60點至50,644.28點。Meta(META)以3.74%的漲幅大放異彩，成為今日最強大型科技股，創歷史新高635.255美元。亞馬遜(AMZN)上漲2.47%，特斯拉(TSLA)上漲1.56%，蘋果(AAPL)上漲0.82%。但費城半導體指數回落1.36%，輝達下跌1.05%，整體市場呈現科技股分化格局，防禦性資產與非半導體類科技股相對強勢。</div>
+                        <div class="news-title">標普500再創歷史新高7,563點！納指漲0.91%！微軟大漲3.47%領軍</div>
+                        <div class="news-content">美股5月28日標普500再創歷史新高，收7,563.71點，上漲43.35點或0.58%。納斯達克大漲242.74點或0.91%至26,917.47點，逼近27,000點大關。道瓊工業指數微漲24.69點至50,668.97點。微軟(MSFT)以3.47%的漲幅大放異彩，成為今日最強大型科技股，Azure雲端AI業務需求強勁，避險基金大亨艾克曼建倉效應持續發酵。費城半導體指數上漲1.00%回穩，整體市場多頭氣勢強勁。</div>
                         <div class="news-source">來源：CMoney、聯合新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">台積電ADR昨夜創歷史新高422.73美元！聯電ADR連日強攻漲5.41%至22.22美元</div>
-                        <div class="news-content">台積電ADR(TSM)昨夜(5/27)在美股大漲2.52%，收在歷史新高422.73美元，直接帶動今日台股台積電開盤衝上2,350元的史詩開高。聯電ADR(UMC)今日再度強勢大漲5.41%至22.2200美元，延續近日強勁漲勢。分析師指出，聯電成熟製程漲價預期、英特爾策略合作深化，以及黃仁勳GTC演講前的市場期待，三重因素持續推升聯電ADR的強勁表現，目前已累計從月初大幅上漲。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">微軟漲3.47%創高！Azure AI需求爆發 艾克曼效應持續 防禦型科技龍頭吸金</div>
+                        <div class="news-content">微軟(MSFT)今日大漲3.47%至426.990美元，是今日美股大型科技股中表現最亮眼者。微軟的Azure雲端業務持續受惠於企業AI應用需求的爆發性成長，市場對其AI貨幣化能力的信心持續提升。避險基金大亨艾克曼此前披露建倉微軟的效應仍在發酵，資金持續流入這檔現金流穩定、估值合理的防禦型科技龍頭。微軟在AI基礎建設、企業軟體與雲端運算的全方位布局，使其成為市場在科技股輪動中的核心持股。</div>
+                        <div class="news-source">來源：CMoney、聯合新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">美伊再度交火！油價暴漲重燃通膨疑慮 和平協議前景不明</div>
-                        <div class="news-content">美伊和平談判出現嚴重倒退，美軍對伊朗目標發動新一輪空襲，引發市場對停火協議破裂的擔憂。布蘭特原油期貨一度暴漲超過5%，接近110美元關卡。能源類股在油價暴漲環境下全面上漲，但科技股和高成長股受到通膨重燃疑慮壓制。市場預期若美伊衝突持續，美聯儲的降息時程將再度延後，甚至升息預期可能回歸，30年美債殖利率有機會再度突破5%，對高估值成長股最為不利。</div>
-                        <div class="news-source">來源：聯合新聞網、中央社</div>
+                        <div class="news-title">聯電ADR連日強攻+3.20%至22.93美元！英特爾合作+成熟製程漲價雙引擎</div>
+                        <div class="news-content">聯電ADR(UMC)今日再度強勢上漲3.20%至22.9300美元，延續本週連日的強勁漲勢。聯電受惠於兩大核心題材：一是與英特爾深化策略合作，聯電製造矽中介層供應英特爾EMIB技術擴大AI晶片供應，雙方並合作12奈米FinFET技術；二是成熟製程需求回溫帶動的漲價題材，預期漲幅5%-15%。法人持續上調聯電獲利預期與目標價，聯電已成為近期半導體族群中最受市場青睞的成熟製程代工標的。</div>
+                        <div class="news-source">來源：CMoney、經濟日報</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">黃仁勳：「輝達3-5年後市值將遠高現在！」「光速管理哲學」引爆市場想像</div>
-                        <div class="news-content">輝達執行長黃仁勳在訪台系列活動中霸氣宣示：「輝達三到五年後的市值，將遠高於現在的水準！」同時揭露輝達獨特的「光速管理哲學」，強調要突破物理極限，直言「日式改善(Kaizen)文化已不夠用了！」黃仁勳的豪情壯語為市場注入強烈信心，也為明後天的GTC Taipei主題演講(6/1)提前暖場。市場預期GTC演講將揭露Vera Rubin架構最新進度，以及輝達與台灣供應鏈的最新合作藍圖。</div>
-                        <div class="news-source">來源：經濟日報、ETtoday</div>
+                        <div class="news-title">美伊衝突疑慮緩和！油價回穩 通膨擔憂消退 風險資產偏好回升</div>
+                        <div class="news-content">在週三美伊再度交火引發市場震盪後，地緣政治緊張情勢於週四出現緩和跡象，國際油價自高點回穩。市場對通膨重燃的擔憂有所消退，風險資產偏好回升，這也是美股標普500能在週四繼續創新高的重要背景。分析師指出，美伊衝突的反覆使市場波動加劇，但只要不演變為全面戰爭、荷莫茲海峽維持暢通，油價的衝擊就屬於短期性質，AI與科技股的長期成長趨勢不會因此改變。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">MSCI明日(5/29)生效！台積電權重升至58.33%！旺矽正式納入！外資1,500-2,500億買盤</div>
-             
+                        <div class="news-title">黃仁勳GTC Taipei 6/1演講倒數！市場期待Vera Rubin架構與台灣製造藍圖揭曉</div>
+                        <div class="news-content">輝達執行長黃仁勳的GTC Taipei主題演講將於6月1日(下週日)上午11點在台北流行音樂中心登場，是全球AI產業最受矚目的科技盛會之一。市場高度期待黃仁勳揭露下一代Vera Rubin超級運算平台的最新進度，以及輝達在台灣的製造規模計畫。黃仁勳此前透露Vera Rubin將是台灣史上規模最大的製造案。加上6月2日COMPUTEX 2026開幕，全球科技領袖齊聚台灣，AI題材有望在下週持續發酵，成為推升台美股市的強勁催化劑。</div>
+                        <div class="news-source">來源：ETtoday、工商時報</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>📅 下週超級行事曆（6月1日起）：</strong><br><br>
+            🎤 <strong>6/1(下週日) — GTC Taipei黃仁勳主題演講！</strong> 台北流行音樂中心上午11點，揭露Vera Rubin架構與台灣製造藍圖！<br><br>
+            🖥️ <strong>6/2(下週一) — COMPUTEX 2026開幕！</strong> 全球最大電腦展，黃仁勳、蘇姿丰等科技領袖齊聚，AI題材最強發酵！<br><br>
+            💼 <strong>MSCI生效後觀察</strong>：今日盤後生效，下週觀察被動買盤是否延續，以及是否出現「利多出盡」調節<br><br>
+            🌏 <strong>美伊衝突走向</strong>：地緣政治反覆，持續追蹤油價與通膨對科技股估值的影響<br><br>
+            📊 <strong>台股挑戰45,000點</strong>：收復44,733點後，下週在GTC與COMPUTEX雙引擎下，有望挑戰45,000整數大關
