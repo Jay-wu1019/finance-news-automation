@@ -3,50 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年6月8日 台股盤中創史上最大跌點！反彈後收43,502！美股今晚開盤！</title>
+    <title>財經新聞自動化 | 2026年6月9日 台股V轉大漲1,201點！費半漲5.61%！英特爾Google神單暴漲11%！</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
         .container { max-width: 1400px; margin: 0 auto; }
         header { text-align: center; color: white; margin-bottom: 30px; padding: 40px 0; }
-        header h1 { font-size: 2.7em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header h1 { font-size: 2.8em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         header p { font-size: 1.05em; opacity: 0.9; margin-bottom: 15px; }
         .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
-        .mega-crash { background: rgba(198,40,40,0.25); border: 2px solid #c62828; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
-        .mega-crash strong { color: #FFB3B3; }
-        /* 美股今晚預告框 */
-        .us-open { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; color: white; }
-        .us-open h2 { font-size: 1.7em; margin-bottom: 14px; text-align: center; }
-        .us-ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
-        .us-ref-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center; }
-        .us-ref-item h4 { font-size: 0.82em; margin-bottom: 6px; opacity: 0.9; }
-        .us-ref-item .val { font-size: 1.7em; font-weight: bold; }
-        .us-ref-item .chg { font-size: 0.82em; margin-top: 4px; }
-        /* 止跌訊號 */
-        .signal-box { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 25px; margin-bottom: 28px; }
-        .signal-box h2 { color: white; font-size: 1.7em; margin-bottom: 18px; text-align: center; }
-        .signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .signal-card { background: white; border-radius: 10px; padding: 20px; }
-        .signal-card.bull h3 { color: #2e7d32; border-bottom: 2px solid #51cf66; padding-bottom: 8px; margin-bottom: 12px; }
-        .signal-card.bear h3 { color: #c62828; border-bottom: 2px solid #ff6b6b; padding-bottom: 8px; margin-bottom: 12px; }
-        .signal-card.watch h3 { color: #1565c0; border-bottom: 2px solid #4c8cff; padding-bottom: 8px; margin-bottom: 12px; }
-        .signal-card h3 { font-size: 1.05em; }
-        .signal-card ul { list-style: none; }
-        .signal-card ul li { padding: 7px 0; color: #555; font-size: 0.88em; border-bottom: 1px solid #f5f5f5; line-height: 1.5; }
-        .signal-card ul li:last-child { border-bottom: none; }
+        .mega-box { background: linear-gradient(135deg, rgba(81,207,102,0.25) 0%, rgba(76,140,255,0.25) 100%); border: 2px solid #51cf66; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
+        .mega-box strong { color: #51cf66; }
+        .catalyst-banner { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 26px; margin-bottom: 28px; color: white; }
+        .catalyst-banner h2 { font-size: 1.7em; margin-bottom: 14px; text-align: center; }
+        .catalyst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 13px; }
+        .catalyst-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 16px; }
+        .catalyst-item h4 { font-size: 0.95em; margin-bottom: 8px; color: #90CAF9; }
+        .catalyst-item p { font-size: 0.88em; line-height: 1.6; }
         .stats-container { margin-bottom: 40px; }
         .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #ff6b6b; }
-        .stat-item.special { border-left: 5px solid #FFD700; }
+        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #51cf66; }
+        .stat-item.down { border-left: 5px solid #ff6b6b; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.1em; font-weight: bold; color: #333; margin: 10px 0; }
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .fire-badge { display: inline-block; background: #f5576c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .crash-badge { display: inline-block; background: #c62828; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .gold-badge { display: inline-block; background: #FFD700; color: #333; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 20px 0; }
         .stock-table th { background: #1a3a52; color: white; padding: 14px 18px; text-align: left; font-size: 0.9em; }
         .stock-table td { padding: 13px 18px; border-bottom: 1px solid #f5f5f5; font-size: 0.95em; }
@@ -73,236 +58,244 @@
         footer p { margin: 10px 0; opacity: 0.9; }
         .footer-links { margin-top: 20px; }
         .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
-        @media (max-width: 768px) { header h1 { font-size: 1.8em; } .news-grid { grid-template-columns: 1fr; } .signal-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { header h1 { font-size: 2em; } .news-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年6月8日 台股盤中創史上最大跌點42,376！反彈後收43,502！美股今晚重新開盤！</p>
+            <p>台灣人必看的股市消息 | 2026年6月9日 台股V轉大漲1,201點！費半漲5.61%！英特爾Google神單暴漲11%！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
 
-        <div class="mega-crash">
-            <strong>🔴🔴 台股盤中創史上最大跌點！市值蒸發9兆！但隨後強力反彈！</strong><br>
-            台股6月8日盤中最低跌至42,376點，重挫近2,700點，改寫台股史上盤中最大跌點紀錄！<br>
-            上市公司總市值由147兆急縮至138兆，單日盤中蒸發近9兆元！<br>
-            但台積電穩守2,295元，指數隨後強力反彈，終場收43,502.78點，跌幅縮減至1,568.16點(-3.48%)！<br>
-            🇺🇸 美股今晚(台灣時間21:30)重新開盤！參考上週五終場：道瓊50,866、費半12,220(-10.26%)
+        <div class="mega-box">
+            <strong>🚀🚀 台股V轉強彈！費半四大推手引爆全面反攻！</strong><br>
+            台股今日大漲1,201.66點(+2.76%)收44,704.44點！漲股657檔遠超跌股195檔！<br>
+            費半昨夜狂飆5.61%！英特爾吞Google神單暴漲11.19%！黃仁勳喊「便宜快買」！美光漲近10%！<br>
+            蘋果WWDC發表新AI系統！台積電ADR昨夜漲2.80%至426.80！南電漲停9.99%！欣興漲6.37%！<br>
+            電子零組件業+6.98%領漲！半導體業淨流入3,061億！多頭動能強勁回歸！
         </div>
 
-        <!-- 美股今晚預告 -->
-        <div class="us-open">
-            <h2>🇺🇸 美股今晚(台灣時間21:30)重新開盤！上週五終場參考數據</h2>
-            <div class="us-ref-grid">
-                <div class="us-ref-item">
-                    <h4>道瓊(6/5)</h4>
-                    <div class="val">50,866.78</div>
-                    <div class="chg">↓ -695.15點(-1.35%)</div>
+        <div class="catalyst-banner">
+            <h2>🔥 費半昨夜暴漲5.61%！四大推手完整解析</h2>
+            <div class="catalyst-grid">
+                <div class="catalyst-item">
+                    <h4>① 英特爾吞Google神單 +11.19%</h4>
+                    <p>Google準備大舉下單英特爾，代工生產300多萬顆TPU張量處理器，連輝達也有意跟進。英特爾暴力反彈11.19%，登頂標普500當日最佳個股！</p>
                 </div>
-                <div class="us-ref-item">
-                    <h4>標普500(6/5)</h4>
-                    <div class="val">7,383.82</div>
-                    <div class="chg">↓ -200.49點(-2.64%) 終止連9週漲</div>
+                <div class="catalyst-item">
+                    <h4>② 黃仁勳喊「便宜快買」！</h4>
+                    <p>輝達執行長黃仁勳公開喊話稱AI股「便宜快買」，並宣布與SK海力士合作建設AI工廠，強化AI長線需求信心！</p>
                 </div>
-                <div class="us-ref-item">
-                    <h4>納斯達克(6/5)</h4>
-                    <div class="val">25,709.43</div>
-                    <div class="chg">↓ -1,121.53點(-4.18%) 一年最慘</div>
+                <div class="catalyst-item">
+                    <h4>③ 美光狂飆近10% 記憶體全面回歸</h4>
+                    <p>美光科技上週五重挫13%後，週一強勢反彈9.87%。分析師：「AI浪潮下記憶體交易仍活力十足」，HBM需求強勁！</p>
                 </div>
-                <div class="us-ref-item">
-                    <h4>費城半導體(6/5)</h4>
-                    <div class="val">12,220.76</div>
-                    <div class="chg">↓ -1,396.74點(-10.26%) 蒸發1.3兆美元</div>
+                <div class="catalyst-item">
+                    <h4>④ Marvell納入標普500 +9.63%</h4>
+                    <p>Marvell Technology宣布被納入標普500指數成分股，加上黃仁勳持續背書，CPO光通訊題材持續發酵！</p>
                 </div>
             </div>
-            <p style="text-align:center; margin-top:15px; font-size:0.9em; opacity:0.9;">⚠️ 今晚關鍵觀察：費半能否止穩？台積電ADR能否守穩？美債殖利率走向？</p>
         </div>
 
-        <!-- 台股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年6月8日 終場 - 盤中創史上最大跌點後反彈收43,502點）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年6月9日 終場 - V轉大漲！電子零組件領漲6.98%！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">43,502.78點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -1,568.16點 (-3.48%)</div>
-                    <div class="loss-badge">盤中史上最大跌點</div>
-                </div>
-                <div class="stat-item special">
-                    <h3>盤中最低點</h3>
-                    <div class="stat-value">42,376點</div>
-                    <div style="color: #c62828; font-size: 1.1em;">重挫近2,700點！</div>
-                    <div class="crash-badge">🔴 改寫史上紀錄！</div>
-                </div>
-                <div class="stat-item special">
-                    <h3>台積電(2330)</h3>
-                    <div class="stat-value">2,295元</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -2.96% 守穩關鍵</div>
-                    <div class="gold-badge">🏆 中流砥柱</div>
+                    <div class="stat-value">44,704.44點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1,201.66點 (+2.76%)</div>
+                    <div class="fire-badge">🚀 V轉強彈！</div>
                 </div>
                 <div class="stat-item">
                     <h3>漲跌家數</h3>
-                    <div class="stat-value">65 : 820</div>
-                    <div style="color: #c62828; font-size: 1.1em;">跌股是漲股12.6倍</div>
-                    <div class="crash-badge">全面潰跌</div>
+                    <div class="stat-value">657 : 195</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">漲跌比 3.37:1</div>
+                    <div class="gain-badge">全面翻多！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>電子零組件(領漲)</h3>
+                    <div class="stat-value">+6.98%</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">今日最強族群</div>
+                    <div class="fire-badge">🔥 ABF+CPO爆發！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>半導體業淨流入</h3>
+                    <div class="stat-value">3,061.32億</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">+3.23% 最大資金</div>
+                    <div class="strong-badge">🚀 主力強力回補！</div>
                 </div>
             </div>
 
             <table class="stock-table">
                 <thead>
-                    <tr><th>個股</th><th>收盤</th><th>漲跌幅</th><th>今日狀況</th></tr>
+                    <tr><th>個股/族群</th><th>表現</th><th>漲跌幅</th><th>今日亮點</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🏆 台積電(2330)</td><td>2,295元</td><td class="red">-2.96%</td><td>盤中最低2,295元，相對抗跌為大盤反彈關鍵撐盤力量</td></tr>
-                    <tr><td>📉 聯發科(2454)</td><td>4,070元</td><td class="red">-5.35%</td><td>AI ASIC族群大幅回落，高位修正</td></tr>
-                    <tr><td>📉 台達電(2308)</td><td>2,255元</td><td class="red">-1.96%</td><td>相對抗跌，電源管理龍頭</td></tr>
-                    <tr><td>📉 鴻海(2317)</td><td>269.50元</td><td class="red">大幅回落</td><td>AI伺服器代工族群承壓</td></tr>
-                    <tr><td>📉 南亞科(2408)</td><td>376.50元</td><td class="red">回落</td><td>記憶體族群跟隨美股美光回落</td></tr>
-                    <tr><td>🔥 玻璃陶瓷</td><td>-7.43%</td><td class="red">今日最大跌幅族群</td><td>高位族群首當其衝，遭遇系統性賣壓</td></tr>
-                    <tr><td>🔥 電子通路業</td><td>-7.20%</td><td class="red">重跌</td><td>AI供應鏈廣度族群全面回落</td></tr>
-                    <tr><td>✅ 公股券商</td><td>進場護盤</td><td class="green">逢低承接</td><td>盤中護盤，集中買入台積電、ETF等</td></tr>
+                    <tr><td>🔥 南電(8046)</td><td>914.00元</td><td class="green">+9.99% 漲停！</td><td>ABF載板族群領漲，英特爾Google神單直接受惠</td></tr>
+                    <tr><td>🔥 欣興(3037)</td><td>969.00元</td><td class="green">+6.37%</td><td>ABF載板龍頭，盤中一度衝上千金俱樂部！</td></tr>
+                    <tr><td>🔥 臻鼎-KY(4958)</td><td>545.00元</td><td class="green">+6.45%</td><td>高階PCB族群，AI伺服器供應鏈核心</td></tr>
+                    <tr><td>✅ 景碩(3189)</td><td>714.00元</td><td class="green">+2.29%</td><td>ABF載板，AMD+Intel雙題材受惠</td></tr>
+                    <tr><td>✅ 聯寶(6821)</td><td>66.70元</td><td class="green">+4.22%</td><td>AI伺服器供應鏈，補漲動能強</td></tr>
+                    <tr><td>✅ 金融保險業</td><td>+6.30%</td><td class="green">今日第二強</td><td>凱基金、富邦金領漲，止跌訊號出現後強彈</td></tr>
+                    <tr><td>✅ 半導體業</td><td>+3.23%</td><td class="green">淨流入3,061億</td><td>台積電、聯電帶領，資金全面回補AI核心</td></tr>
+                    <tr><td>✅ 電腦及週邊設備</td><td>+3.01%</td><td class="green">淨流入574億</td><td>廣達、緯創AI伺服器ODM補漲</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div class="highlight-green">
-            <strong>📊 6月8日台股關鍵數據整理：</strong><br>
-            🔴 <strong>盤中最低42,376點，改寫史上盤中最大跌點紀錄</strong>：超越舊紀錄(2,000餘點)，台股史詩級殺盤！<br>
-            🔴 <strong>上市公司市值單日蒸發近9兆元</strong>：由147兆急縮至138兆，幅度驚人！<br>
-            ✅ <strong>盤中強力反彈收43,502點</strong>：從盤中最低42,376點強彈超過1,100點，顯示支撐力道！<br>
-            🏆 <strong>台積電相對抗跌守穩2,295元</strong>：盤中守住關鍵支撐，ADR上週五跌5.96%但魏哲家展望樂觀<br>
-            ✅ <strong>富蘭克林：AI估值修正，長線加碼良機</strong>：基本面未變，急殺是布局機會<br>
-            ⚠️ <strong>五大賣壓釋放</strong>：停損、恐慌、自斷融資、程式交易、ETF多殺多五大賣壓今日集中宣洩<br>
-            ⚠️ <strong>融資餘額5,700億高水位</strong>：融資斷頭是今日開盤主要殺盤力量之一，後續仍需觀察<br>
-            💡 <strong>謝金河：台灣搭上AI列車</strong>，風險也會增加，很多沒有獲利的公司股價飆千元，未來考驗大
+            <strong>📊 6月9日台股關鍵數據整理：</strong><br>
+            🚀 <strong>V轉大漲1,201.66點</strong>：費半昨夜狂飆5.61%，英特爾、美光、Marvell全面爆發，台股一舉反攻！<br>
+            🔥 <strong>電子零組件業+6.98%領漲</strong>：ABF載板族群全面噴發，南電漲停、欣興+6.37%、臻鼎+6.45%！<br>
+            🔥 <strong>金融保險業+6.30%</strong>：昨日止跌訊號明顯，外資回補金融股！<br>
+            ✅ <strong>半導體業淨流入3,061億</strong>：資金全面回歸AI核心族群！<br>
+            ✅ <strong>英特爾Google神單效應</strong>：台灣英特爾供應鏈受惠，ABF載板族群為最直接受惠方<br>
+            ✅ <strong>黃仁勳喊「便宜快買」</strong>：心理面超強提振，AI泡沫論遭強力反駁！<br>
+            ✅ <strong>蘋果WWDC發表AI新系統</strong>：台積電、鴻海等蘋概股受題材支撐<br>
+            💡 <strong>漲幅榜前排均為ABF+CPO族群</strong>：AI算力基礎建設主線仍是資金最愛！
         </div>
 
-        <!-- 止跌訊號 -->
-        <div class="signal-box">
-            <h2>🔍 第一金黃詣庭：止跌三大訊號觀察</h2>
-            <div class="signal-grid">
-                <div class="signal-card bull">
-                    <h3>✅ 多頭止跌訊號（需看到）</h3>
-                    <ul>
-                        <li>日K線是否收下影線（代表有買盤承接）</li>
-                        <li>融資是否連續出現100億元以上的減幅（斷頭完畢）</li>
-                        <li>外資未平倉期貨淨空單是否回補（方向改變）</li>
-                        <li>費半指數是否在美股盤中止穩反彈</li>
-                        <li>美債10年殖利率是否從4.5%高點回落</li>
-                    </ul>
+        <div class="stats-container">
+            <div class="stats-title">🇺🇸 美國股市（2026年6月8日終場 - 費半暴漲5.61%！英特爾+11%！四大推手引爆！）</div>
+            <div class="stats-bar">
+                <div class="stat-item down">
+                    <h3>道瓊指數</h3>
+                    <div class="stat-value">50,786.01點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -80.77點 (-0.16%)</div>
+                    <div class="loss-badge">傳產輪動小跌</div>
                 </div>
-                <div class="signal-card bear">
-                    <h3>⚠️ 風險因素（需留意）</h3>
-                    <ul>
-                        <li>融資餘額5,700億高水位，斷頭賣壓持續</li>
-                        <li>外資期貨空單6.9萬口，若不回補恐再殺</li>
-                        <li>美債殖利率若繼續飆升，估值壓力不減</li>
-                        <li>Fed 6/16-17會議若轉鷹，恐引發第二波</li>
-                        <li>台新黃文清估：最壞情況下探38,000-40,000</li>
-                    </ul>
+                <div class="stat-item">
+                    <h3>標普500</h3>
+                    <div class="stat-value">7,405.66點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +21.92點 (+0.30%)</div>
+                    <div class="gain-badge">✅ 止穩回升</div>
                 </div>
-                <div class="signal-card watch">
-                    <h3>🔍 本週六大關鍵觀察（富蘭克林）</h3>
-                    <ul>
-                        <li>中東局勢：美伊談判進展、荷莫茲海峽通行</li>
-                        <li>美債殖利率走向：10年期能否回落至4.3%</li>
-                        <li>台積電5月營收：預期創高，是信心關鍵</li>
-                        <li>蘋果WWDC(6/9-13)：AI新系統是否亮眼</li>
-                        <li>外資操作：是否終止賣超開始回補</li>
-                        <li>VIX恐慌指數：能否降至20以下</li>
-                    </ul>
+                <div class="stat-item">
+                    <h3>納斯達克</h3>
+                    <div class="stat-value">25,929.66點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +220.23點 (+0.86%)</div>
+                    <div class="strong-badge">🚀 科技股反攻！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>費城半導體</h3>
+                    <div class="stat-value">12,906.69點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +685.93點 (+5.61%)</div>
+                    <div class="fire-badge">🔥🔥 史詩反彈！</div>
                 </div>
             </div>
+
+            <table class="stock-table">
+                <thead>
+                    <tr><th>個股</th><th>收盤(美元)</th><th>漲跌幅</th><th>市場解讀</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>🔥 英特爾(INTC)</td><td>110.270</td><td class="green">+11.19%</td><td>Google 300萬顆TPU神單！標普500今日最強！</td></tr>
+                    <tr><td>🔥 美光(MU)</td><td>強勢反彈</td><td class="green">+9.87%</td><td>AI HBM需求持續旺，上週暴跌後強勢回補！</td></tr>
+                    <tr><td>🔥 Marvell(MRVL)</td><td>強勢反彈</td><td class="green">+9.63%</td><td>納入標普500成分股+黃仁勳背書！</td></tr>
+                    <tr><td>✅ 特斯拉(TSLA)</td><td>408.950</td><td class="green">+4.59%</td><td>今日最強大型科技股！AI自駕題材重燃</td></tr>
+                    <tr><td>✅ 台積電ADR(TSM)</td><td>426.80</td><td class="green">+2.80%</td><td>止穩反彈，帶動台股今日強勢開高</td></tr>
+                    <tr><td>✅ 輝達(NVDA)</td><td>208.640</td><td class="green">+1.73%</td><td>黃仁勳喊「便宜快買」，信心大幅提振！</td></tr>
+                    <tr><td>📉 蘋果(AAPL)</td><td>301.540</td><td class="red">-1.89%</td><td>WWDC利多出盡，市場獲利了結</td></tr>
+                    <tr><td>📉 微軟(MSFT)</td><td>411.740</td><td class="red">-1.18%</td><td>資金從軟體端輪轉至硬體算力端</td></tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- 台股5大新聞 -->
         <div class="news-section">
             <h2 class="section-title">🔥 台股5大重點新聞</h2>
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">台股盤中改寫史上最大跌點！最低42,376點重挫2,700點 反彈後收43,502點</div>
-                        <div class="news-content">台股6月8日(週一)開盤即面臨五大賣壓同時湧現：停損賣壓、恐慌賣壓、自斷融資賣壓、程式自動交易賣壓、ETF多殺多賣壓。指數盤中最低跌至42,376點，重挫近2,700點，改寫台股史上盤中最大跌點紀錄，上市公司總市值由約147兆元急縮至138兆元，單日盤中蒸發近9兆元。所幸台積電盤中守穩，加上公股券商護盤進場，指數隨後強力反彈超過1,100點，終場收43,502.78點，跌幅縮小至1,568.16點(-3.48%)。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">台股V轉大漲1,201點！費半四大推手齊發 電子零組件+6.98%領漲</div>
+                        <div class="news-content">台股6月9日在費半昨夜暴漲5.61%帶動下強勢V型反彈，大漲1,201.66點至44,704.44點，漲幅2.76%，漲股657檔遠超跌股195檔。費半四大推手：英特爾吞下Google TPU神單+11.19%、黃仁勳喊「便宜快買」宣布與海力士建AI工廠、美光強彈9.87%、Marvell納入標普500指數+9.63%。台股在電子零組件業+6.98%、金融保險業+6.30%領漲下，全面反彈，多頭動能強勁回歸。</div>
+                        <div class="news-source">來源：CMoney、中時新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">台積電守穩2,295元成中流砥柱！魏哲家展望樂觀 ADR跌後盤後回穩</div>
-                        <div class="news-content">在今日史詩級殺盤中，台積電(2330)展現驚人韌性，盤中守穩2,295元，雖然跌幅達2.96%，但相較其他電子權值股的跌幅明顯偏小，成為支撐大盤反彈的最大功臣。市場信心來源於魏哲家本週股東會喊出「AI需求能見度直達2030年、今年美元營收成長逾30%」，加上台積電5月營收即將公布，市場預期將再創新高。法人機構指出，台積電2,295元已是相對合理的估值區間，長線布局價值浮現，是止跌反彈的關鍵觀察點。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">南電漲停9.99%！欣興漲6.37% 臻鼎漲6.45% ABF載板族群全面噴發</div>
+                        <div class="news-content">英特爾吞下Google TPU大單的消息，對台灣ABF載板族群是最直接的利多。南電(8046)今日漲停至914元，漲幅9.99%；欣興(3037)上漲6.37%至969元，盤中一度衝入千金俱樂部；臻鼎-KY(4958)上漲6.45%；景碩(3189)上漲2.29%。英特爾若持續擴大代工訂單，其ABF載板需求將大幅成長，台廠南電、欣興、景碩是第一直接受惠群，市場積極卡位相關標的。</div>
+                        <div class="news-source">來源：ETtoday、鉅亨網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">五大賣壓集中宣洩！被動元件族群跌停開出 融資斷頭湧現</div>
-                        <div class="news-content">今日台股開盤堪稱「五大賣壓集中宣洩日」。被動元件族群幾乎全面跌停開出，國巨*(2327)、華新科(2492)、禾伸堂(3026)、立隆電(2472)、信昌電(6173)及蜜望實(8043)等多檔個股跌停開出。融資斷頭賣壓在開盤前15分鐘集中釋放，程式交易自動執行停損，ETF因多殺多機制加劇跌幅。玻璃陶瓷族群今日最重挫7.43%，電子通路業跌7.20%，電器電纜、光電、塑膠工業均跌逾6%。幸而部分個股逢低吸引買盤，顯示資金並未完全撤離。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">黃仁勳喊「便宜快買」！宣布與海力士建AI工廠 AI泡沫論遭強力反駁</div>
+                        <div class="news-content">輝達執行長黃仁勳公開稱AI相關股票「便宜快買」，並宣布與SK海力士合作建設AI工廠，強調AI基礎建設投資需求長期趨勢不變。這句話成為昨日美股費半最強的心理催化劑，直接打臉橋水達利歐、雙線資本科恩等提出的「AI泡沫論」。市場將上週急殺重新定調為「高估值修正」而非「需求反轉」，多頭信心快速回歸，外資昨日已開始大幅回補半導體族群。</div>
+                        <div class="news-source">來源：CMoney、中時新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">富蘭克林：AI估值修正，長線加碼良機！機構法人逢低布局台積電與ETF</div>
-                        <div class="news-content">儘管今日台股出現史詩級殺盤，富蘭克林投顧等機構法人卻反向喊話「AI估值修正，長線加碼良機」，認為AI發展的基本面仍相當正向，逢急跌重挫可考慮台積電(2330)或主動統一台股增長(00981A)等標的的相關認購權證，短線靈活操作。公股券商客戶上週已提前透露防禦意味，布局高股息與大型權值型ETF，顯示資金在震盪盤中偏好具備配息題材、流動性及基本面支撐的標的。謝金河亦指出台灣Q1 GDP成長13.69%，AI長線基本面強勁。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">蘋果WWDC發表Apple Intelligence升級 與Google合作AI架構 台積電蘋概股受惠</div>
+                        <div class="news-content">蘋果於WWDC 2026發表新一代Apple Intelligence與升級版Siri，宣布與Google深化合作打造全新AI架構，人工智慧將成為未來軟體平台核心。雖然蘋果股價呈現「利多出盡」跌1.89%，但台積電、鴻海、大立光等蘋概供應鏈股今日在費半回升帶動下整體表現正面。市場評估，蘋果AI布局的軟硬整合策略長線有利台積電先進製程的需求成長。</div>
+                        <div class="news-source">來源：鉅亨網、CMoney</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">法人止跌三訊號：收下影線、融資減百億、外資空單回補 月線4萬點是底部關卡</div>
-                        <div class="news-content">面對史上最大跌點衝擊，法人給出明確的止跌觀察框架。第一金投顧黃詣庭提出三大訊號：①日K線是否收下影線(代表買盤承接)；②融資是否連續出現100億元以上的減幅(代表斷頭完畢)；③外資未平倉期貨淨空單是否回補(代表方向改變)。指數表現上，月線約43,000-43,500點是短線觀察關卡，若月線失守，則看40,000點整數大關。台新黃文清不排除行情下探38,000至40,000點，才有止跌轉彈機會，投資人務必控制部位。</div>
-                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                        <div class="news-title">資金全面回歸！半導體3,061億、電子零組件2,281億 法人：修正結束多頭格局回歸</div>
+                        <div class="news-content">今日資金流向顯示機構投資人大舉回補AI核心族群。半導體業淨流入3,061.32億元(+3.23%)、電子零組件業淨流入2,280.62億元(+3.69%)、電腦及週邊設備業淨流入574.20億元(+3.01%)、金融保險業淨流入427.97億元(+2.19%)、通信網路業淨流入256.11億元。法人分析，AI基本面需求未變，上週急殺是估值修正，黃仁勳「便宜快買」喊話加速資金回流，多頭格局有望重新確立。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 美股今晚預測 -->
         <div class="news-section">
-            <h2 class="section-title">🚀 美股今晚重新開盤！5大重點預告</h2>
+            <h2 class="section-title">🚀 美股5大重點新聞</h2>
             <div class="news-grid">
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">【最關鍵】費半能否止穩反彈？-10.26%後市場能消化多少？</div>
-                        <div class="news-content">上週五費半暴跌10.26%，創2020年疫情以來最大單日跌幅，今晚費半走向是台股止穩的最重要前提條件。若費半今晚能止跌反彈，將大幅緩解明日台股的拋售壓力；若費半繼續尋底，台股明日將再度面臨沉重壓力。關鍵觀察：輝達(NVDA 205.10)、台積電ADR(TSM 418.43)能否在今晚盤中止穩，以及博通(AVGO)是否能在大跌12.6%後吸引抄底買盤進場。</div>
-                        <div class="news-source">來源：CMoney、聯合新聞網</div>
+                        <div class="news-title">費半暴漲5.61%！英特爾吞Google 300萬顆TPU神單 登標普500當日最強</div>
+                        <div class="news-content">費城半導體指數6月8日狂飆685.93點或5.61%至12,906.69點。核心催化劑是Google準備大舉下單英特爾代工生產逾300萬顆TPU張量處理器，連輝達也有意跟進，被市場解讀為英特爾代工業務(IFS)的重大突破。英特爾暴力反彈11.19%，直接登頂標普500指數當日最佳個股。半導體類股幾乎全線狂歡，美光+9.87%、Marvell+9.63%、KLA+9.27%、應用材料+8.64%、科林研發+6.98%、ASML+6.54%輪番上演。</div>
+                        <div class="news-source">來源：CMoney、中時新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">【今晚關鍵】美債殖利率走向！10年期能否從4.5%回落？</div>
-                        <div class="news-content">上週五非農爆表後，美國10年期公債殖利率突破4.5%、30年期站上5%，是這波科技股估值被壓縮的核心原因。今晚市場最關鍵的觀察是殖利率能否從高點回落。若市場消化非農數據後認為升息機率下降，殖利率回落，科技股將能估值修復；若殖利率維持高位甚至繼續攀升，AI高估值股的壓力將持續。21shares的Coltman表示，對新主席華許「這是艱困的開始」，政策方向不明朗是最大變數。</div>
-                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
+                        <div class="news-title">黃仁勳「便宜快買」！宣布與SK海力士建AI工廠 輝達漲1.73%</div>
+                        <div class="news-content">輝達執行長黃仁勳公開喊話AI股「便宜快買」，並宣布與SK海力士合作建設AI工廠，進一步強化AI基礎建設需求的長期訊號。黃仁勳信心喊話成為本波反彈最重要的心理催化劑，輝達昨夜上漲1.73%至208.64美元。市場將上週費半暴跌10.26%重新詮釋為「高估值修正」，黃仁勳的喊話讓達利歐等的「AI泡沫論」遭到強力反駁，多頭信心快速回歸。</div>
+                        <div class="news-source">來源：CMoney、中時新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">【本週重點】蘋果WWDC 6/9登場！AI新系統是科技股反彈的救命稻草？</div>
-                        <div class="news-content">蘋果全球開發者大會(WWDC 2026)將於台灣時間6月9日(明日)起至6月13日登場，預期蘋果將推出全新AI作業系統升級，展示其AI技術布局。市場期待蘋果AI功能亮眼，為科技股在非農重挫後提供反彈題材。若蘋果AI發表內容超預期，將激勵蘋果(AAPL 307.34)股價反彈，帶動台積電、鴻海、大立光等蘋概供應鏈個股走強，成為市場恐慌中的關鍵亮點。</div>
-                        <div class="news-source">來源：ETtoday、CMoney</div>
+                        <div class="news-title">蘋果WWDC發表Apple Intelligence升級 宣布與Google合作 股價跌1.89%利多出盡</div>
+                        <div class="news-content">蘋果在WWDC 2026發表新一代Apple Intelligence與升級版Siri，宣布與Google深化合作打造全新AI架構，強調AI將成為未來軟體平台核心。然而市場呈現「利多出盡」反應，蘋果股價下跌1.89%至301.54美元。Meta、微軟、Alphabet也同步走弱，分析師指出，資金明顯從軟體與消費端輪轉至硬體算力端，是今日半導體股大漲而軟體股走弱的核心解釋。</div>
+                        <div class="news-source">來源：鉅亨網、CMoney</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">【本週重點】台積電5月營收即將公布！預期再創高是穩定軍心關鍵</div>
-                        <div class="news-content">台積電5月合併營收即將在本週公布，市場預期將再創歷史新高，是市場能否快速回穩的關鍵數據。若台積電5月營收超預期強勁，將直接反駁「AI需求降溫」的疑慮，並為台積電股價提供基本面支撐。魏哲家在股東會強調今年美元營收成長逾30%，若5月營收數字能呼應此展望，將是穩定市場信心的強力工具，也是目前空方最難反駁的基本面論點。</div>
-                        <div class="news-source">來源：ETtoday、工商時報</div>
+                        <div class="news-title">美光強彈9.87%！Marvell納入標普500漲9.63% 記憶體與光通訊全面回歸</div>
+                        <div class="news-content">美光科技上週五重挫13%後，週一強勢反彈9.87%，分析師指出，AI浪潮帶動下「記憶體交易仍活力十足」，HBM高頻寬記憶體需求持續旺盛。Marvell Technology宣布被納入標普500指數成分股，加上黃仁勳的持續背書，單日大漲9.63%，CPO光通訊題材持續發酵。半導體設備股KLA、應用材料、科林研發、ASML也同步大漲6%-9%，AI基礎建設全鏈條受惠。</div>
+                        <div class="news-source">來源：鉅亨網、CMoney</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div 
+                        <div class="news-title">特斯拉大漲4.59%！中東緩和油價回穩 Fed 6/16-17會議是下週最大變數</div>
+                        <div class="news-content">特斯拉(TSLA)昨夜上漲4.59%至408.95美元，成為今日最強大型科技股之一，AI自駕與機器人題材重新受到關注。同時，中東地緣政治緊張情勢出現緩和訊號，伊朗宣布結束對以色列軍事行動，布蘭特原油最終僅收在94.25美元(+1.2%)，對市場衝擊有限。展望下週，美聯儲6月16日至17日的利率決策會議仍是最大變數，新主席華許首次主持，市場將密切關注其對升息的立場。</div>
+                        <div class="news-source">來源：CMoney、聯合新聞網</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>📅 下週超級行事曆：</str
