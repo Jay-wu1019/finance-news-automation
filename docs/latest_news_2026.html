@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年6月11日 台積電5月營收創歷史新高！除息24秒填息！道瓊跌953點破5萬！</title>
+    <title>財經新聞自動化 | 2026年6月12日 台股大反彈漲1,019點！美伊和平在望！費半暴漲7.91%！</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
@@ -13,31 +13,29 @@
         header p { font-size: 1.05em; opacity: 0.9; margin-bottom: 15px; }
         .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
-        /* 台積電營收利多框 */
-        .tsmc-hero { background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%); border-radius: 12px; padding: 26px; margin-bottom: 25px; color: white; }
-        .tsmc-hero h2 { font-size: 1.8em; margin-bottom: 14px; text-align: center; }
-        .tsmc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 13px; }
-        .tsmc-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center; }
-        .tsmc-item h4 { font-size: 0.85em; margin-bottom: 6px; opacity: 0.9; }
-        .tsmc-item .val { font-size: 1.6em; font-weight: bold; margin: 5px 0; }
-        .tsmc-item .sub { font-size: 0.8em; opacity: 0.85; }
-        /* 利空框 */
-        .risk-box { background: rgba(198,40,40,0.2); border: 2px solid #c62828; padding: 22px; margin-bottom: 22px; border-radius: 12px; color: white; }
-        .risk-box strong { color: #FFB3B3; }
+        .mega-box { background: linear-gradient(135deg, rgba(81,207,102,0.25) 0%, rgba(76,140,255,0.25) 100%); border: 2px solid #51cf66; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
+        .mega-box strong { color: #51cf66; }
+        /* 和平協議框 */
+        .peace-banner { background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%); border-radius: 12px; padding: 24px; margin-bottom: 25px; color: white; text-align: center; }
+        .peace-banner h3 { font-size: 1.5em; margin-bottom: 10px; }
+        .peace-banner p { font-size: 0.95em; line-height: 1.7; opacity: 0.95; }
+        /* 費半推手框 */
+        .catalyst-banner { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 26px; margin-bottom: 28px; color: white; }
+        .catalyst-banner h2 { font-size: 1.7em; margin-bottom: 14px; text-align: center; }
+        .catalyst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 13px; }
+        .catalyst-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 16px; }
+        .catalyst-item h4 { font-size: 0.95em; margin-bottom: 8px; color: #90CAF9; }
+        .catalyst-item p { font-size: 0.88em; line-height: 1.6; }
         .stats-container { margin-bottom: 40px; }
         .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #ff6b6b; }
-        .stat-item.up { border-left: 5px solid #51cf66; }
-        .stat-item.gold { border-left: 5px solid #FFD700; }
+        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #51cf66; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.1em; font-weight: bold; color: #333; margin: 10px 0; }
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .fire-badge { display: inline-block; background: #f5576c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .gold-badge { display: inline-block; background: #FFD700; color: #333; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 20px 0; }
         .stock-table th { background: #1a3a52; color: white; padding: 14px 18px; text-align: left; font-size: 0.9em; }
         .stock-table td { padding: 13px 18px; border-bottom: 1px solid #f5f5f5; font-size: 0.95em; }
@@ -71,137 +69,138 @@
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年6月11日 台積電5月營收創歷史新高！除息24秒填息！CPI破4%！道瓊跌破5萬！</p>
+            <p>台灣人必看的股市消息 | 2026年6月12日 台股大反彈漲1,019點！美伊和平在望！費半暴漲7.91%！黃仁勳「撿便宜」發威！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
 
-        <!-- 台積電營收創高 -->
-        <div class="tsmc-hero">
-            <h2>🏆 台積電5月營收4,169.7億元創單月歷史新高！除息24秒填息！</h2>
-            <div class="tsmc-grid">
-                <div class="tsmc-item">
-                    <h4>5月合併營收</h4>
-                    <div class="val">4,169.7億元</div>
-                    <div class="sub">月增1.5%・年增30.1%・創歷史新高！</div>
+        <div class="mega-box">
+            <strong>🚀🚀 台股強勁反彈！費半史詩級暴漲7.91%！多重利多齊發！</strong><br>
+            台股今日大漲1,019.58點(+2.36%)收44,169.04點！漲股694檔遠超跌股158檔！<br>
+            川普宣布取消空襲伊朗計畫！美伊和平協議在望！油價下跌！<br>
+            費半暴漲7.91%創兩個月最佳！英特爾+9.27%、美光狂飆+11%、聯電ADR+9.42%！<br>
+            台積電ADR漲3.26%至421.07！台指期夜盤大漲1,163點(+2.69%)收44,382！半導體淨流入3,894億！
+        </div>
+
+        <!-- 美伊和平協議 -->
+        <div class="peace-banner">
+            <h3>🕊️ 重大轉折！川普取消空襲伊朗！美伊和平協議在望！</h3>
+            <p>美國總統川普宣布取消對伊朗的空襲計畫，外界期待美伊即將達成協議，讓全球石油運輸恢復順暢！<br>
+            國際油價應聲下跌，市場風險情緒大幅回升！<br>
+            這是本週最重要的地緣政治轉折，直接緩解了壓制全球股市多日的最大不確定因素！</p>
+        </div>
+
+        <!-- 費半推手 -->
+        <div class="catalyst-banner">
+            <h2>🔥 費半暴漲7.91%！創兩個月最佳單日表現！四大推手解析</h2>
+            <div class="catalyst-grid">
+                <div class="catalyst-item">
+                    <h4>① 黃仁勳「撿便宜」喊話發威</h4>
+                    <p>黃仁勳週一表示「投資人應該為這波大跌感到慶幸」，是用打折行情撿便宜股票的絕佳時機！資金大舉回流半導體！</p>
                 </div>
-                <div class="tsmc-item">
-                    <h4>前五月累計</h4>
-                    <div class="val">1.96兆元</div>
-                    <div class="sub">同寫歷年同期最高！</div>
+                <div class="catalyst-item">
+                    <h4>② 美光狂飆近12% 記憶體王者回歸</h4>
+                    <p>美光科技股價飆升近12%，成為費半反彈最重要推手，HBM記憶體需求持續強勁，記憶體缺貨延續到2027的題材重燃！</p>
                 </div>
-                <div class="tsmc-item">
-                    <h4>今日除息</h4>
-                    <div class="val">24秒填息！</div>
-                    <div class="sub">首日參考價2,249元<br>盤中最高觸及2,255元</div>
+                <div class="catalyst-item">
+                    <h4>③ 英特爾、ASML、AMD全面噴出</h4>
+                    <p>英特爾大漲逾9%、AMD漲逾7%、艾司摩爾漲逾9%，半導體設備與晶片股全線狂歡，輝達也漲逾2%！</p>
                 </div>
-                <div class="tsmc-item">
-                    <h4>AI需求確認</h4>
-                    <div class="val">年增30.1%</div>
-                    <div class="sub">魏哲家：全年成長逾30%<br>能見度直達2030年</div>
-                </div>
-                <div class="tsmc-item">
-                    <h4>聯發科5月營收</h4>
-                    <div class="val">474.3億元</div>
-                    <div class="sub">月增1.4%・年增4.9%<br>AI應用持續受惠</div>
+                <div class="catalyst-item">
+                    <h4>④ 美伊和平+SpaceX掛牌雙重提振</h4>
+                    <p>美伊和平協議在望緩解地緣風險，SpaceX(馬斯克)今日(6/12)正式掛牌交易，市場關注度極高，特斯拉也同步大漲4.6%！</p>
                 </div>
             </div>
         </div>
 
-        <div class="risk-box">
-            <strong>⚠️ 雙重利空壓制！但基本面未變！</strong><br>
-            美國5月CPI年增4.2%，創2023年4月以來新高（3年最快），加上美伊衝突再度升溫，美軍再次對伊朗目標發動攻擊，油價應聲走高！<br>
-            道瓊跌953點失守5萬點、費半跌3.57%、輝達跌破200美元！台積電ADR跌4.48%！<br>
-            ✅ 但台積電5月營收年增30.1%創歷史新高！除息24秒填息！基本面利多顯示AI需求未動搖！<br>
-            ⚠️ 台股今日開盤震盪，盤中最低42,814點，最終守穩翻紅收43,149.46點，跌幅僅-0.18%！
-        </div>
-
         <!-- 台股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年6月11日 終場 - 震盪守穩！台積電除息填息！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年6月12日 終場 - 強勁反彈！玻璃陶瓷+7.18%領漲！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">43,149.46點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -76.08點 (-0.18%)</div>
-                    <div class="warn-badge">盤中守穩 小跌整理</div>
-                </div>
-                <div class="stat-item gold">
-                    <h3>台積電(2330)</h3>
-                    <div class="stat-value">除息填息！</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">24秒完成填息 一度填息8成</div>
-                    <div class="gold-badge">🏆 超強韌性！</div>
-                </div>
-                <div class="stat-item up">
-                    <h3>光電業(領漲)</h3>
-                    <div class="stat-value">+1.01%</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">傳產防禦逆勢</div>
-                    <div class="gain-badge">✅ 相對抗跌</div>
+                    <div class="stat-value">44,169.04點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1,019.58點 (+2.36%)</div>
+                    <div class="fire-badge">🚀 強勁反彈！</div>
                 </div>
                 <div class="stat-item">
                     <h3>漲跌家數</h3>
-                    <div class="stat-value">376 : 457</div>
-                    <div style="color: #666; font-size: 1.1em;">跌股略多，但接近平衡</div>
-                    <div class="warn-badge">守穩整理格局</div>
+                    <div class="stat-value">694 : 158</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">漲跌比 4.39:1</div>
+                    <div class="gain-badge">全面翻紅！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>玻璃陶瓷(領漲)</h3>
+                    <div class="stat-value">+7.18%</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">今日最強族群</div>
+                    <div class="fire-badge">🔥 全面噴出！</div>
+                </div>
+                <div class="stat-item">
+                    <h3>半導體業淨流入</h3>
+                    <div class="stat-value">3,893.95億</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">+3.13% 最大資金</div>
+                    <div class="strong-badge">🚀 資金強力回流！</div>
                 </div>
             </div>
 
             <table class="stock-table">
                 <thead>
-                    <tr><th>個股/族群</th><th>表現</th><th>漲跌</th><th>今日狀況</th></tr>
+                    <tr><th>族群/個股</th><th>表現</th><th>漲跌幅</th><th>今日亮點</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🏆 台積電(2330)</td><td>2,249元除息參考價</td><td class="green">盤中最高2,255元 填息8成</td><td>5月營收創新高+24秒填息，強勁韌性！</td></tr>
-                    <tr><td>📉 聯發科(2454)</td><td>開盤4,085元</td><td class="red">早盤跌逾3%</td><td>5月營收年增4.9%，但高位持續承受賣壓</td></tr>
-                    <tr><td>✅ 光電業</td><td>+1.01%</td><td class="green">今日最強</td><td>CPO光通訊題材，防禦性資金流入</td></tr>
-                    <tr><td>✅ 水泥工業</td><td>+0.90%</td><td class="green">傳產強勢</td><td>央行信用管制不加碼，傳產防禦繼續受惠</td></tr>
-                    <tr><td>✅ 食品工業</td><td>+0.73%</td><td class="green">防禦族群</td><td>通膨題材，民生必需品族群相對抗跌</td></tr>
-                    <tr><td>✅ 航運業</td><td>淨流入47.12億</td><td class="green">資金流入</td><td>美伊衝突油價上漲，航運成本轉嫁預期</td></tr>
-                    <tr><td>⚠️ 台股盤中</td><td>最低42,814點</td><td class="red">最多跌逾400點</td><td>台積電ADR跌4.48%拖累，但隨後反彈翻紅</td></tr>
+                    <tr><td>🔥 玻璃陶瓷</td><td>+7.18%</td><td class="green">領漲第一！</td><td>跌深反彈，台玻、振樺電等族群全面噴出</td></tr>
+                    <tr><td>🔥 塑膠工業</td><td>+6.91%</td><td class="green">第二強</td><td>油價下跌+漲多回檔後反彈，台塑四寶領軍</td></tr>
+                    <tr><td>🔥 電器電纜</td><td>+5.95%</td><td class="green">第三強</td><td>AI電力基建需求題材重燃</td></tr>
+                    <tr><td>✅ 化學工業</td><td>+2.79%</td><td class="green">穩健回升</td><td>跌深反彈，傳產化工同步走強</td></tr>
+                    <tr><td>✅ 其他電子業</td><td>+2.70%</td><td class="green">電子族群跟進</td><td>AI供應鏈廣度反彈，淨流入488.30億</td></tr>
+                    <tr><td>✅ 半導體業</td><td>淨流入3,894億</td><td class="green">+3.13%</td><td>台積電、聯電帶領，黃仁勳撿便宜效應發酵</td></tr>
+                    <tr><td>✅ 電子零組件業</td><td>淨流入2,087億</td><td class="green">+1.97%</td><td>ABF載板、CPO族群資金強力回補</td></tr>
+                    <tr><td>🔥 聯亞(3081)</td><td>2,195元</td><td class="green">+1.39%</td><td>今日熱門排行第一，光通訊題材續強</td></tr>
+                    <tr><td>🔥 華星光(4979)</td><td>501.00元</td><td class="green">+5.92%</td><td>CPO光通訊概念股大漲</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div class="highlight-green">
-            <strong>📊 6月11日台股關鍵數據整理：</strong><br>
-            🏆 <strong>台積電5月營收4,169.7億創歷史新高</strong>：月增1.5%、年增30.1%，AI需求確確實實未動搖！<br>
-            🏆 <strong>台積電除息24秒完成填息</strong>：盤中最高觸及2,255元，一度填息8成，韌性超強！<br>
-            🏆 <strong>聯發科5月營收474.3億</strong>：月增1.4%、年增4.9%，AI相關應用持續受惠！<br>
-            ✅ <strong>台股盤中守穩</strong>：盤中最低42,814點後翻紅，終場僅跌76點(-0.18%)，展現強力支撐！<br>
-            ⚠️ <strong>美股CPI衝擊持續</strong>：5月CPI年增4.2%創3年高，加上美伊再度交火，雙重壓力難消化<br>
-            💡 <strong>雷浩斯：此波回檔屬正常整理</strong>，已先行調節6成持股保守操作，待震盪趨緩再布局<br>
-            ✅ <strong>核心CPI月增0.2%低於預期0.3%</strong>：基本通膨增幅趨緩，暗示Fed暫緩升息的空間仍在！<br>
-            ⚠️ <strong>6/16-17 Fed會議倒數5天</strong>：CPI數據後升息預期雖升溫，但核心通膨趨緩帶來一絲曙光
+            <strong>📊 6月12日台股關鍵數據整理：</strong><br>
+            🚀 <strong>強勁反彈漲1,019.58點</strong>：台指期夜盤昨夜大漲1,163點(+2.69%)收44,382，提前點燃今日反攻烽火！<br>
+            🕊️ <strong>美伊和平協議在望</strong>：川普取消空襲伊朗計畫，是緩解市場最大不確定因素的關鍵轉折！<br>
+            🔥 <strong>玻璃陶瓷+7.18%、塑膠+6.91%、電器電纜+5.95%</strong>：跌深傳產全面噴出，反彈廣度極佳！<br>
+            ✅ <strong>半導體淨流入3,894億(+3.13%)</strong>：黃仁勳「撿便宜」喊話發威，資金大舉回流！<br>
+            ✅ <strong>電子零組件淨流入2,087億</strong>：ABF載板、CPO光通訊族群同步強彈！<br>
+            💡 <strong>分析師：台股需在3天內重新站回月線</strong>，本波6個交易日累跌逾4,000點後的修正接近完成<br>
+            ⚠️ <strong>三大法人連4日賣超4,144億</strong>：外資、自營商賣壓仍重，籌碼面尚需觀察<br>
+            🚀 <strong>SpaceX今日正式掛牌</strong>：馬斯克關注焦點，特斯拉昨夜大漲4.6%，市場情緒同步回溫！
         </div>
 
         <!-- 美股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年6月10日終場 - 道瓊跌953點失守5萬！CPI破4%！美伊再交火！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年6月11日終場 - 創兩個月最佳！費半暴漲7.91%！全面收紅！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>道瓊指數</h3>
-                    <div class="stat-value">49,918.78點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -953.33點 (-1.87%)</div>
-                    <div class="loss-badge">🔴 失守5萬點！</div>
+                    <div class="stat-value">50,848.75點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +929.97點 (+1.86%)</div>
+                    <div class="gain-badge">✅ 重回5萬！</div>
                 </div>
                 <div class="stat-item">
                     <h3>標普500</h3>
-                    <div class="stat-value">7,267.08點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -119.57點 (-1.62%)</div>
-                    <div class="loss-badge">重挫破位</div>
+                    <div class="stat-value">7,394.07點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +127.08點 (+1.75%)</div>
+                    <div class="gain-badge">✅ 強勁反彈</div>
                 </div>
                 <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">25,169.50點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -509.32點 (-1.98%)</div>
-                    <div class="loss-badge">科技股全面走弱</div>
+                    <div class="stat-value">25,809.66點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +640.16點 (+2.54%)</div>
+                    <div class="strong-badge">🚀 科技股強彈！</div>
                 </div>
                 <div class="stat-item">
                     <h3>費城半導體</h3>
-                    <div class="stat-value">12,206.46點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -451.35點 (-3.57%)</div>
-                    <div class="loss-badge">半導體承壓</div>
+                    <div class="stat-value">13,171.44點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +964.98點 (+7.91%)</div>
+                    <div class="fire-badge">🔥🔥 兩個月最佳！</div>
                 </div>
             </div>
 
@@ -210,14 +209,14 @@
                     <tr><th>個股</th><th>收盤(美元)</th><th>漲跌幅</th><th>市場解讀</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🔴 台積電ADR(TSM)</td><td>408.75</td><td class="red">-4.48%</td><td>CPI衝擊+美伊交火，但5月營收創高支撐長線</td></tr>
-                    <tr><td>🔴 輝達(NVDA)</td><td>200.420</td><td class="red">-3.73%</td><td>跌破200美元重要心理關卡！</td></tr>
-                    <tr><td>🔴 特斯拉(TSLA)</td><td>381.590</td><td class="red">-3.80%</td><td>高位科技股承壓，全面回落</td></tr>
-                    <tr><td>🔴 聯電ADR(UMC)</td><td>18.9000</td><td class="red">-4.93%</td><td>成熟製程股回落，連日強勢後獲利了結</td></tr>
-                    <tr><td>🔴 美超微(SMCI)</td><td>暴跌</td><td class="red">-14%</td><td>發行70億美元股票籌資購買AI伺服器零組件！</td></tr>
-                    <tr><td>🔴 微軟(MSFT)</td><td>397.360</td><td class="red">-1.50%</td><td>科技股全面承壓</td></tr>
-                    <tr><td>✅ 蘋果(AAPL)</td><td>291.580</td><td class="green">+0.35%</td><td>今日美股最強大型科技股，相對抗跌</td></tr>
-                    <tr><td>✅ Alphabet(GOOG)</td><td>353.320</td><td class="red">-2.48%</td><td>科技股普遍走弱，Alphabet也難倖免</td></tr>
+                    <tr><td>🔥 聯電ADR(UMC)</td><td>20.6800</td><td class="green">+9.42%</td><td>半導體全面噴出，成熟製程題材延續</td></tr>
+                    <tr><td>🔥 英特爾(INTC)</td><td>116.960</td><td class="green">+9.27%</td><td>連日強勢，AI代工題材持續發酵</td></tr>
+                    <tr><td>🔥 美光(MU)</td><td>狂飆</td><td class="green">+11-12%</td><td>記憶體需求強勁，費半反彈最大推手！</td></tr>
+                    <tr><td>✅ 特斯拉(TSLA)</td><td>399.150</td><td class="green">+4.60%</td><td>SpaceX今日掛牌，馬斯克效應+和平協議雙利多</td></tr>
+                    <tr><td>✅ 台積電ADR(TSM)</td><td>421.07</td><td class="green">+3.26%</td><td>跟隨半導體全面反彈，帶動台股強彈</td></tr>
+                    <tr><td>✅ 輝達(NVDA)</td><td>204.870</td><td class="green">+2.22%</td><td>黃仁勳喊撿便宜，輝達自己也率先反彈</td></tr>
+                    <tr><td>✅ 蘋果(AAPL)</td><td>295.630</td><td class="green">+1.39%</td><td>大盤情緒回溫，蘋果穩步收紅</td></tr>
+                    <tr><td>📉 微軟(MSFT)</td><td>390.340</td><td class="red">-1.77%</td><td>軟體股相對弱勢，資金轉向硬體算力</td></tr>
                 </tbody>
             </table>
         </div>
@@ -229,40 +228,40 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">台積電5月營收4,169.7億創歷史新高！年增30.1% 除息24秒填息超強韌性</div>
-                        <div class="news-content">台積電(2330)昨日公布5月合併營收4,169.7億元，創單月歷史新高，月增1.5%、年增30.1%；前五月合併營收達1.96兆元，同寫歷年同期最高紀錄。今日台積電同步舉行2025年第4季除息，首日參考價2,249元，在AI需求強勁的基本面支撐下，盤中最高觸及2,255元，一度完成填息8成，且僅花24秒便完成填息，展現台積電自改採每季配息後除息當天就填息的超強韌性。這是在全球市場動盪下，台積電最有力的基本面宣示。</div>
-                        <div class="news-source">來源：聯合新聞網、壹蘋新聞網</div>
+                        <div class="news-title">台股強勁反彈漲1,019點！美伊和平協議在望 費半暴漲7.91%點燃反攻</div>
+                        <div class="news-content">外界期待美伊即將達成協議，美國股市勁揚收紅，創兩個月來最佳單日表現，費半指數大漲7.91%，台積電ADR漲逾3%，台指期夜盤大漲1,163點(+2.69%)收44,382點。受此激勵，台股6月12日大幅反攻，加權指數大漲1,019.58點至44,169.04點，漲幅2.36%，漲股694檔遠超跌股158檔，漲跌比達4.39:1。投顧分析指出，美股振奮有助台股今天反攻，但市場仍擔心利率政策，不過AI需求持續提高，內資買盤逢低承接。</div>
+                        <div class="news-source">來源：中央社、Yahoo股市</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">台股盤中最低42,814點後翻紅！終場僅跌76點 守穩展現支撐力道</div>
-                        <div class="news-content">台股6月11日在美股前夜重挫的壓力下，盤中最低下探42,814點，最多跌逾400點。然而在台積電除息填息的提振下，指數隨後大幅反彈翻紅，漲幅一度超過150點，顯示市場對台積電基本面的信心顯著提升。終場以43,149.46點收盤，僅小跌76.08點(-0.18%)，漲股376、跌股457，跌幅相當溫和。相較於近期連續重挫1,000點以上的走勢，今日台股展現出明顯的底部支撐力道，多頭守穩跡象浮現。</div>
-                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                        <div class="news-title">川普宣布取消空襲伊朗！美伊和平協議在望 油價應聲下跌 全球風險情緒回升</div>
+                        <div class="news-content">本週最重要的地緣政治轉折出現！美國總統川普宣布取消對伊朗的空襲計畫，外界期待美伊即將達成協議，讓全球石油運輸恢復順暢。國際油價應聲下跌，緩解了壓制全球股市多日的最大不確定因素之一。此前伊朗向以色列發射飛彈，以色列隨後展開反擊，使原本脆弱的停火局勢面臨考驗，但伊朗已宣布對以色列的軍事行動結束，油價漲勢明顯收斂。這一轉折大幅提振全球風險偏好，為費半史詩級反彈提供了重要的宏觀背景。</div>
+                        <div class="news-source">來源：中央社、鉅亨網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">聯發科5月營收474.3億年增4.9% 基本面亮眼但股價承壓 AI應用持續受惠</div>
-                        <div class="news-content">IC設計龍頭聯發科(2454)公布5月合併營收474.3億元，月增1.4%、年增4.9%，AI相關應用仍是市場關注亮點。然而聯發科今日早盤開在4,085元，明顯受到美股科技股修正與資金調節影響，盤中跌逾3%。市場人士指出，聯發科近期漲幅已高，當外資風險偏好下降，短線更容易成為獲利了結標的。但從基本面看，聯發科5月營收維持成長趨勢，AI ASIC業務與Google TPU合作題材的中長線布局價值不變。</div>
+                        <div class="news-title">玻璃陶瓷+7.18%、塑膠+6.91%、電器電纜+5.95% 跌深傳產全面噴出</div>
+                        <div class="news-content">經過本週連續暴跌後，台股6月12日呈現「跌深反彈」格局，跌幅最重的傳產族群今日同步噴出。玻璃陶瓷業上漲7.18%成為最強族群，塑膠工業上漲6.91%，電器電纜上漲5.95%，化學工業上漲2.79%。市場分析指出，本波台股自6月3日高點46,459點起算，6個交易日累計重挫逾4,000點，跌深個股的反彈動能格外強勁。在和平協議與費半暴漲的雙重提振下，資金全面回流前期跌深的傳產與電子族群。</div>
                         <div class="news-source">來源：聯合新聞網、CMoney</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">雷浩斯：此波回檔屬正常整理 已先調節6成持股 待震盪趨緩再布局</div>
-                        <div class="news-content">曾在2023年重押AI族群、資產翻倍晉升億元身價的價值投資達人雷浩斯分析，此波回檔屬於前段漲幅過大後的正常整理，並不代表整體多頭趨勢已反轉。他透露自己已於前一日先行調節約6成持股，採取保守操作，待市場震盪趨緩後再尋找時機重新布局。雷浩斯的看法與統一投信等法人機構一致：本波下跌主要來自籌碼過熱，企業獲利持續上修，科技產業中長期成長趨勢並未改變，回檔是長線投資人布局的機會。</div>
-                        <div class="news-source">來源：Yahoo股市、CMoney</div>
+                        <div class="news-title">半導體淨流入3,894億！黃仁勳「撿便宜」喊話發威 ABF載板與CPO同步強彈</div>
+                        <div class="news-content">黃仁勳週一表示「投資人應該為這波大跌感到慶幸」、「這正是用打折行情撿便宜股票的絕佳時機」，這句話的效應在今日台股全面展現。半導體業淨流入高達3,893.95億元(+3.13%)，為今日最大資金流向。電子零組件業淨流入2,087.02億元(+1.97%)，ABF載板與CPO光通訊族群同步強彈，華星光(4979)大漲5.92%、聯亞(3081)登上熱門排行第一。電腦及週邊設備業淨流入554.45億元，通信網路業淨流入342.25億元，AI供應鏈全線資金回補。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">傳產族群逆勢撐盤！光電+1%、水泥+0.9%、食品+0.73% 資金轉向防禦性標的</div>
-                        <div class="news-content">在科技股承壓的環境下，傳產防禦族群今日逆勢領漲。光電業上漲1.01%成為最強族群，CPO光通訊題材持續受到關注；水泥工業上漲0.90%，延續央行不加碼信用管制的傳產利多；食品工業上漲0.73%，在通膨升溫環境下，民生必需品族群受到防禦性資金青睞；貿易百貨業上漲0.72%，塑膠工業上漲0.67%。資金流向顯示航運業淨流入47.12億元，塑膠工業淨流入31.99億元，均屬防禦性族群，顯示資金在不確定環境下偏向保守配置。</div>
+                        <div class="news-title">分析師：台股3天內須重站月線 三大法人連4日賣超4,144億 籌碼面仍需觀察</div>
+                        <div class="news-content">儘管今日台股強彈逾千點，但證券分析師提醒，外資連日大賣早有跡可循，主要是認為台股上漲太多、乖離過大需要修正，台股近日急挫失守月線，必須在3天內重新站上，才能確認修正告一段落。統計顯示，三大法人已連續4個交易日賣超，累計賣超達4,144億元，其中外資、自營商分別賣超逾3,439億及1,056億元。法人指出，在修正過程中仍可以布局跌深的族群，但短線籌碼面壓力尚未完全釋放，須留意反彈後的整理。</div>
                         <div class="news-source">來源：聯合新聞網、CMoney</div>
                     </div>
                 </div>
@@ -276,30 +275,29 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">美國5月CPI年增4.2%創3年新高！美伊再交火！道瓊跌953點失守5萬點</div>
-                        <div class="news-content">美股6月10日遭受雙重利空夾擊。一是美國5月消費者物價指數(CPI)年增率攀抵4.2%，創2023年4月以來新高，連三個月升溫，強化市場對Fed今年按兵不動甚至轉升息的預期。二是美伊衝突急遽升溫，美軍再度對伊朗多個目標發動攻擊，油價應聲走高。兩大利空夾擊下，道瓊工業指數重挫953.33點或1.87%，失守5萬點大關收49,918.78點，標普500跌1.62%，納斯達克跌1.98%，費城半導體跌3.57%，四大指數全面收黑。</div>
-                        <div class="news-source">來源：工商時報、時報資訊</div>
+                        <div class="news-title">費半暴漲7.91%！創兩個月最佳！黃仁勳喊「撿便宜」 美光狂飆近12%</div>
+                        <div class="news-content">美股6月11日上演絕地大反攻，創兩個月來最佳單日表現。費城半導體指數大漲964.98點或7.91%至13,171.44點，道瓊上漲1.86%、標普500上漲1.75%、納斯達克上漲2.54%。輝達執行長黃仁勳週一公開表示「投資人應該為這波大跌感到慶幸」，更直言這正是用打折行情撿便宜股票的絕佳時機。此言帶動資金重返半導體類股，輝達上漲1.73%，美光狂飆超9-12%，成為費半反彈的最重要推手。英特爾大漲逾9%，AMD、艾司摩爾分別漲逾7%、9%。</div>
+                        <div class="news-source">來源：鉅亨網、中央社</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">②</div>
-                        <div class="news-title">核心CPI月增0.2%低於預期！通膨細項趨緩 暗示Fed暫緩升息空間仍在</div>
-                        <div class="news-content">儘管5月CPI整體數字因伊朗戰爭推高能源價格而衝破4%，但細看數據，核心CPI(剔除食品與能源)月增幅為0.2%，略低於市場預期的0.3%，顯示基本通膨增幅趨緩的跡象。這一細節讓部分分析師認為，Fed在6月16日至17日的會議上，仍可能選擇「暫緩升息」而非立刻行動，讓市場稍感安慰。預期聯準會將暫緩升息的消息，使美股開盤時跌幅較盤前明顯收斂，顯示這一細節數據對市場心理的安撫效果。</div>
-                        <div class="news-source">來源：聯合新聞網、經濟日報</div>
+                        <div class="news-title">川普取消空襲伊朗！美伊和平協議在望 全球石油運輸有望恢復順暢</div>
+                        <div class="news-content">美股全面收紅的最大宏觀背景是地緣政治的重大轉折：美國總統川普宣布取消對伊朗的空襲計畫，外界期待美伊即將達成協議，讓全球石油運輸恢復順暢。國際油價隨之下跌，市場風險偏好顯著回升。此前伊朗向以色列發射飛彈、以色列展開反擊，使脆弱的停火局勢面臨考驗，但伊朗已宣布軍事行動結束，國際油價漲勢明顯收斂。這一轉折大幅緩解了壓制全球股市連日重挫的核心不確定因素，為費半史詩級反彈鋪平道路。</div>
+                        <div class="news-source">來源：中央社、鉅亨網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">輝達跌破200美元！台積電ADR重挫4.48%至408.75美元 半導體全面承壓</div>
-                        <div class="news-content">輝達(NVDA)昨夜下跌3.73%至200.420美元，一度跌破200美元重要心理關卡，是近期市場關注的重要技術位置。台積電ADR(TSM)重挫4.48%至408.75美元，但台積電5月營收創歷史新高的消息提供了基本面支撐，法人指出「營收利多短線仍難抵銷國際賣壓，但中長線布局價值顯現」。美光跌約4.7%、聯電ADR跌4.93%，半導體族群普遍走弱。費半指數收12,206.46點，較高點已累計下跌逾10%。</div>
-                        <div class="news-source">來源：工商時報、CMoney</div>
+                        <div class="news-title">台積電ADR漲3.26%至421.07美元！聯電ADR飆9.42% 台灣半導體全面強彈</div>
+                        <div class="news-content">台積電ADR(TSM)昨夜上漲3.26%至421.07美元，較台北交易溢價達17.5%。聯電ADR(UMC)更大漲9.42%至20.6800美元，跟隨美股半導體全面噴出的格局。台指期夜盤受此激勵大漲1,163點或2.69%，收在44,382點，直接點燃今日台股反攻的烽火。市場分析，半導體股的全面強彈反映「黃仁勳撿便宜效應」加上「美伊和平協議」的雙重利多，是科技股本週最強勁的單日反彈。</div>
+                        <div class="news-source">來源：中央社、Yahoo股市</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">美超微暴跌14%！發行70億美元股票籌資 SpaceX 6/12掛牌搶走資金</div>
-                        <div class="news-content">美超微電腦(Super Micro, SMCI)昨夜暴跌約14%，主因公司宣布將發行70億美元新股籌資，以購買製造AI伺服器的零組件，大規模稀釋股東權益引發市場賣壓。另一方面，部分分析師指出，晶片股挫低也與「散戶賣出熱門股、籌錢參與SpaceX股票掛牌」有關。SpaceX預計於6月12日正式股票掛牌，引發大量散戶資金從科技股轉向，形成短線的資金排擠效應。</div>
-                        <div class="news-source">來源：聯合新聞網、CMon
+                        <div class="news-title">特斯拉漲4.60%！SpaceX今日(6/12)正式掛牌 馬斯克雙重身分受矚目</div>
+                        <div class="news-content">特斯拉(TSLA)昨夜大漲4.60%至399.150美元，市場開始為本週最受矚目的上市案暖身。由馬斯克創辦的SpaceX已於6月11日左右敲定最終發行價格，並於6月12日(今日)正式掛牌交易。由於馬斯克同時掌舵特斯拉與SpaceX，市場正密切關注這場有望改寫華爾街紀錄的IPO盛事。SpaceX掛牌效應加上美伊和平協議的雙重提振，特斯拉成為今日大型科技股表現最強者之
