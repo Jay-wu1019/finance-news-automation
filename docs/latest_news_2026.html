@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年6月22日 台股攻47K歷史新高！台積電破2510天價！聯電漲停！美股今晚開盤！</title>
+    <title>財經新聞自動化 | 2026年6月23日 台股高檔回檔！聯電ADR續飆14%！費半創新高！軟體股大跌！</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
@@ -13,26 +13,29 @@
         header p { font-size: 1.05em; opacity: 0.9; margin-bottom: 15px; }
         .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
-        .mega-box { background: linear-gradient(135deg, rgba(255,215,0,0.25) 0%, rgba(81,207,102,0.25) 100%); border: 2px solid #FFD700; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
-        .mega-box strong { color: #FFD700; }
-        .us-open { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; color: white; }
-        .us-open h2 { font-size: 1.7em; margin-bottom: 14px; text-align: center; }
-        .us-ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
-        .us-ref-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center; }
-        .us-ref-item h4 { font-size: 0.82em; margin-bottom: 6px; opacity: 0.9; }
-        .us-ref-item .val { font-size: 1.7em; font-weight: bold; }
-        .us-ref-item .chg { font-size: 0.82em; margin-top: 4px; }
+        .info-box { background: rgba(255,255,255,0.1); border-left: 4px solid #FF9800; padding: 22px; margin-bottom: 22px; border-radius: 8px; color: white; }
+        .info-box strong { color: #FFD54F; }
+        .split-banner { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 24px; margin-bottom: 25px; color: white; }
+        .split-banner h2 { font-size: 1.6em; margin-bottom: 14px; text-align: center; }
+        .split-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 13px; }
+        .split-item { background: rgba(255,255,255,0.13); border-radius: 10px; padding: 16px; }
+        .split-item h4 { font-size: 0.92em; margin-bottom: 8px; color: #90CAF9; }
+        .split-item p { font-size: 0.86em; line-height: 1.6; }
         .stats-container { margin-bottom: 40px; }
         .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #51cf66; }
+        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #ff6b6b; }
+        .stat-item.up { border-left: 5px solid #51cf66; }
         .stat-item.gold { border-left: 5px solid #FFD700; }
+        .stat-item.flat { border-left: 5px solid #FF9800; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.1em; font-weight: bold; color: #333; margin: 10px 0; }
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .fire-badge { display: inline-block; background: #f5576c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .gold-badge { display: inline-block; background: #FFD700; color: #333; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
+        .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 20px 0; }
         .stock-table th { background: #1a3a52; color: white; padding: 14px 18px; text-align: left; font-size: 0.9em; }
         .stock-table td { padding: 13px 18px; border-bottom: 1px solid #f5f5f5; font-size: 0.95em; }
@@ -66,140 +69,146 @@
     <div class="container">
         <header>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年6月22日 台股攻47K歷史新高！台積電破2,510天價！聯電漲停！美股今晚開盤！</p>
+            <p>台灣人必看的股市消息 | 2026年6月23日 台股漲多高檔回檔！聯電ADR續飆14%！費半創新高！軟體股大跌！</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
 
-        <div class="mega-box">
-            <strong>🏆🏆 台股端午後無懼變盤！暴衝1,276點攻47K歷史新高！</strong><br>
-            台股大漲1,276.31點(+2.75%)收47,741.51點！盤中最高47,871點創歷史新高！<br>
-            台積電盤中衝2,510元創天價！市值躍增64.7兆！聯電、世界先進跳空漲停創高！<br>
-            南亞科破500元新天價！PCB族群+玻纖布全面漲停！半導體業淨流入4,714億！<br>
-            🇺🇸 美股今晚21:30恢復交易！上週四費半創歷史新高14,341！台積電ADR大漲6.94%！
+        <div class="info-box">
+            <strong>📊 今日市場概況：台股攻頂後正常回檔！但半導體ADR續強！多空分化明顯！</strong><br>
+            台股昨日攻47K創新高後，今日漲多回檔收47,100.65點跌641點，跌股645遠超漲股200，僅傳產防禦逆勢！<br>
+            美股6/22漲跌互見：軟體股大跌(SpaceX重挫16%、Alphabet-5.08%)，但費半續創新高14,634！美光財報前強漲！<br>
+            🔥 聯電ADR狂飆14.20%至27.50！英特爾漲5.19%！台積電ADR創高467.67溢價17.91%！
         </div>
 
-        <!-- 美股今晚開盤 -->
-        <div class="us-open">
-            <h2>🇺🇸 美股今晚(台灣時間21:30)恢復交易！上週四(6/18)終場參考</h2>
-            <div class="us-ref-grid">
-                <div class="us-ref-item">
-                    <h4>道瓊(6/18)</h4>
-                    <div class="val">51,564.70</div>
-                    <div class="chg">↑ +72.15點(+0.14%)</div>
+        <!-- 美股分化 -->
+        <div class="split-banner">
+            <h2>🔀 美股6/22「冰火五重天」：費半創高 vs 軟體股崩跌</h2>
+            <div class="split-grid">
+                <div class="split-item">
+                    <h4>🔥 半導體續創新高</h4>
+                    <p>費半再創歷史新高14,634.72(+2.04%)！聯電ADR狂飆14.20%、英特爾+5.19%、台積電ADR創高467.67、美光財報前強漲！</p>
                 </div>
-                <div class="us-ref-item">
-                    <h4>標普500(6/18)</h4>
-                    <div class="val">7,500.58</div>
-                    <div class="chg">↑ +80.48點(+1.08%)</div>
+                <div class="split-item">
+                    <h4>🔴 軟體科技股崩跌</h4>
+                    <p>Alphabet-5.08%、網飛-5.82%、亞馬遜-4.75%、微軟-3.18%、Meta-2.32%，殖利率上升衝擊高估值軟體股！</p>
                 </div>
-                <div class="us-ref-item">
-                    <h4>納斯達克(6/18)</h4>
-                    <div class="val">26,517.93</div>
-                    <div class="chg">↑ +496.27點(+1.91%)</div>
+                <div class="split-item">
+                    <h4>📉 SpaceX重挫16%</h4>
+                    <p>SpaceX掛牌一週重挫逾16%收154.6美元，跌破上市首日價，掛牌後進場投資人幾乎全套牢！IPO熱潮退燒！</p>
                 </div>
-                <div class="us-ref-item">
-                    <h4>費城半導體(6/18)</h4>
-                    <div class="val">14,341.78</div>
-                    <div class="chg">↑ +864.71點(+6.42%) 🏆 歷史新高</div>
+                <div class="split-item">
+                    <h4>🛢️ 油價跌破80美元</h4>
+                    <p>美伊14點和平協議全文公開將立即生效！美發60天許可證允伊朗賣油，布蘭特跌破80美元，通膨壓力緩解！</p>
                 </div>
-            </div>
-            <div style="background:rgba(81,207,102,0.2); border-radius:10px; padding:15px; margin-top:15px; text-align:center;">
-                <strong>✅ 上週四美伊終戰簽署+英特爾蘋果合作！台積電ADR漲6.94%創高462.12！聯電ADR飆10.66%！</strong><br>
-                <span style="font-size:0.88em; opacity:0.9;">⚠️ 本週聚焦：美光Q3財報、輝達股東會！6/19美股休市(六月節)，今晚恢復交易！</span>
             </div>
         </div>
 
         <!-- 台股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年6月22日 終場 - 端午後攻47K歷史新高！台積電破2,510天價！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年6月23日 終場 - 漲多高檔回檔！僅傳產防禦逆勢！）</div>
             <div class="stats-bar">
-                <div class="stat-item gold">
+                <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">47,741.51點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +1,276.31點 (+2.75%)</div>
-                    <div class="gold-badge">🏆 攻47K歷史新高！</div>
-                </div>
-                <div class="stat-item gold">
-                    <h3>台積電(2330)</h3>
-                    <div class="stat-value">2,510元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">盤中創天價！市值64.7兆</div>
-                    <div class="gold-badge">🏆 首破2,500！</div>
+                    <div class="stat-value">47,100.65點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -640.86點 (-1.34%)</div>
+                    <div class="warn-badge">漲多正常回檔</div>
                 </div>
                 <div class="stat-item">
-                    <h3>玻璃陶瓷(領漲)</h3>
-                    <div class="stat-value">+7.07%</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">PCB玻纖布漲停帶動</div>
-                    <div class="fire-badge">🔥 上游材料噴出！</div>
+                    <h3>漲跌家數</h3>
+                    <div class="stat-value">200 : 645</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">跌股是漲股3.2倍</div>
+                    <div class="loss-badge">獲利了結賣壓</div>
+                </div>
+                <div class="stat-item up">
+                    <h3>貿易百貨(領漲)</h3>
+                    <div class="stat-value">+1.80%</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">傳產防禦逆勢</div>
+                    <div class="gain-badge">✅ 資金避風港</div>
                 </div>
                 <div class="stat-item">
-                    <h3>半導體淨流入</h3>
-                    <div class="stat-value">4,714.61億</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">+4.45% 天量資金</div>
-                    <div class="strong-badge">🚀 資金狂潮！</div>
+                    <h3>站穩47K</h3>
+                    <div class="stat-value">47,100點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">回檔後仍守住47K</div>
+                    <div class="warn-badge">多頭結構未破</div>
                 </div>
             </div>
 
             <table class="stock-table">
                 <thead>
-                    <tr><th>族群/個股</th><th>表現</th><th>漲跌幅</th><th>今日亮點</th></tr>
+                    <tr><th>族群/個股</th><th>表現</th><th>狀況</th><th>今日說明</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🏆 台積電(2330)</td><td>盤中2,510元</td><td class="green">+4% 創天價！</td><td>市值64.7兆創高！36筆「52張」我愛你買單力挺！</td></tr>
-                    <tr><td>🔥 聯電(2303)</td><td>160元 跳空漲停</td><td class="green">漲停鎖死！</td><td>英特爾合作+台積電28奈米客戶找二供，排隊15萬張！</td></tr>
-                    <tr><td>🔥 世界先進(5347)</td><td>191.5元</td><td class="green">跳空漲停創高！</td><td>成熟製程二供受惠，排隊買單逾1.4萬張</td></tr>
-                    <tr><td>🔥 南亞科(2408)</td><td>破500元</td><td class="green">創新天價！</td><td>記憶體族群領軍，力積電、旺宏亮燈漲停</td></tr>
-                    <tr><td>✅ 聯發科(2454)</td><td>盤中4,565元</td><td class="green">最多漲175元</td><td>IC設計龍頭強漲，AI ASIC題材延續</td></tr>
-                    <tr><td>🔥 楠梓電(2316)、銘旺科</td><td>漲停</td><td class="green">PCB族群強勢！</td><td>AI紅利從晶片擴大至PCB基礎零組件</td></tr>
-                    <tr><td>🔥 南亞、台玻、富喬</td><td>漲停</td><td class="green">玻纖布漲停！</td><td>PCB上游玻纖布材料全面亮燈漲停</td></tr>
-                    <tr><td>🔥 塑膠工業</td><td>+6.66%</td><td class="green">傳產領漲</td><td>油價低位+南亞漲停，台塑四寶續強</td></tr>
+                    <tr><td>✅ 貿易百貨業</td><td>+1.80%</td><td class="green">今日最強</td><td>內需傳產防禦，漲多回檔下成資金避風港</td></tr>
+                    <tr><td>✅ 食品工業</td><td>+0.64%</td><td class="green">逆勢收紅</td><td>民生必需品防禦族群，相對抗跌</td></tr>
+                    <tr><td>✅ 金融保險業</td><td>+0.24%</td><td class="green">淨流入153億</td><td>配息旺季+防禦特性，逆勢小漲</td></tr>
+                    <tr><td>📉 電子權值股</td><td>全面回檔</td><td class="red">獲利了結</td><td>台積電、聯發科等漲多回檔，正常技術修正</td></tr>
+                    <tr><td>📉 記憶體族群</td><td>高檔震盪</td><td class="red">漲多賣壓</td><td>南亞科、華邦電前波大漲後拉回，待美光財報</td></tr>
+                    <tr><td>📉 PCB玻纖布</td><td>回吐漲幅</td><td class="red">獲利調節</td><td>昨日漲停族群今日獲利了結，正常輪動</td></tr>
+                    <tr><td>💡 塑膠工業</td><td>淨流入273億</td><td class="red">-2.43%</td><td>雖跌但資金最大淨流入，逢低承接力道強</td></tr>
+                    <tr><td>✅ 站穩47K</td><td>47,100點</td><td class="green">多頭未破</td><td>攻頂後正常回檔，47K支撐有效，結構健康</td></tr>
                 </tbody>
             </table>
         </div>
 
         <div class="highlight-green">
-            <strong>📊 6月22日台股關鍵數據整理：</strong><br>
-            🏆 <strong>端午後無懼變盤！暴衝1,276點攻47K</strong>：盤中最高47,871點創歷史新高，台指期最高48,328點！<br>
-            🏆 <strong>台積電首破2,500元創天價</strong>：盤中衝2,510元，市值躍增64.7兆，36筆「52張」我愛你神祕買單力挺！<br>
-            🔥 <strong>聯電、世界先進跳空漲停創高</strong>：英特爾合作+台積電28奈米收斂、客戶找第二供應來源，排隊買單爆量！<br>
-            🔥 <strong>南亞科破500元新天價</strong>：記憶體族群力積電、旺宏漲停，美光財報週題材發酵！<br>
-            🔥 <strong>PCB族群+玻纖布全面漲停</strong>：AI紅利從晶片擴大至被動元件、PCB基礎零組件！<br>
-            ✅ <strong>半導體淨流入4,714億天量</strong>：電子零組件淨流入1,057億，光電淨流入931億！<br>
-            ⚠️ <strong>永豐金投顧提醒</strong>：6月中調整快、籌碼未充分沉澱，可能限制後續上漲空間，外資仍握6.8萬口空單！<br>
-            💡 <strong>本週聚焦美光財報、輝達股東會</strong>：操作鎖定AI、先進封裝、高速傳輸、PCB及被動元件主流族群！
+            <strong>📊 6月23日台股關鍵數據整理：</strong><br>
+            ⚡ <strong>漲多後高檔回檔收47,100點</strong>：昨日攻47K創新高(史上第8大漲點)後，今日獲利了結賣壓出籠，跌641點屬正常技術修正！<br>
+            ✅ <strong>站穩47K大關</strong>：回檔後仍守住47,000點整數關卡，多頭結構未破，健康洗盤！<br>
+            ✅ <strong>傳產防禦逆勢</strong>：貿易百貨+1.80%、食品+0.64%、金融+0.24%，資金轉向防禦避風港！<br>
+            💡 <strong>塑膠工業淨流入273億</strong>：雖跌2.43%但資金最大淨流入，顯示逢低承接力道仍強！<br>
+            🔥 <strong>美股聯電ADR續飆14.20%</strong>：成熟製程二供題材延燒，今晚有望激勵台股聯電、世界先進！<br>
+            🏆 <strong>台積電ADR創高467.67溢價17.91%</strong>：折合台幣2,959元，國際法人持續看好！<br>
+            ⚠️ <strong>外資昨買超684億史上第9大</strong>：昨日大買後今日獲利調節，籌碼面需觀察是否延續！<br>
+            💰 <strong>本週聚焦美光財報</strong>：AI記憶體超級週期關鍵，牽動南亞科、華邦電等記憶體族群！
         </div>
 
-        <!-- 美股回顧 -->
+        <!-- 美股統計 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年6月18日 四巫日終場回顧 - 美伊終戰！費半創歷史新高！）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年6月22日終場 - 漲跌互見！費半創高 軟體股大跌！）</div>
             <div class="stats-bar">
-                <div class="stat-item gold">
-                    <h3>費城半導體</h3>
-                    <div class="stat-value">14,341.78點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +864.71點 (+6.42%)</div>
-                    <div class="gold-badge">🏆 本週二度創高！</div>
+                <div class="stat-item up">
+                    <h3>道瓊指數</h3>
+                    <div class="stat-value">51,712.71點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +148.01點 (+0.29%)</div>
+                    <div class="gain-badge">✅ 傳產撐盤</div>
+                </div>
+                <div class="stat-item">
+                    <h3>標普500</h3>
+                    <div class="stat-value">7,473.03點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -27.55點 (-0.37%)</div>
+                    <div class="loss-badge">科技股拖累</div>
                 </div>
                 <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">26,517.93點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +496.27點 (+1.91%)</div>
-                    <div class="gain-badge">✅ 科技股反攻</div>
+                    <div class="stat-value">26,166.60點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -351.33點 (-1.33%)</div>
+                    <div class="loss-badge">軟體股崩跌</div>
                 </div>
-                <div class="stat-item">
-                    <h3>台積電ADR(TSM)</h3>
-                    <div class="stat-value">462.12美元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +6.94% 創高！</div>
-                    <div class="fire-badge">🔥 激勵台股</div>
-                </div>
-                <div class="stat-item">
-                    <h3>聯電ADR(UMC)</h3>
-                    <div class="stat-value">24.0800美元</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +10.66%</div>
-                    <div class="fire-badge">🔥 英特爾合作</div>
+                <div class="stat-item gold">
+                    <h3>費城半導體</h3>
+                    <div class="stat-value">14,634.72點</div>
+                    <div style="color: #51cf66; font-size: 1.1em;">↑ +292.94點 (+2.04%)</div>
+                    <div class="gold-badge">🏆 再創歷史新高！</div>
                 </div>
             </div>
-            <p style="color: white; opacity: 0.85; font-size: 0.9em;">📊 上週四(6/18)美股四巫日：美伊正式簽署終戰備忘錄，油價跌破80美元，四大指數全收紅。費半飆6.42%本週二度創高，川普宣布英特爾與蘋果合作，英特爾暴漲10.64%。今晚美股恢復交易，市場關注能否延續多頭氣勢。</p>
+
+            <table class="stock-table">
+                <thead>
+                    <tr><th>個股</th><th>收盤(美元)</th><th>漲跌幅</th><th>市場解讀</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>🔥 聯電ADR(UMC)</td><td>27.5000</td><td class="green">+14.20%</td><td>成熟製程二供題材狂燒！台灣ADR最強！</td></tr>
+                    <tr><td>🔥 英特爾(INTC)</td><td>140.940</td><td class="green">+5.19%</td><td>蘋果合作+CPU復興，連日強漲！</td></tr>
+                    <tr><td>🏆 台積電ADR(TSM)</td><td>467.67</td><td class="green">+1.20%</td><td>創新高！溢價17.91%！折台幣2,959元！</td></tr>
+                    <tr><td>✅ 特斯拉(TSLA)</td><td>405.050</td><td class="green">+1.14%</td><td>逆勢小漲，AI自駕題材支撐</td></tr>
+                    <tr><td>🔴 網飛(NFLX)</td><td>72.880</td><td class="red">-5.82%</td><td>軟體股最重挫，殖利率上升殺估值</td></tr>
+                    <tr><td>🔴 Alphabet(GOOG)</td><td>348.780</td><td class="red">-5.08%</td><td>大型科技股下殺，拖累標普與納指</td></tr>
+                    <tr><td>🔴 亞馬遜(AMZN)</td><td>232.790</td><td class="red">-4.75%</td><td>雲端與消費股回落，高估值承壓</td></tr>
+                    <tr><td>🔴 SpaceX</td><td>154.60</td><td class="red">-16%以上</td><td>掛牌一週重挫破首日價！IPO熱潮退燒！</td></tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- 台股5大新聞 -->
@@ -209,95 +218,78 @@
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">①</div>
-                        <div class="news-title">台股端午後無懼變盤！暴衝1,276點攻47K歷史新高 盤中近逼48,000點</div>
-                        <div class="news-content">台股6月22日端午連假後首日開盤，無懼「端午變盤」隱憂，承接上週四美股費半創歷史新高、台積電ADR大漲6.94%的強勁氣勢，開高走高一舉衝破47,000點大關。盤中最高來到47,871.19點再創歷史新高，台指期最高更衝至48,328點，最多上漲逾1,400點。終場大漲1,276.31點，收47,741.51點，漲幅2.75%。法人指出，AI基建熱潮、聯電與英特爾合作題材及經濟成長率上修，有助台股續創高，估計最快本週再破48,000點史上新里程碑。</div>
-                        <div class="news-source">來源：中央社、聯合新聞網</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">台積電首破2,500元創天價！市值64.7兆 36筆「52張」我愛你買單力挺</div>
-                        <div class="news-content">護國神山台積電(2330)今日早盤大漲超過4%，首度衝破2,500元大關，盤中一度衝上2,510元，刷新歷史天價，市值躍增至64.7兆元同創新高，貢獻大盤逾500點。值得一提的是，台積電盤中罕見出現36筆「52張」的買單，因諧音酷似「我愛你」引發市場熱烈關注，在神祕買盤力挺下強勢攻頂。外資在端午節連假前轉為買超台積電，加上美股台積電ADR大漲6.94%創高462.12美元的助攻，台積電22日開盤就再創歷史新高，氣勢如虹。</div>
+                        <div class="news-title">台股攻頂後正常回檔！跌641點守穩47K 漲多獲利了結 多頭結構未破</div>
+                        <div class="news-content">台股昨日攻上47K創歷史新高(收47,741點，史上第8大漲點)後，今日6月23日漲多回檔，加權指數下跌640.86點收47,100.65點，跌幅1.34%，跌股645檔遠超漲股200檔。經過昨日大漲1,276點後，今日獲利了結賣壓出籠屬於正常技術性修正。值得注意的是，指數回檔後仍守住47,000點整數關卡，多頭結構並未被破壞。統一投顧董事長黎方國昨日才以「只有更高、沒有最高」形容台股，並建議投資人不要預設指數高點。本波回檔是急漲後的健康洗盤，籌碼沉澱有助後續再攻48K。</div>
                         <div class="news-source">來源：聯合新聞網、Yahoo股市</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
-                        <div class="news-rank">③</div>
-                        <div class="news-title">聯電、世界先進跳空漲停創高！英特爾合作+台積電28奈米客戶找二供 排隊買單15萬張</div>
-                        <div class="news-content">業界傳出，台積電逐步收斂28奈米產能供給，客戶為降低供應風險將增加第二供應來源，具備成熟製程的聯電、世界先進可望受惠。加上聯電與英特爾合作題材持續發酵，聯電(2303)、世界先進(5347)、力積電今日跳空漲停開出後鎖死。聯電衝達160元，漲停及市價排隊買單近15萬張；世界先進衝達191.5元寫歷史新高，排隊買單逾1.4萬張。聯電ADR上週四在美股更飆漲10.66%，成熟製程漲價效益成為市場新焦點。</div>
-                        <div class="news-source">來源：Yahoo股市、聯合新聞網</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">④</div>
-                        <div class="news-title">南亞科衝破500元新天價！記憶體族群同嗨 力積電、旺宏亮燈漲停</div>
-                        <div class="news-content">記憶體族群今日全面噴發，南亞科(2408)衝破500元改寫歷史新天價，領軍力積電、旺宏等記憶體個股亮燈漲停。在AI浪潮帶動下，HBM與DRAM供需持續緊俏，記憶體景氣循環上行趨勢確立。市場高度期待本週登場的美光(MU)Q3財報，作為記憶體景氣的最重要風向球。蘋果CEO庫克先前坦言因晶片漲價、iPhone恐調漲，更直接印證記憶體缺貨的嚴峻程度，台股記憶體族群成為這波AI紅利擴散的最大受惠者之一。</div>
-                        <div class="news-source">來源：Yahoo股市、財訊快報</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">⑤</div>
-                        <div class="news-title">PCB族群+玻纖布全面漲停！AI紅利從晶片擴散至基礎零組件 楠梓電銘旺科攻頂</div>
-                        <div class="news-content">PCB族群今日漲勢強勁，楠梓電(2316)、銘旺科(2429)攻上漲停，提供玻纖布等PCB上游材料的南亞(1303)、台玻(1802)、富喬(1815)、建榮(5340)、德宏(5475)等盤中也亮燈漲停，推升玻璃陶瓷類股大漲7.07%、塑膠工業漲6.66%。永豐金投顧分析，AI發展趨勢不變，AI紅利範圍正從晶片擴大至被動元件、PCB等基礎零組件，是這波多頭行情擴散的重要特徵。不過也提醒6月中台股調整迅速、籌碼未充分沉澱，可能限制後續上漲空間，建議留意震盪。</div>
-                        <div class="news-source">來源：中央社、聯合新聞網</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 美股今晚5大焦點 -->
-        <div class="news-section">
-            <h2 class="section-title">🚀 美股今晚開盤！5大焦點預告</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">①</div>
-                        <div class="news-title">【今晚關鍵】費半能否延續歷史新高氣勢？台積電ADR創高462後續走勢</div>
-                        <div class="news-content">上週四費半在美伊終戰簽署、英特爾蘋果合作激勵下飆漲6.42%至14,341.78點創歷史新高，台積電ADR大漲6.94%至462.12美元創高。今晚美股恢復交易後，市場最關注費半能否延續這波歷史新高的強勁氣勢。台股今日已先行反映利多攻上47K，美股若能跟進走高，將形成台美股「正向循環」，進一步鞏固本波AI多頭行情。半導體權值股輝達、台積電ADR、聯電ADR的表現是今晚最重要觀察點。</div>
+                        <div class="news-rank">②</div>
+                        <div class="news-title">傳產防禦逆勢撐盤！貿易百貨+1.80%、食品+0.64%、金融+0.24% 資金轉避風港</div>
+                        <div class="news-content">在電子權值股全面回檔的環境下，傳產防禦族群今日逆勢撐盤。貿易百貨業上漲1.80%成為今日最強族群，食品工業上漲0.64%，金融保險業上漲0.24%。資金流向顯示，塑膠工業淨流入273.44億元為最大(雖股價跌2.43%但逢低承接力道強)，金融保險業淨流入152.83億元，生技醫療業淨流入20.96億元。在台股漲多回檔之際，資金明顯轉向具有防禦特性、估值相對合理的傳產與金融族群，這是高檔震盪時典型的資金輪動格局，也顯示市場資金並未大幅撤離，僅在不同類股間移動。</div>
                         <div class="news-source">來源：CMoney、聯合新聞網</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">【本週重磅】美光(MU)Q3財報登場！記憶體景氣風向球 HBM需求是焦點</div>
-                        <div class="news-content">美光科技將於本週公布Q3財報，是市場最關注的記憶體景氣指標。在HBM與DRAM供需緊俏、價格飆漲帶動下，美光股價已創高領先反映景氣上行，上週四更大漲8.7%。市場分析師表示，隨美伊和平協議簽署、通膨可能見頂，投資人未來將重新把焦點放在企業財報表現，美光財報是本週最重要的試金石。若財報強勁並對HBM展望樂觀，將激勵台股記憶體族群(南亞科、華邦電、力積電)續創新高。</div>
-                        <div class="news-source">來源：鉅亨網、CMoney</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
                         <div class="news-rank">③</div>
-                        <div class="news-title">【本週重磅】輝達股東大會！黃仁勳展望AI後市 Vera CPU傳8月供貨</div>
-                        <div class="news-content">輝達股東大會本週登場，市場高度關注黃仁勳對AI後市的展望。輝達傳出向中國客戶銷售首款代理式AI專用Vera CPU，最快8月供貨並開放下單，已有大型雲端業者計畫採購逾300台伺服器測試。此外，輝達在2026年Q1首次拿下全球資料中心乙太網路交換器營收第一名，單季營收21億美元、年增192.7%，靠Spectrum-X平台將整個AI計算網路架構納入版圖。輝達持續鞏固AI基礎設施龍頭地位，股東會內容將牽動台廠AI供應鏈。</div>
-                        <div class="news-source">來源：CMoney、Yahoo股市</div>
+                        <div class="news-title">聯電ADR續飆14.20%！成熟製程二供題材狂燒 今晚有望激勵台股聯電世界先進</div>
+                        <div class="news-content">美股聯電ADR(UMC)昨夜再度狂飆14.20%至27.50美元，成為台灣ADR表現最強者，成熟製程二供題材持續延燒。市場傳出台積電逐步收斂28奈米產能，客戶為降低供應風險增加第二供應來源，具備成熟製程的聯電、世界先進直接受惠。聯電本週一已亮燈漲停衝160元創近29年新高，排隊買單近15萬張，世界先進也跳空漲停。聯電ADR連日的強勢，預示今日台股回檔後，聯電、世界先進等成熟製程二供概念股有望成為支撐盤面的中流砥柱，是當前最熱的新主流題材。</div>
+                        <div class="news-source">來源：聯合新聞網、經濟日報</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">④</div>
-                        <div class="news-title">【利多延續】英特爾+蘋果合作 在美設計生產晶片 CPU復興題材火熱</div>
-                        <div class="news-content">川普上週四在Truth Social發文宣布，蘋果已同意與英特爾合作，在美國境內設計與製造晶片，被視為美國推動半導體供應鏈回流的重要進展。消息公布後英特爾股價暴漲10.64%，延續過去一年的驚人漲勢。這項合作為英特爾近年積極發展的晶圓代工業務再添強力背書，也讓「CPU復興」題材持續火熱。台股相關供應鏈聯電、世界先進今日跳空漲停，成熟製程二供題材成為市場資金追逐的新主流。</div>
-                        <div class="news-source">來源：鉅亨網、CMoney</div>
+                        <div class="news-title">台積電ADR創高467.67美元溢價17.91%！折台幣2,959元 國際法人持續看好</div>
+                        <div class="news-content">台積電ADR(TSM)昨夜上漲1.20%至467.67美元再創新高，收盤價格換算折合新台幣後為每股2,959.51元，較台北交易股票溢價率高達17.91%。這顯示國際法人對台積電的評價仍高於台股投資人，台積電的長線基本面持續受到肯定。根據集保結算所統計，截至6月18日，台積電總股東戶數衝高至283.5萬戶，較去年同期暴增115.3萬戶；其中持股不滿1張的零股股東，更從122.3萬戶飆升至230.6萬戶，顯示全民瘋台積電的熱潮。台積電ADR的高溢價，是台股下檔的重要支撐力道。</div>
+                        <div class="news-source">來源：聯合新聞網、Yahoo股市</div>
                     </div>
                 </div>
                 <div class="news-card">
                     <div class="news-card-content">
                         <div class="news-rank">⑤</div>
-                        <div class="news-title">【風險觀察】Fed最快7月升息？美債殖利率高檔 SpaceX IPO熱潮降溫</div>
-                        <div class="news-content">儘管市場氣氛樂觀，但風險因素仍需留意。債券交易員大舉押注Fed最快7月恢復升息，聯邦基金利率期貨交易量創歷史新高，2年期美債殖利率維持2025年2月以來高點附近。摩根大通警告，半導體股劇烈波動可能引發「風險價值(VaR)衝擊」的自我強化拋售。此外，SpaceX在破紀錄IPO後熱潮降溫連2跌，市值2.43兆美元落後亞馬遜。美伊協議內容部分條款仍有變數，中東和局未穩，這些都是今晚美股與本週需密切觀察的風險點。</div>
-                        <div class="news-source">來源：鉅亨網、中央社</div>
+                        <div class="news-title">美光財報倒數！AI記憶體超級週期關鍵 國泰調查：49.6%民眾想轉現金進股市</div>
+                        <div class="news-content">本週市場焦點之一是美光(MU)Q3財報，將是AI記憶體超級週期能否延續的關鍵指標。美光釋出的需求、報價與資本支出訊號，將直接牽動台股南亞科、華邦電、力積電等記憶體族群的短線行情。在AI浪潮帶動下，韓國SK海力士、三星部分員工獎金預估近50萬美元(換算新台幣千萬等級)，印證半導體景氣熱度。此外，國泰金6月國民經濟信心調查顯示，高達49.6%民眾表達將現金或解定存轉入股市的意願「增加」，68.3%民眾看好未來半年台股續漲，市場樂觀氣氛濃厚，但也需留意過熱風險。</div>
+                        <div class="news-source">來源：ETtoday、CMoney</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="highlight-box">
-            <strong>📅 本週超級行事曆與操作建議：</strong><br><br>
-            🚀 <strong>今晚(6/22) — 美股恢復交易！</strong> 費半能否延續歷史新高氣勢，是台美股正向循環關鍵！<br><br>
-            💰 <strong>本週 — 美光Q3財報！</strong> 記憶體景氣風向球，牽動南亞科、華邦電、力積電等記憶體族群！<br><br>
-            🤖 <strong>本週 — 輝達股東大會
+        <!-- 美股5大新聞 -->
+        <div class="news-section">
+            <h2 class="section-title">🚀 美股5大重點新聞</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">①</div>
+                        <div class="news-title">美股漲跌互見！費半創新高14,634 但軟體股大跌 Alphabet亞馬遜重挫拖累納指</div>
+                        <div class="news-content">美股6月22日四大指數漲跌互見，標普500與那斯達克收跌，主要受到SpaceX、Alphabet、亞馬遜等科技巨頭下跌拖累，加上美國公債殖利率上升，掩蓋了週末美伊和談進展的利多。道瓊在傳產撐盤下小漲0.29%至51,712.71點，但標普500跌0.37%、那斯達克跌1.33%。不過，費城半導體指數逆勢繼續創歷史新高至14,634.72點(+2.04%)，美光在財報前強勁上漲，呈現「半導體創高、軟體股崩跌」的明顯分化格局，反映資金在科技股內部的劇烈輪動。</div>
+                        <div class="news-source">來源：聯合新聞網、CMoney</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">②</div>
+                        <div class="news-title">聯電ADR狂飆14.20%！英特爾漲5.19% 台積電ADR創高467.67 半導體續強</div>
+                        <div class="news-content">在費半創新高的帶動下，台灣半導體ADR表現亮眼。聯電ADR(UMC)昨夜狂飆14.20%至27.50美元，成熟製程二供題材狂燒；英特爾(INTC)上漲5.19%至140.94美元，蘋果合作與CPU復興題材延續；台積電ADR(TSM)上漲1.20%至467.67美元再創新高，溢價率達17.91%。半導體股的全面強勢，與軟體科技股的崩跌形成鮮明對比，顯示市場資金正從高估值的軟體成長股，轉向有實質AI需求支撐與獲利能見度的半導體硬體股，是本波科技股輪動的核心特徵。</div>
+                        <div class="news-source">來源：經濟日報、聯合新聞網</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">③</div>
+                        <div class="news-title">美伊和平協議14點全文公開將立即生效！美發60天許可證允伊朗賣油 油價跌破80</div>
+                        <div class="news-content">川普簽署、伊朗承認的美伊初步和平協議14點全文已公開，並將立即生效。美伊在瑞士首輪談判已達成共識，同意一項路線圖，目標在60天內達成結束戰爭的最終協議。美國更發出為期60天的許可證，允許伊朗在國際市場出售石油，消息促使油價加速下跌，布蘭特原油週一大跌約3%、跌破每桶80美元。國際金價則小幅上漲，反映油價下跌讓市場緩解部分通膨擔憂。油價持續低位是壓低通膨、緩解Fed升息壓力的最重要力量，對全球股市是長線利多。</div>
+                        <div class="news-source">來源：聯合新聞網、ETtoday</div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-content">
+                        <div class="news-rank">④</div>
+                        <div class="news-title">SpaceX掛牌一週重挫16%！跌破上市首日價 一般投資人幾乎全套牢 IPO熱潮退燒</div>
+                        <div class="news-content">馬斯克旗下SpaceX股價週一重挫逾16%，收在154.6美元，不僅創下掛牌以來最大單日跌幅，更跌破上市首日收盤價，意味上市首日後進場的投資人目前幾乎都處於帳面虧損。SpaceX上週創下美國史上最大IPO紀錄，掛牌首日大漲19%後熱潮迅速退燒，連續多日下跌。儘管如此，這家公司獲利上看30億美元，基本面仍受部分分析師肯定。SpaceX的劇烈波動反映市場對「巨無霸IPO」的追捧已降溫，資金回流至有實質獲利的成熟科技股，也減輕了對其他科技股的資金排擠效應。</div>
+                        <div class="news-source">來源：聯合新聞網、鉅亨網</div>
+ 
