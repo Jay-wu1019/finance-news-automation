@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財經新聞自動化 | 2026年6月25日 美光財報炸裂飆15%！AI記憶體疑慮一掃而空！台股反彈！</title>
+    <title>財經新聞自動化 | 2026年6月27日 週末特刊 本週過山車！攻47K到崩盤！美光炸裂！下週展望</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%); min-height: 100vh; padding: 20px; }
         .container { max-width: 1400px; margin: 0 auto; }
         header { text-align: center; color: white; margin-bottom: 30px; padding: 40px 0; }
-        header h1 { font-size: 2.7em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header h1 { font-size: 2.6em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         header p { font-size: 1.05em; opacity: 0.9; margin-bottom: 15px; }
         .ig-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px; font-size: 0.95em; }
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
-        .mega-box { background: linear-gradient(135deg, rgba(255,215,0,0.28) 0%, rgba(81,207,102,0.28) 100%); border: 2px solid #FFD700; padding: 25px; margin-bottom: 25px; border-radius: 12px; color: white; }
-        .mega-box strong { color: #FFD700; }
-        .micron-hero { background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%); border-radius: 12px; padding: 26px; margin-bottom: 25px; color: white; }
-        .micron-hero h2 { font-size: 1.8em; margin-bottom: 16px; text-align: center; }
-        .micron-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 13px; }
-        .micron-item { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 16px; text-align: center; }
-        .micron-item h4 { font-size: 0.82em; margin-bottom: 6px; opacity: 0.9; }
-        .micron-item .val { font-size: 1.5em; font-weight: bold; margin: 5px 0; }
-        .micron-item .sub { font-size: 0.78em; opacity: 0.88; }
+        .special-tag { display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #c62828 100%); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.9em; font-weight: bold; margin-bottom: 20px; }
+        .summary-box { background: rgba(255,255,255,0.1); border-left: 4px solid #FF9800; padding: 24px; margin-bottom: 24px; border-radius: 8px; color: white; }
+        .summary-box strong { color: #FFD54F; }
+        /* 本週時間軸 */
+        .timeline-banner { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); border-radius: 12px; padding: 26px; margin-bottom: 28px; color: white; }
+        .timeline-banner h2 { font-size: 1.7em; margin-bottom: 18px; text-align: center; }
+        .timeline-item { display: flex; align-items: flex-start; gap: 15px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-date { background: rgba(255,255,255,0.2); border-radius: 8px; padding: 8px 12px; font-weight: bold; font-size: 0.82em; min-width: 110px; text-align: center; flex-shrink: 0; }
+        .timeline-date.green { background: rgba(81,207,102,0.4); }
+        .timeline-date.red { background: rgba(255,107,107,0.45); }
+        .timeline-content h4 { font-size: 0.98em; margin-bottom: 4px; }
+        .timeline-content p { font-size: 0.85em; opacity: 0.9; line-height: 1.5; }
         .stats-container { margin-bottom: 40px; }
         .stats-title { color: white; font-size: 1.8em; margin-bottom: 20px; }
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #51cf66; }
-        .stat-item.down { border-left: 5px solid #ff6b6b; }
-        .stat-item.flat { border-left: 5px solid #FF9800; }
-        .stat-item.gold { border-left: 5px solid #FFD700; }
+        .stat-item { background: rgba(255,255,255,0.95); padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 5px solid #ff6b6b; }
+        .stat-item.up { border-left: 5px solid #51cf66; }
         .stat-item h3 { color: #1a3a52; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
         .stat-value { font-size: 2.1em; font-weight: bold; color: #333; margin: 10px 0; }
         .gain-badge { display: inline-block; background: #51cf66; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .strong-badge { display: inline-block; background: #4c8cff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .fire-badge { display: inline-block; background: #f5576c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .loss-badge { display: inline-block; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
-        .gold-badge { display: inline-block; background: #FFD700; color: #333; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .warn-badge { display: inline-block; background: #FF9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold; margin-top: 10px; }
         .stock-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 20px 0; }
         .stock-table th { background: #1a3a52; color: white; padding: 14px 18px; text-align: left; font-size: 0.9em; }
@@ -44,179 +43,165 @@
         .stock-table tr:hover td { background: #f8f9fa; }
         .red { color: #c62828; font-weight: bold; }
         .green { color: #2e7d32; font-weight: bold; }
-        .highlight-green { background: #e8f5e9; border-left: 4px solid #51cf66; padding: 20px; margin: 20px 0; border-radius: 5px; }
-        .highlight-green strong { color: #2e7d32; }
+        .analysis-section { background: white; border-radius: 12px; padding: 30px; margin: 25px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .analysis-section h3 { color: #1a3a52; font-size: 1.5em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+        .analysis-section p { color: #555; line-height: 1.8; margin-bottom: 15px; }
+        .analysis-section strong { color: #c62828; }
+        .outlook-box { background: white; border-radius: 12px; padding: 28px; margin: 25px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .outlook-box h3 { color: #1a3a52; font-size: 1.4em; margin-bottom: 18px; }
+        .cal-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .cal-item:last-child { border-bottom: none; }
+        .cal-date { background: #1a3a52; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.85em; min-width: 100px; text-align: center; flex-shrink: 0; }
+        .cal-date.hot { background: #c62828; }
+        .cal-date.good { background: #2e7d32; }
+        .cal-content h4 { color: #333; font-size: 1em; margin-bottom: 5px; }
+        .cal-content p { color: #666; font-size: 0.88em; line-height: 1.5; }
         .highlight-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
         .highlight-box strong { color: #856404; }
-        .news-section { margin-bottom: 50px; }
-        .section-title { color: white; font-size: 2.2em; margin-bottom: 25px; padding-left: 20px; border-left: 4px solid white; }
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        .news-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease; display: flex; flex-direction: column; }
-        .news-card:hover { transform: translateY(-8px); }
-        .news-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .news-rank { font-size: 2em; font-weight: bold; color: #1a3a52; margin-bottom: 10px; }
-        .news-title { font-size: 1.35em; color: #333; margin-bottom: 15px; font-weight: 600; }
-        .news-content { color: #666; line-height: 1.7; flex-grow: 1; margin-bottom: 15px; }
-        .news-source { color: #2d5a7b; font-size: 0.85em; font-weight: 500; border-top: 1px solid #eee; padding-top: 12px; }
+        .strategy-box { background: #e8f5e9; border-left: 4px solid #51cf66; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .strategy-box strong { color: #2e7d32; }
+        .section-title { color: white; font-size: 2.2em; margin: 40px 0 25px; padding-left: 20px; border-left: 4px solid white; }
         footer { background: rgba(255,255,255,0.1); color: white; text-align: center; padding: 30px; border-radius: 10px; margin-top: 50px; }
         footer h3 { margin-bottom: 15px; }
         footer p { margin: 10px 0; opacity: 0.9; }
         .footer-links { margin-top: 20px; }
         .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
-        @media (max-width: 768px) { header h1 { font-size: 1.8em; } .news-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { header h1 { font-size: 1.7em; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="special-tag">📰 週末深度特刊 × 下週盤勢展望</div>
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 2026年6月25日 美光財報炸裂飆15%！AI記憶體疑慮一掃而空！台股反彈！</p>
+            <p>2026年6月27日(週六) | 本週過山車！攻47K創高到崩盤失守45K！美光財報炸裂！外資史上第2大賣超！下週展望</p>
             <div class="ig-badge">
                 📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank">@wu_wealth_lab</a>
             </div>
         </header>
 
-        <div class="mega-box">
-            <strong>🎉🎉 美光財報炸裂！AI記憶體超級週期確認！前一日的恐慌一掃而空！</strong><br>
-            美光FY26 Q3營收414.6億美元年增346%！EPS 25.11美元年增逾12倍！毛利率84.9%！全面優於預期！<br>
-            財報後盤後股價飆漲逾15%至1,208美元！化解前一日市場對AI記憶體需求放緩的疑慮！<br>
-            Q4展望強勁：營收中值500億、EPS中值31美元！客戶承諾220億戰略供應、剩餘1000億履約！<br>
-            🔑 執行長：記憶體供應緊張延續至2027年後！這是AI記憶體超級週期的最強背書！
+        <div class="summary-box">
+            <strong>📊 本週一句話總結：先驚後喜再失望，AI估值壓力測試！</strong><br>
+            台股本週上演劇烈過山車：週一攻47K創歷史新高(盤中47,871)，週二觸48,218後翻黑，週三、週五兩度崩盤！<br>
+            6/26單日崩1,683.5點(史上第3大收盤跌點)，失守45K與月線，外資狂賣1,431億(史上第2大單日賣超)！<br>
+            週線加權回檔4.07%、那指週跌4.7%、費半週跌7.9%(創4月初來最糟單週)！<br>
+            🔑 矛盾核心：美光財報炸裂證明AI需求強勁，但市場仍對「AI估值過高」進行壓力測試！
         </div>
 
-        <!-- 美光財報 -->
-        <div class="micron-hero">
-            <h2>🏆 美光FY2026 Q3財報炸裂！財報後盤後飆漲逾15%！</h2>
-            <div class="micron-grid">
-                <div class="micron-item">
-                    <h4>Q3營收</h4>
-                    <div class="val">414.6億美元</div>
-                    <div class="sub">年增約346%！創歷史新高！</div>
+        <!-- 本週時間軸 -->
+        <div class="timeline-banner">
+            <h2>📅 本週台股過山車完整時間軸</h2>
+            <div class="timeline-item">
+                <div class="timeline-date green">6/22 一</div>
+                <div class="timeline-content">
+                    <h4>🚀 端午後攻47K創歷史新高！</h4>
+                    <p>大漲1,276點收47,741，盤中47,871創高，台積電破2,510天價，聯電世界先進跳空漲停！</p>
                 </div>
-                <div class="micron-item">
-                    <h4>調整後EPS</h4>
-                    <div class="val">25.11美元</div>
-                    <div class="sub">年增逾12倍！優於預期！</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date red">6/23 二</div>
+                <div class="timeline-content">
+                    <h4>⚠️ 盤中觸48,218後翻黑回檔</h4>
+                    <p>盤中創48,218歷史新高後獲利了結，收47,100跌641點，終止連六紅，軟體股美股大跌預警。</p>
                 </div>
-                <div class="micron-item">
-                    <h4>毛利率</h4>
-                    <div class="val">84.9%</div>
-                    <div class="sub">超越預期81%！甚至超越輝達！</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date red">6/24 三</div>
+                <div class="timeline-content">
+                    <h4>🔴 崩1,057點(史上第8大)！外資賣1,774億史上最大</h4>
+                    <p>韓股觸發熔斷(SK海力士跌12%)、費半崩7.87%、美光財報前暴跌13%，台股失守5日線守46K。</p>
                 </div>
-                <div class="micron-item">
-                    <h4>盤後股價</h4>
-                    <div class="val">1,208美元</div>
-                    <div class="sub">飆漲159.59美元/+15.22%！</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date green">6/25 四</div>
+                <div class="timeline-content">
+                    <h4>✅ 美光財報炸裂！台股反彈收46,255</h4>
+                    <p>美光Q3營收年增346%、毛利率84.9%、盤後飆15.9%，資料中心營收暴增7倍，一掃AI泡沫疑慮！</p>
                 </div>
-                <div class="micron-item">
-                    <h4>Q4營收展望</h4>
-                    <div class="val">490-510億</div>
-                    <div class="sub">中值500億！遠優於預期！</div>
-                </div>
-                <div class="micron-item">
-                    <h4>Q4資本支出</h4>
-                    <div class="val">約100億</div>
-                    <div class="sub">擴充HBM、先進DRAM與封裝！</div>
-                </div>
-                <div class="micron-item">
-                    <h4>戰略供應協議</h4>
-                    <div class="val">220億美元</div>
-                    <div class="sub">客戶承諾！剩餘履約約1000億！</div>
-                </div>
-                <div class="micron-item">
-                    <h4>供應緊張延續至</h4>
-                    <div class="val">2027年後</div>
-                    <div class="sub">執行長親口確認！超級週期延長！</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date red">6/26 五</div>
+                <div class="timeline-content">
+                    <h4>🔴🔴 崩1,683點(史上第3大)！失守45K與月線</h4>
+                    <p>OpenAI傳IPO延後+通膨破4%升息預期+中東變數，外資賣1,431億史上第2大，聯發科等跌停！</p>
                 </div>
             </div>
         </div>
 
-        <!-- 台股統計（盤中反彈，注意美光財報是早上才公布的利多） -->
+        <!-- 台股週收盤 -->
         <div class="stats-container">
-            <div class="stats-title">🇹🇼 台灣股市（2026年6月25日 盤中/終場 - 美光利多激勵！傳產與電子零組件領軍反彈！）</div>
+            <div class="stats-title">🇹🇼 台灣股市（2026年6月26日 週五終場 - 崩1,683點！失守45K與月線！）</div>
             <div class="stats-bar">
                 <div class="stat-item">
                     <h3>加權指數</h3>
-                    <div class="stat-value">46,255.26點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +211.66點 (+0.46%)</div>
-                    <div class="gain-badge">✅ 守穩反彈</div>
+                    <div class="stat-value">44,571.76點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -1,683.5點 (-3.64%)</div>
+                    <div class="loss-badge">史上第3大收盤跌點</div>
                 </div>
                 <div class="stat-item">
-                    <h3>塑膠工業(領漲)</h3>
-                    <div class="stat-value">+2.19%</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">台塑四寶連日強勢</div>
-                    <div class="fire-badge">🔥 油價低位受惠</div>
+                    <h3>本週週線</h3>
+                    <div class="stat-value">-4.07%</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">從高點47,871回檔</div>
+                    <div class="loss-badge">創高後修正</div>
                 </div>
                 <div class="stat-item">
-                    <h3>電子零組件(第二強)</h3>
-                    <div class="stat-value">+1.86%</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">淨流入1,199億</div>
-                    <div class="strong-badge">💪 ABF載板回溫</div>
+                    <h3>外資賣超(6/26)</h3>
+                    <div class="stat-value">1,431億</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">史上第2大單日賣超</div>
+                    <div class="loss-badge">僅次6/24的1,774億</div>
                 </div>
-                <div class="stat-item gold">
-                    <h3>美光財報利多</h3>
-                    <div class="stat-value">飆15%</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">記憶體族群最大底氣</div>
-                    <div class="gold-badge">🏆 早上才揭曉！</div>
+                <div class="stat-item">
+                    <h3>跌幅最重</h3>
+                    <div class="stat-value">光電-7.37%</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">電子零組件-6.00%</div>
+                    <div class="loss-badge">AI供應鏈重災</div>
                 </div>
             </div>
 
             <table class="stock-table">
                 <thead>
-                    <tr><th>族群/個股</th><th>表現</th><th>漲跌幅</th><th>今日亮點</th></tr>
+                    <tr><th>族群/個股</th><th>表現</th><th>狀況</th><th>說明</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🔥 塑膠工業</td><td>+2.19%</td><td class="green">領漲！</td><td>台塑四寶連日強勢，油價跌破75美元成本續降</td></tr>
-                    <tr><td>✅ 電子零組件業</td><td>淨流入1,199億</td><td class="green">+1.86%</td><td>ABF載板回溫，AI需求題材延續</td></tr>
-                    <tr><td>✅ 光電業</td><td>+1.61%</td><td class="green">第三強</td><td>CPO光通訊題材，光學族群回穩</td></tr>
-                    <tr><td>✅ 金融保險業</td><td>淨流入279億</td><td class="green">+1.45%</td><td>配息旺季+防禦特性，資金回補</td></tr>
-                    <tr><td>✅ 半導體業</td><td>淨流入2,246億</td><td class="green">+1.10%</td><td>美光利多激勵！記憶體疑慮消除，買盤回流</td></tr>
-                    <tr><td>💡 記憶體族群</td><td>美光財報後</td><td class="green">可望大反攻</td><td>南亞科、華邦電、旺宏、力積電受美光利多帶動</td></tr>
-                    <tr><td>✅ 群創(3481)</td><td>70.90元</td><td class="green">+2.16%</td><td>面板續強，4月獲利亮眼題材延續</td></tr>
-                    <tr><td>📊 加權成交</td><td>守穩46K</td><td class="green">量能回溫</td><td>美光利多+傳產撐盤，市場信心修復中</td></tr>
+                    <tr><td>🔴 光電業</td><td>-7.37%</td><td class="red">跌幅最重</td><td>CPO光通訊前波漲多，本週估值修正最重</td></tr>
+                    <tr><td>🔴 聯發科(2454)</td><td>3,880元 跌停</td><td class="red">-9.98%</td><td>IC設計龍頭跌停，AI ASIC估值大修正</td></tr>
+                    <tr><td>🔴 國巨(2327)</td><td>1,015元</td><td class="red">-9.78%</td><td>被動元件前波飆漲後重摔</td></tr>
+                    <tr><td>🔴 台達電(2308)</td><td>1,810元</td><td class="red">-8.59%</td><td>AI電源股估值修正</td></tr>
+                    <tr><td>🔴 台積電(2330)</td><td>2,340元</td><td class="red">-2.09%</td><td>相對抗跌，從2,510天價回落</td></tr>
+                    <tr><td>🔴 友達(2409)</td><td>外資賣超第一</td><td class="red">15.2萬張</td><td>外資賣超個股第一名，面板獲利了結</td></tr>
+                    <tr><td>📊 成交量</td><td>1.55兆元</td><td class="red">恐慌放量</td><td>恐慌賣壓與承接買盤交織</td></tr>
+                    <tr><td>⚠️ 期貨淨空單</td><td>逾7.6萬口</td><td class="red">空方高水位</td><td>外資期貨空單未回補，籌碼面沉重</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="highlight-green">
-            <strong>📊 6月25日台股關鍵數據整理：</strong><br>
-            🏆 <strong>美光財報炸裂是今日最大利多</strong>：台灣時間今早揭曉，Q3營收年增346%、毛利率84.9%、盤後飆15%，直接化解前兩日AI記憶體放緩的恐慌！<br>
-            ✅ <strong>台股守穩反彈收46,255點</strong>：塑膠+2.19%、電子零組件+1.86%、光電+1.61%領軍，傳產與電子同步回穩！<br>
-            💡 <strong>記憶體族群可望大反攻</strong>：南亞科、華邦電、旺宏、力積電等在美光超強財報加持下，有望迎來補漲行情！<br>
-            🔥 <strong>半導體淨流入2,246億</strong>：美光利多消除疑慮，買盤回流AI核心族群！<br>
-            ✅ <strong>聯電ADR續飆6.95%至28.02</strong>：成熟製程二供題材延燒，聯電5月EPS 0.68元年增195.7%基本面強！<br>
-            🛢️ <strong>油價跌破75美元、金價跌破4,000</strong>：通膨壓力持續緩解，傳產塑化續受惠！<br>
-            ⚠️ <strong>注意Fed升息疑慮仍在</strong>：年底升息預期重新升溫，壓制高估值科技股，需留意板塊分化！<br>
-            💡 <strong>法人：本波修正屬技術面乖離</strong>：台股基本面穩健、外銷訂單連16紅，盤勢回穩後可望再創高！
-        </div>
-
-        <!-- 美股統計 -->
+        <!-- 美股週收盤 -->
         <div class="stats-container">
-            <div class="stats-title">🇺🇸 美國股市（2026年6月24日終場 - 道瓊撐盤！費半止穩！聯電ADR續飆！美光財報前夕）</div>
+            <div class="stats-title">🇺🇸 美國股市（2026年6月26日 週五終場 - 費半週跌7.9%創4月來最糟！）</div>
             <div class="stats-bar">
-                <div class="stat-item">
+                <div class="stat-item up">
                     <h3>道瓊指數</h3>
-                    <div class="stat-value">51,848.90點</div>
-                    <div style="color: #51cf66; font-size: 1.1em;">↑ +182.06點 (+0.35%)</div>
-                    <div class="gain-badge">✅ 工業股撐盤</div>
+                    <div class="stat-value">51,876.11點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -44.51點 (-0.09%)</div>
+                    <div class="warn-badge">傳產撐盤幾乎持平</div>
                 </div>
-                <div class="stat-item flat">
+                <div class="stat-item">
                     <h3>標普500</h3>
-                    <div class="stat-value">7,358.45點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -7.01點 (-0.10%)</div>
-                    <div class="warn-badge">高檔震盪</div>
+                    <div class="stat-value">7,353.20點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -4.29點 (-0.06%)</div>
+                    <div class="loss-badge">週跌2.05%</div>
                 </div>
-                <div class="stat-item down">
+                <div class="stat-item">
                     <h3>納斯達克</h3>
-                    <div class="stat-value">25,476.64點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -110.40點 (-0.43%)</div>
-                    <div class="loss-badge">科技股承壓</div>
+                    <div class="stat-value">25,297.62點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -60.99點 (-0.24%)</div>
+                    <div class="loss-badge">連5跌！週跌4.7%</div>
                 </div>
-                <div class="stat-item flat">
+                <div class="stat-item">
                     <h3>費城半導體</h3>
-                    <div class="stat-value">13,458.20點</div>
-                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -24.31點 (-0.18%)</div>
-                    <div class="warn-badge">止穩待財報</div>
+                    <div class="stat-value">13,203.57點</div>
+                    <div style="color: #ff6b6b; font-size: 1.1em;">↓ -737.30點 (-5.29%)</div>
+                    <div class="loss-badge">週跌7.9%！4月來最糟</div>
                 </div>
             </div>
 
@@ -225,81 +210,104 @@
                     <tr><th>個股</th><th>收盤(美元)</th><th>漲跌幅</th><th>市場解讀</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🔥 聯電ADR(UMC)</td><td>28.0200</td><td class="green">+6.95%</td><td>成熟製程二供題材狂燒！5月EPS年增195.7%！</td></tr>
-                    <tr><td>✅ 台積電ADR(TSM)</td><td>440.80</td><td class="green">+1.01%</td><td>由黑翻紅！成台股定心丸，止跌訊號！</td></tr>
-                    <tr><td>✅ 亞馬遜(AMZN)</td><td>234.37</td><td class="green">+0.11%</td><td>雲端業務支撐，逆勢小漲</td></tr>
-                    <tr><td>📉 輝達(NVDA)</td><td>198.91</td><td class="red">-0.56%</td><td>失守200美元關卡，等待美光財報指引</td></tr>
-                    <tr><td>📉 蘋果(AAPL)</td><td>293.17</td><td class="red">-0.38%</td><td>科技巨頭小幅承壓</td></tr>
-                    <tr><td>📉 Alphabet(GOOG)</td><td>345.03</td><td class="red">-0.30%</td><td>6/29將納入道瓊30，盤整待變</td></tr>
-                    <tr><td>📉 微軟(MSFT)</td><td>365.45</td><td class="red">-2.27%</td><td>前一日逆勢後今日回調</td></tr>
-                    <tr><td>📉 特斯拉(TSLA)</td><td>375.47</td><td class="red">-1.61%</td><td>SpaceX連動效應，高位整理</td></tr>
+                    <tr><td>✅ 微軟(MSFT)</td><td>372.970</td><td class="green">+5.71%</td><td>本週最強！AI獲利股代表，Azure雲端支撐</td></tr>
+                    <tr><td>✅ 網飛(NFLX)</td><td>73.810</td><td class="green">+4.10%</td><td>串流防禦股，逆勢反彈</td></tr>
+                    <tr><td>✅ 蘋果(AAPL)</td><td>283.780</td><td class="green">+3.14%</td><td>從前一日跌6%反彈，避險資金流入</td></tr>
+                    <tr><td>✅ 亞馬遜(AMZN)</td><td>232.690</td><td class="green">+2.50%</td><td>雲端業務支撐，逆勢走強</td></tr>
+                    <tr><td>🔴 聯電ADR(UMC)</td><td>25.5800</td><td class="red">-7.75%</td><td>前波漲多大幅回吐，成熟製程獲利了結</td></tr>
+                    <tr><td>🔴 英特爾(INTC)</td><td>128.320</td><td class="red">-3.42%</td><td>CPU復興題材降溫</td></tr>
+                    <tr><td>🔴 Alphabet(GOOG)</td><td>334.690</td><td class="red">-2.19%</td><td>OpenAI IPO延後衝擊AI股</td></tr>
+                    <tr><td>🔴 輝達(NVDA)</td><td>192.530</td><td class="red">-1.64%</td><td>失守200美元！市場密切監控的關鍵價位</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- 台股5大新聞 -->
-        <div class="news-section">
-            <h2 class="section-title">🔥 台股5大重點新聞</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">①</div>
-                        <div class="news-title">美光財報炸裂飆15%！AI記憶體疑慮一掃而空 台股記憶體族群可望大反攻</div>
-                        <div class="news-content">記憶體大廠美光台灣時間6月25日早上揭曉的FY2026 Q3財報全面炸裂：營收414.6億美元年增約346%、調整後EPS 25.11美元年增逾12倍、毛利率高達84.9%，全面優於市場預期，財報後盤後股價飆漲逾15%至1,208美元。更令市場振奮的是強勁的Q4展望：營收中值500億美元、EPS中值31美元。執行長Mehrotra表示，受AI驅動需求與結構性供給限制影響，記憶體供應緊張可能延續至2027年以後。這份財報直接化解了前兩日市場對AI記憶體需求放緩的恐慌，台股南亞科、華邦電、旺宏、力積電等記憶體族群可望迎來強勁反攻行情。</div>
-                        <div class="news-source">來源：財訊快報、Yahoo股市</div>
-                    </div>
+        <!-- 深度分析 -->
+        <div class="analysis-section">
+            <h3>📝 深度分析：美光財報這麼強，為何台股還是崩了？</h3>
+            <p><strong>① 最大的矛盾：基本面證明強勁，但市場殺的是「估值」不是「業績」。</strong> 本週最弔詭的是，美光財報炸裂(Q3營收年增346%、資料中心營收暴增7倍、毛利率84.9%、簽16份長期協議鎖定產能)，明確證明AI記憶體需求不僅沒放緩，反而供不應求延續到2027。但台股6/26仍崩1,683點。原因在於：這波下殺是「資金面與評價面調整，並非景氣反轉」。AI概念股今年漲幅驚人，當市場開始質疑估值，再好的業績也難滿足過高的預期。</p>
+            <p><strong>② 三大利空疊加，引爆6/26史上第3大崩盤。</strong> 一是OpenAI傳出IPO從9月延後到明年，衝擊整個AI敘事；二是美國5月通膨破4%，加上新Fed主席華許移除降息前瞻指引，BofA甚至預期2026年Fed升息三次至4.25-4.50%，升息預期重創高估值科技股；三是中東地緣政治再生變數。三箭齊發下，外資單日狂賣1,431億(史上第2大)，本週兩天合計賣超逾3,200億。</p>
+            <p><strong>③ 但這是「壓力測試」，不是「泡沫破裂」。</strong> 分析師翁偉捷直言，台灣半導體供應鏈出貨沒有太大改變，這是「市場對AI投資信心進行壓力測試」。台灣Q1出口年增51%、經濟成長率14.55%創48年新高，主計處估全年GDP高達9.64%為2010年來最高。摩根認為標普500第2季營收年增22.9%，是「資金面與評價面調整，並非景氣反轉訊號」。基本面這道防線仍穩固。</p>
+        </div>
+
+        <!-- 下週展望 -->
+        <h2 class="section-title">🔮 下週台美股盤勢展望</h2>
+
+        <div class="outlook-box">
+            <h3>📅 下週超級行事曆（6月29日-7月3日）</h3>
+            <div class="cal-item">
+                <div class="cal-date hot">6/29 一</div>
+                <div class="cal-content">
+                    <h4>⚠️ 台股能否守穩44K？輝達能否收復200美元是關鍵</h4>
+                    <p>台股失守45K與月線後，下週一在外資逾7.6萬口空單壓力下，首要觀察44,000點支撐。美股輝達能否收復200美元整數關卡，是費半止跌與否的最重要技術指標。同日Alphabet正式納入道瓊30成分股。先進光(3362)股東會。</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">台股守穩反彈收46,255點！塑膠+2.19%、電子零組件+1.86%領軍 傳產電子同步回穩</div>
-                        <div class="news-content">台股6月25日延續前一日守住46K的韌性，在美光財報利多激勵下守穩反彈，加權指數上漲211.66點收46,255.26點，漲幅0.46%。盤面由傳產與電子零組件領軍，塑膠工業上漲2.19%(台塑四寶連日強勢)，電子零組件業上漲1.86%、光電業上漲1.61%、金融保險業上漲1.45%、半導體業上漲1.10%。資金流向顯示半導體業淨流入2,246.22億元、電子零組件業淨流入1,198.97億元、金融保險業淨流入279.15億元，顯示在前兩日急殺後，買盤開始回流，市場信心逐步修復。</div>
-                        <div class="news-source">來源：CMoney、聯合新聞網</div>
-                    </div>
+            </div>
+            <div class="cal-item">
+                <div class="cal-date good">6/30 二</div>
+                <div class="cal-content">
+                    <h4>🏢 股東會壓軸！川湖、大聯大登場 AI景氣展望受關注</h4>
+                    <p>6月股東會壓軸登場，川湖(2059)、大聯大(3702)等焦點公司高層對下半年AI景氣、訂單掌握度的看法，將攸關個股與盤面信心。投信半年作帳作帳行情也是觀察點。</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">③</div>
-                        <div class="news-title">聯電ADR續飆6.95%至28.02美元！5月EPS年增195.7% 成熟製程二供題材狂燒</div>
-                        <div class="news-content">美股聯電ADR(UMC)昨夜再度上漲6.95%至28.02美元，連續多日強勢，成熟製程二供題材持續延燒。聯電近期因股價波動劇烈，應台灣證交所要求公告最新財報自結數，5月單月歸屬母公司淨利高達84.49億元，較去年同期狂飆203%，單月EPS達0.68元、年增195.7%，創43個月新高，驚豔市場。在台積電收斂28奈米產能、客戶尋找第二供應來源的趨勢下，聯電與世界先進成為最大受惠者。聯電ADR的強勁表現，是今日台股聯電、世界先進等成熟製程概念股的最強支撐。</div>
-                        <div class="news-source">來源：中時新聞網、FTNN新聞網</div>
-                    </div>
+            </div>
+            <div class="cal-item">
+                <div class="cal-date hot">本週內</div>
+                <div class="cal-content">
+                    <h4>📊 美國PCE通膨數據！Fed最看重指標</h4>
+                    <p>美國PCE物價指數是Fed最看重的通膨指標。在5月CPI破4%後，若PCE數據超預期偏熱，將進一步強化升息預期、加劇科技股跌勢；反之若溫和，則可能提供喘息機會。耐久財訂單與消費者信心也需留意。</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">④</div>
-                        <div class="news-title">台積電ADR由黑翻紅漲1.01%！成台股定心丸 油價跌破75美元通膨續降</div>
-                        <div class="news-content">台積電ADR(TSM)昨夜在美光財報前夕由黑翻紅，上漲1.01%至440.80美元，在半導體股普遍承壓的環境中相對抗跌，為台股半導體族群提供重要支撐，被市場視為「定心丸」。同時，國際油價持續下跌，布蘭特原油跌破每桶75美元，金價也跌破4,000美元大關，反映美伊和平協議後地緣風險降溫。油價走低持續壓低通膨壓力，對台股傳產塑化、航空航運族群是長線利多，也是塑膠工業連日領漲的核心原因。不過市場仍需留意Fed年底升息預期重新升溫對高估值科技股的壓制。</div>
-                        <div class="news-source">來源：聯合新聞網、FTNN新聞網</div>
-                    </div>
+            </div>
+            <div class="cal-item">
+                <div class="cal-date good">7月起</div>
+                <div class="cal-content">
+                    <h4>💰 7月電子法說旺季啟動！基本面重新主導</h4>
+                    <p>7月進入電子法說旺季，台積電法說會、各大電子廠Q2財報與下半年展望陸續登場。法人認為，景氣與盈餘仍是主導台股長線走勢的關鍵，基本面強勁有望在估值修正後重新主導行情。</p>
                 </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">⑤</div>
-                        <div class="news-title">法人：本波修正屬技術面乖離 台股基本面穩健 盤勢回穩後可望再創高</div>
-                        <div class="news-content">針對台股近兩日的劇烈修正，法人分析，美、韓半導體股重挫引發的是技術面修正，台股因高度連動半導體產業而同步回檔，本波下跌主要屬法人調節與技術面乖離修正，並非基本面惡化。台灣外銷訂單已連續16個月正成長，基本面依舊穩健。隨著美光財報利多化解記憶體疑慮，加上台積電ADR翻紅、聯電ADR續飆，台股短線有望止穩。法人建議留意投信作帳黑馬股，並逢回布局AI、先進封裝、高速傳輸、PCB及記憶體等長線趨勢族群，預期盤勢回穩後可望再創高，年底樂觀上看53K。</div>
-                        <div class="news-source">來源：Yahoo股市、CMoney</div>
-                    </div>
+            </div>
+            <div class="cal-item">
+                <div class="cal-date hot">風險面</div>
+                <div class="cal-content">
+                    <h4>⚠️ 外資空單高水位+波動率擴大風險</h4>
+                    <p>外資期貨淨空單仍逾7.6萬口，現貨連日大賣，籌碼面沉重。BofA預期Fed 2026年升息三次，升息預期是壓制估值的最大變數。法人建議控制槓桿與持股水位，留意波動率是否持續擴大。</p>
                 </div>
             </div>
         </div>
 
-        <!-- 美股5大新聞 -->
-        <div class="news-section">
-            <h2 class="section-title">🚀 美股5大重點新聞</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">①</div>
-                        <div class="news-title">美光財報炸裂！Q3營收年增346%、毛利率84.9% 盤後飆逾15% 化解AI記憶體疑慮</div>
-                        <div class="news-content">記憶體大廠美光科技週三盤後公布FY2026 Q3財報，營收達414.6億美元、年增約346%，高於市場預期；調整後EPS 25.11美元，較去年同期大增逾12倍。季度毛利率大幅攀升至84.9%，高於市場預期的81%，甚至超越AI晶片霸主輝達，顯示DRAM、NAND與HBM價格仍處強勢區間。財報公布後，美光盤後股價急升逾15%至1,208美元。公司表示，AI時代正提升記憶體與儲存產品的戰略價值，來自AI訓練、推理、雲端服務與數據中心升級的需求持續推升高容量DRAM、企業級SSD與HBM出貨，這份財報迫使市場重新上修存儲景氣週期的高度與持續時間。</div>
-                        <div class="news-source">來源：財訊快報、Yahoo股市</div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-card-content">
-                        <div class="news-rank">②</div>
-                        <div class="news-title">美光Q4展望強勁！營收中值500億 客戶承諾220億戰略供應 供應緊張延續至2027</div>
-                        <div class="news-content">美光不僅Q3財報亮眼，Q4展望更是震撼市場。公司預估本季營收介於490-510億美元、中值500億，明顯高於市場預期；調整後EPS估介於30-32美元、中值31美元，大幅優於分析師預估；資本支出約100億美元，主要用於擴充HBM、先進DRAM與封裝產能。執行長Mehrotra表示，受AI驅動需求與結構性供給限制影響，記憶體供應緊張可能延續至2027年以後。公司並透露，客戶已承諾約220億美元戰略供應協議，剩餘履約義務約達1,000億美元，顯示大型客戶正透過長約、預付款鎖定供應，這是AI記憶體超級週期的最強訊號。</div>
-                        <div class="news-source">來源：財訊快報、鉅亨網</div>
-               
+        <div class="strategy-box">
+            <strong>💡 下週操作策略建議：</strong><br><br>
+            ✅ <strong>基本面是最強防線</strong>：美光財報證明AI需求強勁，台灣Q1出口年增51%、GDP創48年新高，這波是估值修正非景氣反轉，中長線趨勢未變。<br><br>
+            ✅ <strong>等待止跌訊號再進場</strong>：觀察①輝達能否守穩/收復200美元 ②台股44K支撐 ③外資空單是否回補 ④PCE數據是否溫和，四大訊號明朗後再布局。<br><br>
+            ✅ <strong>AI獲利股優於題材股</strong>：本週微軟逆勢漲5.71%顯示市場偏好有實質獲利支撐的標的，選股重於選市。<br><br>
+            ⚠️ <strong>嚴控槓桿與持股水位</strong>：外資空單高水位、波動率擴大，法人一致建議降槓桿、控持股，避免在急殺中搶反彈。<br><br>
+            ⚠️ <strong>升息是最大變數</strong>：BofA預期Fed升息三次，升息預期未消退前，高估值科技股估值壓力難解，宜保留資金彈性。
+        </div>
+
+        <div class="highlight-box">
+            <strong>🎯 下週關鍵觀察指標總結：</strong><br><br>
+            📉 <strong>輝達200美元保衛戰</strong>：失守恐引發費半第二波下殺，守穩則有望形成技術性觸底。<br><br>
+            📈 <strong>台股44K支撐</strong>：失守月線後的下一道防線，攸關短線多空。<br><br>
+            📊 <strong>美國PCE數據</strong>：Fed最看重通膨指標，決定升息預期升溫或降溫。<br><br>
+            💰 <strong>7月電子法說旺季</strong>：基本面能否重新主導行情，台積電法說是重中之重。<br><br>
+            🏦 <strong>Fed官員談話</strong>：BofA預期升息三次，任何鷹派發言都可能加劇波動。<br><br>
+            📋 <strong>外資動向</strong>：兩天賣超逾3,200億後，是否止血回補是反彈關鍵。
+        </div>
+
+        <footer>
+            <h3>📈 財經新聞自動化平台</h3>
+            <p>每天自動為您生成美股和台股的深度分析報告</p>
+            <p>台美股市新聞 | 實時市場數據 | 投資策略建議</p>
+            <div class="footer-links">
+                <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank">📖 查看完整分析</a>
+                <a href="https://instagram.com/wu_wealth_lab" target="_blank">📱 追蹤 Instagram</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+                ⚠️ 免責聲明：本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。<br>
+                © 2026 財經新聞自動化平台 | 由 Claude AI 驅動<br>
+                最後更新: <span id="update-time">-</span>
+            </p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('update-time').textContent = new Date().toLocaleString('zh-TW');
+    </script>
+</body>
+</html>
