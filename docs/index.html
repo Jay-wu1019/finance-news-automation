@@ -3,1128 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="台灣人必看的股市消息，每日自動分析美股和台股市場，提供專業的投資建議和深度分析報告。">
-    <meta name="keywords" content="財經新聞,股市分析,台股,美股,投資,市場分析,AI分析">
-    <meta name="author" content="財經新聞自動化平台">
-    <meta property="og:title" content="財經新聞自動化 | 台灣人必看的股市消息">
-    <meta property="og:description" content="每日自動更新的美股和台股分析報告，助您把握投資機會">
-    <meta property="og:type" content="website">
     <title>財經新聞自動化 | 台灣人必看的股市消息</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #51cf66;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f5f5f5;
-            --border-color: #e0e0e0;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 40px rgba(0,0,0,0.15);
-            --transition: all 0.3s ease;
-        }
-        
-        body.dark-mode {
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --bg-primary: #1a1a1a;
-            --bg-secondary: #2d2d2d;
-            --border-color: #404040;
-            --shadow: 0 10px 30px rgba(0,0,0,0.3);
-            --shadow-lg: 0 15px 40px rgba(0,0,0,0.4);
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            transition: var(--transition);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            min-height: 100vh;
             padding: 20px;
         }
-        
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--bg-primary);
-            border: 2px solid var(--border-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            z-index: 1000;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-        
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        header {
+        .container { max-width: 1200px; margin: 0 auto; }
+        .banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 50px 40px;
             text-align: center;
-            color: white;
             margin-bottom: 40px;
-            padding: 60px 20px;
-            background: var(--primary-gradient);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-        
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        
-        header > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        header h1 {
-            font-size: clamp(2em, 5vw, 3.5em);
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            font-weight: 700;
-        }
-        
-        header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-        
-        .header-badges {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .badge {
+        .banner h1 { font-size: 2.4em; color: white; margin-bottom: 10px; }
+        .banner p { font-size: 1.05em; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .ig-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 22px;
             border-radius: 25px;
-            font-size: 0.95em;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: var(--transition);
         }
-        
-        .badge:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }
-        
-        .badge a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-        
-        .stat-card {
-            background: var(--bg-primary);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .stat-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 0.95em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        
-        .stat-card .number {
-            font-size: 2.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 12px 0;
-        }
-        
-        .stat-card .label {
-            font-size: 0.95em;
-            color: var(--text-secondary);
-        }
-        
-        /* News Section */
+        .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
+        .ig-badge a:hover { text-decoration: underline; }
         .section-title {
-            color: var(--text-primary);
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 4px solid var(--primary-color);
-            text-shadow: none;
-            font-weight: 700;
+            font-size: 1.6em;
+            color: white;
+            margin: 40px 0 25px 0;
+            padding-left: 15px;
+            border-left: 4px solid #667eea;
         }
-        
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
-        
         .news-card {
-            background: var(--bg-primary);
+            display: block;
+            background: #2d2d44;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease;
         }
-        
-        .news-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .news-card-header {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 25px;
+        .news-card:hover { transform: translateY(-4px); }
+        .card-header {
             display: flex;
             align-items: center;
             gap: 15px;
+            padding: 18px 20px 10px 20px;
         }
-        
-        .news-card-number {
-            font-size: 2.5em;
-            font-weight: 700;
-            opacity: 0.9;
-            min-width: 60px;
+        .card-number {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #a0c4ff;
+            min-width: 36px;
         }
-        
-        .news-card-header-text h2 {
-            font-size: 1.4em;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        
-        .news-card-header-text .impact {
-            font-size: 0.95em;
-            opacity: 0.95;
-            font-weight: 500;
-        }
-        
-        .news-card-body {
-            padding: 25px;
-            flex-grow: 1;
+        .card-title { font-size: 1.05em; font-weight: bold; color: white; line-height: 1.4; }
+        .card-body { padding: 0 20px 18px 20px; }
+        .card-desc { font-size: 0.9em; color: #b8b8c8; line-height: 1.5; margin-bottom: 12px; }
+        .card-meta {
             display: flex;
-            flex-direction: column;
-        }
-        
-        .importance {
-            display: inline-block;
-            padding: 6px 14px;
-            background: #fff3cd;
-            color: #856404;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            width: fit-content;
-            border: 1px solid #ffc107;
-        }
-        
-        .news-content {
-            color: var(--text-primary);
-            line-height: 1.7;
-            flex-grow: 1;
-            margin-bottom: 15px;
-        }
-        
-        .news-content strong {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .news-card-footer {
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px;
-            display: flex;
-            gap: 10px;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-        }
-        
-        .news-tag {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(102, 126, 234, 0.1);
-            color: var(--primary-color);
-            border-radius: 15px;
+            justify-content: space-between;
             font-size: 0.8em;
-            font-weight: 500;
-            border: 1px solid rgba(102, 126, 234, 0.3);
+            color: #888;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 10px;
         }
-        
-        /* Charts Section */
-        .charts-section {
-            background: var(--bg-primary);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 50px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-        
-        .charts-section h2 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-        }
-        
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-        }
-        
-        .chart-container {
-            background: var(--bg-secondary);
-            padding: 20px;
+        .empty { color: #999; }
+        .footer { text-align: center; color: #999; margin-top: 50px; padding: 20px; }
+        .update-info {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 15px;
             border-radius: 8px;
-            border: 1px solid var(--border-color);
+            color: #a0c4ff;
         }
-        
-        .chart-container h3 {
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .chart-canvas {
-            position: relative;
-            height: 300px;
-            margin: 0;
-        }
-        
-        /* Strategy Section */
-        .strategy-section {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 50px 40px;
-            border-radius: 12px;
-            margin-bottom: 50px;
-        }
-        
-        .strategy-section h2 {
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-        }
-        
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .strategy-item {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: var(--transition);
-        }
-        
-        .strategy-item:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
-        
-        .strategy-item h3 {
-            margin-bottom: 15px;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-        
-        .strategy-item p {
-            line-height: 1.7;
-            opacity: 0.95;
-            font-size: 0.95em;
-        }
-        
-        /* Analysis Section */
-        .analysis-section {
-            background: var(--bg-primary);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 50px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-        
-        .analysis-section h2 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            text-align: center;
-            font-weight: 700;
-        }
-        
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .comparison-item {
-            padding: 30px;
-            background: var(--bg-secondary);
-            border-left: 4px solid var(--primary-color);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .comparison-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 18px;
-            font-size: 1.2em;
-            font-weight: 700;
-        }
-        
-        .comparison-item ul {
-            list-style: none;
-        }
-        
-        .comparison-item li {
-            padding: 10px 0;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95em;
-        }
-        
-        .comparison-item li:last-child {
-            border-bottom: none;
-        }
-        
-        .comparison-item li:before {
-            content: "✓ ";
-            color: var(--accent-color);
-            font-weight: 700;
-            margin-right: 10px;
-        }
-        
-        /* IG Promotion */
-        .ig-promo {
-            background: var(--bg-primary);
-            padding: 50px 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 50px;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .ig-promo h2 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .ig-promo .ig-title {
-            color: var(--text-primary);
-            font-size: 1.5em;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-        
-        .ig-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 25px 0;
-        }
-        
-        .ig-button {
-            display: inline-block;
-            background: var(--primary-gradient);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-        }
-        
-        .ig-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .ig-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            text-align: left;
-        }
-        
-        .ig-benefit {
-            padding: 20px;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .ig-benefit h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .ig-benefit p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            text-align: center;
-            padding: 40px;
-            border-radius: 12px;
-            margin-top: 50px;
-            border: 1px solid var(--border-color);
-        }
-        
-        footer h3 {
-            margin-bottom: 15px;
-            font-weight: 700;
-            font-size: 1.2em;
-        }
-        
-        footer p {
-            margin: 10px 0;
-            color: var(--text-secondary);
-            font-size: 0.95em;
-        }
-        
-        .footer-links {
-            margin-top: 25px;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
-        
-        .disclaimer {
-            background: rgba(255, 193, 7, 0.1);
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 25px;
-            font-size: 0.9em;
-            color: var(--text-secondary);
-            border: 1px solid #ffc107;
-        }
-        
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 40px 20px;
-            }
-            
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            header p {
-                font-size: 1em;
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 1.6em;
-            }
-            
-            .strategy-section {
-                padding: 30px 20px;
-            }
-            
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-        }
-        
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(102, 126, 234, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-        
-        /* Print Styles */
-        @media print {
-            .theme-toggle,
-            .header-badges,
-            .ig-promo {
-                display: none;
-            }
+            .banner h1 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" title="切換深色模式" aria-label="切換深色模式">🌙</button>
-    
     <div class="container">
-        <!-- Header -->
-        <header>
+        <div class="banner">
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台灣人必看的股市消息 | 每日自動更新</p>
-            <div class="header-badges">
-                <div class="badge">
-                    📱 追蹤 Instagram: <a href="https://instagram.com/wu_wealth_lab" target="_blank" rel="noopener noreferrer">@wu_wealth_lab</a>
-                </div>
-                <div class="badge">
-                    ⚡ 實時數據更新
-                </div>
-                <div class="badge">
-                    🤖 AI 驅動分析
-                </div>
-            </div>
-        </header>
-        
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-card">
-                <h3>📊 分析報告</h3>
-                <div class="number">2+</div>
-                <div class="label">篇/天</div>
-            </div>
-            <div class="stat-card">
-                <h3>🔥 熱門消息</h3>
-                <div class="number">5</div>
-                <div class="label">大類別</div>
-            </div>
-            <div class="stat-card">
-                <h3>⏰ 更新頻率</h3>
-                <div class="number">自動</div>
-                <div class="label">24/7</div>
-            </div>
-            <div class="stat-card">
-                <h3>🎯 覆蓋市場</h3>
-                <div class="number">2</div>
-                <div class="label">主要市場</div>
+            <p>台灣人必看的股市消息｜每日自動更新</p>
+            <div class="ig-badge">
+                <a href="https://instagram.com/wu_wealth_lab" target="_blank" rel="noopener">📱 追蹤 Instagram: @wu_wealth_lab</a>
             </div>
         </div>
-        
-        <!-- News Section -->
-        <section>
-            <h2 class="section-title">🔥 前五大台灣人最關注消息</h2>
-            
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-card-header">
-                        <div class="news-card-number">①</div>
-                        <div class="news-card-header-text">
-                            <h2>美光收購力積電</h2>
-                            <div class="impact">💰 18億美元</div>
+
+        <div class="section-title">🔥 今日焦點新聞</div>
+        <div class="news-grid">
+                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E3%80%90hot%E5%8F%B0%E8%82%A1%E3%80%91%E5%9C%8B%E5%B7%A8%E9%BB%91%E7%BF%BB%E7%B4%85%E8%B7%B3%E6%B0%B4%E6%8C%AB%E7%B6%B2%E6%AD%8E%E3%80%8C%E5%B7%A8%E4%BA%BA%E9%82%84%E6%98%AF%E6%9C%83%E5%80%92%E4%B8%8B%E7%9A%84%E3%80%8D-%E5%B0%88%E5%AE%B6%E7%9C%8B%E6%B3%95%E6%9B%9D-033611224.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">01</div>
+                        <div class="card-title">【Hot台股】國巨黑翻紅跳水挫ㄚ%...網歎「巨人還是會倒下的」 專家看法曝</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">「巨人還是會倒下的」「之前因為國巨退休的小吃店 現在不知道怎麼了」「國巨跌破月線  1220要套幾年?」「今天的國巨會是奪魂巨嗎」</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 11:36</span>
                         </div>
                     </div>
-                    <div class="news-card-body">
-                        <span class="importance">🎯 最高關注度</span>
-                        <div class="news-content">
-                            <strong>美光科技</strong>計劃以18億美元收購<strong>力積電銅鑼廠</strong>，快速擴充<strong>HBM高頻寛記憶體</strong>產能。這是AI晶片時代的關鍵佈局。<br><br>
-                            ✅ 台灣晶片製造優勢凸顯<br>
-                            ✅ 力積電(PSMC)將受惠<br>
-                            ✅ 供應鏈廠商受益
-                        </div>
-                        <div class="news-card-footer">
-                            <span class="news-tag">台積電</span>
-                            <span class="news-tag">晶片</span>
-                            <span class="news-tag">AI</span>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/pcb-%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%8F%97%E6%83%A0-%E6%B3%95%E4%BA%BA%E7%BA%8C%E5%96%8A%E8%B2%B7%E9%B4%BB%E6%B5%B7-%E5%BB%A3%E9%81%94-%E6%8A%80%E5%98%89-032310634.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">02</div>
+                        <div class="card-title">PCB、伺服器受惠！法人續喊買鴻海、廣達、技嘉</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">[Newtalk新聞] 隨著AI基礎建設持續升級，產業成長動能已從晶片設計逐步擴散至PCB、伺服器、光通訊、半導體製造及金融等多元領域。最新研究指出，800G與</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 11:23</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-header">
-                        <div class="news-card-number">②</div>
-                        <div class="news-card-header-text">
-                            <h2>NVIDIA增加台積電訂單</h2>
-                            <div class="impact">📈 產能翻倍</div>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%9B%AE%E6%A8%99%E5%83%B9%E8%A1%9D3800%E5%85%83-%E8%8A%B1%E6%97%97%E6%9C%80%E6%A8%82%E8%A7%80%E4%B8%8A%E7%9C%8B%E9%80%99%E6%95%B8%E5%AD%97-025300124.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">03</div>
+                        <div class="card-title">台積電目標價衝3800元！　花旗最樂觀上看這數字</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">【緯來新聞網】台積電法說會前夕再獲外資調升目標價。花旗環球證券最新報告將目標價上調至3800元，刷新</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:53</span>
                         </div>
                     </div>
-                    <div class="news-card-body">
-                        <span class="importance">🎯 高關注度</span>
-                        <div class="news-content">
-                            <strong>黃仁勳</strong>親赴台灣，公開表示<strong>「沒有台灣就沒有NVIDIA」</strong>，預期台積電未來10年產能翻倍。<br><br>
-                            ✅ 台積電(2330)強勢上漲<br>
-                            ✅ AI晶片需求持續爆發<br>
-                            ✅ 台灣成為全球芯片樞紐
-                        </div>
-                        <div class="news-card-footer">
-                            <span class="news-tag">台積電</span>
-                            <span class="news-tag">NVIDIA</span>
-                            <span class="news-tag">AI</span>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/%E8%A6%8F%E6%A8%A1-%E7%B8%BE%E6%95%88%E5%90%8C%E6%AD%A5%E6%94%80%E5%8D%87-%E5%A4%A7%E5%9E%8B%E4%B8%BB%E5%8B%95%E5%BC%8F%E5%8F%B0%E8%82%A1%E5%9F%BA%E9%87%91%E5%B1%95%E7%8F%BE-%E5%A4%A7%E8%80%8C%E7%BE%8E-%E5%89%8D10%E5%BC%B7-024723899.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">04</div>
+                        <div class="card-title">規模、績效同步攀升！大型主動式台股基金展現「大而美」 前10強一表看</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">[Newtalk新聞] 台股持續朝歷史高點攻堅，主動式台股基金、ETF 也同步受惠。值得注意的是，市場過去普遍認為基金規模愈大，操作彈性愈會受限，不過觀察大型台</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:47</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-header">
-                        <div class="news-card-number">③</div>
-                        <div class="news-card-header-text">
-                            <h2>美國關稅政策衝擊</h2>
-                            <div class="impact">⚖️ 政策風險</div>
+                </a>
+                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E6%9C%80%E4%BE%BF%E5%AE%9C-%E6%AD%A3%E4%BA%8Cetf-%E4%BE%86%E4%BA%86-00685l%E6%81%A2%E5%BE%A9%E4%BA%A4%E6%98%93-90%E5%88%86%E9%90%98%E7%88%86%E9%87%8F60%E8%90%AC%E5%BC%B5-023500862.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">05</div>
+                        <div class="card-title">台股最便宜「正二ETF」來了！00685L恢復交易「90分鐘爆量60萬張」　萬元即可入手一張</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">[FTNN新聞網]財經中心／台北報導今年上半年上漲136.84%成為最賺錢的台股ETF群益臺灣加權正2（00685L），今（7）日分割後恢復交易，由於是1拆分為</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:35</span>
                         </div>
                     </div>
-                    <div class="news-card-body">
-                        <span class="importance">🎯 中高關注度</span>
-                        <div class="news-content">
-                            <strong>川普政府</strong>調整鋼鐵和鋁關稅至<strong>25%</strong>，但<strong>台灣出口反而增加81.8%</strong>。高科技供應能力成為關鍵驅動。<br><br>
-                            ✅ 台灣高科技優勢<br>
-                            ✅ 外資持續投資台灣<br>
-                            ✅ 台股漲幅領先新興亞股
-                        </div>
-                        <div class="news-card-footer">
-                            <span class="news-tag">政策</span>
-                            <span class="news-tag">台股</span>
-                            <span class="news-tag">出口</span>
+                </a>
+                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E8%81%AF%E7%99%BC%E7%A7%91%E7%A7%92%E5%A1%AB%E6%81%AF%EF%BC%81%E5%8F%B2%E4%B8%8A%E7%AC%AC4%E6%AC%A1%E7%95%B6%E6%97%A5%E9%81%94%E9%99%A3-%E8%82%A1%E5%83%B9%E5%8B%81%E6%8F%9A%E9%80%BE3-022149314.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">06</div>
+                        <div class="card-title">聯發科秒填息！史上第4次當日達陣 股價勁揚逾3%</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">IC設計龍頭聯發科（2454）今（7）日除息，每股配發現金股利24.5元，除息參考價4100元。受惠AI題材持續發酵，加上市場資金回流電子權值股，聯發科以420</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:21</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-header">
-                        <div class="news-card-number">④</div>
-                        <div class="news-card-header-text">
-                            <h2>美光與三星AI競爭</h2>
-                            <div class="impact">🏆 市場競爭</div>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/%E6%9C%80%E4%BE%BF%E5%AE%9C%E7%9A%84%E5%8F%B0%E8%82%A1%E6%AD%A3%E4%BA%8Cetf%E4%BE%86%E4%BA%86-%E7%BE%A4%E7%9B%8A00685l%E5%88%86%E5%89%B2%E5%BE%8C%E6%81%A2%E5%BE%A9%E4%BA%A4%E6%98%93%E7%88%86%E5%A4%A7%E9%87%8F-022139661.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">07</div>
+                        <div class="card-title">最便宜的台股正二ETF來了！ 群益00685L分割後恢復交易爆大量</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">今年上半年上漲136.84%成為最賺錢的台股ETF群益臺灣加權正2（00685L），今日分割後恢復交易，由於是1拆分為24分割，因此恢復買賣參考價落在12.75</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:21</span>
                         </div>
                     </div>
-                    <div class="news-card-body">
-                        <span class="importance">🎯 中度關注</span>
-                        <div class="news-content">
-                            <strong>美光</strong>與<strong>SK海力士</strong>在HBM記憶體市場激烈競爭。美光今年1月股價大漲近50%，但3月創近四年最差。<br><br>
-                            ✅ 記憶體供應商受益<br>
-                            ✅ AI晶片產業景氣回溫<br>
-                            ✅ 台灣封測供應鏈機會
-                        </div>
-                        <div class="news-card-footer">
-                            <span class="news-tag">美光</span>
-                            <span class="news-tag">記憶體</span>
-                            <span class="news-tag">競爭</span>
-                        </div>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E8%81%AF%E7%99%BC%E7%A7%91%E9%87%91%E8%9E%8D%E5%8B%81%E6%8F%9A-%E5%8F%B0%E8%82%A1%E7%9B%A4%E4%B8%AD%E5%8D%80%E9%96%93%E9%9C%87%E7%9B%AA-022116243.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">08</div>
+                        <div class="card-title">台積電聯發科金融勁揚　台股盤中區間震盪</div>
                     </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-card-header">
-                        <div class="news-card-number">⑤</div>
-                        <div class="news-card-header-text">
-                            <h2>地緣政治與油價衝擊</h2>
-                            <div class="impact">🌍 全球風險</div>
+                    <div class="card-body">
+                        <p class="card-desc">（中央社記者鍾榮峰台北7日電）台股今天開高走勢震盪，台積電、聯發科、南亞科等電子權值股以及金融股勁揚，電子零組件、軍工、塑膠和航運回檔，指數一度下殺翻黑，盤中翻</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:21</span>
                         </div>
                     </div>
-                    <div class="news-card-body">
-                        <span class="importance">🎯 中低關注度</span>
-                        <div class="news-content">
-                            <strong>美伊衝突</strong>升溫，國際油價上漲，引發通膨與經濟成長放緩擔憂。但歷史數據顯示，地緣事件後股市通常在<strong>6個月上漲6%</strong>。<br><br>
-                            ✅ 短期波動難免<br>
-                            ✅ 長期投資仍樂觀<br>
-                            ✅ 能源股受關注
+                </a>
+                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%9B%A4%E4%B8%AD-%E5%8D%80%E9%96%93%E9%9C%87%E7%9B%AA-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E8%81%AF%E7%99%BC%E7%A7%91%E9%87%91%E8%9E%8D%E5%8B%81%E6%8F%9A-022112198.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">09</div>
+                        <div class="card-title">【台股盤中】區間震盪　台積電聯發科金融勁揚</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">（中央社記者鍾榮峰台北2026年7月7日電）台股今天開高走勢震盪，台積電、聯發科、南亞科等電子權值股以及金融股勁揚，電子零組件、軍工、塑膠和航運回檔，指數一度下</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:21</span>
                         </div>
-                        <div class="news-card-footer">
-                            <span class="news-tag">地緣政治</span>
-                            <span class="news-tag">油價</span>
-                            <span class="news-tag">風險</span>
+                    </div>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%9B%9E%E7%A5%9E%E8%81%AF%E7%99%BC%E7%A7%91%E7%A7%92%E5%A1%AB%E6%81%AF-%E9%9F%93%E8%82%A1%E5%A4%A7%E8%B7%8C4-%E5%8F%B0%E8%82%A1%E4%B8%8A%E6%BC%B2%E5%8B%95%E8%83%BD%E5%8D%A1%E9%97%9C-022000437.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">10</div>
+                        <div class="card-title">台積電回神聯發科秒填息　韓股大跌4％ 台股上漲動能卡關</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">【緯來新聞網】台股今（7日）早盤以46537點開出，隨後上漲300點，權值股台積電漲30元觸及249</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/07 10:20</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Charts Section -->
-        <section class="charts-section">
-            <h2>📊 市場數據可視化</h2>
-            <div class="charts-grid">
-                <div class="chart-container">
-                    <h3>美股指數走勢 (近30天)</h3>
-                    <div class="chart-canvas">
-                        <canvas id="usChart"></canvas>
-                    </div>
-                </div>
-                <div class="chart-container">
-                    <h3>台股指數走勢 (近30天)</h3>
-                    <div class="chart-canvas">
-                        <canvas id="twChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Analysis Section -->
-        <div class="analysis-section">
-            <h2>📊 內容策略對比</h2>
-            <div class="comparison-grid">
-                <div class="comparison-item">
-                    <h3>✅ 【5大消息型】- 推薦使用</h3>
-                    <ul>
-                        <li><strong>流量優勢:</strong> +140%</li>
-                        <li>台灣人最關心話題集中化</li>
-                        <li>視覺化排名吸引點擊</li>
-                        <li>LinkedIn/Facebook分享率高</li>
-                        <li>SNS演算法偏好排名內容</li>
-                        <li>適合投資小白快速了解</li>
-                        <li>精準投放客群定位清晰</li>
-                        <li>客戶願意分享給朋友</li>
-                    </ul>
-                </div>
-                <div class="comparison-item">
-                    <h3>ℹ️ 【傳統分析型】</h3>
-                    <ul>
-                        <li><strong>流量優勢:</strong> +60%</li>
-                        <li>適合專業投資者深度研究</li>
-                        <li>SEO友好，搜尋排名高</li>
-                        <li>品牌專業度加分</li>
-                        <li>內容冗長，分享率較低</li>
-                        <li>初級投資者容易放棄閱讀</li>
-                        <li>不適合手機快速瀏覽</li>
-                        <li>客戶黏著度中等</li>
-                    </ul>
-                </div>
+                </a>
+        </div>
+
+        <div class="footer">
+            <div class="update-info">
+                📊 資料來源：Yahoo股市<br>
+                🔄 每天自動更新<br>
+                ⏰ 最後更新：2026年07月07日 11:50（台灣時間）
             </div>
         </div>
-        
-        <!-- Strategy Section -->
-        <div class="strategy-section">
-            <h2>💡 根據消息的投資策略</h2>
-            <div class="strategy-grid">
-                <div class="strategy-item">
-                    <h3>🏆 核心持股</h3>
-                    <p><strong>台積電 (2330)</strong><br>AI晶片時代最大受益者，台灣國家隊。黃仁勳多次表示信賴台積電，是長期投資首選。</p>
-                </div>
-                <div class="strategy-item">
-                    <h3>📈 成長機會</h3>
-                    <p><strong>力積電 (PSMC)</strong><br>被美光18億美元收購，HBM產能翻倍。短期波動但長期看好。</p>
-                </div>
-                <div class="strategy-item">
-                    <h3>⚖️ 風險分散</h3>
-                    <p><strong>台灣50 (0050)</strong><br>分散風險同時參與AI產業增長，適合保守投資者。</p>
-                </div>
-                <div class="strategy-item">
-                    <h3>🌍 全球視野</h3>
-                    <p><strong>S&P 500 (SPY)</strong><br>美股大盤穩健成長，科技股領漲，適合長期配置。</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- IG Promotion -->
-        <div class="ig-promo">
-            <h2>📱 追蹤我們的最新投資資訊</h2>
-            <div class="ig-title">Instagram: @wu_wealth_lab</div>
-            <div class="ig-buttons">
-                <a href="https://instagram.com/wu_wealth_lab" target="_blank" rel="noopener noreferrer" class="ig-button">👉 進入 Instagram</a>
-                <a href="https://instagram.com/wu_wealth_lab" target="_blank" rel="noopener noreferrer" class="ig-button">💬 私訊諮詢</a>
-            </div>
-            
-            <div class="ig-benefits">
-                <div class="ig-benefit">
-                    <h3>📊 每日市場分析</h3>
-                    <p>美股、台股、虛擬貨幣的實時分析和投資建議，幫助您快速把握市場動向。</p>
-                </div>
-                <div class="ig-benefit">
-                    <h3>💰 投資心法分享</h3>
-                    <p>從基本面到技術面，分享實用的投資技巧和心法，適合各程度投資者。</p>
-                </div>
-                <div class="ig-benefit">
-                    <h3>🎯 精選標的推介</h3>
-                    <p>挑選具有潛力的投資標的，提供詳細的分析和風險評估。</p>
-                </div>
-                <div class="ig-benefit">
-                    <h3>📱 互動式討論</h3>
-                    <p>在IG上直接提問，我們會針對您的投資疑問給予專業建議。</p>
-                </div>
-                <div class="ig-benefit">
-                    <h3>🚀 投資機會搶先看</h3>
-                    <p>在IG限動和貼文中搶先分享最新的投資機會，讓粉絲能更快掌握先機。</p>
-                </div>
-                <div class="ig-benefit">
-                    <h3>👥 投資社群交流</h3>
-                    <p>加入我們的投資社群，和志同道合的投資人一起學習和進步。</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <footer>
-            <h3>📈 財經新聞自動化平台</h3>
-            <p>每天自動為您生成美股和台股的深度分析報告</p>
-            <p>前五大台灣人最關注的消息 | 實時市場數據 | 投資策略建議</p>
-            
-            <div class="footer-links">
-                <a href="https://github.com/Jay-wu1019/finance-news-automation/issues" target="_blank" rel="noopener noreferrer">📖 查看完整分析</a>
-                <a href="https://instagram.com/wu_wealth_lab" target="_blank" rel="noopener noreferrer">📱 追蹤 Instagram</a>
-                <a href="#" id="refreshData">🔄 刷新數據</a>
-            </div>
-            
-            <div class="disclaimer">
-                <strong>⚠️ 免責聲明：</strong>本平台分析僅供參考，不構成投資建議。投資有風險，請謹慎判斷。任何投資決策前請諮詢專業財務顧問。
-            </div>
-            
-            <p style="margin-top: 20px; font-size: 0.9em;">
-                © 2026 財經新聞自動化平台 | 由 Claude AI 驅動<br>
-                最後更新: <span id="update-time">-</span>
-            </p>
-        </footer>
     </div>
-    
-    <script>
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        
-        if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDark);
-            themeToggle.textContent = isDark ? '☀️' : '🌙';
-        });
-        
-        // Update Timestamp
-        function updateTimestamp() {
-            const now = new Date();
-            const timeStr = now.toLocaleString('zh-TW');
-            document.getElementById('update-time').textContent = timeStr;
-        }
-        
-        updateTimestamp();
-        setInterval(updateTimestamp, 60000);
-        
-        // Initialize Charts
-        function initCharts() {
-            const ctx1 = document.getElementById('usChart');
-            const ctx2 = document.getElementById('twChart');
-            
-            if (!ctx1 || !ctx2) return;
-            
-            // US Market Chart
-            new Chart(ctx1, {
-                type: 'line',
-                data: {
-                    labels: Array.from({length: 30}, (_, i) => {
-                        const date = new Date();
-                        date.setDate(date.getDate() - (29 - i));
-                        return date.toLocaleDateString('zh-TW', {month: 'short', day: 'numeric'});
-                    }),
-                    datasets: [{
-                        label: 'S&P 500',
-                        data: Array.from({length: 30}, (_, i) => 5450 + Math.sin(i/10) * 200 + Math.random() * 100),
-                        borderColor: '#667eea',
-                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                        borderWidth: 2,
-                        tension: 0.4,
-                        fill: true,
-                        pointRadius: 0,
-                        pointHoverRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: true, labels: {color: getComputedStyle(document.body).color} },
-                        filler: { propagate: true }
-                    },
-                    scales: {
-                        y: {
-                            ticks: {color: getComputedStyle(document.body).color},
-                            grid: {color: 'rgba(0, 0, 0, 0.1)'}
-                        },
-                        x: {
-                            ticks: {color: getComputedStyle(document.body).color},
-                            grid: {display: false}
-                        }
-                    }
-                }
-            });
-            
-            // TW Market Chart
-            new Chart(ctx2, {
-                type: 'line',
-                data: {
-                    labels: Array.from({length: 30}, (_, i) => {
-                        const date = new Date();
-                        date.setDate(date.getDate() - (29 - i));
-                        return date.toLocaleDateString('zh-TW', {month: 'short', day: 'numeric'});
-                    }),
-                    datasets: [{
-                        label: '台灣加權指數',
-                        data: Array.from({length: 30}, (_, i) => 21000 + Math.sin(i/10) * 800 + Math.random() * 300),
-                        borderColor: '#764ba2',
-                        backgroundColor: 'rgba(118, 75, 162, 0.1)',
-                        borderWidth: 2,
-                        tension: 0.4,
-                        fill: true,
-                        pointRadius: 0,
-                        pointHoverRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: true, labels: {color: getComputedStyle(document.body).color} },
-                        filler: { propagate: true }
-                    },
-                    scales: {
-                        y: {
-                            ticks: {color: getComputedStyle(document.body).color},
-                            grid: {color: 'rgba(0, 0, 0, 0.1)'}
-                        },
-                        x: {
-                            ticks: {color: getComputedStyle(document.body).color},
-                            grid: {display: false}
-                        }
-                    }
-                }
-            });
-        }
-        
-        // Initialize charts when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCharts);
-        } else {
-            initCharts();
-        }
-        
-        // Refresh Data
-        document.getElementById('refreshData').addEventListener('click', (e) => {
-            e.preventDefault();
-            location.reload();
-        });
-        
-        // Performance Monitoring
-        window.addEventListener('load', () => {
-            const perfData = window.performance.timing;
-            const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-            console.log('頁面載入時間:', pageLoadTime + 'ms');
-        });
-    </script>
 </body>
 </html>
