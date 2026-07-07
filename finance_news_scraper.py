@@ -20,13 +20,17 @@ RSS_URL = "https://tw.stock.yahoo.com/rss?category=tw-market"
 OUTPUT_PATH = "docs/index.html"
 MAX_ITEMS = 10
 TAIPEI_TZ = timezone(timedelta(hours=8))
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+}
 
 
 def fetch_news():
     """從 Yahoo奇摩股市 RSS 抓取真實新聞列表"""
     logger.info(f"正在抓取新聞：{RSS_URL}")
 
-    response = requests.get(RSS_URL, timeout=15)
+    response = requests.get(RSS_URL, headers=HEADERS, timeout=15)
     response.raise_for_status()
 
     root = ET.fromstring(response.content)
