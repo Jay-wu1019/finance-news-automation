@@ -3,6 +3,8 @@ name: Update Finance News
 on:
   schedule:
     - cron: '30 5 * * 1-5'
+    - cron: '45 5 * * 1-5'
+    - cron: '0 6 * * 1-5'
   workflow_dispatch:
 
 permissions:
