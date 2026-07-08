@@ -68,9 +68,13 @@ def fetch_quote(symbol, name):
     response = requests.get(url, headers=HEADERS, params={"interval": "1d", "range": "5d"}, timeout=15)
     response.raise_for_status()
 
-    meta = response.json()["chart"]["result"][0]["meta"]
-    price = meta["regularMarketPrice"]
-    prev_close = meta["chartPreviousClose"]
+    result = response.json()["chart"]["result"][0]
+    price = result["meta"]["regularMarketPrice"]
+
+    # meta.chartPreviousClose 指向查詢區間更早之前的收盤價，不是「前一天」，
+    # 會導致漲跌%完全錯誤。改用每日收盤價序列的倒數第二筆，才是真正的前一交易日收盤。
+    closes = [c for c in result["indicators"]["quote"][0]["close"] if c is not None]
+    prev_close = closes[-2]
     change = price - prev_close
     change_pct = (change / prev_close * 100) if prev_close else 0.0
 
