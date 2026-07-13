@@ -33,13 +33,14 @@
         .ig-badge a { color: white; text-decoration: none; font-weight: bold; }
         .ig-badge a:hover { text-decoration: underline; }
         .info-box {
-            background: rgba(255,255,255,0.1);
+            background: linear-gradient(135deg, rgba(255,152,0,0.20) 0%, rgba(255,152,0,0.05) 100%);
             border-left: 4px solid #FF9800;
-            padding: 18px 22px;
+            padding: 20px 24px;
             margin-bottom: 30px;
-            border-radius: 8px;
+            border-radius: 10px;
             color: #FFD54F;
-            font-size: 0.95em;
+            font-size: 1em;
+            box-shadow: 0 6px 20px rgba(255,152,0,0.15);
         }
         .section-title {
             font-size: 1.6em;
@@ -55,18 +56,33 @@
             margin-bottom: 22px;
         }
         .index-card {
-            background: rgba(255,255,255,0.95);
+            background: linear-gradient(160deg, rgba(255,255,255,0.98) 0%, rgba(245,247,250,0.95) 100%);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             border-left: 5px solid #999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+        .index-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.28); }
         .index-card.up { border-left-color: #c62828; }
         .index-card.down { border-left-color: #2e7d32; }
         .index-card h4 { color: #1a3a52; font-size: 0.85em; margin-bottom: 8px; }
         .index-value { font-size: 1.6em; font-weight: bold; color: #222; }
         .index-change { font-size: 0.95em; margin-top: 6px; color: #444; }
+        .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .index-card .badge-row { justify-content: center; }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.72em;
+            font-weight: bold;
+        }
+        .badge-hot { background: #c62828; color: white; }
+        .badge-cold { background: #2e7d32; color: white; }
+        .badge-high { background: #FFD700; color: #333; }
+        .badge-low { background: #607d8b; color: white; }
         .sentiment-tag {
             display: inline-block;
             padding: 8px 18px;
@@ -85,12 +101,14 @@
             margin-bottom: 24px;
         }
         .highlight-card {
-            background: rgba(255,255,255,0.95);
+            background: linear-gradient(160deg, rgba(255,255,255,0.98) 0%, rgba(245,247,250,0.95) 100%);
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             border-top: 4px solid #999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+        .highlight-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.28); }
         .highlight-card.up { border-top-color: #c62828; }
         .highlight-card.down { border-top-color: #2e7d32; }
         .highlight-label { font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: bold; }
@@ -190,7 +208,7 @@
         </div>
 
         <div class="info-box">
-            📊 更新時間：2026年07月13日 16:37（台灣時間）｜資料來源：Yahoo Finance（指數/股價/匯率/商品）、Yahoo股市與鉅亨網（新聞）
+            📊 更新時間：2026年07月13日 16:48（台灣時間）｜資料來源：Yahoo Finance（指數/股價/匯率/商品）、Yahoo股市與鉅亨網（新聞）
         </div>
 
         <div class="section-title">🇹🇼 台股市場</div>
@@ -199,6 +217,7 @@
                     <h4>台股加權指數</h4>
                     <div class="index-value">45,380.52</div>
                     <div class="index-change">▲ +25.91 (+0.06%)</div>
+                    
                 </div>
         </div>
         <div class="sentiment-tag sentiment-up">大盤情緒：偏多（追蹤10檔個股中 7漲 3跌 0平）</div>
@@ -209,6 +228,7 @@
                         <span class="highlight-symbol">3008.TW</span></div>
                     
                     <div class="highlight-change">+10.00%</div>
+                    <div class="badge-row"><span class="badge badge-hot">🔥 大漲</span></div>
                 </div>
                 <div class="highlight-card down">
                     <div class="highlight-label">❄️ 今日最大跌幅</div>
@@ -216,6 +236,7 @@
                         <span class="highlight-symbol">2891.TW</span></div>
                     
                     <div class="highlight-change">-4.86%</div>
+                    
                 </div></div>
         <div class="sector-title">半導體</div>
             <table class="stock-table">
@@ -337,21 +358,25 @@
                     <h4>道瓊工業指數</h4>
                     <div class="index-value">52,637.01</div>
                     <div class="index-change">▲ +149.60 (+0.29%)</div>
+                    
                 </div>
                 <div class="index-card up">
                     <h4>標普500</h4>
                     <div class="index-value">7,575.39</div>
                     <div class="index-change">▲ +31.75 (+0.42%)</div>
+                    
                 </div>
                 <div class="index-card up">
                     <h4>那斯達克</h4>
                     <div class="index-value">26,281.61</div>
                     <div class="index-change">▲ +74.72 (+0.29%)</div>
+                    
                 </div>
                 <div class="index-card up">
                     <h4>費城半導體</h4>
                     <div class="index-value">12,967.16</div>
                     <div class="index-change">▲ +7.16 (+0.06%)</div>
+                    
                 </div>
         </div>
         <div class="sentiment-tag sentiment-down">大盤情緒：偏空（追蹤10檔個股中 4漲 6跌 0平）</div>
@@ -362,6 +387,7 @@
                         <span class="highlight-symbol">META</span></div>
                     <div class="highlight-price">$669.21</div>
                     <div class="highlight-change">+5.97%</div>
+                    <div class="badge-row"><span class="badge badge-hot">🔥 大漲</span></div>
                 </div>
                 <div class="highlight-card down">
                     <div class="highlight-label">❄️ 今日最大跌幅</div>
@@ -369,6 +395,7 @@
                         <span class="highlight-symbol">NFLX</span></div>
                     <div class="highlight-price">$73.37</div>
                     <div class="highlight-change">-2.78%</div>
+                    
                 </div></div>
         
             <table class="stock-table">
@@ -454,40 +481,85 @@
                 <div class="index-card down">
                     <h4>美元/台幣</h4>
                     <div class="index-value">32.08</div>
-                    <div class="index-change">▼ -0.02 (-0.05%)</div>
+                    <div class="index-change">▼ -0.02 (-0.06%)</div>
+                    
                 </div>
                 <div class="index-card down">
                     <h4>日圓/台幣</h4>
                     <div class="index-value">0.1957</div>
                     <div class="index-change">▼ -0.0020 (-0.99%)</div>
+                    
                 </div>
                 <div class="index-card down">
                     <h4>澳幣/台幣</h4>
                     <div class="index-value">22.25</div>
                     <div class="index-change">▼ -0.03 (-0.14%)</div>
+                    
                 </div>
                 <div class="index-card down">
                     <h4>黃金期貨</h4>
-                    <div class="index-value">4,083.10</div>
-                    <div class="index-change">▼ -21.00 (-0.51%)</div>
+                    <div class="index-value">4,081.70</div>
+                    <div class="index-change">▼ -22.40 (-0.55%)</div>
+                    
                 </div>
                 <div class="index-card up">
                     <h4>原油期貨</h4>
-                    <div class="index-value">73.48</div>
-                    <div class="index-change">▲ +2.07 (+2.90%)</div>
+                    <div class="index-value">73.51</div>
+                    <div class="index-change">▲ +2.10 (+2.94%)</div>
+                    
                 </div>
                 <div class="index-card up">
                     <h4>VIX恐慌指數</h4>
-                    <div class="index-value">16.26</div>
-                    <div class="index-change">▲ +1.23 (+8.18%)</div>
+                    <div class="index-value">16.27</div>
+                    <div class="index-change">▲ +1.24 (+8.25%)</div>
+                    <div class="badge-row"><span class="badge badge-hot">🔥 大漲</span></div>
                 </div>
         </div>
 
         <div class="section-title">🔥 台股焦點新聞</div>
         <div class="news-grid">
-                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%87%9F%E6%94%B6%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%BC%B7%E5%8F%AA%E3%80%8C%E7%AC%A6%E5%90%88%E9%A0%90%E6%9C%9F%E3%80%8D%EF%BC%9F%E5%B0%88%E5%AE%B6%E6%9B%9D%E5%8E%9F%E5%9B%A0%EF%BC%9A%E7%88%86%E8%A1%A8%E4%B9%9F%E4%B8%8D%E5%A5%BD-082828926.html" target="_blank" rel="noopener">
+                <a class="news-card" href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%AB%98%E6%AA%94%E9%9C%87%E7%9B%AA%E6%80%8E%E9%BA%BC%E8%B2%B7-1%E9%AB%98%E8%82%A1%E6%81%AFetf-%E5%90%B8%E9%87%91%E7%A0%B4%E7%99%BE%E5%84%84%E6%97%BA%E7%BF%BB-083200145.html" target="_blank" rel="noopener">
                     <div class="card-header">
                         <div class="card-number">01</div>
+                        <div class="card-title">台股高檔震盪怎麼買？「1高股息ETF」吸金破百億旺翻</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">台股今（13）日加權指數盤中一度衝上46,330點，隨後受高檔調節賣壓影響，終場漲幅收斂，小漲25.91點、收45,380.52點。法人指出，市場居高思危的情緒帶動資金轉向防禦型資</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/13 16:32</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="news-card" href="https://tw.stock.yahoo.com/news/rapidus%E5%96%8A2%E5%A5%88%E7%B1%B3%E6%AF%94%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%BE%BF%E5%AE%9C-%E7%BE%8E%E5%AA%92%E9%BB%9E%E5%90%8D1%E5%84%AA%E5%8B%A2-%E4%B8%8D%E6%98%AF%E5%83%B9%E6%A0%BC%E8%83%BD%E8%B6%85%E8%B6%8A-075846360.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">02</div>
+                        <div class="card-title">Rapidus喊2奈米比台積電便宜！美媒點名1優勢：不是價格能超越</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">財經中心／綜合報導日本晶圓代工新創Rapidus近期喊出將以更低價格量產2奈米晶片，掀起市場關注，更有討論指向「護國神山」台積電，討論是否有可能撼動其晶圓代工龍頭龍頭地位，不過，美</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/13 16:30</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="news-card" href="https://tw.news.yahoo.com/%E5%8F%B0%E7%A9%8D%E9%9B%BB6%E6%9C%88%E7%87%9F%E6%94%B64426%E5%84%84%E5%85%83%E7%BA%8C%E5%89%B5%E6%96%B0%E9%AB%98-%E7%AC%AC%E4%BA%8C%E5%AD%A3%E8%A1%9D1-27%E5%85%86%E5%85%83%E7%B7%A0%E5%96%AE%E5%AD%A3%E7%B4%80%E9%8C%84-%E6%9C%AC%E9%80%B1%E6%B3%95%E8%AA%AA%E6%9C%83%E8%81%9A%E7%84%A6%E6%93%B4%E7%94%A2%E8%88%87ai%E5%B1%95%E6%9C%9B-082855169.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">03</div>
+                        <div class="card-title">台積電6月營收4426億元續創新高！第二季衝1.27兆元締單季紀錄，本週法說會聚焦擴產與AI展望</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-desc">晶圓代工龍頭台積電（2330）雖因上週五颱風停班影響，延至今（13）日公布6月營收，但仍再度刷新紀錄交出亮麗成績單。台積電6月合併營收約新台幣4426.80億元，較上月增加6.2%</p>
+                        <div class="card-meta">
+                            <span>📰 Yahoo股市</span>
+                            <span>07/13 16:28</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%87%9F%E6%94%B6%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%BC%B7%E5%8F%AA%E3%80%8C%E7%AC%A6%E5%90%88%E9%A0%90%E6%9C%9F%E3%80%8D%EF%BC%9F%E5%B0%88%E5%AE%B6%E6%9B%9D%E5%8E%9F%E5%9B%A0%EF%BC%9A%E7%88%86%E8%A1%A8%E4%B9%9F%E4%B8%8D%E5%A5%BD-082828926.html" target="_blank" rel="noopener">
+                    <div class="card-header">
+                        <div class="card-number">04</div>
                         <div class="card-title">台積電營收史上最強只「符合預期」？專家曝原因：爆表也不好</div>
                     </div>
                     <div class="card-body">
@@ -500,7 +572,7 @@
                 </a>
                 <a class="news-card" href="https://tw.news.yahoo.com/%E5%85%89%E5%BD%B1%E8%80%85mz%E5%B0%88%E6%AC%84-%E4%B8%AD%E5%9C%8B%E6%99%B6%E7%89%87%E8%BF%BD%E4%B8%8A%E4%BA%86%E5%97%8E-%E5%BE%9E%E4%B8%83%E5%A5%88%E7%B1%B3-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%B8%83%E6%88%90%E5%B8%82%E5%8D%A0-%E7%9C%8B%E6%87%82%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%A7%91%E6%8A%80%E5%B7%AE%E8%B7%9D-082128407.html" target="_blank" rel="noopener">
                     <div class="card-header">
-                        <div class="card-number">02</div>
+                        <div class="card-number">05</div>
                         <div class="card-title">【光影者MZ專欄】中國晶片追上了嗎？從七奈米、台積電七成市占，看懂真正的科技差距</div>
                     </div>
                     <div class="card-body">
@@ -508,45 +580,6 @@
                         <div class="card-meta">
                             <span>📰 Yahoo股市</span>
                             <span>07/13 16:21</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%86%B1%EF%BC%816%E6%9C%88%E8%AD%89%E4%BA%A4%E7%A8%85%E9%A6%96%E7%A0%B4800%E5%84%84%E5%85%83%E5%A4%A7%E9%97%9C-%E5%86%8D%E5%89%B5%E6%AD%B7%E5%B9%B4%E5%96%AE%E6%9C%88%E6%96%B0%E9%AB%98-081303712.html" target="_blank" rel="noopener">
-                    <div class="card-header">
-                        <div class="card-number">03</div>
-                        <div class="card-title">台股熱！6月證交稅首破800億元大關 再創歷年單月新高</div>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-desc">財政部今（13）日公布6月實徵淨額1兆1,656億元，較上年同月增加1.9倍，主因去年所得稅結算申報及繳納期限延長，稅款遞延至7月所致。其中，象徵台股交易動能的證交稅單月實徵849</p>
-                        <div class="card-meta">
-                            <span>📰 Yahoo股市</span>
-                            <span>07/13 16:13</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="news-card" href="https://tw.stock.yahoo.com/news/%E5%99%B4%E8%BF%91%E5%8D%83%E9%BB%9E-%E5%B0%8F%E6%BC%B225%E9%BB%9E-%E5%8F%B0%E8%82%A1%E6%80%8E%E9%BA%BC%E4%BA%86-%E5%B0%88%E5%AE%B6-2%E6%97%A5%E5%85%A7%E6%9C%83%E5%A4%A7%E5%8F%8D%E6%94%BB-080400956.html" target="_blank" rel="noopener">
-                    <div class="card-header">
-                        <div class="card-number">04</div>
-                        <div class="card-title">「噴近千點⭢小漲25點」台股怎麼了？ 專家：2日內會大反攻</div>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-desc">台股今（13）日上演一場驚心動魄的洗盤秀，早盤雖受一度暴漲逾900點，最高衝上46,330點，隨後卻因高檔賣壓湧現，終場僅小漲25點，收在45,380點。分析師周代運指出，這根帶量</p>
-                        <div class="card-meta">
-                            <span>📰 Yahoo股市</span>
-                            <span>07/13 16:04</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="news-card" href="https://tw.stock.yahoo.com/news/rapidus%E5%96%8A2%E5%A5%88%E7%B1%B3%E6%AF%94%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%BE%BF%E5%AE%9C-%E7%BE%8E%E5%AA%92%E9%BB%9E%E5%90%8D1%E5%84%AA%E5%8B%A2-%E4%B8%8D%E6%98%AF%E5%83%B9%E6%A0%BC%E8%83%BD%E8%B6%85%E8%B6%8A-075846360.html" target="_blank" rel="noopener">
-                    <div class="card-header">
-                        <div class="card-number">05</div>
-                        <div class="card-title">Rapidus喊2奈米比台積電便宜！美媒點名1優勢：不是價格能超越</div>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-desc">財經中心／綜合報導日本晶圓代工新創Rapidus近期喊出將以更低價格量產2奈米晶片，掀起市場關注，更有討論指向「護國神山」台積電，討論是否有可能撼動其晶圓代工龍頭龍頭地位，不過，美</p>
-                        <div class="card-meta">
-                            <span>📰 Yahoo股市</span>
-                            <span>07/13 15:58</span>
                         </div>
                     </div>
                 </a>
@@ -627,7 +660,7 @@ Alphabet(GOOGL-US) 、微軟 (MSFT-US) 、亞馬遜 (AMZN-US) 以及 M</p>
             <div class="update-info">
                 📊 指數/股價/匯率/商品資料來源：Yahoo Finance｜新聞來源：Yahoo股市、鉅亨網<br>
                 🔄 每天台灣時間下午 1:45 自動更新<br>
-                ⏰ 最後更新：2026年07月13日 16:37（台灣時間）<br>
+                ⏰ 最後更新：2026年07月13日 16:48（台灣時間）<br>
                 ⚠️ 本站僅提供公開市場數據與新聞彙整，不構成投資建議。
             </div>
         </div>
