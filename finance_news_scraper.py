@@ -80,7 +80,8 @@ def fetch_quote(symbol, name, sector=None):
     response.raise_for_status()
 
     result = response.json()["chart"]["result"][0]
-    price = result["meta"]["regularMarketPrice"]
+    meta = result["meta"]
+    price = meta["regularMarketPrice"]
 
     # meta.chartPreviousClose 指向查詢區間更早之前的收盤價，不是「前一天」，
     # 會導致漲跌%完全錯誤。改用每日收盤價序列的倒數第二筆，才是真正的前一交易日收盤。
@@ -97,6 +98,8 @@ def fetch_quote(symbol, name, sector=None):
         "change": change,
         "change_pct": change_pct,
         "history": closes[-5:],
+        "week_high": meta.get("fiftyTwoWeekHigh"),
+        "week_low": meta.get("fiftyTwoWeekLow"),
     }
 
 
@@ -216,6 +219,37 @@ def render_sparkline(history):
     )
 
 
+def compute_badges(quote):
+    """純粹依真實數據（漲跌幅門檻、52週高低點）判斷徽章，不涉及任何人工判讀"""
+    badges = []
+    change_pct = quote.get("change_pct", 0)
+    price = quote.get("price")
+    week_high = quote.get("week_high")
+    week_low = quote.get("week_low")
+
+    if change_pct >= 5:
+        badges.append(("🔥", "大漲", "badge-hot"))
+    elif change_pct <= -5:
+        badges.append(("⚠️", "重挫", "badge-cold"))
+
+    if price is not None and week_high and price >= week_high * 0.999:
+        badges.append(("🏆", "52週新高", "badge-high"))
+    if price is not None and week_low and price <= week_low * 1.001:
+        badges.append(("🥶", "52週新低", "badge-low"))
+
+    return badges
+
+
+def render_badges(badges):
+    if not badges:
+        return ""
+    spans = "".join(
+        f'<span class="badge {css_class}">{icon} {label}</span>'
+        for icon, label, css_class in badges
+    )
+    return f'<div class="badge-row">{spans}</div>'
+
+
 def render_index_cards(indices):
     cards = []
     for idx in indices:
@@ -224,11 +258,13 @@ def render_index_cards(indices):
         # 低價位標的（如日圓/台幣 ~0.19）用 2 位小數會讓漲跌額四捨五入成 0.00，
         # 跟後面的漲跌%對不上，所以跟股價用同一套動態小數位數規則。
         decimals = 4 if abs(idx["price"]) < 10 else 2
+        badges_html = render_badges(compute_badges(idx))
         cards.append(f"""
                 <div class="index-card {css_class}">
                     <h4>{html.escape(idx['name'])}</h4>
                     <div class="index-value">{format_price(idx['price'])}</div>
                     <div class="index-change">{arrow} {idx['change']:+.{decimals}f} ({idx['change_pct']:+.2f}%)</div>
+                    {badges_html}
                 </div>""")
     return "".join(cards)
 
@@ -269,6 +305,7 @@ def render_highlight_cards(stocks, currency_symbol="", show_price=True):
             f'<div class="highlight-price">{format_price(stock["price"], currency_symbol)}</div>'
             if show_price else ""
         )
+        badges_html = render_badges(compute_badges(stock))
         return f"""
                 <div class="highlight-card {css_class}">
                     <div class="highlight-label">{icon} {label}</div>
@@ -276,6 +313,7 @@ def render_highlight_cards(stocks, currency_symbol="", show_price=True):
                         <span class="highlight-symbol">{html.escape(stock['symbol'])}</span></div>
                     {price_html}
                     <div class="highlight-change">{stock['change_pct']:+.2f}%</div>
+                    {badges_html}
                 </div>"""
 
     return (
@@ -423,13 +461,14 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
         .ig-badge a {{ color: white; text-decoration: none; font-weight: bold; }}
         .ig-badge a:hover {{ text-decoration: underline; }}
         .info-box {{
-            background: rgba(255,255,255,0.1);
+            background: linear-gradient(135deg, rgba(255,152,0,0.20) 0%, rgba(255,152,0,0.05) 100%);
             border-left: 4px solid #FF9800;
-            padding: 18px 22px;
+            padding: 20px 24px;
             margin-bottom: 30px;
-            border-radius: 8px;
+            border-radius: 10px;
             color: #FFD54F;
-            font-size: 0.95em;
+            font-size: 1em;
+            box-shadow: 0 6px 20px rgba(255,152,0,0.15);
         }}
         .section-title {{
             font-size: 1.6em;
@@ -445,18 +484,33 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
             margin-bottom: 22px;
         }}
         .index-card {{
-            background: rgba(255,255,255,0.95);
+            background: linear-gradient(160deg, rgba(255,255,255,0.98) 0%, rgba(245,247,250,0.95) 100%);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             border-left: 5px solid #999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }}
+        .index-card:hover {{ transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.28); }}
         .index-card.up {{ border-left-color: #c62828; }}
         .index-card.down {{ border-left-color: #2e7d32; }}
         .index-card h4 {{ color: #1a3a52; font-size: 0.85em; margin-bottom: 8px; }}
         .index-value {{ font-size: 1.6em; font-weight: bold; color: #222; }}
         .index-change {{ font-size: 0.95em; margin-top: 6px; color: #444; }}
+        .badge-row {{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }}
+        .index-card .badge-row {{ justify-content: center; }}
+        .badge {{
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.72em;
+            font-weight: bold;
+        }}
+        .badge-hot {{ background: #c62828; color: white; }}
+        .badge-cold {{ background: #2e7d32; color: white; }}
+        .badge-high {{ background: #FFD700; color: #333; }}
+        .badge-low {{ background: #607d8b; color: white; }}
         .sentiment-tag {{
             display: inline-block;
             padding: 8px 18px;
@@ -475,12 +529,14 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
             margin-bottom: 24px;
         }}
         .highlight-card {{
-            background: rgba(255,255,255,0.95);
+            background: linear-gradient(160deg, rgba(255,255,255,0.98) 0%, rgba(245,247,250,0.95) 100%);
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             border-top: 4px solid #999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }}
+        .highlight-card:hover {{ transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.28); }}
         .highlight-card.up {{ border-top-color: #c62828; }}
         .highlight-card.down {{ border-top-color: #2e7d32; }}
         .highlight-label {{ font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: bold; }}
