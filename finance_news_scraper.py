@@ -29,17 +29,19 @@ US_NEWS_API = "https://api.cnyes.com/media/api/v1/newslist/category/us_stock?lim
 MAX_NEWS_ITEMS = 5
 
 TW_INDEX = ("^TWII", "台股加權指數")
+# Yahoo Finance 沒有提供 TWSE 官方產業指數（電子指數、金融指數等）的穩定資料來源，
+# 所以改用「幫個股標上產業別」的方式分組顯示，資料還是逐檔真實股價，只是換個排版方式。
 TW_WATCHLIST = [
-    ("2330.TW", "台積電"),
-    ("2317.TW", "鴻海"),
-    ("2454.TW", "聯發科"),
-    ("2308.TW", "台達電"),
-    ("3008.TW", "大立光"),
-    ("2603.TW", "長榮"),
-    ("2882.TW", "國泰金"),
-    ("1301.TW", "台塑"),
-    ("2891.TW", "中信金"),
-    ("2382.TW", "廣達"),
+    ("2330.TW", "台積電", "半導體"),
+    ("2454.TW", "聯發科", "半導體"),
+    ("2317.TW", "鴻海", "電子代工"),
+    ("2382.TW", "廣達", "電子代工"),
+    ("2308.TW", "台達電", "電子零組件"),
+    ("3008.TW", "大立光", "電子零組件"),
+    ("2882.TW", "國泰金", "金融"),
+    ("2891.TW", "中信金", "金融"),
+    ("1301.TW", "台塑", "傳產"),
+    ("2603.TW", "長榮", "航運"),
 ]
 
 US_INDICES = [
@@ -71,7 +73,7 @@ MACRO_WATCHLIST = [
 ]
 
 
-def fetch_quote(symbol, name):
+def fetch_quote(symbol, name, sector=None):
     """透過 Yahoo Finance 公開圖表 API 取得即時報價"""
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
     response = requests.get(url, headers=HEADERS, params={"interval": "1d", "range": "5d"}, timeout=15)
@@ -90,6 +92,7 @@ def fetch_quote(symbol, name):
     return {
         "symbol": symbol,
         "name": name,
+        "sector": sector,
         "price": price,
         "change": change,
         "change_pct": change_pct,
@@ -99,9 +102,10 @@ def fetch_quote(symbol, name):
 
 def fetch_quotes(symbol_list):
     quotes = []
-    for symbol, name in symbol_list:
+    for item in symbol_list:
+        symbol, name, sector = (item + (None,))[:3]
         try:
-            quotes.append(fetch_quote(symbol, name))
+            quotes.append(fetch_quote(symbol, name, sector))
         except Exception as e:
             logger.warning(f"跳過 {symbol}（{name}）：{e}")
     return quotes
@@ -277,14 +281,9 @@ def render_highlight_cards(stocks, currency_symbol=""):
     )
 
 
-def render_stock_table(stocks, currency_symbol=""):
-    if not stocks:
-        return '<p class="empty">目前沒有可顯示的個股資料。</p>'
-
-    ranked = sorted(stocks, key=lambda s: s["change_pct"], reverse=True)
-
+def _render_stock_rows_table(stocks, currency_symbol):
     rows = []
-    for s in ranked:
+    for s in stocks:
         css_class = "green" if s["change_pct"] >= 0 else "red"
         sparkline = render_sparkline(s.get("history"))
         rows.append(f"""
@@ -304,6 +303,34 @@ def render_stock_table(stocks, currency_symbol=""):
                 <tbody>{''.join(rows)}
                 </tbody>
             </table>"""
+
+
+def render_stock_table(stocks, currency_symbol=""):
+    if not stocks:
+        return '<p class="empty">目前沒有可顯示的個股資料。</p>'
+
+    # 有標產業別的（目前是台股）就依產業分組顯示；沒有的（美股）維持單一排行表。
+    if not any(s.get("sector") for s in stocks):
+        ranked = sorted(stocks, key=lambda s: s["change_pct"], reverse=True)
+        return _render_stock_rows_table(ranked, currency_symbol)
+
+    groups = {}
+    order = []
+    for s in stocks:
+        sector = s.get("sector") or "其他"
+        if sector not in groups:
+            groups[sector] = []
+            order.append(sector)
+        groups[sector].append(s)
+
+    blocks = []
+    for sector in order:
+        group_stocks = sorted(groups[sector], key=lambda s: s["change_pct"], reverse=True)
+        blocks.append(
+            f'<div class="sector-title">{html.escape(sector)}</div>'
+            + _render_stock_rows_table(group_stocks, currency_symbol)
+        )
+    return "".join(blocks)
 
 
 def render_news_cards(news_items, empty_message):
@@ -456,6 +483,14 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
         .highlight-change {{ font-size: 1em; margin-top: 4px; }}
         .highlight-card.up .highlight-change {{ color: #2e7d32; font-weight: bold; }}
         .highlight-card.down .highlight-change {{ color: #c62828; font-weight: bold; }}
+        .sector-title {{
+            font-size: 1em;
+            font-weight: bold;
+            color: #a0c4ff;
+            margin: 18px 0 8px 0;
+            padding-left: 8px;
+            border-left: 3px solid #667eea;
+        }}
         .stock-table {{
             width: 100%;
             border-collapse: collapse;
