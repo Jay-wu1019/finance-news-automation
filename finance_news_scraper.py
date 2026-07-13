@@ -207,7 +207,8 @@ def render_sparkline(history):
         f"{i * step:.1f},{height - ((v - lo) / span) * height:.1f}"
         for i, v in enumerate(history)
     )
-    color = "#2e7d32" if history[-1] >= history[0] else "#c62828"
+    # 紅漲綠跌（台灣慣例）
+    color = "#c62828" if history[-1] >= history[0] else "#2e7d32"
     return (
         f'<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" class="sparkline">'
         f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="2" '
@@ -254,7 +255,7 @@ def render_sentiment_tag(stocks):
     )
 
 
-def render_highlight_cards(stocks, currency_symbol=""):
+def render_highlight_cards(stocks, currency_symbol="", show_price=True):
     """挑出追蹤個股中今日漲最多、跌最多各一檔，做成醒目卡片"""
     if not stocks:
         return ""
@@ -264,12 +265,16 @@ def render_highlight_cards(stocks, currency_symbol=""):
     top_loser = ranked[-1]
 
     def card(stock, label, icon, css_class):
+        price_html = (
+            f'<div class="highlight-price">{format_price(stock["price"], currency_symbol)}</div>'
+            if show_price else ""
+        )
         return f"""
                 <div class="highlight-card {css_class}">
                     <div class="highlight-label">{icon} {label}</div>
                     <div class="highlight-name">{html.escape(stock['name'])}
                         <span class="highlight-symbol">{html.escape(stock['symbol'])}</span></div>
-                    <div class="highlight-price">{format_price(stock['price'], currency_symbol)}</div>
+                    {price_html}
                     <div class="highlight-change">{stock['change_pct']:+.2f}%</div>
                 </div>"""
 
@@ -281,38 +286,40 @@ def render_highlight_cards(stocks, currency_symbol=""):
     )
 
 
-def _render_stock_rows_table(stocks, currency_symbol):
+def _render_stock_rows_table(stocks, currency_symbol, show_price=True):
     rows = []
     for s in stocks:
-        css_class = "green" if s["change_pct"] >= 0 else "red"
+        css_class = "up" if s["change_pct"] >= 0 else "down"  # 紅漲綠跌（台灣慣例）
         sparkline = render_sparkline(s.get("history"))
+        price_cell = f"<td>{format_price(s['price'], currency_symbol)}</td>" if show_price else ""
         rows.append(f"""
                     <tr>
                         <td>{html.escape(s['name'])}</td>
                         <td>{html.escape(s['symbol'])}</td>
-                        <td>{format_price(s['price'], currency_symbol)}</td>
+                        {price_cell}
                         <td class="{css_class}">{s['change_pct']:+.2f}%</td>
                         <td class="spark-cell">{sparkline}</td>
                     </tr>""")
 
+    price_header = "<th>股價</th>" if show_price else ""
     return f"""
             <table class="stock-table">
                 <thead>
-                    <tr><th>個股</th><th>代號</th><th>股價</th><th>漲跌幅</th><th>近5日走勢</th></tr>
+                    <tr><th>個股</th><th>代號</th>{price_header}<th>漲跌幅</th><th>近5日走勢</th></tr>
                 </thead>
                 <tbody>{''.join(rows)}
                 </tbody>
             </table>"""
 
 
-def render_stock_table(stocks, currency_symbol=""):
+def render_stock_table(stocks, currency_symbol="", show_price=True):
     if not stocks:
         return '<p class="empty">目前沒有可顯示的個股資料。</p>'
 
     # 有標產業別的（目前是台股）就依產業分組顯示；沒有的（美股）維持單一排行表。
     if not any(s.get("sector") for s in stocks):
         ranked = sorted(stocks, key=lambda s: s["change_pct"], reverse=True)
-        return _render_stock_rows_table(ranked, currency_symbol)
+        return _render_stock_rows_table(ranked, currency_symbol, show_price)
 
     groups = {}
     order = []
@@ -328,7 +335,7 @@ def render_stock_table(stocks, currency_symbol=""):
         group_stocks = sorted(groups[sector], key=lambda s: s["change_pct"], reverse=True)
         blocks.append(
             f'<div class="sector-title">{html.escape(sector)}</div>'
-            + _render_stock_rows_table(group_stocks, currency_symbol)
+            + _render_stock_rows_table(group_stocks, currency_symbol, show_price)
         )
     return "".join(blocks)
 
@@ -373,10 +380,10 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
     tw_sentiment_html = render_sentiment_tag(tw_stocks)
     us_sentiment_html = render_sentiment_tag(us_stocks)
 
-    tw_highlight_html = render_highlight_cards(tw_stocks, currency_symbol="")
+    tw_highlight_html = render_highlight_cards(tw_stocks, currency_symbol="", show_price=False)
     us_highlight_html = render_highlight_cards(us_stocks, currency_symbol="$")
 
-    tw_table_html = render_stock_table(tw_stocks, currency_symbol="")
+    tw_table_html = render_stock_table(tw_stocks, currency_symbol="", show_price=False)
     us_table_html = render_stock_table(us_stocks, currency_symbol="$")
     tw_news_html = render_news_cards(tw_news, "目前沒有可顯示的台股新聞，請稍後再試。")
     us_news_html = render_news_cards(us_news, "目前沒有可顯示的美股新聞，請稍後再試。")
@@ -445,8 +452,8 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             border-left: 5px solid #999;
         }}
-        .index-card.up {{ border-left-color: #2e7d32; }}
-        .index-card.down {{ border-left-color: #c62828; }}
+        .index-card.up {{ border-left-color: #c62828; }}
+        .index-card.down {{ border-left-color: #2e7d32; }}
         .index-card h4 {{ color: #1a3a52; font-size: 0.85em; margin-bottom: 8px; }}
         .index-value {{ font-size: 1.6em; font-weight: bold; color: #222; }}
         .index-change {{ font-size: 0.95em; margin-top: 6px; color: #444; }}
@@ -458,8 +465,8 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
             font-size: 0.9em;
             font-weight: bold;
         }}
-        .sentiment-up {{ background: rgba(46,125,50,0.2); color: #81c995; border: 1px solid #2e7d32; }}
-        .sentiment-down {{ background: rgba(198,40,40,0.2); color: #ff8a80; border: 1px solid #c62828; }}
+        .sentiment-up {{ background: rgba(198,40,40,0.2); color: #ff8a80; border: 1px solid #c62828; }}
+        .sentiment-down {{ background: rgba(46,125,50,0.2); color: #81c995; border: 1px solid #2e7d32; }}
         .sentiment-flat {{ background: rgba(255,152,0,0.2); color: #ffcc80; border: 1px solid #FF9800; }}
         .highlight-grid {{
             display: grid;
@@ -474,15 +481,15 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             border-top: 4px solid #999;
         }}
-        .highlight-card.up {{ border-top-color: #2e7d32; }}
-        .highlight-card.down {{ border-top-color: #c62828; }}
+        .highlight-card.up {{ border-top-color: #c62828; }}
+        .highlight-card.down {{ border-top-color: #2e7d32; }}
         .highlight-label {{ font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: bold; }}
         .highlight-name {{ font-size: 1.15em; font-weight: bold; color: #222; margin-bottom: 4px; }}
         .highlight-symbol {{ font-size: 0.8em; color: #888; font-weight: normal; }}
         .highlight-price {{ font-size: 1.3em; font-weight: bold; color: #333; }}
         .highlight-change {{ font-size: 1em; margin-top: 4px; }}
-        .highlight-card.up .highlight-change {{ color: #2e7d32; font-weight: bold; }}
-        .highlight-card.down .highlight-change {{ color: #c62828; font-weight: bold; }}
+        .highlight-card.up .highlight-change {{ color: #c62828; font-weight: bold; }}
+        .highlight-card.down .highlight-change {{ color: #2e7d32; font-weight: bold; }}
         .sector-title {{
             font-size: 1em;
             font-weight: bold;
@@ -518,8 +525,8 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_new
         .stock-table tr:hover td {{ background: #f8f9fa; }}
         .spark-cell {{ white-space: nowrap; }}
         .sparkline {{ display: block; }}
-        .green {{ color: #2e7d32; font-weight: bold; }}
-        .red {{ color: #c62828; font-weight: bold; }}
+        .stock-table .up {{ color: #c62828; font-weight: bold; }}
+        .stock-table .down {{ color: #2e7d32; font-weight: bold; }}
         .news-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
