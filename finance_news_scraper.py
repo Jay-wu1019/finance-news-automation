@@ -216,11 +216,14 @@ def render_index_cards(indices):
     for idx in indices:
         css_class = "up" if idx["change"] >= 0 else "down"
         arrow = "▲" if idx["change"] >= 0 else "▼"
+        # 低價位標的（如日圓/台幣 ~0.19）用 2 位小數會讓漲跌額四捨五入成 0.00，
+        # 跟後面的漲跌%對不上，所以跟股價用同一套動態小數位數規則。
+        decimals = 4 if abs(idx["price"]) < 10 else 2
         cards.append(f"""
                 <div class="index-card {css_class}">
                     <h4>{html.escape(idx['name'])}</h4>
                     <div class="index-value">{format_price(idx['price'])}</div>
-                    <div class="index-change">{arrow} {idx['change']:+.2f} ({idx['change_pct']:+.2f}%)</div>
+                    <div class="index-change">{arrow} {idx['change']:+.{decimals}f} ({idx['change_pct']:+.2f}%)</div>
                 </div>""")
     return "".join(cards)
 
