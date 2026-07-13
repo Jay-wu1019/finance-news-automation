@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 財經新聞自動化系統
-每日抓取台股/美股真實指數、個股數據與新聞，產生網站首頁 docs/index.html
+每日抓取台股/美股真實指數、個股數據、匯率商品與新聞，產生網站首頁 docs/index.html
 """
 
 import html
@@ -61,6 +61,15 @@ US_WATCHLIST = [
     ("TSM", "台積電ADR"),
 ]
 
+MACRO_WATCHLIST = [
+    ("USDTWD=X", "美元/台幣"),
+    ("JPYTWD=X", "日圓/台幣"),
+    ("AUDTWD=X", "澳幣/台幣"),
+    ("GC=F", "黃金期貨"),
+    ("CL=F", "原油期貨"),
+    ("^VIX", "VIX恐慌指數"),
+]
+
 
 def fetch_quote(symbol, name):
     """透過 Yahoo Finance 公開圖表 API 取得即時報價"""
@@ -84,6 +93,7 @@ def fetch_quote(symbol, name):
         "price": price,
         "change": change,
         "change_pct": change_pct,
+        "history": closes[-5:],
     }
 
 
@@ -174,8 +184,31 @@ def fetch_us_news():
     return items
 
 
-def format_price(value, currency_symbol=""):
-    return f"{currency_symbol}{value:,.2f}"
+def format_price(value, currency_symbol="", decimals=None):
+    if decimals is None:
+        decimals = 4 if abs(value) < 10 else 2
+    return f"{currency_symbol}{value:,.{decimals}f}"
+
+
+def render_sparkline(history):
+    """把近幾日收盤價畫成小型折線圖（inline SVG，無外部依賴）"""
+    if not history or len(history) < 2:
+        return ""
+
+    lo, hi = min(history), max(history)
+    span = (hi - lo) or 1
+    width, height = 70, 22
+    step = width / (len(history) - 1)
+    points = " ".join(
+        f"{i * step:.1f},{height - ((v - lo) / span) * height:.1f}"
+        for i, v in enumerate(history)
+    )
+    color = "#2e7d32" if history[-1] >= history[0] else "#c62828"
+    return (
+        f'<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" class="sparkline">'
+        f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="2" '
+        f'stroke-linejoin="round" stroke-linecap="round"/></svg>'
+    )
 
 
 def render_index_cards(indices):
@@ -192,6 +225,55 @@ def render_index_cards(indices):
     return "".join(cards)
 
 
+def render_sentiment_tag(stocks):
+    """根據追蹤個股的漲跌家數，給一個簡單的大盤情緒標籤（誠實標註樣本範圍）"""
+    if not stocks:
+        return ""
+
+    up = sum(1 for s in stocks if s["change_pct"] > 0)
+    down = sum(1 for s in stocks if s["change_pct"] < 0)
+    flat = len(stocks) - up - down
+
+    if up > down:
+        mood, css_class = "偏多", "sentiment-up"
+    elif down > up:
+        mood, css_class = "偏空", "sentiment-down"
+    else:
+        mood, css_class = "多空拉鋸", "sentiment-flat"
+
+    return (
+        f'<div class="sentiment-tag {css_class}">大盤情緒：{mood}'
+        f'（追蹤{len(stocks)}檔個股中 {up}漲 {down}跌 {flat}平）</div>'
+    )
+
+
+def render_highlight_cards(stocks, currency_symbol=""):
+    """挑出追蹤個股中今日漲最多、跌最多各一檔，做成醒目卡片"""
+    if not stocks:
+        return ""
+
+    ranked = sorted(stocks, key=lambda s: s["change_pct"], reverse=True)
+    top_gainer = ranked[0]
+    top_loser = ranked[-1]
+
+    def card(stock, label, icon, css_class):
+        return f"""
+                <div class="highlight-card {css_class}">
+                    <div class="highlight-label">{icon} {label}</div>
+                    <div class="highlight-name">{html.escape(stock['name'])}
+                        <span class="highlight-symbol">{html.escape(stock['symbol'])}</span></div>
+                    <div class="highlight-price">{format_price(stock['price'], currency_symbol)}</div>
+                    <div class="highlight-change">{stock['change_pct']:+.2f}%</div>
+                </div>"""
+
+    return (
+        f'<div class="highlight-grid">'
+        f'{card(top_gainer, "今日最大漲幅", "🔥", "up")}'
+        f'{card(top_loser, "今日最大跌幅", "❄️", "down")}'
+        f'</div>'
+    )
+
+
 def render_stock_table(stocks, currency_symbol=""):
     if not stocks:
         return '<p class="empty">目前沒有可顯示的個股資料。</p>'
@@ -201,18 +283,20 @@ def render_stock_table(stocks, currency_symbol=""):
     rows = []
     for s in ranked:
         css_class = "green" if s["change_pct"] >= 0 else "red"
+        sparkline = render_sparkline(s.get("history"))
         rows.append(f"""
                     <tr>
                         <td>{html.escape(s['name'])}</td>
                         <td>{html.escape(s['symbol'])}</td>
                         <td>{format_price(s['price'], currency_symbol)}</td>
                         <td class="{css_class}">{s['change_pct']:+.2f}%</td>
+                        <td class="spark-cell">{sparkline}</td>
                     </tr>""")
 
     return f"""
             <table class="stock-table">
                 <thead>
-                    <tr><th>個股</th><th>代號</th><th>股價</th><th>漲跌幅</th></tr>
+                    <tr><th>個股</th><th>代號</th><th>股價</th><th>漲跌幅</th><th>近5日走勢</th></tr>
                 </thead>
                 <tbody>{''.join(rows)}
                 </tbody>
@@ -249,11 +333,19 @@ def render_news_cards(news_items, empty_message):
     return "".join(cards)
 
 
-def render_html(tw_index, tw_stocks, us_indices, us_stocks, tw_news, us_news):
+def render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_news, us_news):
     timestamp = datetime.now(TAIPEI_TZ).strftime("%Y年%m月%d日 %H:%M")
 
     tw_index_html = render_index_cards([tw_index]) if tw_index else '<p class="empty">目前無法取得台股加權指數。</p>'
     us_index_html = render_index_cards(us_indices) if us_indices else '<p class="empty">目前無法取得美股指數。</p>'
+    macro_html = render_index_cards(macro_quotes) if macro_quotes else '<p class="empty">目前無法取得匯率與商品資料。</p>'
+
+    tw_sentiment_html = render_sentiment_tag(tw_stocks)
+    us_sentiment_html = render_sentiment_tag(us_stocks)
+
+    tw_highlight_html = render_highlight_cards(tw_stocks, currency_symbol="")
+    us_highlight_html = render_highlight_cards(us_stocks, currency_symbol="$")
+
     tw_table_html = render_stock_table(tw_stocks, currency_symbol="")
     us_table_html = render_stock_table(us_stocks, currency_symbol="$")
     tw_news_html = render_news_cards(tw_news, "目前沒有可顯示的台股新聞，請稍後再試。")
@@ -328,6 +420,39 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, tw_news, us_news):
         .index-card h4 {{ color: #1a3a52; font-size: 0.85em; margin-bottom: 8px; }}
         .index-value {{ font-size: 1.6em; font-weight: bold; color: #222; }}
         .index-change {{ font-size: 0.95em; margin-top: 6px; color: #444; }}
+        .sentiment-tag {{
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }}
+        .sentiment-up {{ background: rgba(46,125,50,0.2); color: #81c995; border: 1px solid #2e7d32; }}
+        .sentiment-down {{ background: rgba(198,40,40,0.2); color: #ff8a80; border: 1px solid #c62828; }}
+        .sentiment-flat {{ background: rgba(255,152,0,0.2); color: #ffcc80; border: 1px solid #FF9800; }}
+        .highlight-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }}
+        .highlight-card {{
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            border-top: 4px solid #999;
+        }}
+        .highlight-card.up {{ border-top-color: #2e7d32; }}
+        .highlight-card.down {{ border-top-color: #c62828; }}
+        .highlight-label {{ font-size: 0.85em; color: #666; margin-bottom: 8px; font-weight: bold; }}
+        .highlight-name {{ font-size: 1.15em; font-weight: bold; color: #222; margin-bottom: 4px; }}
+        .highlight-symbol {{ font-size: 0.8em; color: #888; font-weight: normal; }}
+        .highlight-price {{ font-size: 1.3em; font-weight: bold; color: #333; }}
+        .highlight-change {{ font-size: 1em; margin-top: 4px; }}
+        .highlight-card.up .highlight-change {{ color: #2e7d32; font-weight: bold; }}
+        .highlight-card.down .highlight-change {{ color: #c62828; font-weight: bold; }}
         .stock-table {{
             width: 100%;
             border-collapse: collapse;
@@ -349,9 +474,12 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, tw_news, us_news):
             border-bottom: 1px solid #f0f0f0;
             color: #333;
             font-size: 0.92em;
+            vertical-align: middle;
         }}
         .stock-table tr:last-child td {{ border-bottom: none; }}
         .stock-table tr:hover td {{ background: #f8f9fa; }}
+        .spark-cell {{ white-space: nowrap; }}
+        .sparkline {{ display: block; }}
         .green {{ color: #2e7d32; font-weight: bold; }}
         .red {{ color: #c62828; font-weight: bold; }}
         .news-grid {{
@@ -400,25 +528,33 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, tw_news, us_news):
     <div class="container">
         <div class="banner">
             <h1>📈 財經新聞自動化平台</h1>
-            <p>台美股每日真實數據與新聞｜每日台灣時間下午 1:30 自動更新</p>
+            <p>台美股每日真實數據與新聞｜每日台灣時間下午 1:45 自動更新</p>
             <div class="ig-badge">
                 <a href="https://instagram.com/wu_wealth_lab" target="_blank" rel="noopener">📱 追蹤 Instagram: @wu_wealth_lab</a>
             </div>
         </div>
 
         <div class="info-box">
-            📊 更新時間：{timestamp}（台灣時間）｜資料來源：Yahoo Finance（指數/股價）、Yahoo股市與鉅亨網（新聞）
+            📊 更新時間：{timestamp}（台灣時間）｜資料來源：Yahoo Finance（指數/股價/匯率/商品）、Yahoo股市與鉅亨網（新聞）
         </div>
 
         <div class="section-title">🇹🇼 台股市場</div>
         <div class="index-grid">{tw_index_html}
         </div>
+        {tw_sentiment_html}
+        {tw_highlight_html}
         {tw_table_html}
 
         <div class="section-title">🇺🇸 美股市場</div>
         <div class="index-grid">{us_index_html}
         </div>
+        {us_sentiment_html}
+        {us_highlight_html}
         {us_table_html}
+
+        <div class="section-title">🌍 匯率與商品</div>
+        <div class="index-grid">{macro_html}
+        </div>
 
         <div class="section-title">🔥 台股焦點新聞</div>
         <div class="news-grid">{tw_news_html}
@@ -430,8 +566,8 @@ def render_html(tw_index, tw_stocks, us_indices, us_stocks, tw_news, us_news):
 
         <div class="footer">
             <div class="update-info">
-                📊 指數與個股資料來源：Yahoo Finance｜新聞來源：Yahoo股市、鉅亨網<br>
-                🔄 每天台灣時間下午 1:30 自動更新<br>
+                📊 指數/股價/匯率/商品資料來源：Yahoo Finance｜新聞來源：Yahoo股市、鉅亨網<br>
+                🔄 每天台灣時間下午 1:45 自動更新<br>
                 ⏰ 最後更新：{timestamp}（台灣時間）<br>
                 ⚠️ 本站僅提供公開市場數據與新聞彙整，不構成投資建議。
             </div>
@@ -450,6 +586,8 @@ def main():
     us_indices = fetch_quotes(US_INDICES)
     us_stocks = fetch_quotes(US_WATCHLIST)
 
+    macro_quotes = fetch_quotes(MACRO_WATCHLIST)
+
     try:
         tw_news = fetch_tw_news()
     except Exception as e:
@@ -462,11 +600,11 @@ def main():
         logger.warning(f"抓取美股新聞失敗：{e}")
         us_news = []
 
-    if not tw_index and not tw_stocks and not us_indices and not us_stocks and not tw_news and not us_news:
+    if not any([tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_news, us_news]):
         logger.error("所有資料來源都失敗，保留現有頁面")
         sys.exit(1)
 
-    html_content = render_html(tw_index, tw_stocks, us_indices, us_stocks, tw_news, us_news)
+    html_content = render_html(tw_index, tw_stocks, us_indices, us_stocks, macro_quotes, tw_news, us_news)
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(html_content)
